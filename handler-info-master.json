@@ -17142,6 +17142,59 @@
           ]
         },
         {
+          "name": "Utility Determine Next Occurrence",
+          "version": "2",
+          "id": "utility_determine_next_occurrence_v2",
+          "description": "This handler determines the next occurence based on a provided start time and other recurrence information",
+          "detailedDescription": "This handler uses the IceCube library to configure a schedule and then based on a start date, calculates the next occurrence.  This value is returned in string format in the result field 'next_occurrence'. \n\nThe bulk of the handler code evaluates and transforms the inputs so the IceCube library can define the schedule and then perform the evaluation. ",
+          "parameters": {
+            "Start (UTC)": "The time when the schedule should begin looking for the next occurrence. Enter in a parsable Ruby time (standard Request CE Datetime field works; ex format YYYY-MM-DDTHH:MM:SS+00:00).",
+            "Recurrence Type": "Valid options are 'minutely' [requires interval],'hourly' [requires interval],'daily' [requires interval],'weekly' [requires interval],'monthly' [requires timing, interval and either weekdays or days of month],'yearly' [requires timing, interval, months, and either weekdays or days of month]",
+            "Timing": "Required for monthly and yearly Recurrence Types.  Valid options are 'Relative' or 'Absolute'. Relative refers to relatives dates (ex: First Monday in May and June) and Absolute refers to specific dates (ex: 7th and 10th of June)",
+            "Interval": "The interval between the recurrence_type values.",
+            "Months": "The months in which this schedule should execute. Possible vales are entered in a comma separated list, with the values of 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'.  Any combination of values is fine. Example: January, April, July, October",
+            "Days of Month": "The dates on which this schedule should execute. Possible vales are entered in a comma separated list, with the values of 1 through 31, and 'last'.  Any combination of values is fine. Example: 1, 15, Last",
+            "Weekdays": "The weekdays in which this schedule should execute. Possible vales are entered in a comma separated list, with the values of 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'.  Any combination of values is fine. Example: Monday, Thursday, Saturday",
+            "Sunday Index": "Required when Sunday field is populated AND recurrence type is NOT weekly. Possible values are entered in a comma separated list, with the values of 'All', 'First, 'Second', 'Third', 'Fourth', 'Last'.  'All' is exclusive to other values.  If not using 'All', any combination of other values is fine.  Example 1: All, Example 2: First, Second, Last",
+            "Monday Index": "Required when Monday field is populated AND recurrence type is NOT weekly. Possible values are entered in a comma separated list, with the values of 'All', 'First, 'Second', 'Third', 'Fourth', 'Last'.  'All' is exclusive to other values.  If not using 'All', any combination of other values is fine.  Example 1: All, Example 2: First, Second, Last",
+            "Tuesday Index": "Required when Tuesday field is populated AND recurrence type is NOT weekly. Possible values are entered in a comma separated list, with the values of 'All', 'First, 'Second', 'Third', 'Fourth', 'Last'.  'All' is exclusive to other values.  If not using 'All', any combination of other values is fine.  Example 1: All, Example 2: First, Second, Last",
+            "Wednesday Index": "Required when Wednesday field is populated AND recurrence type is NOT weekly. Possible values are entered in a comma separated list, with the values of 'All', 'First, 'Second', 'Third', 'Fourth', 'Last'.  'All' is exclusive to other values.  If not using 'All', any combination of other values is fine.  Example 1: All, Example 2: First, Second, Last",
+            "Thursday Index": "Required when Thursday field is populated AND recurrence type is NOT weekly. Possible values are entered in a comma separated list, with the values of 'All', 'First, 'Second', 'Third', 'Fourth', 'Last'.  'All' is exclusive to other values.  If not using 'All', any combination of other values is fine.  Example 1: All, Example 2: First, Second, Last",
+            "Friday Index": "Required when Friday field is populated AND recurrence type is NOT weekly. Possible values are entered in a comma separated list, with the values of 'All', 'First, 'Second', 'Third', 'Fourth', 'Last'.  'All' is exclusive to other values.  If not using 'All', any combination of other values is fine.  Example 1: All, Example 2: First, Second, Last",
+            "Saturday Index": "Required when Saturday field is populated AND recurrence type is NOT weekly. Possible values are entered in a comma separated list, with the values of 'All', 'First, 'Second', 'Third', 'Fourth', 'Last'.  'All' is exclusive to other values.  If not using 'All', any combination of other values is fine.  Example 1: All, Example 2: First, Second, Last"
+          },
+          "sampleConfiguration": {
+            "Start (UTC)": "2016-09-25 14:00:00 UTC",
+            "Recurrence Type": "Monthly",
+            "Timing": "Relative",
+            "Interval": "1",
+            "Months": "January, April, July, October",
+            "Days of Month": "",
+            "Weekdays": "Monday",
+            "Sunday Index": "",
+            "Monday Index": "First",
+            "Tuesday Index": "",
+            "Wednesday Index": "",
+            "Thursday Index": "",
+            "Friday Index": "",
+            "Saturday Index": ""
+          },
+          "results": {
+            "next_occurrence": "This handler returns the Next Occurrence in UTC time based on the inputs. Example: 2018-03-02 22:00:00 UTC "
+          },
+          "changelog": {
+            "2": {
+              "version": "2",
+              "date": "2017-03-03",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Utility Determine Next Occurrence V2 (2017-03-03)\r\n* Initial version.  See README for details.\r\n",
+          "warnings": [
+
+          ]
+        },
+        {
           "name": "Utility JSON to Results",
           "version": "3",
           "id": "utility_json_to_results_v3",
