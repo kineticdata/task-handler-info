@@ -16653,11 +16653,107 @@
       "image": "https://s3.amazonaws.com/task-handlers/smtp/smtp.png",
       "handlerList": [
         {
+          "name": "SMTP Email With Attachment Send",
+          "version": "2",
+          "id": "smtp_email_with_attachment_send_v2",
+          "description": "This handler builds and sends a plaintext or HTML encoded email (with an optional attachment) directly to the specified email server specified by the associated task info values.",
+          "detailedDescription": "\n\nThis handler: smtp_email_with_attachment_send works with this handler: kinetic_request_attachment_retrieve \n\nThe use of these two Handlers in a Task tree will allow you to retrieve an Attachment submitted from a Service Item and then email that Attachment file. \n\nThe kinetic_request_attachment_retrieve handler has two fields to populate: \n\nContent Type Attachment Question Menu Label \n\nThe Content Type field is a drop down with two options: \n\nPlain Base64 \n\nSelect Plain if the attachment file is a simple .txt file. Select Base64 for all other file types (.xls, .pdf, .zip). The smtp_email_with_attachment_send handler has the following new field: Attachment Encoding \n\nThe Attachment Encoding field is a drop down with two options: Plain Base64 \n\nSelect Plain if the attachment file is a simple .txt file. Select Base64 for all other file types (.xls, .pdf, .zip). NOTE - This must match the value that you entered you entered into the Content Type field on the kinetic_request_attachment_retrieve handler. \n\nYou would also enter the Results values (from the kinetic_request_attachment_retrieve handler) into the following fields: \n\nAttachment File Name: Attachment File Content: \n\nNOTE: Image files are not yet supported. ",
+          "parameters": {
+            "To": "A comma separated list of email address to be used as the intended recipients.  Custom names can be used if any of the addresses are provided in the format: NAME <ADDRESS>",
+            "CC": "A comma separated list of email address to be used as the intended CC recipients.  Custom names can be used if any of the addresses are provided in the format: NAME <ADDRESS>",
+            "BCC": "A comma separated list of email address to be used as the intended BCC recipients.  Custom names can be used if any of the addresses are provided in the format: NAME <ADDRESS>",
+            "Display Name (From)": "The value to be used for the Name of the sender (the email address of the sender can not be manually set).",
+            "Reply To": "The address of the account that email replies should be sent to.  The email address of the A custom name can be used if the address is provided in the format: NAME <ADDRESS>",
+            "Subject": "The subject of the email.",
+            "HTML Body": "HTML representing the body of the email (should start with '<html>' and end with '</html>').",
+            "Alternate Body (Text)": "A plaintext message that will be displayed if the recipient can't display multipart HTML emails.",
+            "Attachment File Name": "The name of the file that will be attached to this email message.",
+            "Attachment File Content": "The content of the file that will be attached to this email message.",
+            "Attachment Encoding": "This parameter specifies whether the attachment content is Base64 encoded."
+          },
+          "sampleConfiguration": {
+            "To": "<%=@answer['Req Full Name']%> <<%=@answer['Req Email']%>>",
+            "CC": "<%=@results['Retrieve Requester Manager']['Email']%>",
+            "Display Name (From)": "<%=@template['Name']%>",
+            "Reply To": "<%=@results['Retrieve Fulfiller']['Name']%> <<%=@results['Retrieve Fulfiller']['Email']%>>",
+            "Subject": "Your request is being processed.",
+            "HTML Body": "<html>",
+            "Alternate Body (Text)": "Your.....",
+            "Attachment File Name": "<%=@results['Retrieve Attachment']['Name']%>",
+            "Attachment File Content": "<%=@results['Retrieve Attachment']['Content']%>",
+            "Attachment Encoding": "Base64",
+            "BCC": ""
+          },
+          "results": {
+            "Message Id": ""
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2011-05-24",
+              "description": "*Initial Build"
+            }
+          },
+          "changelogText": "== SMTP Email With Attachment Send v2\r\n*Added Content Type to support the ability to send\r\nattachments from Questions/Answers\r\n\r\n== SMTP Email With Attachment Send v1 (2011-05-24)\r\n*Initial Build ",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: BCC",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "SMTP Email Send",
+          "version": "1",
+          "id": "smtp_email_send_v1",
+          "description": "This handler builds and sends a plaintext or HTML encoded email directly to the specified email server specified by the associated task info values.",
+          "detailedDescription": "This handler builds and sends a simple Smtp email directly to an email server based on the specified info items and parameters passed to the task instance. When an html body is set, the handler will replace images that have a fully qualified source prefixed with the string 'cid:' with embedded images. This includes the image files directly into the email rather than requiring the email client to load them from the Internet. \n\n\n\n*NOTE* - This handler was updated 2014/01/17 to allow multiple email addresses (comma separated) in the To field.  The version did not change because none of the input parameters changed and will be completely compatible with exiting nodes that use this handler. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "From (Email Address)": "The email address of the simulated sender.",
+            "To (Email Address)": "The email address of the intended recipient.",
+            "Subject": "The subject of the email.",
+            "HTML Body": "HTML representing the body of a rich email.",
+            "Alternate (text) Body": "A plaintext message that will be displayed if the recipient can't display multipart HTML emails."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "To (Email Address)": "<%=@answer['Req Full Name']%> <<%=@answer['Req Email']%>>",
+            "From (Email Address)": "<%=@results['Retrieve Fulfiller']['Name']%> <<%=@results['Retrieve Fulfiller']['Email']%>>",
+            "Subject": "<%= @answer['Event Summary'] %>",
+            "HTML Body": "<html>Your ...<br/>Thanks,<br/><%=@results['Retrieve Fulfiller']['Name']%><br/><img src=\"http://my.company.com/images/logo\"/></html>",
+            "Alternate (text) Body": "Your..... ?Thanks <%=@results['Retrieve Fulfiller']['Name']%>"
+          },
+          "results": {
+            "Message Id": "The message Id of the sent email message. ",
+            "Handler Error Message": ""
+          },
+          "changelog": {
+            "1.3": {
+              "version": "1.3",
+              "date": "2018-04-20",
+              "description": "* Username and Password info values are no longer required"
+            },
+            "1.2": {
+              "version": "1.2",
+              "date": "2017-05-03",
+              "description": "* Updated with error_handling parameter"
+            },
+            "1": {
+              "version": "1",
+              "date": "2017-03-10",
+              "description": "* Rewrote handler in Ruby"
+            }
+          },
+          "changelogText": "SMTP Email Send V1 (2017-03-10)\r\n* Rewrote handler in Ruby\r\n\r\nSMTP Email Send V1.2 (2017-05-03)\r\n* Updated with error_handling parameter\r\n\r\nSMTP Email Send V1.3 (2018-04-20)\r\n* Username and Password info values are no longer required\r\n",
+          "warnings": [
+
+          ]
+        },
+        {
           "name": "SMTP Email Attachment From Url Send",
           "version": "1",
           "id": "smtp_email_attachment_from_url_send_v1",
           "description": "This handler builds and sends a plaintext or HTML encoded email (with an optional attachment) directly to the specified email server specified by the associated task info values.",
-          "detailedDescription": "\nThis handler: smtp_email_attachment_from_url works with this handler: kinetic_request_ce_attachment_info \nThe use of these two Handlers in a Task tree will allow you to retrieve an Attachment submitted from a Service Item and then email that Attachment file. \nThe kinetic_request_ce_attachment_info handler has two fields to populate: \nSubmission Id Field Name \nTake the JSON result from the kinetic_request_ce_attachment_info handler and map them to the following inputs in smtp_email_attachment_from_url \nAttachment Name: Attachment Content: Attachment Url: ",
+          "detailedDescription": "\n\nThis handler: smtp_email_attachment_from_url works with this handler: kinetic_request_ce_attachment_info \n\nThe use of these two Handlers in a Task tree will allow you to retrieve an Attachment submitted from a Service Item and then email that Attachment file. \n\nThe kinetic_request_ce_attachment_info handler has two fields to populate: \n\nSubmission Id Field Name \n\nTake the JSON result from the kinetic_request_ce_attachment_info handler and map them to the following inputs in smtp_email_attachment_from_url \n\nAttachment Name: Attachment Content: Attachment Url: ",
           "parameters": {
             "To": "A comma separated list of email address to be used as the intended recipients.  Custom names can be used if any of the addresses are provided in the format: NAME <ADDRESS>",
             "CC": "A comma separated list of email address to be used as the intended CC recipients.  Custom names can be used if any of the addresses are provided in the format: NAME <ADDRESS>",
@@ -16677,7 +16773,6 @@
           "sampleConfiguration": {
             "To": "<%=@answer['Req Full Name']%> <<%=@answer['Req Email']%>>",
             "CC": "<%=@results['Retrieve Requester Manager']['Email']%>",
-            "BCC": "",
             "Display Name (From)": "<%=@template['Name']%>",
             "Reply To": "<%=@results['Retrieve Fulfiller']['Name']%> <<%=@results['Retrieve Fulfiller']['Email']%>>",
             "Subject": "Your request is being processed.",
@@ -16687,6 +16782,7 @@
             "Attachment Content": "<%=@results['Retrieve Attachment']['Content']%>",
             "Attachment Url": "<%=@results['Retrieve Attachment']['Url']%>",
             "Raise Errors": "True",
+            "BCC": "",
             "Attachment Input Type": "",
             "Attachment JSON": ""
           },
@@ -16699,91 +16795,7 @@
           },
           "changelogText": "== SMTP Email Attachment From Url V1 (2016-03-21)\n  Initial Version",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Attachment Input Type, Attachment JSON",
-            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
-          ]
-        },
-        {
-          "name": "Send SMTP Email",
-          "version": "1",
-          "id": "smtp_email_send_v1",
-          "description": "Builds and sends a multipart HTML email.",
-          "detailedDescription": "",
-          "parameters": {
-            "From (email address)": "The email address of the simulated sender.",
-            "To (email address)": "The email address of the intended recipient.",
-            "Subject": "The subject of the email.",
-            "HTML Body": "HTML representing the body of a rich email.",
-            "Alternate (text) Body": "A plaintext message that will be displayed if the recipient can't display multipart HTML emails."
-          },
-          "sampleConfiguration": {
-            "From (email address)": "",
-            "To (email address)": "",
-            "Subject": "",
-            "HTML Body": "",
-            "Alternate (text) Body": ""
-          },
-          "results": {
-            "From (email address)": "",
-            "To (email address)": "",
-            "Subject": "",
-            "HTML Body": "",
-            "Alternate (text) Body": ""
-          },
-          "changelog": {
-          },
-          "changelogText": "",
-          "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: From (email address), To (email address), Subject, HTML Body, Alternate (text) Body",
-            "The following are defined as results but can't be found in the Results section in the README: Message Id",
-            "Detailed Description can't be found in the README",
-            "CHANGELOG file can't be found"
-          ]
-        },
-        {
-          "name": "SMTP Email With Attachment Send",
-          "version": "2",
-          "id": "smtp_email_with_attachment_send_v2",
-          "description": "This handler builds and sends a plaintext or HTML encoded email (with an optional attachment) directly to the specified email server specified by the associated task info values.",
-          "detailedDescription": "\nThis handler: smtp_email_with_attachment_send works with this handler: kinetic_request_attachment_retrieve \nThe use of these two Handlers in a Task tree will allow you to retrieve an Attachment submitted from a Service Item and then email that Attachment file. \nThe kinetic_request_attachment_retrieve handler has two fields to populate: \nContent Type Attachment Question Menu Label \nThe Content Type field is a drop down with two options: \nPlain Base64 \nSelect Plain if the attachment file is a simple .txt file. Select Base64 for all other file types (.xls, .pdf, .zip). The smtp_email_with_attachment_send handler has the following new field: Attachment Encoding \nThe Attachment Encoding field is a drop down with two options: Plain Base64 \nSelect Plain if the attachment file is a simple .txt file. Select Base64 for all other file types (.xls, .pdf, .zip). NOTE - This must match the value that you entered you entered into the Content Type field on the kinetic_request_attachment_retrieve handler. \nYou would also enter the Results values (from the kinetic_request_attachment_retrieve handler) into the following fields: \nAttachment File Name: Attachment File Content: \nNOTE: Image files are not yet supported. ",
-          "parameters": {
-            "To": "A comma separated list of email address to be used as the intended recipients.  Custom names can be used if any of the addresses are provided in the format: NAME <ADDRESS>",
-            "CC": "A comma separated list of email address to be used as the intended CC recipients.  Custom names can be used if any of the addresses are provided in the format: NAME <ADDRESS>",
-            "BCC": "A comma separated list of email address to be used as the intended BCC recipients.  Custom names can be used if any of the addresses are provided in the format: NAME <ADDRESS>",
-            "Display Name (From)": "The value to be used for the Name of the sender (the email address of the sender can not be manually set).",
-            "Reply To": "The address of the account that email replies should be sent to.  The email address of the A custom name can be used if the address is provided in the format: NAME <ADDRESS>",
-            "Subject": "The subject of the email.",
-            "HTML Body": "HTML representing the body of the email (should start with '<html>' and end with '</html>').",
-            "Alternate Body (Text)": "A plaintext message that will be displayed if the recipient can't display multipart HTML emails.",
-            "Attachment File Name": "The name of the file that will be attached to this email message.",
-            "Attachment File Content": "The content of the file that will be attached to this email message.",
-            "Attachment Encoding": "This parameter specifies whether the attachment content is Base64 encoded."
-          },
-          "sampleConfiguration": {
-            "To": "<%=@answer['Req Full Name']%> <<%=@answer['Req Email']%>>",
-            "CC": "<%=@results['Retrieve Requester Manager']['Email']%>",
-            "BCC": "",
-            "Display Name (From)": "<%=@template['Name']%>",
-            "Reply To": "<%=@results['Retrieve Fulfiller']['Name']%> <<%=@results['Retrieve Fulfiller']['Email']%>>",
-            "Subject": "Your request is being processed.",
-            "HTML Body": "<html>",
-            "Alternate Body (Text)": "Your.....",
-            "Attachment File Name": "<%=@results['Retrieve Attachment']['Name']%>",
-            "Attachment File Content": "<%=@results['Retrieve Attachment']['Content']%>",
-            "Attachment Encoding": "Base64"
-          },
-          "results": {
-            "Message Id": ""
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2011-05-24",
-              "description": "*Initial Build"
-            }
-          },
-          "changelogText": "== SMTP Email With Attachment Send v2\n*Added Content Type to support the ability to send\nattachments from Questions/Answers\n\n== SMTP Email With Attachment Send v1 (2011-05-24)\n*Initial Build ",
-          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: BCC, Attachment Input Type, Attachment JSON",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
