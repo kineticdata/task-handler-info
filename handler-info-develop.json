@@ -2588,7 +2588,7 @@
         },
         {
           "name": "Kinetic Request CE Datastore Submission Retrieve",
-          "version": "2",
+          "version": "1",
           "id": "kinetic_request_ce_datastore_submission_retrieve_v1",
           "description": "Retrieves a Datastore Submission record in Kinetic Request CE for the specified space.",
           "detailedDescription": "This handler retrieves a datastore submission by either id or query. If retrieving by query, the query parameter allows anything that can be passed into the query parameter in the datastore submissions endpoint of the Request CE API (including the q= parameter). Before being sent to the Request CE instance, the query is escaped by running the URI.escape() command on the inputted query string. The query that is used to return back a submission should be a query unique enough to bring back one record, although if it is not unique the handler will not currently fail and will instead just return the first submission returned. If searching by id, only the id needs to be inputted to return that submission. ",
