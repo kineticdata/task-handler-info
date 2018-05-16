@@ -3000,6 +3000,47 @@
           ]
         },
         {
+          "name": "Kinetic Request CE Datastore Submission Activity Update",
+          "version": "1",
+          "id": "kinetic_request_ce_datastore_submission_activity_update_v1",
+          "description": "Updates a submission activity record in Kinetic Request CE.",
+          "detailedDescription": "... ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Space Slug": "The Space the submission exists in (defaults to info value if not provided).",
+            "Submission Id": "The id of the submission for which the activity is being created for.",
+            "Submission Activity Id": "The id of the submission for which the activity is being created for.",
+            "Label": "The label for the submission activity.",
+            "Description": "The description of the submission activity.",
+            "Type": "Specifies the a submission activity 'Type', which should indicate what type of data is included.",
+            "Data": "Additional data that can be used by resources consuming the submission activity record (for example a Request bundle may render submission details based upon JSON content in the activity data)."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Space Slug": "acme",
+            "Submission Id": "288671e8-f3ca-11e6-bc64-92361f002671",
+            "Submission Activity Id": "36fc0ee0-f3ca-11e6-bc64-92361f002671",
+            "Label": "Awaiting Approval - aaron.approver@acme.com",
+            "Description": "An approval was created and assigned to Aaron Approver.",
+            "Type": "Approval",
+            "Data": "a025be8e-f3ca-11e6-bc64-92361f002671"
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-05-16",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Kinetic Request CE Datastore Submission Activity Update V1 (2018-05-16)\n * Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
           "name": "Kinetic Request CE Submission Create",
           "version": "1",
           "id": "kinetic_request_ce_submission_create_v1",
@@ -3834,6 +3875,44 @@
           ]
         },
         {
+          "name": "Kinetic Request CE Datastore Submission Activity Retrieve",
+          "version": "1",
+          "id": "kinetic_request_ce_datastore_submission_activity_retrieve_v1",
+          "description": "Retrieves a submission activity record in Kinetic Request CE.",
+          "detailedDescription": "This handler returns the properties for the submission activity record. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Space Slug": "The Space the submission is being retrieved from (defaults to info value if not provided).",
+            "Submission Id": "The Submission the activity is related to.",
+            "Activity Record Id": "The Activity Record being retreived."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Space Slug": "acme",
+            "Submission Id": "ecfb97fd-4632-11e7-95d0-353fd51a6970",
+            "Activity Record Id": "fa20ec41-4632-11e7-94a2-43d2be1dfc7a"
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "data": "data field/details of the submission activity. ",
+            "description": "description of the submission activity record. This is often displayed as a subheader. ",
+            "label": "This is the label of the submission activity. Often displayed as the 'name' of the activity. ",
+            "id": "id of the activity record. ",
+            "type": "Type of the activity record. Usually used to determine display properties, such as icon, etc. Examples: Approval, Work Order. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-05-16",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Kinetic Request CE Datastore Submission Activity Retrieve V1 (2018-05-16)\n * Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
           "name": "Kinetic Request CE Format Answers",
           "version": "1",
           "id": "kinetic_request_ce_format_answers_v1",
@@ -4212,6 +4291,46 @@
             }
           },
           "changelogText": "Kinetic Request CE Datastore Submission Search V1 (2018-05-03)\n* Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "Kinetic Request CE Datastore Submission Activity Create",
+          "version": "1",
+          "id": "kinetic_request_ce_datastore_submission_activity_create_v1",
+          "description": "Creates a submission activity record in Kinetic Request CE.",
+          "detailedDescription": "... ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Space Slug": "The Space the submission exists in (defaults to info value if not provided).",
+            "Submission Id": "The id of the submission for which the activity is being created for.",
+            "Label": "The label for the submission activity.",
+            "Description": "The description of the submission activity.",
+            "Type": "Specifies the a submission activity 'Type', which should indicate what type of data is included.",
+            "Data": "Additional data that can be used by resources consuming the submission activity record (for example a Request bundle may render submission details based upon JSON content in the activity data)."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Space Slug": "acme",
+            "Submission Id": "288671e8-f3ca-11e6-bc64-92361f002671",
+            "Label": "Awaiting Approval - aaron.approver@acme.com",
+            "Description": "An approval was created and assigned to Aaron Approver.",
+            "Type": "Approval",
+            "Data": "a025be8e-f3ca-11e6-bc64-92361f002671"
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Id": "The id of the created submission activity record. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-05-6",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Kinetic Request CE Datastore Submission Activity Create V1 (2018-05-6)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
