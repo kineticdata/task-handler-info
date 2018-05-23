@@ -487,9 +487,293 @@
       "image": "https://s3.amazonaws.com/task-handlers/bmc-remedy/bmc-remedy.svg",
       "handlerList": [
         {
+          "name": "Remedy Generic Create",
+          "version": "2",
+          "id": "remedy_generic_create_v2",
+          "description": "Creates a single Remedy entry given the JSON mapping of field values and form name.",
+          "detailedDescription": "This handler takes a json as input of a format like {\"DB field Name\":\"value to place in field\"} and uses this to create a record in the specified form. ",
+          "parameters": {
+            "Form Name": "Form Name",
+            "Field Values": "JSON mapping of field values"
+          },
+          "sampleConfiguration": {
+            "Form Name": "HPD:LoadTemplate",
+            "Field Values": "{\"Template Identifier\":\"<%=@answers['Template Identifier']%>\",\"Template Name\":\"<%=@answers['Template Name']%>\",\"Status Template\":\"<%=@answers['Template Status']%>\",\"Template Category Tier 1\":\"<%=@answers['Template Category Tier 1']%>\",\"Description\":\"<%=@answers['Summary']%>\",\"Detailed Decription\":\"<%=@answers['Notes']%>\",\"Reported Source\":\"<%=@answers['Reported Source']%>\",\"Service Type\":\"<%=@answers['Incident Type']%>\",\"Status\":\"<%=@answers['Status']%>\",\"Impact\":\"<%=@answers['Impact']%>\",\"Urgency\":\"<%=@answers['Urgency']%>\",\"Assigned Support Company\":\"<%=@answers['Assigned Support Company']%>\",\"Assigned Support Organization\":\"<%=@answers['Assigned Support Organization']%>\",\"Assigned Group\":\"<%=@answers['Authoring Group']%>\",\"Authoring Company\":\"<%=@answers['Authoring Company']%>\",\"Authoring Organization\":\"<%=@answers['Authoring Organization']%>\",\"Authoring Group\":\"<%=@answers['Authoring Group']%>\"}"
+          },
+          "results": {
+            "Entry Id": "Id of the created entry. "
+          },
+          "changelog": {
+            "2.1": {
+              "version": "2.1",
+              "date": "2018-05-23",
+              "description": "* Added check for Task version before loading JSON dependency so it will work with both Task 3 & 4."
+            },
+            "2": {
+              "version": "2",
+              "date": "2016-08-25",
+              "description": "*Added debug logging capability. Added JSON library so will work in Task 3."
+            }
+          },
+          "changelogText": "Remedy Generic Create v2 (2016-08-25)\n*Added debug logging capability. Added JSON library so will work in Task 3.\n\nRemedy Generic Create V2.1 (2018-05-23)\n* Added check for Task version before loading JSON dependency so it will work\n  with both Task 3 & 4.",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "Remedy Generic Delete",
+          "version": "2",
+          "id": "remedy_generic_delete_v2",
+          "description": "Deletes a single Remedy entry related to the form entered with the Request ID specified.",
+          "detailedDescription": "This handler deletes the specified record in the form provided. Note that this must be allowed by the system (form, permission, etc) or the delete will raise an exception. ",
+          "parameters": {
+            "Remedy Form:": "Remedy Form Name (not display name), eg. People is CTM:People",
+            "Request ID:": "Request ID (Field 1) of record to delete"
+          },
+          "sampleConfiguration": {
+            "Remedy Form:": "",
+            "Request ID:": ""
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "V2 (2013-07-16)\n * Fixed a bug to allow this to be used for\n   multiple forms in one task engine instance.\n\nRemedy Generic Delete (2012-05-29)\n * Initial version.  See README for details.\n\n",
+          "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
+            "The following parameters can't be found in the Sample Configuration in the README: Remedy Form:, Request ID:",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "BMC Remedy Email Message Create",
+          "version": "3",
+          "id": "bmc_remedy_email_message_create_v3",
+          "description": "Creates an email message on the AR System Email Messages form",
+          "detailedDescription": "",
+          "parameters": {
+            "To": "The address the email message will be sent to",
+            "Subject": "The subject of the email message",
+            "Body": "The body of the email message",
+            "Priority": "The priority associated with the email message",
+            "Submitter": "Remedy User ID to be listed as the submitter of the email message"
+          },
+          "sampleConfiguration": {
+            "To": "<%= @answers['Recipient'] %>",
+            "Subject": "<%= @answers['Message Subject'] %>",
+            "Body": "<%= @answers['Message Body'] %>",
+            "Priority": "3",
+            "Submitter": "KD_WEBUSER"
+          },
+          "results": {
+            "Entry Id": "The Entry Id of the Email Message record that was created. "
+          },
+          "changelog": {
+          },
+          "changelogText": "BMC_Remedy_EmailMessage_Create_V3 (2014-12-10)\n* Updated so it will work in Task 4 or 3\n\nBMC_Remedy_EmailMessage_Create_V2 (2014-03-06)\n* This handler is safe to use in a subtree because it does not rely on any @base \ninformation to process. All data is passed into the handler as parameters.\n\nBMC_Remedy_EmailMessage_Create_V1 (2010-04-19)\n* Initial version.",
+          "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Remedy Group list Users",
+          "version": "1",
+          "id": "remedy_group_list_users_v1",
+          "description": "Lists users for given Group. Throws exception if Group does not exist.",
+          "detailedDescription": "The User form in Remedy is used to track all Users and their permissions. This handler allows you to update the fields listed above with new values, blank values (represented by the keyword 'nil') or to leave the values alone (no answer passed as a parameter). Radio button options are validated in the handler before being applied. It is intended that the service item will limit the choices poosible. If an invalid choice is passed, an exception is raised. ",
+          "parameters": {
+            "Group Name:": "The lookup value for the group to find."
+          },
+          "sampleConfiguration": {
+            "Group Name:": ""
+          },
+          "results": {
+            "User List": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "BMC_Remedy_User_Update_V1 (2010-01-26)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Group Name:",
+            "The following are defined as results but can't be found in the Results section in the README: User List",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Remedy User add Group",
+          "version": "1",
+          "id": "remedy_user_add_group_v1",
+          "description": "Adds a group to an existing user. Throws exception if User does not exist, also if group does not exist.",
+          "detailedDescription": "The User form in Remedy is used to track all Users and their permissions. This handler allows you to update the fields listed above with new values, blank values (represented by the keyword 'nil') or to leave the values alone (no answer passed as a parameter). Radio button options are validated in the handler before being applied. It is intended that the service item will limit the choices poosible. If an invalid choice is passed, an exception is raised. ",
+          "parameters": {
+            "Login Name:": "The lookup value that identifies which User record should be updated.",
+            "Group Name:": "The group to add."
+          },
+          "sampleConfiguration": {
+            "Login Name:": "",
+            "Group Name:": ""
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "BMC_Remedy_User_Update_V1 (2010-01-26)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Login Name:, Group Name:",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Remedy User list Groups",
+          "version": "1",
+          "id": "remedy_user_list_groups_v1",
+          "description": "Lists groups for given User. Throws exception if User does not exist.",
+          "detailedDescription": "The User form in Remedy is used to track all Users and their permissions. This handler allows you to update the fields listed above with new values, blank values (represented by the keyword 'nil') or to leave the values alone (no answer passed as a parameter). Radio button options are validated in the handler before being applied. It is intended that the service item will limit the choices poosible. If an invalid choice is passed, an exception is raised. ",
+          "parameters": {
+            "Login Name:": "The lookup value for the user to find."
+          },
+          "sampleConfiguration": {
+            "Login Name:": ""
+          },
+          "results": {
+            "Group List": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "BMC_Remedy_User_Update_V1 (2010-01-26)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Login Name:",
+            "The following are defined as results but can't be found in the Results section in the README: Group List",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Remedy Generic Find",
+          "version": "4",
+          "id": "remedy_generic_find_v4",
+          "description": "Retrieves request IDs (field 1) and Instance IDs (field 179) for Remedy entries for the form entered using the query specified.",
+          "detailedDescription": "This handler returns the request ids (field 1) for all records in the specified form that match the provided query.  This is returned in XML format (like below) for use in loops. \n\n<Request_Ids> <RequestId>000000000000013</RequestId> <RequestId>000000000000381</RequestId> <RequestId>000000000002582</RequestId> </Request_Ids> \n\nIt also returns the instance ids (field 179) in a similar format: \n\n<Instance_Ids> <InstanceId>AG0050569A648CU5tSUAUcZMAgc8AC</InstanceId> <InstanceId>AG0050569A648ClZtSUAkMVNAgVcYC</InstanceId> <InstanceId>AG0050569A648CMZtSUAKUBMAgMrkC</InstanceId> </Instance_Ids> \n\nIt also returns a count of the number of records found. It returns zero if there were no matches (not nil). ",
+          "parameters": {
+            "Remedy Form:": "Remedy Form Name (not display name), eg. People is CTM:People",
+            "Query:": "The query to search by"
+          },
+          "sampleConfiguration": {
+            "Remedy Form:": "",
+            "Query:": ""
+          },
+          "results": {
+            "List": "",
+            "RequestIdList": "",
+            "InstanceIdList": "",
+            "Count": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "Remedy Generic Find (2012-05-29)\n * Initial version.  See README for details.\n\nV2\n *Added instance ID list to returned values.\n \nV3\n *Generic Handler could not use the preinitialize_on_first_load method.  Instead get_remedy_form is used to load the form and add it to the cache\n\n V4\n  *Added a count to the returned values.\n  \n V4 Update (2017-Jun-27)\n *Made it possible to return 0 values without causing/raising error.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Remedy Form:, Query:",
+            "The following are defined as results but can't be found in the Results section in the README: RequestIdList, InstanceIdList, Count",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Remedy Generic Update",
+          "version": "2",
+          "id": "remedy_generic_update_v2",
+          "description": "Updates a single Remedy entry related to the form entered with the Request ID specified. Updates field specified to value specified.",
+          "detailedDescription": "This handler updates the form in the Remedy Form parameter entry with the request id (field 1) provided in the Request ID parameter. The database name of the field provided in the Field Name parameter is updated to the value provided in the New Value parameter. ",
+          "parameters": {
+            "Remedy Form:": "Remedy Form Name (not display name), eg. People is CTM:People",
+            "Request ID:": "Request ID (Field 1) of record to update",
+            "Field Name:": "Field Name (Database Name) to update",
+            "New Value:": "Value to place in specified field"
+          },
+          "sampleConfiguration": {
+            "Remedy Form:": "",
+            "Request ID:": "",
+            "Field Name:": "",
+            "New Value:": ""
+          },
+          "results": {
+            "request_id": "The request id (field 1) of the updated record. "
+          },
+          "changelog": {
+          },
+          "changelogText": "V2 (2013-07-16)\n * Fixed a bug to allow this to be used for\n   multiple forms in one task engine instance.\nRemedy Generic Update (2012-05-29)\n * Initial version.  See README for details.\n\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Remedy Form:, Request ID:, Field Name:, New Value:",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Remedy User Remove Group",
+          "version": "1",
+          "id": "remedy_user_remove_group_v1",
+          "description": "Rmoves a group from an existing user. Throws exception if User does not exist, also if group does not exist.",
+          "detailedDescription": "The User form in Remedy is used to track all Users and their permissions. This handler allows you to update the fields listed above with new values, blank values (represented by the keyword 'nil') or to leave the values alone (no answer passed as a parameter). Radio button options are validated in the handler before being applied. It is intended that the service item will limit the choices poosible. If an invalid choice is passed, an exception is raised. ",
+          "parameters": {
+            "Login Name:": "The lookup value that identifies which User record should be updated.",
+            "Group Name:": "The group to remove."
+          },
+          "sampleConfiguration": {
+            "Login Name:": "",
+            "Group Name:": ""
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "BMC_Remedy_User_Update_V1 (2010-01-26)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Login Name:, Group Name:",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Remedy Generic Dataload",
+          "version": "2",
+          "id": "remedy_generic_dataload_v2",
+          "description": "Populates Records from a CSV data file",
+          "detailedDescription": "This handler takes a CSV file with Remedy form DB field names in the first row and loads the data into the specified Remedy form. ",
+          "parameters": {
+            "Remedy Form": "Name of Remedy form to load data into",
+            "CSV File": "Menu label of the attachment field containing csv file with header row.",
+            "Submission ID": "Instance ID of submitted item containing the attachment"
+          },
+          "sampleConfiguration": {
+            "Submission ID": "<%=@base['CustomerSurveyInstanceId']%>",
+            "Remedy Form": "HPD:LoadTemplate",
+            "CSV File": "Attachment"
+          },
+          "results": {
+            "Status": "",
+            "Error Code": "",
+            "Result Message": ""
+          },
+          "changelog": {
+            "2": {
+              "version": "2",
+              "date": "2016-08-30",
+              "description": "* updated file processing to be able to handle a csv with a return character"
+            },
+            "1": {
+              "version": "1",
+              "date": "2016-08-25",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Remedy Generic Dataload V2 (2016-08-30)\n* updated file processing to be able to handle\na csv with a return character\n\nRemedy Generic Dataload V1 (2016-08-25)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
+            "The following are defined as results but can't be found in the Results section in the README: Status, Error Code, Result Message"
+          ]
+        },
+        {
           "name": null,
           "version": null,
-          "id": "private",
+          "id": "remedy_generic_query_retrieve_v2",
           "description": null,
           "detailedDescription": "",
           "parameters": {
@@ -509,25 +793,123 @@
           ]
         },
         {
-          "name": null,
-          "version": null,
-          "id": "public",
-          "description": null,
-          "detailedDescription": "",
+          "name": "BMC Execute Process",
+          "version": "2",
+          "id": "bmc_execute_process_v2",
+          "description": "Submits an Execute Process command to the server",
+          "detailedDescription": "Executes the command on the server exactly as submitted.  The command string can use results of other actions, such as ticket numbers, in its call.  The first example above adds an approver to a change request, using very specific parameters.  Refer to BMC's documentation for paramters that may require wrapping in quotation marks. ",
           "parameters": {
+            "Command:": "The full text of the command (including any parameters) to be sent to the server",
+            "Wait for server response:": "Do you want to wait for the server's response -- Yes or No"
           },
           "sampleConfiguration": {
+            "Command:": "",
+            "Wait for server response:": ""
           },
           "results": {
+            "Return Value": "The value returned by the server after executing the command.  The value will be blank if the 'Wait for Server Response' field is set to \"No\".  It will also be empty if the command returns no values (e.g., commands to delete entries from forms). ",
+            "Return Status": "The exit code returned by the process. Zero means success. "
+          },
+          "changelog": {
+          },
+          "changelogText": "BMC_Execute_Process_V2 (2013-09-13)\n* Second version.  Task 2.x and 3.x-compliant.  See README for details.\n* First version: BMC_Execute_Process_V1 (2011-07-21) Task 2.0-compliant.\n",
+          "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
+            "The following parameters can't be found in the Sample Configuration in the README: Command:, Wait for server response:",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "BMC Remedy Email HTML Message Create",
+          "version": "1",
+          "id": "bmc_remedy_email_html_message_create_v1",
+          "description": "Creates an email message on the AR System Email Messages form",
+          "detailedDescription": "",
+          "parameters": {
+            "To": "The address the email message will be sent to",
+            "Subject": "The subject of the email message",
+            "Body": "The body of the email message",
+            "Priority": "The priority associated with the email message",
+            "Submitter": "Remedy User ID to be listed as the submitter of the email message"
+          },
+          "sampleConfiguration": {
+            "To": "<%= @answers['Recipient'] %>",
+            "Subject": "<%= @answers['Message Subject'] %>",
+            "Body": "<%= @answers['Message Body'] %>",
+            "Priority": "3",
+            "Submitter": "KD_WEBUSER"
+          },
+          "results": {
+            "Entry Id": "The Entry Id of the Email Message record that was created. "
+          },
+          "changelog": {
+          },
+          "changelogText": "BMC_Remedy_EmailMessage_Create_V1 (2014-12-18)\n* Initial version.",
+          "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Remedy Generic Retrieve",
+          "version": "2",
+          "id": "remedy_generic_retrieve_v2",
+          "description": "Retrieves a single Remedy entry related to the form entered with the Request ID specified.",
+          "detailedDescription": "This handler returns all the fields for the request id provided in the form specified.  This is returned in XML format (like below). \n\n<field_list> <field id='Request ID'>000000000000001</field> <field id='Creator'>Action Request Installer Account</field> <field id='Create Date'>Mon Apr 25 16:42:22 -0400 2011</field> <field id='Assigned To'></field> <field id='Last Modified By'>Demo</field> <field id='Modified Date'>Wed Dec 07 11:46:47 -0500 2011</field> <field id='Status'>Current</field> </field_list> ",
+          "parameters": {
+            "Remedy Form:": "Remedy Form Name (not display name), eg. People is CTM:People",
+            "Request ID:": "Request ID (Field 1) of record to retrieve"
+          },
+          "sampleConfiguration": {
+            "Remedy Form:": "",
+            "Request ID:": ""
+          },
+          "results": {
+            "field_list": "The request ids (field 1) of the updated record. "
+          },
+          "changelog": {
+            "2": {
+              "version": "2",
+              "date": "2013-07-16",
+              "description": "* Fixing bug to allow this to be used for multiple different forms on the same task instance Remedy Generic Retrieve (2012-05-29)\n* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Remedy Generic Retrieve V2 (2013-07-16)\n * Fixing bug to allow this to be used for multiple different\n   forms on the same task instance\nRemedy Generic Retrieve (2012-05-29)\n * Initial version.  See README for details.\n\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Remedy Form:, Request ID:"
+          ]
+        },
+        {
+          "name": "Remedy User Create",
+          "version": "1",
+          "id": "remedy_user_create_v1",
+          "description": "Creates a User in the User form - Login Name must be unique.",
+          "detailedDescription": "",
+          "parameters": {
+            "Login Name": "Login Name of User",
+            "Full Name": "Full Name of User",
+            "Password": "Login Name of User",
+            "License Type": "License Type of User: Read, Fixed, Floating, Restricted Read",
+            "Email Address": "Email Address of User"
+          },
+          "sampleConfiguration": {
+            "Login Name": "",
+            "Full Name": "",
+            "Password": "",
+            "License Type": "",
+            "Email Address": ""
+          },
+          "results": {
+            "Entry Id": ""
           },
           "changelog": {
           },
           "changelogText": "",
           "warnings": [
-            "node.xml can't be found",
-            "README can't be found",
-            "Detailed Description can't be found in the README",
-            "CHANGELOG file can't be found"
+            "The following parameters can't be found in the Sample Configuration in the README: Login Name, Full Name, Password, License Type, Email Address",
+            "The following are defined as results but can't be found in the Results section in the README: Entry Id",
+            "Detailed Description can't be found in the README"
           ]
         }
       ]
