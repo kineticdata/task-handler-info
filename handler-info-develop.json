@@ -491,7 +491,7 @@
           "version": "2",
           "id": "remedy_generic_create_v2",
           "description": "Creates a single Remedy entry given the JSON mapping of field values and form name.",
-          "detailedDescription": "This handler takes a json as input of a format like {\"DB field Name\":\"value to place in field\"} and uses this to create a record in the specified form. ",
+          "detailedDescription": "This handler takes a json as input of a format like {\"DB field Name\":\"value to place in field\"} and uses this to create a record in the specified form. \n\nAt times, you may need to set Currency Fields in Remedy. This is accomplished by formatting the value as follows: ``` { ... \"My Currency Field\":{\"value\":100.0,\"currency\":\"USD\"}, ... } ``` The value portion must be parsed as a float. You can accomplish this as follows in the Field Values parameter: ``` <%= { 'Text Field 1' => 'ABCD-EFG', 'Text Field 2' => '123456', 'Currency Field 1' => {'value' => @inputs[\"Currency Input\"].to_f, 'currency' => 'USD' }, }.to_json %> ``` ",
           "parameters": {
             "Form Name": "Form Name",
             "Field Values": "JSON mapping of field values"
