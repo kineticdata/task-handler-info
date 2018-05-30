@@ -7889,6 +7889,11 @@
             "### Placeholder for field name ###": ""
           },
           "changelog": {
+            "2.1": {
+              "version": "2.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "2": {
               "version": "2",
               "date": "2017-05-24",
@@ -7900,7 +7905,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Submission Get Answers V2 (2017-05-24)\n* Updated to allow included and excluded fields\n* Updated to include answer set (json) answer as well\n* Updated to allow replacement of field names/aliases for values included in the answer set\n\nKinetic Request CE Submission Get Answers V1 (2016-03-05)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Submission Get Answers V2.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Submission Get Answers V2 (2017-05-24)\n* Updated to allow included and excluded fields\n* Updated to include answer set (json) answer as well\n* Updated to allow replacement of field names/aliases for values included in the answer set\n\nKinetic Request CE Submission Get Answers V1 (2016-03-05)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -7928,6 +7933,11 @@
             "Files": "JSON info on the file, including the URL. "
           },
           "changelog": {
+            "1.2": {
+              "version": "1.2",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1.1": {
               "version": "1.1",
               "date": "2017-11-21",
@@ -7939,7 +7949,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Attachment Temp Link Retrieve V1.1 (2017-11-21)\n* Changed name from Attachment Info to more accurately refer to what the handler is used for\n\nKinetic Request CE Attachment Temp Link Retrieve V1 (2015-02-25)\n * Initial version.  See README for details.",
+          "changelogText": "Kinetic Request CE Attachment Temp Link Retrieve V1.2 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Attachment Temp Link Retrieve V1.1 (2017-11-21)\n* Changed name from Attachment Info to more accurately refer to what the handler is used for\n\nKinetic Request CE Attachment Temp Link Retrieve V1 (2015-02-25)\n * Initial version.  See README for details.",
           "warnings": [
 
           ]
@@ -7966,13 +7976,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2017-03-06",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Team Membership Create V1 (2017-03-06)\r\n * Initial version.  See README for details.\r\n",
+          "changelogText": "Kinetic Request CE Team Membership Create V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Team Membership Create V1 (2017-03-06)\r\n * Initial version.  See README for details.\r\n",
           "warnings": [
 
           ]
@@ -7999,13 +8014,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2016-09-10",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Form Type Create V1 (2016-09-10)\n * Initial version.  See README for details.",
+          "changelogText": "Kinetic Request CE Form Type Create V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Form Type Create V1 (2016-09-10)\n * Initial version.  See README for details.",
           "warnings": [
 
           ]
@@ -8055,13 +8075,18 @@
             "Values JSON": "A JSON representation of the values found on the submission "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2018-05-03",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Datastore Submission Retrieve V1 (2018-05-03)\r\n* Initial version.  See README for details.",
+          "changelogText": "Kinetic Request CE Datastore Submission Retrieve V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Datastore Submission Retrieve V1 (2018-05-03)\r\n* Initial version.  See README for details.",
           "warnings": [
 
           ]
@@ -8099,13 +8124,18 @@
             "Fields": "A json structured list of fields for the form. "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2016-01-04",
               "description": "* Initial version.  See README for details.\n* Updated to return JSON form attributes"
             }
           },
-          "changelogText": "Kinetic Request CE Form Retrieve V1 (2016-01-04)\n * Initial version.  See README for details.\n * Updated to return JSON form attributes",
+          "changelogText": "Kinetic Request CE Form Retrieve V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Form Retrieve V1 (2016-01-04)\n * Initial version.  See README for details.\n * Updated to return JSON form attributes",
           "warnings": [
 
           ]
@@ -8157,6 +8187,11 @@
             "Kapp Slug": "Slug of the submission's kapp "
           },
           "changelog": {
+            "2.2": {
+              "version": "2.2",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "2": {
               "version": "2",
               "date": "2017-11-19",
@@ -8173,7 +8208,7 @@
               "description": "* Initial version.  See README for details.\n* Added Kapp Name and Kapp Slug to results"
             }
           },
-          "changelogText": "Kinetic Request CE Submission Retrieve V2 (2017-11-19)\r\n* Added the ability to retrieve by query while also keeping the search by id option\r\n\r\nKinetic Request CE Submission Retrieve V1.1 (2017-01-30)\r\n* Change the origin/parent to return a JSON string.\r\n\r\nKinetic Request CE Submission Retrieve V1 (2016-04-25)\r\n* Initial version.  See README for details.\r\n* Added Kapp Name and Kapp Slug to results",
+          "changelogText": "Kinetic Request CE Submission Retrieve V2.2 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Submission Retrieve V2 (2017-11-19)\r\n* Added the ability to retrieve by query while also keeping the search by id option\r\n\r\nKinetic Request CE Submission Retrieve V1.1 (2017-01-30)\r\n* Change the origin/parent to return a JSON string.\r\n\r\nKinetic Request CE Submission Retrieve V1 (2016-04-25)\r\n* Initial version.  See README for details.\r\n* Added Kapp Name and Kapp Slug to results",
           "warnings": [
 
           ]
@@ -8206,13 +8241,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2018-05-03",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Datastore Submission Update V1 (2018-05-03)\r\n * Initial version.  See README for details.\r\n",
+          "changelogText": "Kinetic Request CE Datastore Submission Update V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Datastore Submission Update V1 (2018-05-03)\r\n * Initial version.  See README for details.\r\n",
           "warnings": [
 
           ]
@@ -8249,6 +8289,11 @@
             "Space Slug": "The space slug that was used. "
           },
           "changelog": {
+            "1.2": {
+              "version": "1.2",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1.1": {
               "version": "1.1",
               "date": "2017-11-21",
@@ -8260,7 +8305,7 @@
               "description": "* Initial version."
             }
           },
-          "changelogText": "Kinetic Request CE Attachment Copy V1.1 (2017-11-21)\n* Renamed from Copy Attachment to Attachment Copy to meet handler naming conventions\n* Changed info_values from kinops_server, space_username, space_password to api_server, api_username,\napi_password\n\nKinetic Request CE Attachment Copy V1 (2017-04-27)\n* Initial version.",
+          "changelogText": "Kinetic Request CE Attachment Copy V1.2 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Attachment Copy V1.1 (2017-11-21)\n* Renamed from Copy Attachment to Attachment Copy to meet handler naming conventions\n* Changed info_values from kinops_server, space_username, space_password to api_server, api_username,\napi_password\n\nKinetic Request CE Attachment Copy V1 (2017-04-27)\n* Initial version.",
           "warnings": [
 
           ]
@@ -8299,6 +8344,11 @@
             "Value": "The Matched Value Found and Returned "
           },
           "changelog": {
+            "2.1": {
+              "version": "2.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "2": {
               "version": "2",
               "date": "2017-08-18",
@@ -8310,7 +8360,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Cascading Attribute Value Retrieve V2 (2017-08-18)\n* Removed menus from start and end contexts to allow values to be passed in as variables (from\nroutine input)\n\nKinetic Request CE Cascading Attribute Value Retrieve V1 (2017-02-18)\n* Initial version.  See README for details.",
+          "changelogText": "Kinetic Request CE Cascading Attribute Value Retrieve V2.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Cascading Attribute Value Retrieve V2 (2017-08-18)\n* Removed menus from start and end contexts to allow values to be passed in as variables (from\nroutine input)\n\nKinetic Request CE Cascading Attribute Value Retrieve V1 (2017-02-18)\n* Initial version.  See README for details.",
           "warnings": [
 
           ]
@@ -8357,6 +8407,11 @@
             "Exists": "If the User exists or not. "
           },
           "changelog": {
+            "4.3": {
+              "version": "4.3",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "4.2": {
               "version": "4.2",
               "date": "2018-05-16",
@@ -8388,7 +8443,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE User Update V1 (2016-04-20)\n* Initial version.  See README for details.\n\nKinetic Request CE User Update V2 (2016-11-06)\n* Added preferred_locale and profile_attributes as parameters in support of later released of\nKinetic Request.\n\nKinetic Request CE User Update V3 (2016-12-19)\n* Includes update to append attributes and profile attributes to existing values\n\nKinetic Request CE User Update V4 (2017-02-18)\n* Respects multiple / single attribute values. If you do an \"Append\" and include attributes\n  the attribute value will be replaced if the attribute definition doesn't allow multiple.\n\nKinetic Request CE User Update V4.1 (2018-04-24)\n* URI encoded username parameter so that this handler will work with all usernames\n\nKinetic Request CE User Update V4.2 (2018-05-16)\n* Correct the code to update userProfile Attributes\n",
+          "changelogText": "Kinetic Request CE User Update V1 (2016-04-20)\n* Initial version.  See README for details.\n\nKinetic Request CE User Update V2 (2016-11-06)\n* Added preferred_locale and profile_attributes as parameters in support of later released of\nKinetic Request.\n\nKinetic Request CE User Update V3 (2016-12-19)\n* Includes update to append attributes and profile attributes to existing values\n\nKinetic Request CE User Update V4 (2017-02-18)\n* Respects multiple / single attribute values. If you do an \"Append\" and include attributes\n  the attribute value will be replaced if the attribute definition doesn't allow multiple.\n\nKinetic Request CE User Update V4.1 (2018-04-24)\n* URI encoded username parameter so that this handler will work with all usernames\n\nKinetic Request CE User Update V4.2 (2018-05-16)\n* Correct the code to update userProfile Attributes\n\nKinetic Request CE User Update V4.3 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)",
           "warnings": [
 
           ]
@@ -8417,13 +8472,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2016-09-10",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Form Update V1 (2016-09-10)\n * Initial version.  See README for details.",
+          "changelogText": "Kinetic Request CE Form Update V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Form Update V1 (2016-09-10)\n * Initial version.  See README for details.",
           "warnings": [
 
           ]
@@ -8458,13 +8518,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2018-05-16",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Datastore Submission Activity Update V1 (2018-05-16)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Datastore Submission Activity Update V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Datastore Submission Activity Update V1 (2018-05-16)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -8502,13 +8567,18 @@
             "Submission ID": "Id for the newly created submission. "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2015-04-24",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Submission Create V1 (2015-04-24)\r\n * Initial version.  See README for details.\r\n",
+          "changelogText": "Kinetic Request CE Submission Create V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Submission Create V1 (2015-04-24)\r\n * Initial version.  See README for details.\r\n",
           "warnings": [
 
           ]
@@ -8548,13 +8618,18 @@
             "Submission ID": "Id for the new submission that was cloned. "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2015-04-24",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Submission Clone V1 (2015-04-24)\r\n * Initial version.  See README for details.\r\n",
+          "changelogText": "Kinetic Request CE Submission Clone V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Submission Clone V1 (2015-04-24)\r\n * Initial version.  See README for details.\r\n",
           "warnings": [
 
           ]
@@ -8585,13 +8660,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2017-03-20",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Submission Update Observers V1 (2017-03-20)\r\n * Initial version.  See README for details.\r\n",
+          "changelogText": "Kinetic Request CE Submission Update Observers V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Submission Update Observers V1 (2017-03-20)\r\n * Initial version.  See README for details.\r\n",
           "warnings": [
 
           ]
@@ -8616,13 +8696,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2015-04-24",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Submission Reset V1 (2015-04-24)\r\n * Initial version.  See README for details.\r\n",
+          "changelogText": "Kinetic Request CE Submission Reset V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Submission Reset V1 (2015-04-24)\r\n * Initial version.  See README for details.\r\n",
           "warnings": [
 
           ]
@@ -8655,13 +8740,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2015-04-24",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Kapp Update V1 (2015-04-24)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Kapp Update V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Kapp Update V1 (2015-04-24)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -8690,13 +8780,18 @@
             "Result": "The children submissions in the format specified in parameters "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2016-11-12",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "== Kinetic Request CE Submission Retrieve Children V1 (2016-11-12)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Submission Retrieve Children V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Submission Retrieve Children V1 (2016-11-12)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -8733,6 +8828,11 @@
             "Size": "File size "
           },
           "changelog": {
+            "1.2": {
+              "version": "1.2",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1.1": {
               "version": "1.1",
               "date": "2017-11-21",
@@ -8744,7 +8844,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Attachment Upload V1.1 (2017-11-21)\r\n* Changed name from Upload Attachment to Attachment Upload to fit handler naming conventions\r\n* Change info values from server, username, password to api_server, api_username, api_password to\r\nfollow Request CE handler conventions\r\n* Added different error handling options\r\n\r\nKinetic Request CE Attachment Upload V1 (2016-06-02)\r\n * Initial version.  See README for details.\r\n",
+          "changelogText": "Kinetic Request CE Attachment Upload V1.2 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Attachment Upload V1.1 (2017-11-21)\r\n* Changed name from Upload Attachment to Attachment Upload to fit handler naming conventions\r\n* Change info values from server, username, password to api_server, api_username, api_password to\r\nfollow Request CE handler conventions\r\n* Added different error handling options\r\n\r\nKinetic Request CE Attachment Upload V1 (2016-06-02)\r\n * Initial version.  See README for details.\r\n",
           "warnings": [
 
           ]
@@ -8806,13 +8906,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2017-11-17",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Attributes Set V1 (2017-11-17)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Attributes Set V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Attributes Set V1 (2017-11-17)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -8843,13 +8948,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2016-05-23",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Bridge Update V1 (2016-05-23)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Bridge Update V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Bridge Update V1 (2016-05-23)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -8874,13 +8984,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2018-05-03",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Datastore Submission Delete V1 (2018-05-03)\r\n * Initial version.  See README for details.",
+          "changelogText": "Kinetic Request CE Datastore Submission Delete V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Datastore Submission Delete V1 (2018-05-03)\r\n * Initial version.  See README for details.",
           "warnings": [
 
           ]
@@ -8905,13 +9020,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2016-04-25",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Submission Delete V1 (2016-04-25)\r\n * Initial version.  See README for details.\r\n",
+          "changelogText": "Kinetic Request CE Submission Delete V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Submission Delete V1 (2016-04-25)\r\n * Initial version.  See README for details.\r\n",
           "warnings": [
 
           ]
@@ -8936,13 +9056,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2017-04-20",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Bridge Model Create V1 (2017-04-20)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Bridge Model Create V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Bridge Model Create V1 (2017-04-20)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -8975,13 +9100,18 @@
             "Submission Values": ""
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2016-09-27",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Submission Retrieve Associated Attributes V1 (2016-09-27)\r\n * Initial version.  See README for details.",
+          "changelogText": "Kinetic Request CE Submission Retrieve Associated Attributes V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Submission Retrieve Associated Attributes V1 (2016-09-27)\r\n * Initial version.  See README for details.",
           "warnings": [
 
           ]
@@ -9013,13 +9143,18 @@
             "type": "Type of the activity record. Usually used to determine display properties, such as icon, etc. Examples: Approval, Work Order. "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2017-06-02",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Submission Activity Retrieve V1 (2017-06-02)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Submission Activity Retrieve V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Submission Activity Retrieve V1 (2017-06-02)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -9056,13 +9191,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2015-04-24",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Submission Update V1 (2015-04-24)\r\n * Initial version.  See README for details.\r\n",
+          "changelogText": "Kinetic Request CE Submission Update V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Submission Update V1 (2015-04-24)\r\n * Initial version.  See README for details.\r\n",
           "warnings": [
 
           ]
@@ -9096,13 +9236,18 @@
             "Id": "The id of the created submission activity record. "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2017-02-15",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Submission Activity Create V1 (2017-02-15)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Submission Activity Create V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Submission Activity Create V1 (2017-02-15)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -9135,13 +9280,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2017-11-16",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Attribute Definition Create V1 (2017-11-16)\n * Initial version.  See README for details.",
+          "changelogText": "Kinetic Request CE Attribute Definition Create V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Attribute Definition Create V1 (2017-11-16)\n * Initial version.  See README for details.",
           "warnings": [
 
           ]
@@ -9179,6 +9329,11 @@
             "Exists": "Does the user exists? "
           },
           "changelog": {
+            "2.1": {
+              "version": "2.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "2": {
               "version": "2",
               "date": "2017-01-31",
@@ -9190,7 +9345,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE User Retrieve V2 (2017-01-31)\n* Added Memberships\n* Added Profile Attributes\n\nKinetic Request CE User Retrieve V1 (2015-04-24)\n * Initial version.  See README for details.",
+          "changelogText": "Kinetic Request CE User Retrieve V2.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE User Retrieve V2 (2017-01-31)\n* Added Memberships\n* Added Profile Attributes\n\nKinetic Request CE User Retrieve V1 (2015-04-24)\n * Initial version.  See README for details.",
           "warnings": [
 
           ]
@@ -9217,13 +9372,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2017-03-08",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Team Create V1 (2017-03-08)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Team Create V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Team Create V1 (2017-03-08)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -9259,13 +9419,18 @@
             "Has Members": "Does the team have members? "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2017-01-30",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Team Retrieve V1 (2017-01-30)\n * Initial version.  See README for details.",
+          "changelogText": "Kinetic Request CE Team Retrieve V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Team Retrieve V1 (2017-01-30)\n * Initial version.  See README for details.",
           "warnings": [
 
           ]
@@ -9292,13 +9457,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2016-09-10",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Form Create V1 (2016-09-10)\n * Initial version.  See README for details.",
+          "changelogText": "Kinetic Request CE Form Create V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Form Create V1 (2016-09-10)\n * Initial version.  See README for details.",
           "warnings": [
 
           ]
@@ -9330,13 +9500,18 @@
             "type": "Type of the activity record. Usually used to determine display properties, such as icon, etc. Examples: Approval, Work Order. "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2018-05-16",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Datastore Submission Activity Retrieve V1 (2018-05-16)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Datastore Submission Activity Retrieve V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Datastore Submission Activity Retrieve V1 (2018-05-16)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -9375,13 +9550,18 @@
             "### Placeholder for field name ###": ""
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2017-05-25",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Format Answers V1 (2017-05-25)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Format Answers V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Format Answers V1 (2017-05-25)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -9409,13 +9589,18 @@
             "Username": "The username of the User record. "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2015-04-21",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Password Change V1 (2015-04-21)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Password Change V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Password Change V1 (2015-04-21)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -9445,13 +9630,18 @@
             "Attributes": "Space attributes, "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2016-04-28",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Space Retrieve V1 (2016-04-28)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Space Retrieve V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Space Retrieve V1 (2016-04-28)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -9478,13 +9668,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2017-03-06",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Team Membership Delete V1 (2017-03-06)\r\n * Initial version.  See README for details.\r\n",
+          "changelogText": "Kinetic Request CE Team Membership Delete V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Team Membership Delete V1 (2017-03-06)\r\n * Initial version.  See README for details.\r\n",
           "warnings": [
 
           ]
@@ -9516,13 +9711,18 @@
             "Submission ID": "Id for the newly created submission. "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2018-05-03",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Datastore Submission Create V1 (2018-05-03)\r\n * Initial version.  See README for details.\r\n",
+          "changelogText": "Kinetic Request CE Datastore Submission Create V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Datastore Submission Create V1 (2018-05-03)\r\n * Initial version.  See README for details.\r\n",
           "warnings": [
 
           ]
@@ -9557,13 +9757,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2017-04-20",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Team Update V1 (2017-04-20)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Team Update V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Team Update V1 (2017-04-20)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -9589,13 +9794,18 @@
             "Token": "The token needed for the password reset. "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2016-11-11",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Create Password Reset Token V1 (2016-11-11)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Create Password Reset Token V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Create Password Reset Token V1 (2016-11-11)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -9629,13 +9839,18 @@
             "Username": "The username of the created user record. "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2015-04-20",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE User Create V1 (2015-04-20)\r\n * Initial version.  See README for details.\r\n",
+          "changelogText": "Kinetic Request CE User Create V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE User Create V1 (2015-04-20)\r\n * Initial version.  See README for details.\r\n",
           "warnings": [
 
           ]
@@ -9667,6 +9882,11 @@
             "Files": "The JSON response that is returned from Kinetic Request CE after uploading a file. This will the text that should be submited as an attachment question value for a Submission Create call. "
           },
           "changelog": {
+            "1.2": {
+              "version": "1.2",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1.1": {
               "version": "1.1",
               "date": "2017-11-21",
@@ -9678,7 +9898,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Attachment Create V1.1 (2017-11-21)\n* Name changed from Create Attachment to Attachment Create to match handler naming conventions\n\nKinetic Request CE Attachment Create V1 (2016-11-04)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Attachment Create V1.2 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Attachment Create V1.1 (2017-11-21)\n* Name changed from Create Attachment to Attachment Create to match handler naming conventions\n\nKinetic Request CE Attachment Create V1 (2016-11-04)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -9713,13 +9933,18 @@
             "Result": "List of submissions that match the query --JSON,XML, or ID List "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2018-05-03",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Datastore Submission Search V1 (2018-05-03)\n* Initial version.  See README for details.",
+          "changelogText": "Kinetic Request CE Datastore Submission Search V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Datastore Submission Search V1 (2018-05-03)\n* Initial version.  See README for details.",
           "warnings": [
 
           ]
@@ -9753,13 +9978,18 @@
             "Id": "The id of the created submission activity record. "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2018-05-6",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Datastore Submission Activity Create V1 (2018-05-6)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Datastore Submission Activity Create V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Datastore Submission Activity Create V1 (2018-05-6)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -9831,13 +10061,18 @@
             "Result": "List of submissions that match the query --JSON,XML, or ID List "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2017-11-08",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Submission Search V1 (2017-11-08)\n* Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Submission Search V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Submission Search V1 (2017-11-08)\n* Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -9869,13 +10104,18 @@
             "Attributes": "Kapp attributes "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2016-04-28",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Kapp Retrieve V1 (2016-04-28)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Kapp Retrieve V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Kapp Retrieve V1 (2016-04-28)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -9910,13 +10150,18 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
             "1": {
               "version": "1",
               "date": "2017-02-15",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Submission Activity Update V1 (2017-02-15)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Submission Activity Update V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Submission Activity Update V1 (2017-02-15)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
