@@ -3044,7 +3044,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Datastore Submission Retrieve V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Datastore Submission Retrieve V1 (2018-05-03)\r\n* Initial version.  See README for details.",
+          "changelogText": "Kinetic Request CE Datastore Submission Retrieve V1.1 (2018-06-8)\r\n* Updated handler to return current page\r\n\r\nKinetic Request CE Datastore Submission Retrieve V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Datastore Submission Retrieve V1 (2018-05-03)\r\n* Initial version.  See README for details.\r\n",
           "warnings": [
 
           ]
