@@ -3099,6 +3099,81 @@
           ]
         },
         {
+          "name": "Kinetic Request CE Attribute Values Retrieve",
+          "version": "1",
+          "id": "kinetic_request_ce_attribute_values_retrieve_v1",
+          "description": "Returns attributes for the provided slugs.",
+          "detailedDescription": "Retrieves space attributes and optionally kapp and form attributes. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Space Slug": "The Slug of the space to find attribute values in.",
+            "Kapp Slug": "The Slug of the kapp to find attribute values in.",
+            "Form Slug": "The Slug of the form to find attribute values in."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "",
+            "Space Slug": "",
+            "Kapp Slug": "",
+            "Form Slug": ""
+          },
+          "results": {
+            "Handler Error Message": "",
+            "Space Attributes": "The space attributes ",
+            "Kapp Attributes": "The kapp attributes ",
+            "Form Attributes": "The form attributes "
+          },
+          "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic) Kinetic Request CE Attribute Values Retrieve (2017-09-13)\n* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Kinetic Request CE Attribute Values Retrieve V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Attribute Values Retrieve (2017-09-13)\r\n * Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Space Slug, Kapp Slug, Form Slug"
+          ]
+        },
+        {
+          "name": "Kinetic Request CE Space Admin Retrieve",
+          "version": "1",
+          "id": "kinetic_request_ce_space_admin_retrieve_v1",
+          "description": "Retrieves a User record in Kinetic Request CE for the specified space.",
+          "detailedDescription": "This handler returns the space admins for the provided space. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Space Slug": "The Space the submission is being retrieved from."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "",
+            "Space Slug": ""
+          },
+          "results": {
+            "usernames": "",
+            "emails": "",
+            "Handler Error Message": "",
+            "Usernames": "",
+            "Emails": ""
+          },
+          "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2018-05-25",
+              "description": "* API Server Info Value changed to allow ${space} in the url for subdomain support (ie. https://${space}.localhost:8080/kinetic)"
+            },
+            "1": {
+              "version": "1",
+              "date": "2017-03-08",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Kinetic Request CE Space Admin Retrieve V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Space Admin Retrieve V1 (2017-03-08)\n * Initial version.  See README for details.\n\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Space Slug",
+            "The following are defined as results but can't be found in the Results section in the README: Handler Error Message, Usernames, Emails"
+          ]
+        },
+        {
           "name": "Kinetic Request CE Submission Retrieve",
           "version": "2",
           "id": "kinetic_request_ce_submission_retrieve_v2",
