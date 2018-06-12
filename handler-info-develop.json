@@ -3111,10 +3111,10 @@
             "Form Slug": "The Slug of the form to find attribute values in."
           },
           "sampleConfiguration": {
-            "Error Handling": "",
-            "Space Slug": "",
-            "Kapp Slug": "",
-            "Form Slug": ""
+            "Error Handling": "Error Message",
+            "Space Slug": "test-space",
+            "Kapp Slug": "test-kapp",
+            "Form Slug": "test-form"
           },
           "results": {
             "Handler Error Message": "",
@@ -3131,7 +3131,7 @@
           },
           "changelogText": "Kinetic Request CE Attribute Values Retrieve V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Attribute Values Retrieve (2017-09-13)\r\n * Initial version.  See README for details.",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Space Slug, Kapp Slug, Form Slug"
+
           ]
         },
         {
@@ -3145,15 +3145,13 @@
             "Space Slug": "The Space the submission is being retrieved from."
           },
           "sampleConfiguration": {
-            "Error Handling": "",
-            "Space Slug": ""
+            "Error Handling": "Error Message",
+            "Space Slug": "my-space"
           },
           "results": {
-            "usernames": "",
-            "emails": "",
-            "Handler Error Message": "",
-            "Usernames": "",
-            "Emails": ""
+            "Handler Error Message": "Usernames of the space admins (comma delimited) ",
+            "Usernames": "Usernames of the space admins (comma delimited) ",
+            "Emails": "Emails of the space admins (comma delimited). "
           },
           "changelog": {
             "1.1": {
@@ -3169,8 +3167,7 @@
           },
           "changelogText": "Kinetic Request CE Space Admin Retrieve V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Space Admin Retrieve V1 (2017-03-08)\n * Initial version.  See README for details.\n\n",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Space Slug",
-            "The following are defined as results but can't be found in the Results section in the README: Handler Error Message, Usernames, Emails"
+
           ]
         },
         {
@@ -3205,6 +3202,7 @@
             "Origin": "Originating ID. This is typically the ID of a different submission. ",
             "Parent": "Parent ID. ",
             "Submitted At": "Submitted Date/Time ",
+            "Submitted By": "User that submitted the submission ",
             "Type": "",
             "Updated At": "Closed Date/Time ",
             "Updated By": "User ID for Last Updated ",
@@ -3219,9 +3217,8 @@
             "Form Status": "Status of the submission's form ",
             "Kapp Name": "Name of the submission's kapp ",
             "Kapp Slug": "Slug of the submission's kapp ",
-            "Values JSON": "JSON Result of submission's Values ",
-            "Submitted By": "",
-            "Current Page": ""
+            "Current Page": "The Current Page of the submission ",
+            "Values JSON": "JSON Result of submission's Values "
           },
           "changelog": {
             "2.3": {
@@ -3252,7 +3249,7 @@
           },
           "changelogText": "Kinetic Request CE Submission Retrieve V2.3 (2018-06-11)\r\n* Added support for submission searching at the Kapp level without a Form Slug.\r\n* Updated handler to return a submissions values as well as a JSON map\r\n(ie. searching by kapp fields)\r\n\r\nKinetic Request CE Submission Retrieve V2.2 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Submission Retrieve V2 (2017-11-19)\r\n* Added the ability to retrieve by query while also keeping the search by id option\r\n\r\nKinetic Request CE Submission Retrieve V1.1 (2017-01-30)\r\n* Change the origin/parent to return a JSON string.\r\n\r\nKinetic Request CE Submission Retrieve V1 (2016-04-25)\r\n* Initial version.  See README for details.\r\n* Added Kapp Name and Kapp Slug to results\r\n",
           "warnings": [
-            "The following are defined as results but can't be found in the Results section in the README: Submitted By, Current Page"
+
           ]
         },
         {
