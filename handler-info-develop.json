@@ -7399,16 +7399,14 @@
             "Space Slug": ""
           },
           "results": {
-            "Response": "The json response. Will contain the details and the treeXml. ",
-            "Handler Error Message": ""
+            "Handler Error Message": "Error message (if one is returned) ",
+            "Response": "The json response. Will contain the details and the treeXml. "
           },
           "changelog": {
           },
-          "changelogText": "kinetic_task_tree_retrieve_v1 (2018-Jun-20)\n* Initial version.  See README for details.\n",
+          "changelogText": "kinetic_task_tree_retrieve_v1 (2018-6-20)\n* Initial version.  See README for details.\n",
           "warnings": [
-            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "The following parameters can't be found in the Sample Configuration in the README: Task Instance, Space Slug",
-            "The following are defined as results but can't be found in the Results section in the README: Handler Error Message",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
