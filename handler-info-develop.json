@@ -7290,31 +7290,6 @@
       "image": "https://s3.amazonaws.com/task-handlers/kinetic-task/task-logo%402x.png",
       "handlerList": [
         {
-          "name": "Kinetic Task Trigger Resume",
-          "version": "1",
-          "id": "kinetic_task_trigger_resume_v1",
-          "description": "This handler changes the status of a task trigger from Paused to Unpaused, then the engine will then process the trigger.",
-          "detailedDescription": "",
-          "parameters": {
-            "Trigger Id": "The Id of the paused task trigger"
-          },
-          "sampleConfiguration": {
-            "Trigger Id": ""
-          },
-          "results": {
-          },
-          "changelog": {
-          },
-          "changelogText": "",
-          "warnings": [
-            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
-            "README can't be found",
-            "The following parameters can't be found in the Sample Configuration in the README: Trigger Id",
-            "Detailed Description can't be found in the README",
-            "CHANGELOG file can't be found"
-          ]
-        },
-        {
           "name": "Kinetic Task Triggers Retrieve By Handler",
           "version": "1",
           "id": "kinetic_task_triggers_retrieve_by_handler_v1",
@@ -7342,6 +7317,39 @@
           ]
         },
         {
+          "name": "Kinetic Task Tree Create",
+          "version": "1",
+          "id": "kinetic_task_tree_create_v1",
+          "description": "This handler is used to create a tree for a given source / group.",
+          "detailedDescription": "This handler uses the Kinetic Task REST API to create a new tree. To configure the info values, you'll need your username, password, and the url where your task instance is located. The handler will return the tree id of tree that was created. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Source": "The source for the tree you want to run.",
+            "Group": "The group of the tree you want to run.",
+            "Body": "A valid xml tree definition"
+          },
+          "sampleConfiguration": {
+            "Source": "Playground",
+            "Group": "Scott",
+            "Body": "<tree schema_version=\"1.0\"> ... </tree>",
+            "Error Handling": ""
+          },
+          "results": {
+            "Run Id": "",
+            "Handler Error Message": "",
+            "tree_id": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "kinetic_task_tree_create_v1 (2016-09-26)\n* Initial version.  See README for details.\n",
+          "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling",
+            "The following are defined as results but can't be found in the Results section in the README: Handler Error Message, tree_id",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
           "name": "Kinetic Task Triggers Retrieve By Tree",
           "version": "1",
           "id": "kinetic_task_triggers_retrieve_by_tree_v1",
@@ -7364,6 +7372,67 @@
             "README can't be found",
             "The following parameters can't be found in the Sample Configuration in the README: Tree Id",
             "The following are defined as results but can't be found in the Results section in the README: Triggers",
+            "Detailed Description can't be found in the README",
+            "CHANGELOG file can't be found"
+          ]
+        },
+        {
+          "name": "Kinetic Task Tree Retrieve",
+          "version": "1",
+          "id": "kinetic_task_tree_retrieve_v1",
+          "description": "This handler is used to retrieve a tree for a given source / group.",
+          "detailedDescription": "This handler uses the Kinetic Task REST API to retrieve a tree. To configure the info values, you'll need your username, password, and the url where your task instance is located. The handler will return details and treeXml of the tree. \n\nNote: Your the user configured must have access via API Console Policy rule to be able to effectively use this handler. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Task Instance": "The location of the Kinetic Task instance (ie. http://task.kineticdata.com/kinetic-task).",
+            "Space Slug": "The space this task engine is for, if part of kinops.",
+            "Source": "The source for the tree you want to run.",
+            "Group": "The group of the tree you want to run.",
+            "Tree": "A valid tree title"
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Source": "Kinetic Task",
+            "Group": "Run Error",
+            "Tree": "Notify on Run Error",
+            "Task Instance": "",
+            "Space Slug": ""
+          },
+          "results": {
+            "Response": "The json response. Will contain the details and the treeXml. ",
+            "Handler Error Message": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "kinetic_task_tree_retrieve_v1 (2018-Jun-20)\n* Initial version.  See README for details.\n",
+          "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
+            "The following parameters can't be found in the Sample Configuration in the README: Task Instance, Space Slug",
+            "The following are defined as results but can't be found in the Results section in the README: Handler Error Message",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Kinetic Task Trigger Resume",
+          "version": "1",
+          "id": "kinetic_task_trigger_resume_v1",
+          "description": "This handler changes the status of a task trigger from Paused to Unpaused, then the engine will then process the trigger.",
+          "detailedDescription": "",
+          "parameters": {
+            "Trigger Id": "The Id of the paused task trigger"
+          },
+          "sampleConfiguration": {
+            "Trigger Id": ""
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "",
+          "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
+            "README can't be found",
+            "The following parameters can't be found in the Sample Configuration in the README: Trigger Id",
             "Detailed Description can't be found in the README",
             "CHANGELOG file can't be found"
           ]
@@ -7412,7 +7481,7 @@
             "Source": "Playground",
             "Group": "Scott",
             "Tree Name": "API",
-            "Body": "{\"String1\""
+            "Body": "{\"String1\": \"Source\", \"String2\": \"Data\"}"
           },
           "results": {
             "Run Id": "",
@@ -7424,39 +7493,6 @@
           "warnings": [
             "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "The following are defined as results but can't be found in the Results section in the README: run_id",
-            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
-          ]
-        },
-        {
-          "name": "Kinetic Task Tree Create",
-          "version": "1",
-          "id": "kinetic_task_tree_create_v1",
-          "description": "This handler is used to create a tree for a given source / group.",
-          "detailedDescription": "This handler uses the Kinetic Task REST API to create a new tree. To configure the info values, you'll need your username, password, and the url where your task instance is located. The handler will return the tree id of tree that was created. ",
-          "parameters": {
-            "Error Handling": "Determine what to return if an error is encountered.",
-            "Source": "The source for the tree you want to run.",
-            "Group": "The group of the tree you want to run.",
-            "Body": "A valid xml tree definition"
-          },
-          "sampleConfiguration": {
-            "Source": "Playground",
-            "Group": "Scott",
-            "Body": "<tree schema_version=\"1.0\"> ... </tree>",
-            "Error Handling": ""
-          },
-          "results": {
-            "Run Id": "",
-            "Handler Error Message": "",
-            "tree_id": ""
-          },
-          "changelog": {
-          },
-          "changelogText": "kinetic_task_tree_create_v1 (2016-09-26)\n* Initial version.  See README for details.\n",
-          "warnings": [
-            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
-            "The following parameters can't be found in the Sample Configuration in the README: Error Handling",
-            "The following are defined as results but can't be found in the Results section in the README: Handler Error Message, tree_id",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         }
