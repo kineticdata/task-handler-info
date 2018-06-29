@@ -602,6 +602,46 @@
           ]
         },
         {
+          "name": "BMC Remedy User Update",
+          "version": "1",
+          "id": "bmc_remedy_user_edit_v1",
+          "description": "Updates an entry in the User form based on the Remedy Login ID",
+          "detailedDescription": "Updates a single Remedy User entry related to the Remedy Login specified. \n\nNote: This uses the REST API available in Remedy/ITSM 9+ ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Login ID": "Remedy Login ID of the user to update.",
+            "Full Name": "",
+            "Group List": "",
+            "License Type": "Read,Fixed,Floating, or Restricted Read",
+            "Login Alias": "",
+            "Status": "Current or Disabled",
+            "Default Notify Mechanism": "None,Alert, or Email"
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Login ID": "<%=@answers['ReqFor Login']%>",
+            "Full Name": "<%=@answers['ReqFor Name']%>",
+            "Group List": "<%=@answers['ReqFor Grps']%> 100009345",
+            "License Type": "Read",
+            "Login Alias": "<%=@answers['ReqFor Login Alias']%>",
+            "Status": "Current",
+            "Default Notify Mechanism": "Alert"
+          },
+          "results": {
+            "Handler Error Message": "Error, if one is found ",
+            "Result": "Json result of the update "
+          },
+          "changelog": {
+          },
+          "changelogText": "",
+          "warnings": [
+            "Parameter with the id 'full_name' is missing a tooltip",
+            "Parameter with the id 'group_list' is missing a tooltip",
+            "Parameter with the id 'login_alias' is missing a tooltip",
+            "CHANGELOG file can't be found"
+          ]
+        },
+        {
           "name": "Remedy User add Group",
           "version": "1",
           "id": "remedy_user_add_group_v1",
