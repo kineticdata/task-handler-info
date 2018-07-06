@@ -602,46 +602,6 @@
           ]
         },
         {
-          "name": "BMC Remedy User Update",
-          "version": "1",
-          "id": "bmc_remedy_user_edit_v1",
-          "description": "Updates an entry in the User form based on the Remedy Login ID",
-          "detailedDescription": "Updates a single Remedy User entry related to the Remedy Login specified. \n\nNote: This uses the REST API available in Remedy/ITSM 9+ ",
-          "parameters": {
-            "Error Handling": "Determine what to return if an error is encountered.",
-            "Login ID": "Remedy Login ID of the user to update.",
-            "Full Name": "",
-            "Group List": "",
-            "License Type": "Read,Fixed,Floating, or Restricted Read",
-            "Login Alias": "",
-            "Status": "Current or Disabled",
-            "Default Notify Mechanism": "None,Alert, or Email"
-          },
-          "sampleConfiguration": {
-            "Error Handling": "Error Message",
-            "Login ID": "<%=@answers['ReqFor Login']%>",
-            "Full Name": "<%=@answers['ReqFor Name']%>",
-            "Group List": "<%=@answers['ReqFor Grps']%> 100009345",
-            "License Type": "Read",
-            "Login Alias": "<%=@answers['ReqFor Login Alias']%>",
-            "Status": "Current",
-            "Default Notify Mechanism": "Alert"
-          },
-          "results": {
-            "Handler Error Message": "Error, if one is found ",
-            "Result": "Json result of the update "
-          },
-          "changelog": {
-          },
-          "changelogText": "",
-          "warnings": [
-            "Parameter with the id 'full_name' is missing a tooltip",
-            "Parameter with the id 'group_list' is missing a tooltip",
-            "Parameter with the id 'login_alias' is missing a tooltip",
-            "CHANGELOG file can't be found"
-          ]
-        },
-        {
           "name": "Remedy User add Group",
           "version": "1",
           "id": "remedy_user_add_group_v1",
@@ -662,6 +622,34 @@
           "changelogText": "BMC_Remedy_User_Update_V1 (2010-01-26)\n* Initial version.  See README for details.",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Login Name:, Group Name:",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "ARS9 Generic Query Retrieve",
+          "version": "1",
+          "id": "ars9_generic_query_retrieve_v1",
+          "description": "Retrieves a single ARS v9.x entry related to the Remedy Form specified.",
+          "detailedDescription": "This handler returns all the fields for the query provided in the form specified.  This is returned in XML format (like below). ``` <field_list> <field id='Request ID'>000000000000001</field> <field id='Creator'>Action Request Installer Account</field> <field id='Create Date'>Mon Apr 25 16:42:22 -0400 2011</field> <field id='Assigned To'></field> <field id='Last Modified By'>Demo</field> <field id='Modified Date'>Wed Dec 07 11:46:47 -0500 2011</field> <field id='Status'>Current</field> </field_list> ``` Note that if there is more than one result, only the first is returned. The sorting (which is returned first) is determined by the server. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Remedy Form:": "Remedy Form Name (not display name), eg. People is CTM:People",
+            "Query:": "Advanced Search Query of the record to retrieve"
+          },
+          "sampleConfiguration": {
+            "Error Handling": "",
+            "Remedy Form:": "",
+            "Query:": ""
+          },
+          "results": {
+            "Handler Error Message": "Error, if one is found ",
+            "#FIELD NAME PLACE HOLDER#": "This will actually be one result for each field on the form with the name of the field name and the result of the field content. "
+          },
+          "changelog": {
+          },
+          "changelogText": "ARS 9 Generic Query Retrieve V1 (2018-07-06)\n * Initial version.  See README for details.\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Remedy Form:, Query:",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
@@ -950,6 +938,87 @@
             "The following parameters can't be found in the Sample Configuration in the README: Login Name, Full Name, Password, License Type, Email Address",
             "The following are defined as results but can't be found in the Results section in the README: Entry Id",
             "Detailed Description can't be found in the README"
+          ]
+        },
+        {
+          "name": "BMC Remedy User Update",
+          "version": "1",
+          "id": "bmc_remedy_user_update_v1",
+          "description": "Updates an entry in the User form based on the Remedy Login ID",
+          "detailedDescription": "Updates a single Remedy User entry related to the Remedy Login specified. \n\nNote: This uses the REST API available in Remedy/ITSM 9+ ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Login ID": "Remedy Login ID of the user to update.",
+            "Full Name": "",
+            "Group List": "",
+            "License Type": "Read,Fixed,Floating, or Restricted Read",
+            "Login Alias": "",
+            "Status": "Current or Disabled",
+            "Default Notify Mechanism": "None,Alert, or Email"
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Login ID": "<%=@answers['ReqFor Login']%>",
+            "Full Name": "<%=@answers['ReqFor Name']%>",
+            "Group List": "<%=@answers['ReqFor Grps']%> 100009345",
+            "License Type": "Read",
+            "Login Alias": "<%=@answers['ReqFor Login Alias']%>",
+            "Status": "Current",
+            "Default Notify Mechanism": "Alert"
+          },
+          "results": {
+            "Handler Error Message": "Error, if one is found ",
+            "Result": "Json result of the update "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-06-29",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "BMC Remedy User Update V1 (2018-06-29)\n* Initial version.  See README for details.\n",
+          "warnings": [
+            "Parameter with the id 'full_name' is missing a tooltip",
+            "Parameter with the id 'group_list' is missing a tooltip",
+            "Parameter with the id 'login_alias' is missing a tooltip"
+          ]
+        },
+        {
+          "name": "ARS9 Generic Create",
+          "version": "1",
+          "id": "ars9_generic_create_v1",
+          "description": "Create an entry in the form specified",
+          "detailedDescription": "This handler takes a json as input of a format like {\"DB field Name\":\"value to place in field\"} and uses this to create a record in the specified form. \n\nAt times, you may need to set Currency Fields in Remedy. This is accomplished by formatting the value as follows: ``` { ... \"My Currency Field\":{\"value\":100.0,\"currency\":\"USD\"}, ... } ``` The value portion must be parsed as a float. You can accomplish this as follows in the Field Values parameter: ``` <%= { 'Text Field 1' => 'ABCD-EFG', 'Text Field 2' => '123456', 'Currency Field 1' => {'value' => @inputs[\"Currency Input\"].to_f, 'currency' => 'USD' }, }.to_json %> ``` ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Form Name": "Form Name",
+            "Field Values": "JSON mapping of field values"
+          },
+          "sampleConfiguration": {
+            "Form Name": "HPD:LoadTemplate",
+            "Field Values": "{\"Template Identifier\":\"<%=@answers['Template Identifier']%>\",\"Template Name\":\"<%=@answers['Template Name']%>\",\"Status Template\":\"<%=@answers['Template Status']%>\",\"Template Category Tier 1\":\"<%=@answers['Template Category Tier 1']%>\",\"Description\":\"<%=@answers['Summary']%>\",\"Detailed Decription\":\"<%=@answers['Notes']%>\",\"Reported Source\":\"<%=@answers['Reported Source']%>\",\"Service Type\":\"<%=@answers['Incident Type']%>\",\"Status\":\"<%=@answers['Status']%>\",\"Impact\":\"<%=@answers['Impact']%>\",\"Urgency\":\"<%=@answers['Urgency']%>\",\"Assigned Support Company\":\"<%=@answers['Assigned Support Company']%>\",\"Assigned Support Organization\":\"<%=@answers['Assigned Support Organization']%>\",\"Assigned Group\":\"<%=@answers['Authoring Group']%>\",\"Authoring Company\":\"<%=@answers['Authoring Company']%>\",\"Authoring Organization\":\"<%=@answers['Authoring Organization']%>\",\"Authoring Group\":\"<%=@answers['Authoring Group']%>\"}",
+            "Error Handling": ""
+          },
+          "results": {
+            "Handler Error Message": "Error, if one is found ",
+            "Results": "",
+            "Record Location": "Resulting record location (url) as returned by the ARS REST API. ",
+            "Record Id": "",
+            "Result": "",
+            "Record ID": ""
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-07-06",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "ARS9 Generic Create V1 (2018-07-06)\n* Initial version.  See README for details.\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling",
+            "The following are defined as results but can't be found in the Results section in the README: Result, Record ID"
           ]
         }
       ]
