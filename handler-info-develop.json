@@ -5833,32 +5833,6 @@
           ]
         },
         {
-          "name": null,
-          "version": null,
-          "id": "remedy_generic_query_retrieve_v2",
-          "description": null,
-          "detailedDescription": "",
-          "parameters": [
-
-          ],
-          "sampleConfiguration": [
-
-          ],
-          "results": [
-
-          ],
-          "changelog": [
-
-          ],
-          "changelogText": "",
-          "warnings": [
-            "node.xml can't be found",
-            "README can't be found",
-            "Detailed Description can't be found in the README",
-            "CHANGELOG file can't be found"
-          ]
-        },
-        {
           "name": "Remedy Generic Retrieve",
           "version": "2",
           "id": "remedy_generic_retrieve_v2",
@@ -29517,32 +29491,6 @@
             "Detailed Description can't be found in the README",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
-        },
-        {
-          "name": null,
-          "version": null,
-          "id": "mantis_project_delete_category_v1",
-          "description": null,
-          "detailedDescription": "",
-          "parameters": [
-
-          ],
-          "sampleConfiguration": [
-
-          ],
-          "results": [
-
-          ],
-          "changelog": [
-
-          ],
-          "changelogText": "mantis_project_delete_category_v1 (2011-02-18)\n* Initial version.  See README for details.\n",
-          "warnings": [
-            "node.xml can't be found",
-            "README can't be found",
-            "Detailed Description can't be found in the README",
-            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
-          ]
         }
       ]
     },
@@ -34455,32 +34403,6 @@
           "warnings": [
             "Detailed Description can't be found in the README",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
-          ]
-        },
-        {
-          "name": null,
-          "version": null,
-          "id": "sample_rest_template_v1",
-          "description": null,
-          "detailedDescription": "",
-          "parameters": [
-
-          ],
-          "sampleConfiguration": [
-
-          ],
-          "results": [
-
-          ],
-          "changelog": [
-
-          ],
-          "changelogText": "",
-          "warnings": [
-            "node.xml can't be found",
-            "README can't be found",
-            "Detailed Description can't be found in the README",
-            "CHANGELOG file can't be found"
           ]
         },
         {
