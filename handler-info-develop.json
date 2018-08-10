@@ -32066,7 +32066,7 @@
       "name": "Nagios",
       "id": "nagios",
       "description": "",
-      "icon": "https://task-handlers.s3.amazonaws.com/nagios/nagios.png",
+      "image": "https://task-handlers.s3.amazonaws.com/nagios/nagios.png",
       "handlerList": [
         {
           "name": "Nagios XI Create Host",
