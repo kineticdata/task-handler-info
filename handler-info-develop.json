@@ -6917,6 +6917,11 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.2": {
+              "version": "1.2",
+              "date": "2018-08-29",
+              "description": "* Added functionality to retry the handler if a stale object exception occurs during submission update. (ie. If updating the submission within a loop, there is a chance that two updates will occur at the same time. This will retry up to 10 times before returning an error or throwing an exception.)"
+            },
             "1.1": {
               "version": "1.1",
               "date": "2018-05-25",
@@ -6928,7 +6933,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Submission Update V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Submission Update V1 (2015-04-24)\r\n * Initial version.  See README for details.\r\n",
+          "changelogText": "Kinetic Request CE Submission Update V1.2 (2018-08-29)\r\n* Added functionality to retry the handler if a stale object exception occurs during submission update.\r\n(ie. If updating the submission within a loop, there is a chance that two updates will occur at the same time. This will retry up to 10 times before returning an error or throwing an exception.)\r\n\r\nKinetic Request CE Submission Update V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Submission Update V1 (2015-04-24)\r\n * Initial version.  See README for details.\r\n",
           "warnings": [
 
           ]
