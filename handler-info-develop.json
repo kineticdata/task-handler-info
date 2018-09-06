@@ -5484,19 +5484,25 @@
           },
           "results": {
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
-            "Id": "",
-            "Key": "",
-            "Url": "",
-            "id": "",
-            "key": "",
-            "url": ""
+            "id": "The id of the issue that was created. ",
+            "key": "The key of the issue that was created. ",
+            "url": "The url of the issue that was created. "
           },
           "changelog": {
+            "2": {
+              "version": "2",
+              "date": "2018-09-06",
+              "description": "* Added ability to pass in additional fields as json to set in the issue\n* Added Error Handling so the handler can return an error message vs throw an error"
+            },
+            "1": {
+              "version": "1",
+              "date": "2014-02-17",
+              "description": "* Initial version.  See README for details."
+            }
           },
-          "changelogText": "Jira_Issue_Create_V2 (2018-09-06)\n* Added ability to pass in additional fields as json to set in the issue\n* Added Error Handling so the handler can return an error message vs throw an error\n\nJira_Issue_Create_V1 (2014-02-17)\n* Initial version.  See README for details.\n",
+          "changelogText": "Jira Issue Create V2 (2018-09-06)\n* Added ability to pass in additional fields as json to set in the issue\n* Added Error Handling so the handler can return an error message vs throw an error\n\nJira Issue Create V1 (2014-02-17)\n* Initial version.  See README for details.\n",
           "warnings": [
-            "The following are defined as results but can't be found in the Results section in the README: id, key, url",
-            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+
           ]
         }
       ]
