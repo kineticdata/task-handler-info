@@ -10061,22 +10061,118 @@
           ]
         },
         {
-          "name": "Kinetic Task Tree Create",
+          "name": "Kinetic Task Tree Run",
+          "version": "2",
+          "id": "kinetic_task_tree_run_v2",
+          "description": "This handler is used to start a new run of an existing tree.",
+          "detailedDescription": "This handler uses the Kinetic Task REST API to start a new run of an existing tree. To configure the info values, you'll need your username, password, and the url where your task instance is located. The handler assembles the endpoint to the intended tree and then sends a POST to it (including the body of JSON key/value pairs if it was not left blank). The handler will return the run id of the process that was started by this handler. ",
+          "parameters": {
+            "Source": "The source for the tree you want to run.",
+            "Group": "The group of the tree you want to run.",
+            "Tree Name": "The name of the tree you want to run.",
+            "Body": "A JSON string of name/value pairs that will be passed to the tree as body content.",
+            "Signature Key": "The id of the access key to use to sign the request (overrides info value).",
+            "Signature Secret": "The secret of the access key to use to sign the request (overrides info value)."
+          },
+          "sampleConfiguration": {
+            "Source": "Playground",
+            "Group": "Scott",
+            "Tree Name": "API",
+            "Body": "{\"String1\": \"Source\", \"String2\": \"Data\"}",
+            "Signature Key": "nil",
+            "Signature Secret": "nil"
+          },
+          "results": {
+            "Run Id": "",
+            "run_id": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "kinetic_task_tree_run_v1 (2014-09-08)\n* Initial version.  See README for details.\n\nkinetic_task_tree_run_v2 (2017-08-19)\n* Added signature headers if configured with signature key and secret.\n",
+          "warnings": [
+            "The following are defined as results but can't be found in the Results section in the README: run_id",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Kinetic Task Tree Retrieve",
           "version": "1",
-          "id": "kinetic_task_tree_create_v1",
+          "id": "kinetic_task_tree_retrieve_v1",
+          "description": "This handler is used to retrieve a tree for a given source / group.",
+          "detailedDescription": "This handler uses the Kinetic Task REST API to retrieve a tree. To configure the info values, you'll need your username, password, and the url where your task instance is located. The handler will return details and treeXml of the tree. \n\nNote: Your the user configured must have access via API Console Policy rule to be able to effectively use this handler. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Task Instance": "The location of the Kinetic Task instance (ie. http://task.kineticdata.com/kinetic-task).",
+            "Space Slug": "The space this task engine is for, if part of kinops.",
+            "Source": "The source for the tree you want to run.",
+            "Group": "The group of the tree you want to run.",
+            "Tree": "A valid tree title"
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Source": "Kinetic Task",
+            "Group": "Run Error",
+            "Tree": "Notify on Run Error",
+            "Task Instance": "",
+            "Space Slug": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message (if one is returned) ",
+            "Response": "The json response. Will contain the details and the treeXml. "
+          },
+          "changelog": {
+          },
+          "changelogText": "kinetic_task_tree_retrieve v1 (2018-6-20)\n* Initial version.  See README for details.\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Task Instance, Space Slug",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Kinetic Task Trigger Resume",
+          "version": "1",
+          "id": "kinetic_task_trigger_resume_v1",
+          "description": "This handler changes the status of a task trigger from Paused to Unpaused, then the engine will then process the trigger.",
+          "detailedDescription": "",
+          "parameters": {
+            "Trigger Id": "The Id of the paused task trigger"
+          },
+          "sampleConfiguration": {
+            "Trigger Id": ""
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "",
+          "warnings": [
+            "README can't be found",
+            "The following parameters can't be found in the Sample Configuration in the README: Trigger Id",
+            "Detailed Description can't be found in the README",
+            "CHANGELOG file can't be found"
+          ]
+        },
+        {
+          "name": "Kinetic Task Tree Create",
+          "version": "2",
+          "id": "kinetic_task_tree_create_v2",
           "description": "This handler is used to create a tree for a given source / group.",
           "detailedDescription": "This handler uses the Kinetic Task REST API to create a new tree. To configure the info values, you'll need your username, password, and the url where your task instance is located. The handler will return the tree id of tree that was created. ",
           "parameters": {
             "Error Handling": "Determine what to return if an error is encountered.",
             "Source": "The source for the tree you want to run.",
             "Group": "The group of the tree you want to run.",
-            "Body": "A valid xml tree definition"
+            "Body": "A valid xml tree definition",
+            "Signature Key": "The id of the access key to use to sign the request (overrides info value).",
+            "Signature Secret": "The secret of the access key to use to sign the request (overrides info value)."
           },
           "sampleConfiguration": {
             "Source": "Playground",
             "Group": "Scott",
             "Body": "<tree schema_version=\"1.0\"> ... </tree>",
-            "Error Handling": ""
+            "Error Handling": "",
+            "Signature Key": "",
+            "Signature Secret": ""
           },
           "results": {
             "Run Id": "",
@@ -10087,33 +10183,35 @@
           },
           "changelogText": "kinetic_task_tree_create_v1 (2016-09-26)\n* Initial version.  See README for details.\n",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Error Handling",
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Signature Key, Signature Secret",
             "The following are defined as results but can't be found in the Results section in the README: Handler Error Message, tree_id",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
         {
-          "name": "Kinetic Task Triggers Retrieve By Tree",
+          "name": "Kinetic Task Instance Complete With Answer Set",
           "version": "1",
-          "id": "kinetic_task_triggers_retrieve_by_tree_v1",
-          "description": "This handler retrieves all of the paused triggers related to the specified task tree.",
+          "id": "kinetic_task_instance_complete_with_answer_set_v1",
+          "description": "Creates a complete trigger for the deferred task and passes along answer set data as return variables.",
           "detailedDescription": "",
           "parameters": {
-            "Tree Id": "The Id of the task tree that was paused and resulted in paused triggers"
+            "Deferral Token": "The deferral token of the deferred task",
+            "Answer Set": "The answer set of the submission"
           },
           "sampleConfiguration": {
-            "Tree Id": ""
+            "Deferral Token": "",
+            "Answer Set": ""
           },
           "results": {
-            "Triggers": ""
+            "Trigger Id": ""
           },
           "changelog": {
           },
           "changelogText": "",
           "warnings": [
             "README can't be found",
-            "The following parameters can't be found in the Sample Configuration in the README: Tree Id",
-            "The following are defined as results but can't be found in the Results section in the README: Triggers",
+            "The following parameters can't be found in the Sample Configuration in the README: Deferral Token, Answer Set",
+            "The following are defined as results but can't be found in the Results section in the README: Trigger Id",
             "Detailed Description can't be found in the README",
             "CHANGELOG file can't be found"
           ]
@@ -10153,37 +10251,29 @@
           ]
         },
         {
-          "name": "Kinetic Task Tree Retrieve",
+          "name": "Kinetic Task Triggers Retrieve By Tree",
           "version": "1",
-          "id": "kinetic_task_tree_retrieve_v1",
-          "description": "This handler is used to retrieve a tree for a given source / group.",
-          "detailedDescription": "This handler uses the Kinetic Task REST API to retrieve a tree. To configure the info values, you'll need your username, password, and the url where your task instance is located. The handler will return details and treeXml of the tree. \n\nNote: Your the user configured must have access via API Console Policy rule to be able to effectively use this handler. ",
+          "id": "kinetic_task_triggers_retrieve_by_tree_v1",
+          "description": "This handler retrieves all of the paused triggers related to the specified task tree.",
+          "detailedDescription": "",
           "parameters": {
-            "Error Handling": "Determine what to return if an error is encountered.",
-            "Task Instance": "The location of the Kinetic Task instance (ie. http://task.kineticdata.com/kinetic-task).",
-            "Space Slug": "The space this task engine is for, if part of kinops.",
-            "Source": "The source for the tree you want to run.",
-            "Group": "The group of the tree you want to run.",
-            "Tree": "A valid tree title"
+            "Tree Id": "The Id of the task tree that was paused and resulted in paused triggers"
           },
           "sampleConfiguration": {
-            "Error Handling": "Error Message",
-            "Source": "Kinetic Task",
-            "Group": "Run Error",
-            "Tree": "Notify on Run Error",
-            "Task Instance": "",
-            "Space Slug": ""
+            "Tree Id": ""
           },
           "results": {
-            "Handler Error Message": "Error message (if one is returned) ",
-            "Response": "The json response. Will contain the details and the treeXml. "
+            "Triggers": ""
           },
           "changelog": {
           },
-          "changelogText": "kinetic_task_tree_retrieve v1 (2018-6-20)\n* Initial version.  See README for details.\n",
+          "changelogText": "",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Task Instance, Space Slug",
-            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+            "README can't be found",
+            "The following parameters can't be found in the Sample Configuration in the README: Tree Id",
+            "The following are defined as results but can't be found in the Results section in the README: Triggers",
+            "Detailed Description can't be found in the README",
+            "CHANGELOG file can't be found"
           ]
         },
         {
@@ -10219,86 +10309,6 @@
           "changelogText": "Kinetic Task Engine Control V1 (2018-6-21)\n* Initial version.  See README for details.\n",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Task Instance, Space Slug"
-          ]
-        },
-        {
-          "name": "Kinetic Task Trigger Resume",
-          "version": "1",
-          "id": "kinetic_task_trigger_resume_v1",
-          "description": "This handler changes the status of a task trigger from Paused to Unpaused, then the engine will then process the trigger.",
-          "detailedDescription": "",
-          "parameters": {
-            "Trigger Id": "The Id of the paused task trigger"
-          },
-          "sampleConfiguration": {
-            "Trigger Id": ""
-          },
-          "results": {
-          },
-          "changelog": {
-          },
-          "changelogText": "",
-          "warnings": [
-            "README can't be found",
-            "The following parameters can't be found in the Sample Configuration in the README: Trigger Id",
-            "Detailed Description can't be found in the README",
-            "CHANGELOG file can't be found"
-          ]
-        },
-        {
-          "name": "Kinetic Task Instance Complete With Answer Set",
-          "version": "1",
-          "id": "kinetic_task_instance_complete_with_answer_set_v1",
-          "description": "Creates a complete trigger for the deferred task and passes along answer set data as return variables.",
-          "detailedDescription": "",
-          "parameters": {
-            "Deferral Token": "The deferral token of the deferred task",
-            "Answer Set": "The answer set of the submission"
-          },
-          "sampleConfiguration": {
-            "Deferral Token": "",
-            "Answer Set": ""
-          },
-          "results": {
-            "Trigger Id": ""
-          },
-          "changelog": {
-          },
-          "changelogText": "",
-          "warnings": [
-            "README can't be found",
-            "The following parameters can't be found in the Sample Configuration in the README: Deferral Token, Answer Set",
-            "The following are defined as results but can't be found in the Results section in the README: Trigger Id",
-            "Detailed Description can't be found in the README",
-            "CHANGELOG file can't be found"
-          ]
-        },
-        {
-          "name": "Kinetic Task Tree Run",
-          "version": "1",
-          "id": "kinetic_task_tree_run_v1",
-          "description": "This handler is used to start a new run of an existing tree.",
-          "detailedDescription": "This handler uses the Kinetic Task REST API to start a new run of an existing tree. To configure the info values, you'll need your username, password, and the url where your task instance is located. The handler assembles the endpoint to the intended tree and then sends a POST to it (including the body of JSON key/value pairs if it was not left blank). The handler will return the run id of the process that was started by this handler. ",
-          "parameters": {
-            "Source": "The source for the tree you want to run.",
-            "Group": "The group of the tree you want to run.",
-            "Tree Name": "The name of the tree you want to run.",
-            "Body": "A JSON string of name/value pairs that will be passed to the tree as body content."
-          },
-          "sampleConfiguration": {
-            "Source": "Playground",
-            "Group": "Scott",
-            "Tree Name": "API",
-            "Body": "{\"String1\": \"Source\", \"String2\": \"Data\"}"
-          },
-          "results": {
-            "run_id": "The run id of the tree that was just started. "
-          },
-          "changelog": {
-          },
-          "changelogText": "kinetic_task_tree_run v1 (2014-09-08)\n* Initial version.  See README for details.\n",
-          "warnings": [
-            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         }
       ]
