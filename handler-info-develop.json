@@ -10095,40 +10095,6 @@
           ]
         },
         {
-          "name": "Kinetic Task Tree Retrieve",
-          "version": "1",
-          "id": "kinetic_task_tree_retrieve_v1",
-          "description": "This handler is used to retrieve a tree for a given source / group.",
-          "detailedDescription": "This handler uses the Kinetic Task REST API to retrieve a tree. To configure the info values, you'll need your username, password, and the url where your task instance is located. The handler will return details and treeXml of the tree. \n\nNote: Your the user configured must have access via API Console Policy rule to be able to effectively use this handler. ",
-          "parameters": {
-            "Error Handling": "Determine what to return if an error is encountered.",
-            "Task Instance": "The location of the Kinetic Task instance (ie. http://task.kineticdata.com/kinetic-task).",
-            "Space Slug": "The space this task engine is for, if part of kinops.",
-            "Source": "The source for the tree you want to run.",
-            "Group": "The group of the tree you want to run.",
-            "Tree": "A valid tree title"
-          },
-          "sampleConfiguration": {
-            "Error Handling": "Error Message",
-            "Source": "Kinetic Task",
-            "Group": "Run Error",
-            "Tree": "Notify on Run Error",
-            "Task Instance": "",
-            "Space Slug": ""
-          },
-          "results": {
-            "Handler Error Message": "Error message (if one is returned) ",
-            "Response": "The json response. Will contain the details and the treeXml. "
-          },
-          "changelog": {
-          },
-          "changelogText": "kinetic_task_tree_retrieve v1 (2018-6-20)\n* Initial version.  See README for details.\n",
-          "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Task Instance, Space Slug",
-            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
-          ]
-        },
-        {
           "name": "Kinetic Task Trigger Resume",
           "version": "1",
           "id": "kinetic_task_trigger_resume_v1",
@@ -10214,6 +10180,44 @@
             "The following are defined as results but can't be found in the Results section in the README: Trigger Id",
             "Detailed Description can't be found in the README",
             "CHANGELOG file can't be found"
+          ]
+        },
+        {
+          "name": "Kinetic Task Tree Retrieve",
+          "version": "2",
+          "id": "kinetic_task_tree_retrieve_v2",
+          "description": "This handler is used to retrieve a tree for a given source / group.",
+          "detailedDescription": "This handler uses the Kinetic Task REST API to retrieve a tree. To configure the info values, you'll need your username, password, and the url where your task instance is located. The handler will return details and treeXml of the tree. \n\nNote: Your the user configured must have access via API Console Policy rule to be able to effectively use this handler. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Task Instance": "The location of the Kinetic Task instance (ie. http://task.kineticdata.com/kinetic-task).",
+            "Space Slug": "The space this task engine is for, if part of kinops.",
+            "Source": "The source for the tree you want to run.",
+            "Group": "The group of the tree you want to run.",
+            "Tree": "A valid tree title",
+            "Signature Key": "The id of the access key to use to sign the request (overrides info value).",
+            "Signature Secret": "The secret of the access key to use to sign the request (overrides info value)."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Source": "Kinetic Task",
+            "Group": "Run Error",
+            "Tree": "Notify on Run Error",
+            "Task Instance": "",
+            "Space Slug": "",
+            "Signature Key": "",
+            "Signature Secret": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message (if one is returned) ",
+            "Response": "The json response. Will contain the details and the treeXml. "
+          },
+          "changelog": {
+          },
+          "changelogText": "kinetic_task_tree_retrieve v1 (2018-6-20)\n* Initial version.  See README for details.\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Task Instance, Space Slug, Signature Key, Signature Secret",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
         {
