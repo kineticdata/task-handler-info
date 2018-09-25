@@ -7234,6 +7234,48 @@
           ]
         },
         {
+          "name": "Kinetic Request CE Datastore Form Retrieve",
+          "version": "1",
+          "id": "kinetic_request_ce_datastore_form_retrieve_v1",
+          "description": "Retrieves a datastore form record in Kinetic Request CE for the specified space.",
+          "detailedDescription": "This handler retrieves a form. \n\nNote that while the value of the attributes are included, the value of the fields is not. Example results for attribute and fields: \n\nAttributes [{\"name\"=>\"Custom Workflow on Submitted\", \"values\"=>[\"True\"]}, {\"name\"=>\"Icon\", \"values\"=>[\"fa-dollar\"]}, {\"name\"=>\"Owning Team\", \"values\"=>[\"Admin\", \"Sales\", \"Execution\", \"Ops\"]}, {\"name\"=>\"Task Assignee Team\", \"values\"=>[\"Execution\"]}] Fields [\"Advertiser\",\"Advertiser SF Id\",\"Agency\",\"Agency SF Id\",\"Ad Budget\",\"IO Number\",\"Campaign Start Date\", \"Campaign End Date\",\"Date Order is Received\",\"Order Revision Number\",\"Advertiser Rep\",\"Agency Rep\", \"Opportunity ID\",\"Index\",\"Issue Date\",\"Segment Name\",\"Segment Start Date\",\"Segment End Date\",\"SF Units\", \"Units\",\"Target\",\"Cost of Goods Sold\",\"segmentTableJSON\",\"Requested For\",\"Requested For Display Name\", \"Requested By\",\"Requested By Display Name\",\"Discussion Id\",\"Observing Teams\",\"Observing Individuals\",\"Status\"] ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Space Slug": "The Space the submission is being retrieved from (defaults to info value if not provided).",
+            "Form Slug": "The slug of the form being retrieved."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Space Slug": "",
+            "Form Slug": "sample-form"
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Name": "Name of the form. ",
+            "Slug": "Slug of the form being retrieved. ",
+            "Description": "Description of form. ",
+            "CreatedAt": "When the form was created. ",
+            "CreatedBy": "Who created the form. ",
+            "UpdatedAt": "When the form was updated. ",
+            "UpdatedBy": "Who updated the form. ",
+            "Notes": "Notes on this form. ",
+            "Secure": "Is the form secure? ",
+            "Attributes": "A json structured list of attributes of the form. ",
+            "Fields": "A json structured list of fields for the form. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-09-25",
+              "description": "* Initial version.  See README for details.\n* Updated to return JSON form attributes"
+            }
+          },
+          "changelogText": "Kinetic Request CE Datastore Form Retrieve V1 (2018-09-25)\n * Initial version.  See README for details.\n * Updated to return JSON form attributes\n",
+          "warnings": [
+
+          ]
+        },
+        {
           "name": "Kinetic Request CE Form Update",
           "version": "1",
           "id": "kinetic_request_ce_form_update_v1",
