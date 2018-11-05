@@ -7466,6 +7466,11 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.2": {
+              "version": "1.2",
+              "date": "2018-11-05",
+              "description": "* Added \"api_\" prefix to server / username / password info values Updated info values to conform with kinetic_request_ce info value standards"
+            },
             "1.1": {
               "version": "1.1",
               "date": "2018-05-25",
@@ -7477,7 +7482,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Team Create V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Team Create V1 (2017-03-08)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Team Create V1.2 (2018-11-05)\n* Added \"api_\" prefix to server / username / password info values\nUpdated info values to conform with kinetic_request_ce info value standards\n\nKinetic Request CE Team Create V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Team Create V1 (2017-03-08)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
