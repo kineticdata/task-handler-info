@@ -6082,7 +6082,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Team Membership Delete V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Team Membership Delete V1 (2017-03-06)\r\n * Initial version.  See README for details.\r\n",
+          "changelogText": "Kinetic Request CE Team Membership Delete V1 (2018-11-15)\r\n * KT-999 Fixed bug - handler was raising error in all cases.  Add conditional around error to prevent a false negative.\r\n\r\nKinetic Request CE Team Membership Delete V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Team Membership Delete V1 (2017-03-06)\r\n * Initial version.  See README for details.\r\n",
           "warnings": [
 
           ]
