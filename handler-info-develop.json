@@ -14076,84 +14076,50 @@
       "image": "https://s3.amazonaws.com/task-handlers/servicenow/servicenow.png",
       "handlerList": [
         {
-          "name": "ServiceNow Incident Create",
-          "version": "2",
-          "id": "servicenow_incident_create_v2",
-          "description": "ServiceNow, create a new incident.",
-          "detailedDescription": "This handler allows you to create a new incident for service now. \n\n\n#### Info\nThe server field is for your instance of service now. It is whatever subdomain you belong to i.e. server.service-now.com ",
-          "parameters": {
-            "Category": "Category of the incident to be created",
-            "Short Description": "The description of the incident to be created.",
-            "Impact Level": "The priority level of the incident to be created.",
-            "Urgency Level": "The urgency level of the incident to be created.",
-            "Contact Type": "Form of reporting the incident",
-            "Caller Id": "The id of the caller",
-            "Location": "Usually the caller's location",
-            "Configuration Item Id": "Configuration Item Id",
-            "Assignment Group Id": "The id of a group to assign this incident to",
-            "Assigned To Id": "The id of a person to assign this to"
-          },
-          "sampleConfiguration": {
-            "Category": "(By Menu) Hardaware",
-            "Short Description": "Overheating CPU",
-            "Impact Level": "(By Menu) 1 - High",
-            "Urgency Level": "(By Menu) 1 - High",
-            "Contact Type": "Email",
-            "Caller Id": "<%=@results['servicenow_retrieve_sys_user_v1_1']['sys_id']%>",
-            "Location": "<%=@results['servicenow_retrieve_sys_user_v1_1']['location']%>",
-            "Configuration Item Id": "00a96c0d3790200044e0bfc8bcbe5db4",
-            "Assignment Group Id": "5d000ca93790200044e0bfc8bcbe5d8c",
-            "Assigned To Id": "04a9a80d3790200044e0bfc8bcbe5d1b"
-          },
-          "results": {
-            "Incident Number": "Number of the incident that was created ",
-            "System Id": "sys_id of the incident that was created "
-          },
-          "changelog": {
-            "2": {
-              "version": "2",
-              "date": "2015-07-22",
-              "description": "* Moving from the Service Now JSON Web Service (no longer supported) to the REST API."
-            },
-            "1": {
-              "version": "1",
-              "date": "2013-07-26",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "ServiceNow Incident Create V2 (2015-07-22)\n* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n\nServiceNow Incident Create v1 (2013-07-26)\n* Initial version.  See README for details.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "ServiceNow Group Update",
+          "name": "ServiceNow User Create",
           "version": "1",
-          "id": "servicenow_group_update_v1",
-          "description": "Updates an existing Service Now user group.",
-          "detailedDescription": "This handler allows you to update a uer group for service now. It uses the unique sys_id to determine what group to update and then takes the input parameters and passes them in a REST call to Service Now to update the group. Any fields left empty will not be updated. An error will be thrown if the sys_id does not correspond to a valid user group. ",
+          "id": "servicenow_user_create_v1",
+          "description": "ServiceNow, create a new user.",
+          "detailedDescription": "This handler allows you to create a new user on Service Now. It takes the input parameters and then passes them in a REST call to Service Now to create the user. ",
           "parameters": {
-            "Sys Id": "The sys_id of the user group you want to update.",
-            "Name": "The new name of the user group.",
-            "Group Email": "The new group email of the user group.",
-            "Manager": "The new manager id of the user group.",
-            "Parent": "The new parent id of the user group.",
-            "Description": "The new description of the user group."
+            "User Id": "Username of the person",
+            "First Name": "First name of the user",
+            "Last Name": "Last name of the user",
+            "Title": "Title of the user",
+            "Department Id": "Id of the department",
+            "Password": "password for the user if needed",
+            "Password Needs Reset": "Select if you would like to require the user to reset their password",
+            "Locked Out": "Select this if you would like the user to be locked out at first",
+            "Active": "Select this if you would like the user to be active immediately",
+            "Date Format": "How dates will appear to the user",
+            "Email": "Email address of the user",
+            "Time Zone": "Timezone used by this user",
+            "Business Phone": "Primary business phone number for the user",
+            "Mobile Phone": "Mobile/Cell phone number of the user"
           },
           "sampleConfiguration": {
-            "Sys Id": "vt53580t0s0s0s6501ss37u294s2ts6t",
-            "Name": "Sample Name",
-            "Group Email": "joe.user@acme.com",
-            "Manager": "9ww1t13vu6112271007x9v0wxvt69uv0",
-            "Parent": "287ww6xws9xw198100svs7950v0t1t73",
-            "Description": "Sample Description"
+            "User Id": "john.doe",
+            "First Name": "John",
+            "Last Name": "Doe",
+            "Title": "Manager",
+            "Department Id": "148128sd8f7871899sd98f",
+            "Password": "pass01",
+            "Password Needs Reset": "yes",
+            "Locked Out": "no",
+            "Active": "yes",
+            "Date Format": "yyyy-MM-dd",
+            "Email": "john.doe@example.com",
+            "Time Zone": "US/Central",
+            "Business Phone": "555-555-5555",
+            "Mobile Phone": "666-666-6666"
           },
           "results": {
+            "Sys Id": "The unique system id of the new user is returned "
           },
           "changelog": {
             "1.1": {
               "version": "1.1",
-              "date": "2017-09-22",
+              "date": "2017-09-21",
               "description": "* Moving from the Service Now JSON Web Service (no longer supported) to the REST API."
             },
             "1": {
@@ -14162,7 +14128,34 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Servicenow Group Update V1.1 (2017-09-22)\n* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n\nServicenow Group Update V1 (2013-07-29)\n* Initial version.  See README for details.\n",
+          "changelogText": "Servicenow User Create V1.1 (2017-09-21)\n* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n\nServicenow User Create V1 (2013-07-29)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "ServiceNow Incident Search",
+          "version": "1",
+          "id": "servicenow_incident_search_v1",
+          "description": "Search for a Service Now incident.",
+          "detailedDescription": "This handler searches for incidents in Serice Now and returns any that meet your query in JSON format. The return json uses the sys_id as the key and the value is another JSON map with all the information about the incident. To query for an incident, you need to provide the query in xml. The handler uses the getRecords call from the Service Now SOAP API, so the parameter provided just needs to specify what to look for in incident fields. For example, if you are searching for a date (or anything that can't be qualified by a direct equality statement), you can use the <__encoded_query> parameter, which can be used for any general query statements. For example, you could search for any incidents that were created after a certain time (ie. <__encoded_query>sys_created_on > 2014-04-15</__encoded_query>). For everything else, you can make the search with the xml tag beings the field that you want to search. For example, if you want to match a incident number or short description, you would search for <number>INC000000001</number> or <short_description>this is a short description</short_description>. ",
+          "parameters": {
+            "Query XML": "The query string for what incidents should be returned in xml format."
+          },
+          "sampleConfiguration": {
+            "Query XML": "<__encoded_query>sys_created_on > 2014-01-01</__encoded_query>"
+          },
+          "results": {
+            "XML": "All sys_id's that match the query formatted in XML "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2014-05-30",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "ServiceNow Incident Search v1 (2014-05-30)\n* Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -14310,28 +14303,41 @@
           ]
         },
         {
-          "name": "ServiceNow Incident Search",
+          "name": "ServiceNow Group Create",
           "version": "1",
-          "id": "servicenow_incident_search_v1",
-          "description": "Search for a Service Now incident.",
-          "detailedDescription": "This handler searches for incidents in Serice Now and returns any that meet your query in JSON format. The return json uses the sys_id as the key and the value is another JSON map with all the information about the incident. To query for an incident, you need to provide the query in xml. The handler uses the getRecords call from the Service Now SOAP API, so the parameter provided just needs to specify what to look for in incident fields. For example, if you are searching for a date (or anything that can't be qualified by a direct equality statement), you can use the <__encoded_query> parameter, which can be used for any general query statements. For example, you could search for any incidents that were created after a certain time (ie. <__encoded_query>sys_created_on > 2014-04-15</__encoded_query>). For everything else, you can make the search with the xml tag beings the field that you want to search. For example, if you want to match a incident number or short description, you would search for <number>INC000000001</number> or <short_description>this is a short description</short_description>. ",
+          "id": "servicenow_group_create_v1",
+          "description": "Creates a new Service Now user group.",
+          "detailedDescription": "This handler allows you to create a new group on Service Now. It takes the input parameters and then passes them in a REST call to Service Now to create the event. If there was an error with creating the user group, this handler will catch and re-throw the error. ",
           "parameters": {
-            "Query XML": "The query string for what incidents should be returned in xml format."
+            "Name": "The name of the new user group.",
+            "Group Email": "The group email of the new user group.",
+            "Manager": "The manager id of the new user group.",
+            "Parent": "The parent id of the new user group.",
+            "Description": "The description of the new user group."
           },
           "sampleConfiguration": {
-            "Query XML": "<__encoded_query>sys_created_on > 2014-01-01</__encoded_query>"
+            "Name": "Sample Name",
+            "Group Email": "joe.user@acme.com",
+            "Manager": "9ww1t13vu6112271007x9v0wxvt69uv0",
+            "Parent": "287ww6xws9xw198100svs7950v0t1t73",
+            "Description": "Sample Description"
           },
           "results": {
-            "XML": "All sys_id's that match the query formatted in XML "
+            "sys_id": "Returns the sys_id of the user group that was just created "
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2017-09-22",
+              "description": "* Moving from the Service Now JSON Web Service (no longer supported) to the REST API."
+            },
             "1": {
               "version": "1",
-              "date": "2014-05-30",
+              "date": "2013-07-29",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "ServiceNow Incident Search v1 (2014-05-30)\n* Initial version.  See README for details.\n",
+          "changelogText": "Servicenow Group Create V1.1 (2017-09-22)\n* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n\nServicenow Group Create V1 (2013-07-29)\n* Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -14366,108 +14372,82 @@
           ]
         },
         {
-          "name": "ServiceNow Change Update",
+          "name": "ServiceNow Object Update",
           "version": "1",
-          "id": "servicenow_change_update_v1",
-          "description": "This handler allows you to update a change request on Service Now.",
-          "detailedDescription": "This handler allows you to update a change request on Service Now. It takes the input parameters and then passes them in a REST call to Service Now to update the change request. ",
+          "id": "servicenow_object_update_v1",
+          "description": "Generically updates an object in a ServiceNow table when given a table name, a id, and a JSON body containing the parts of the object that should be updated.",
+          "detailedDescription": "This handler allows you to generically update an existing object in a ServiceNow table by passing an id and the fields/values that should be updated on the object in a JSON body. Using the ServiceNow REST API and basic authentication, a URL and a PUT body are created using the inputted parameters which is then sent to ServiceNow. If the REST call is successful and the included id exists, the handler will complete and return an empty result set. ",
           "parameters": {
-            "Change Request Id": "sys_id of the change request",
-            "Approval": "Approval level for this change request",
-            "Assigned To Id": "User sys_id of the person this is assigned to",
-            "Assignment Group Id": "sys_id of assignment group",
-            "Category": "Category",
-            "Configuration Item Id": "The sys_id of the configuration item you wish to relate this change request to",
-            "Description": "Full description of this change request",
-            "Impact": "The impact level of this change request",
-            "Number": "Change request number only if you want to specify to certain number",
-            "Priority": "The priority of this chagne request",
-            "Requested By Id": "sys_id value of person requesting change",
-            "Risk": "The risk level of this change request",
-            "Short Description": "Short description of this change request",
-            "Type": "Set operation type"
+            "Table": "The name of the table to update the object in (ie. change_request,incident,task,etc).",
+            "Id": "The id of the object to update.",
+            "JSON Body": "The JSON body containing the fields that should be updated."
           },
           "sampleConfiguration": {
-            "Change Request Id": "<%=@results['servicenow_change_retrieve_v1']['sys_id']%>",
-            "Approval": "Approved",
-            "Assigned To Id": "<%=@results['servicenow_user_retrieve_v1']['sys_id']%>",
-            "Assignment Group Id": "",
-            "Category": "Software",
-            "Configuration Item Id": "",
-            "Description": "Database write error when updating user.",
-            "Impact": "2 - Medium",
-            "Number": "",
-            "Priority": "",
-            "Requested By Id": "",
-            "Risk": "Moderate",
-            "Short Description": "",
-            "Type": ""
+            "Table": "incident",
+            "Id": "ea45634c4f5103004491b3728110c7ac",
+            "JSON Body": "{\"short_description\": \"Changed the description\"}"
           },
           "results": {
           },
           "changelog": {
-            "1.1": {
-              "version": "1.1",
-              "date": "2017-09-21",
-              "description": "* Moving from the Service Now JSON Web Service (no longer supported) to the REST API."
-            },
             "1": {
               "version": "1",
-              "date": "2013-07-30",
+              "date": "2017-09-14",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Servicenow Change Update V1.1 (2017-09-21)\n* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n\nServicenow Change Update V1 (2013-07-30)\n* Initial version.  See README for details.\n",
+          "changelogText": "ServiceNow Object Update V1 (2017-09-14)\n* Initial version.  See README for details.\n",
           "warnings": [
 
           ]
         },
         {
-          "name": "ServiceNow Group Retrieve",
+          "name": "ServiceNow Incident Create",
           "version": "2",
-          "id": "servicenow_group_retrieve_v2",
-          "description": "Retrieves a Service Now user group",
-          "detailedDescription": "This handler allows you to retrieve a user group from service now. It will use a field that has a unique identifier, the sys_id, and its value to retrieve a unique result. \n\n\n#### Info\nThe server field is for your instance of service now. It is whatever subdomain you belong to i.e. server.service-now.com ",
+          "id": "servicenow_incident_create_v2",
+          "description": "ServiceNow, create a new incident.",
+          "detailedDescription": "This handler allows you to create a new incident for service now. \n\n\n#### Info\nThe server field is for your instance of service now. It is whatever subdomain you belong to i.e. server.service-now.com ",
           "parameters": {
-            "Sys Id": "The Sys ID of the unique identifier used to retrieve the desired user group."
+            "Category": "Category of the incident to be created",
+            "Short Description": "The description of the incident to be created.",
+            "Impact Level": "The priority level of the incident to be created.",
+            "Urgency Level": "The urgency level of the incident to be created.",
+            "Contact Type": "Form of reporting the incident",
+            "Caller Id": "The id of the caller",
+            "Location": "Usually the caller's location",
+            "Configuration Item Id": "Configuration Item Id",
+            "Assignment Group Id": "The id of a group to assign this incident to",
+            "Assigned To Id": "The id of a person to assign this to"
           },
           "sampleConfiguration": {
-            "Sys Id": "b85d44954a3623120004689b2d5dd60a"
+            "Category": "(By Menu) Hardaware",
+            "Short Description": "Overheating CPU",
+            "Impact Level": "(By Menu) 1 - High",
+            "Urgency Level": "(By Menu) 1 - High",
+            "Contact Type": "Email",
+            "Caller Id": "<%=@results['servicenow_retrieve_sys_user_v1_1']['sys_id']%>",
+            "Location": "<%=@results['servicenow_retrieve_sys_user_v1_1']['location']%>",
+            "Configuration Item Id": "00a96c0d3790200044e0bfc8bcbe5db4",
+            "Assignment Group Id": "5d000ca93790200044e0bfc8bcbe5d8c",
+            "Assigned To Id": "04a9a80d3790200044e0bfc8bcbe5d1b"
           },
           "results": {
-            "active": "",
-            "cost_center": "",
-            "default_assignee": "",
-            "description": "",
-            "email": "",
-            "exclude_manager": "",
-            "include_members": "",
-            "manager": "",
-            "name": "",
-            "parent": "",
-            "roles": "",
-            "source": "",
-            "sys_created_by": "",
-            "sys_created_on": "",
-            "sys_id": "",
-            "sys_mod_count": "",
-            "sys_updated_by": "",
-            "sys_updated_on": "",
-            "type": ""
+            "Incident Number": "Number of the incident that was created ",
+            "System Id": "sys_id of the incident that was created "
           },
           "changelog": {
             "2": {
               "version": "2",
-              "date": "2017-09-25",
-              "description": "* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n* Changed to only retrieve by sys_id (removed retrieve by query) due to API changes."
+              "date": "2015-07-22",
+              "description": "* Moving from the Service Now JSON Web Service (no longer supported) to the REST API."
             },
             "1": {
               "version": "1",
-              "date": "2013-07-29",
+              "date": "2013-07-26",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Servicenow Group Retrieve V2 (2017-09-25)\n* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n* Changed to only retrieve by sys_id (removed retrieve by query) due to API changes.\n\nServicenow Group Retrieve V1 (2013-07-29)\n* Initial version.  See README for details.\n",
+          "changelogText": "ServiceNow Incident Create V2 (2015-07-22)\n* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n\nServiceNow Incident Create v1 (2013-07-26)\n* Initial version.  See README for details.",
           "warnings": [
 
           ]
@@ -14581,19 +14561,178 @@
           ]
         },
         {
-          "name": "ServiceNow Group Create",
+          "name": "ServiceNow Incident Update",
           "version": "1",
-          "id": "servicenow_group_create_v1",
-          "description": "Creates a new Service Now user group.",
-          "detailedDescription": "This handler allows you to create a new group on Service Now. It takes the input parameters and then passes them in a REST call to Service Now to create the event. If there was an error with creating the user group, this handler will catch and re-throw the error. ",
+          "id": "servicenow_incident_update_v1",
+          "description": "ServiceNow, update an incident.",
+          "detailedDescription": "This handler allows you to update an existing incident on Service Now. It takes the input parameters and then passes them in a REST call to Service Now to update the incident. ",
           "parameters": {
-            "Name": "The name of the new user group.",
-            "Group Email": "The group email of the new user group.",
-            "Manager": "The manager id of the new user group.",
-            "Parent": "The parent id of the new user group.",
-            "Description": "The description of the new user group."
+            "Sys Id": "ID value of the incident you wish to update",
+            "Category": "Category",
+            "Short Description": "The description of the incident to be created.",
+            "Impact Level": "The priority level of the incident to be created.",
+            "Urgency Level": "The urgency level of the incident to be created.",
+            "Contact Type": "Form of reporting the incident",
+            "Caller Id": "The id of the caller",
+            "Location": "Usually the caller's location",
+            "Configuration Item Id": "Configuration Item Id",
+            "Assignment Group Id": "The id of a group to assign this incident to",
+            "Assigned To Id": "The id of a person to assign this to"
           },
           "sampleConfiguration": {
+            "Sys Id": "8c49f4f14f110300e7cd4fe18110c79b",
+            "Category": "(By Menu) Hardaware",
+            "Short Description": "Overheating CPU",
+            "Impact Level": "(By Menu) 1 - High",
+            "Urgency Level": "(By Menu) 1 - High",
+            "Contact Type": "Email",
+            "Caller Id": "<%=@results['servicenow_retrieve_sys_user_v1_1']['sys_id']%>",
+            "Location": "<%=@results['servicenow_retrieve_sys_user_v1_1']['location']%>",
+            "Configuration Item Id": "00a96c0d3790200044e0bfc8bcbe5db4",
+            "Assignment Group Id": "5d000ca93790200044e0bfc8bcbe5d8c",
+            "Assigned To Id": "04a9a80d3790200044e0bfc8bcbe5d1b"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2017-09-19",
+              "description": "* Moving from the Service Now JSON Web Service (no longer supported) to the REST API."
+            },
+            "1": {
+              "version": "1",
+              "date": "2013-07-26",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "ServiceNow Incident Update V1.1 (2017-09-19)\n* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n\nServiceNow Incident Update V1 (2013-07-26)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "ServiceNow Group Retrieve",
+          "version": "2",
+          "id": "servicenow_group_retrieve_v2",
+          "description": "Retrieves a Service Now user group",
+          "detailedDescription": "This handler allows you to retrieve a user group from service now. It will use a field that has a unique identifier, the sys_id, and its value to retrieve a unique result. \n\n\n#### Info\nThe server field is for your instance of service now. It is whatever subdomain you belong to i.e. server.service-now.com ",
+          "parameters": {
+            "Sys Id": "The Sys ID of the unique identifier used to retrieve the desired user group."
+          },
+          "sampleConfiguration": {
+            "Sys Id": "b85d44954a3623120004689b2d5dd60a"
+          },
+          "results": {
+            "active": "",
+            "cost_center": "",
+            "default_assignee": "",
+            "description": "",
+            "email": "",
+            "exclude_manager": "",
+            "include_members": "",
+            "manager": "",
+            "name": "",
+            "parent": "",
+            "roles": "",
+            "source": "",
+            "sys_created_by": "",
+            "sys_created_on": "",
+            "sys_id": "",
+            "sys_mod_count": "",
+            "sys_updated_by": "",
+            "sys_updated_on": "",
+            "type": ""
+          },
+          "changelog": {
+            "2": {
+              "version": "2",
+              "date": "2017-09-25",
+              "description": "* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n* Changed to only retrieve by sys_id (removed retrieve by query) due to API changes."
+            },
+            "1": {
+              "version": "1",
+              "date": "2013-07-29",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Servicenow Group Retrieve V2 (2017-09-25)\n* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n* Changed to only retrieve by sys_id (removed retrieve by query) due to API changes.\n\nServicenow Group Retrieve V1 (2013-07-29)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "ServiceNow Change Create",
+          "version": "1",
+          "id": "servicenow_change_create_v1",
+          "description": "This handler allows you to create a new change request on Service Now.",
+          "detailedDescription": "This handler allows you to create a new change request on Service Now. It takes the input parameters and then passes them in a REST call to Service Now to create the change request. ",
+          "parameters": {
+            "Number": "Change request number only if you want to specify to certain number",
+            "Requested By Id": "sys_id value of person requesting change",
+            "Category": "Category of the change request",
+            "Configuration Item Id": "The sys_id of the configuration item you wish to relate this change request to",
+            "Priority": "The priority of this change request",
+            "Risk": "The risk level of this change request",
+            "Impact": "The impact level of this change request",
+            "Short Description": "Short description of this change request",
+            "Description": "Full description of this change request",
+            "Approval": "Approval level for this change request",
+            "Type": "Set operation type",
+            "Assignment Group Id": "sys_id of assignment group",
+            "Assigned To Id": "User sys_id of the person this is assigned to"
+          },
+          "sampleConfiguration": {
+            "Number": "",
+            "Requested By Id": "<%=@results['servicenow_user_retrieve_v1']['sys_id']%>",
+            "Category": "Software",
+            "Configuration Item Id": "04a96c0d3790200044e0bfc8bcbe5db3",
+            "Priority": "2 - High",
+            "Risk": "Very High",
+            "Impact": "2 - Medium",
+            "Short Description": "Database write error",
+            "Description": "Database write error when updating user",
+            "Approval": "Approved",
+            "Type": "Emergency",
+            "Assignment Group Id": "<%=@results['servicenow_group_retrieve_v1']['sys_id']%>",
+            "Assigned To Id": "<%=@results['servicenow_user_retrieve_v1']['sys_id']%>"
+          },
+          "results": {
+            "sys_id": "The unique id representing the new change request "
+          },
+          "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2017-09-21",
+              "description": "* Moving from the Service Now JSON Web Service (no longer supported) to the REST API."
+            },
+            "1": {
+              "version": "1",
+              "date": "2013-07-29",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Servicenow Change Create V1.1 (2017-09-21)\n* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n\nServicenow Change Create V1 (2013-07-29)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "ServiceNow Group Update",
+          "version": "1",
+          "id": "servicenow_group_update_v1",
+          "description": "Updates an existing Service Now user group.",
+          "detailedDescription": "This handler allows you to update a uer group for service now. It uses the unique sys_id to determine what group to update and then takes the input parameters and passes them in a REST call to Service Now to update the group. Any fields left empty will not be updated. An error will be thrown if the sys_id does not correspond to a valid user group. ",
+          "parameters": {
+            "Sys Id": "The sys_id of the user group you want to update.",
+            "Name": "The new name of the user group.",
+            "Group Email": "The new group email of the user group.",
+            "Manager": "The new manager id of the user group.",
+            "Parent": "The new parent id of the user group.",
+            "Description": "The new description of the user group."
+          },
+          "sampleConfiguration": {
+            "Sys Id": "vt53580t0s0s0s6501ss37u294s2ts6t",
             "Name": "Sample Name",
             "Group Email": "joe.user@acme.com",
             "Manager": "9ww1t13vu6112271007x9v0wxvt69uv0",
@@ -14601,7 +14740,6 @@
             "Description": "Sample Description"
           },
           "results": {
-            "sys_id": "Returns the sys_id of the user group that was just created "
           },
           "changelog": {
             "1.1": {
@@ -14615,7 +14753,64 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Servicenow Group Create V1.1 (2017-09-22)\n* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n\nServicenow Group Create V1 (2013-07-29)\n* Initial version.  See README for details.\n",
+          "changelogText": "Servicenow Group Update V1.1 (2017-09-22)\n* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n\nServicenow Group Update V1 (2013-07-29)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "ServiceNow Change Update",
+          "version": "1",
+          "id": "servicenow_change_update_v1",
+          "description": "This handler allows you to update a change request on Service Now.",
+          "detailedDescription": "This handler allows you to update a change request on Service Now. It takes the input parameters and then passes them in a REST call to Service Now to update the change request. ",
+          "parameters": {
+            "Change Request Id": "sys_id of the change request",
+            "Approval": "Approval level for this change request",
+            "Assigned To Id": "User sys_id of the person this is assigned to",
+            "Assignment Group Id": "sys_id of assignment group",
+            "Category": "Category",
+            "Configuration Item Id": "The sys_id of the configuration item you wish to relate this change request to",
+            "Description": "Full description of this change request",
+            "Impact": "The impact level of this change request",
+            "Number": "Change request number only if you want to specify to certain number",
+            "Priority": "The priority of this chagne request",
+            "Requested By Id": "sys_id value of person requesting change",
+            "Risk": "The risk level of this change request",
+            "Short Description": "Short description of this change request",
+            "Type": "Set operation type"
+          },
+          "sampleConfiguration": {
+            "Change Request Id": "<%=@results['servicenow_change_retrieve_v1']['sys_id']%>",
+            "Approval": "Approved",
+            "Assigned To Id": "<%=@results['servicenow_user_retrieve_v1']['sys_id']%>",
+            "Assignment Group Id": "",
+            "Category": "Software",
+            "Configuration Item Id": "",
+            "Description": "Database write error when updating user.",
+            "Impact": "2 - Medium",
+            "Number": "",
+            "Priority": "",
+            "Requested By Id": "",
+            "Risk": "Moderate",
+            "Short Description": "",
+            "Type": ""
+          },
+          "results": {
+          },
+          "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2017-09-21",
+              "description": "* Moving from the Service Now JSON Web Service (no longer supported) to the REST API."
+            },
+            "1": {
+              "version": "1",
+              "date": "2013-07-30",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Servicenow Change Update V1.1 (2017-09-21)\n* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n\nServicenow Change Update V1 (2013-07-30)\n* Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -14738,65 +14933,6 @@
           ]
         },
         {
-          "name": "ServiceNow Object Update",
-          "version": "1",
-          "id": "servicenow_object_update_v1",
-          "description": "Generically updates an object in a ServiceNow table when given a table name, a id, and a JSON body containing the parts of the object that should be updated.",
-          "detailedDescription": "This handler allows you to generically update an existing object in a ServiceNow table by passing an id and the fields/values that should be updated on the object in a JSON body. Using the ServiceNow REST API and basic authentication, a URL and a PUT body are created using the inputted parameters which is then sent to ServiceNow. If the REST call is successful and the included id exists, the handler will complete and return an empty result set. ",
-          "parameters": {
-            "Table": "The name of the table to update the object in (ie. change_request,incident,task,etc).",
-            "Id": "The id of the object to update.",
-            "JSON Body": "The JSON body containing the fields that should be updated."
-          },
-          "sampleConfiguration": {
-            "Table": "incident",
-            "Id": "ea45634c4f5103004491b3728110c7ac",
-            "JSON Body": "{\"short_description\""
-          },
-          "results": {
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-09-14",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "ServiceNow Object Update V1 (2017-09-14)\n* Initial version.  See README for details.\n",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "ServiceNow Object Create",
-          "version": "1",
-          "id": "servicenow_object_create_v1",
-          "description": "Generically creates an object from a ServiceNow table when given a table name and a JSON body",
-          "detailedDescription": "This handler allows you to generically create a new object in a ServiceNow table by passing the fields/values of the object in a JSON body. Using the ServiceNow REST API and basic authentication, a URL and a POST body are are created using the inputted parameters which is then sent to ServiceNow. If the REST call is successful, the Id of the created object will be returned from the handler results. ",
-          "parameters": {
-            "Table": "The name of the table to create the object in (ie. change_request,incident, task,etc).",
-            "JSON Body": "The JSON body of the object to create."
-          },
-          "sampleConfiguration": {
-            "Table": "incident",
-            "JSON Body": "{\"category\""
-          },
-          "results": {
-            "Id": "The id of the newly created object. "
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-09-14",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "ServiceNow Object Create V1 (2017-09-14)\n* Initial version.  See README for details.\n",
-          "warnings": [
-
-          ]
-        },
-        {
           "name": "ServiceNow Object Delete",
           "version": "1",
           "id": "servicenow_object_delete_v1",
@@ -14825,166 +14961,30 @@
           ]
         },
         {
-          "name": "ServiceNow User Create",
+          "name": "ServiceNow Object Create",
           "version": "1",
-          "id": "servicenow_user_create_v1",
-          "description": "ServiceNow, create a new user.",
-          "detailedDescription": "This handler allows you to create a new user on Service Now. It takes the input parameters and then passes them in a REST call to Service Now to create the user. ",
+          "id": "servicenow_object_create_v1",
+          "description": "Generically creates an object from a ServiceNow table when given a table name and a JSON body",
+          "detailedDescription": "This handler allows you to generically create a new object in a ServiceNow table by passing the fields/values of the object in a JSON body. Using the ServiceNow REST API and basic authentication, a URL and a POST body are are created using the inputted parameters which is then sent to ServiceNow. If the REST call is successful, the Id of the created object will be returned from the handler results. ",
           "parameters": {
-            "User Id": "Username of the person",
-            "First Name": "First name of the user",
-            "Last Name": "Last name of the user",
-            "Title": "Title of the user",
-            "Department Id": "Id of the department",
-            "Password": "password for the user if needed",
-            "Password Needs Reset": "Select if you would like to require the user to reset their password",
-            "Locked Out": "Select this if you would like the user to be locked out at first",
-            "Active": "Select this if you would like the user to be active immediately",
-            "Date Format": "How dates will appear to the user",
-            "Email": "Email address of the user",
-            "Time Zone": "Timezone used by this user",
-            "Business Phone": "Primary business phone number for the user",
-            "Mobile Phone": "Mobile/Cell phone number of the user"
+            "Table": "The name of the table to create the object in (ie. change_request,incident, task,etc).",
+            "JSON Body": "The JSON body of the object to create."
           },
           "sampleConfiguration": {
-            "User Id": "john.doe",
-            "First Name": "John",
-            "Last Name": "Doe",
-            "Title": "Manager",
-            "Department Id": "148128sd8f7871899sd98f",
-            "Password": "pass01",
-            "Password Needs Reset": "yes",
-            "Locked Out": "no",
-            "Active": "yes",
-            "Date Format": "yyyy-MM-dd",
-            "Email": "john.doe@example.com",
-            "Time Zone": "US/Central",
-            "Business Phone": "555-555-5555",
-            "Mobile Phone": "666-666-6666"
+            "Table": "incident",
+            "JSON Body": "{\"category\": \"Software\", \"short_description\": \"Test Incident\"}"
           },
           "results": {
-            "Sys Id": "The unique system id of the new user is returned "
+            "Id": "The id of the newly created object. "
           },
           "changelog": {
-            "1.1": {
-              "version": "1.1",
-              "date": "2017-09-21",
-              "description": "* Moving from the Service Now JSON Web Service (no longer supported) to the REST API."
-            },
             "1": {
               "version": "1",
-              "date": "2013-07-29",
+              "date": "2017-09-14",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Servicenow User Create V1.1 (2017-09-21)\n* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n\nServicenow User Create V1 (2013-07-29)\n* Initial version.  See README for details.\n",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "ServiceNow Change Create",
-          "version": "1",
-          "id": "servicenow_change_create_v1",
-          "description": "This handler allows you to create a new change request on Service Now.",
-          "detailedDescription": "This handler allows you to create a new change request on Service Now. It takes the input parameters and then passes them in a REST call to Service Now to create the change request. ",
-          "parameters": {
-            "Number": "Change request number only if you want to specify to certain number",
-            "Requested By Id": "sys_id value of person requesting change",
-            "Category": "Category of the change request",
-            "Configuration Item Id": "The sys_id of the configuration item you wish to relate this change request to",
-            "Priority": "The priority of this change request",
-            "Risk": "The risk level of this change request",
-            "Impact": "The impact level of this change request",
-            "Short Description": "Short description of this change request",
-            "Description": "Full description of this change request",
-            "Approval": "Approval level for this change request",
-            "Type": "Set operation type",
-            "Assignment Group Id": "sys_id of assignment group",
-            "Assigned To Id": "User sys_id of the person this is assigned to"
-          },
-          "sampleConfiguration": {
-            "Number": "",
-            "Requested By Id": "<%=@results['servicenow_user_retrieve_v1']['sys_id']%>",
-            "Category": "Software",
-            "Configuration Item Id": "04a96c0d3790200044e0bfc8bcbe5db3",
-            "Priority": "2 - High",
-            "Risk": "Very High",
-            "Impact": "2 - Medium",
-            "Short Description": "Database write error",
-            "Description": "Database write error when updating user",
-            "Approval": "Approved",
-            "Type": "Emergency",
-            "Assignment Group Id": "<%=@results['servicenow_group_retrieve_v1']['sys_id']%>",
-            "Assigned To Id": "<%=@results['servicenow_user_retrieve_v1']['sys_id']%>"
-          },
-          "results": {
-            "sys_id": "The unique id representing the new change request "
-          },
-          "changelog": {
-            "1.1": {
-              "version": "1.1",
-              "date": "2017-09-21",
-              "description": "* Moving from the Service Now JSON Web Service (no longer supported) to the REST API."
-            },
-            "1": {
-              "version": "1",
-              "date": "2013-07-29",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Servicenow Change Create V1.1 (2017-09-21)\n* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n\nServicenow Change Create V1 (2013-07-29)\n* Initial version.  See README for details.\n",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "ServiceNow Incident Update",
-          "version": "1",
-          "id": "servicenow_incident_update_v1",
-          "description": "ServiceNow, update an incident.",
-          "detailedDescription": "This handler allows you to update an existing incident on Service Now. It takes the input parameters and then passes them in a REST call to Service Now to update the incident. ",
-          "parameters": {
-            "Sys Id": "ID value of the incident you wish to update",
-            "Category": "Category",
-            "Short Description": "The description of the incident to be created.",
-            "Impact Level": "The priority level of the incident to be created.",
-            "Urgency Level": "The urgency level of the incident to be created.",
-            "Contact Type": "Form of reporting the incident",
-            "Caller Id": "The id of the caller",
-            "Location": "Usually the caller's location",
-            "Configuration Item Id": "Configuration Item Id",
-            "Assignment Group Id": "The id of a group to assign this incident to",
-            "Assigned To Id": "The id of a person to assign this to"
-          },
-          "sampleConfiguration": {
-            "Sys Id": "8c49f4f14f110300e7cd4fe18110c79b",
-            "Category": "(By Menu) Hardaware",
-            "Short Description": "Overheating CPU",
-            "Impact Level": "(By Menu) 1 - High",
-            "Urgency Level": "(By Menu) 1 - High",
-            "Contact Type": "Email",
-            "Caller Id": "<%=@results['servicenow_retrieve_sys_user_v1_1']['sys_id']%>",
-            "Location": "<%=@results['servicenow_retrieve_sys_user_v1_1']['location']%>",
-            "Configuration Item Id": "00a96c0d3790200044e0bfc8bcbe5db4",
-            "Assignment Group Id": "5d000ca93790200044e0bfc8bcbe5d8c",
-            "Assigned To Id": "04a9a80d3790200044e0bfc8bcbe5d1b"
-          },
-          "results": {
-          },
-          "changelog": {
-            "1.1": {
-              "version": "1.1",
-              "date": "2017-09-19",
-              "description": "* Moving from the Service Now JSON Web Service (no longer supported) to the REST API."
-            },
-            "1": {
-              "version": "1",
-              "date": "2013-07-26",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "ServiceNow Incident Update V1.1 (2017-09-19)\n* Moving from the Service Now JSON Web Service (no longer supported) to the REST API.\n\nServiceNow Incident Update V1 (2013-07-26)\n* Initial version.  See README for details.\n",
+          "changelogText": "ServiceNow Object Create V1 (2017-09-14)\n* Initial version.  See README for details.\n",
           "warnings": [
 
           ]
