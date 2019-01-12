@@ -12364,100 +12364,22 @@
       "icon": "https://task-handlers.s3.amazonaws.com/nagios/nagios.png",
       "handlerList": [
         {
-          "name": "Nagios XI Apply Config",
+          "name": "Nagios XI Create Hostgroup",
           "version": "1",
-          "id": "nagios_xi_update_system_apply_config_v1",
-          "description": "This handler runs the apply config command which triggers a Nagios Core restart.",
-          "detailedDescription": "This handler runs the apply config command which triggers a Nagios Core restart. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-system-reference.php#system-applyconfig) \n\n\n#### Parameters\r\n[error handling] Required. Determine what to return if an error is encountered. \n\n[return response] Required. true or false. Determines if Kinetic Task returns the Nagios response output. \n\n",
-          "parameters": {
-            "error handling": "Determine what to return if an error is encountered.",
-            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output."
-          },
-          "sampleConfiguration": {
-            "error handling": "Raise Error",
-            "return response": "yes"
-          },
-          "results": {
-            "Handler Error Message": "Error message if set to return - blank if no errors. ",
-            "Nagios XI Response": "Nagios response if set to return. "
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-11-26",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Nagios XI Apply Config v1 (2017-11-26)\r\n * Initial version.  See README for details.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Nagios XI Create Host",
-          "version": "1",
-          "id": "nagios_xi_create_config_host_v1",
-          "description": "This handler creates a new Nagios XI host object.",
-          "detailedDescription": "This handler creates a new host object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#add-host) \n\n\n#### Parameters\r\n[error handling] Required. Determine what to return if an error is encountered. Valid values: Error Message or Raise Error \n\n[return_response] Required. Determines if Kinetic Task sets the Nagios XI Response output. Valid values: true or false \n\n[host name] Required. Host name to apply to the new host \n\n[ip address] Required. IP address of the new host \n\n\n\n[max check attempts] Required. Max number of attempts to try adding the host. \n\n\n\n[check period] Required. Time period name for when checks take place for this host. \n\n\n\n[contacts] Optional - sort of. Nagios usernames to notify for alerts with this host. Comma seperated. Use this parameter **or** the contact groups parameter. \n\n\n\n[contact groups] Optional - sort of. Nagios group names to notify for alerts with this host. Comma seperated. Use this parameter **or** the contacts parameter. \n\n\n\n[notification interval] Required. Interval check period in minutes for alert notifications on this host. \n\n\n\n[notification period] Required. \n\n\n\n[apply config] Required. 1 or 0 for true or false. By default the Nagios Core service is not restarted when an object is created or deleted via the API. You may change the default behavior by setting this parameter to 1 which will import the data into your configuration and will restart the Nagios Core service. \n\n\n\n",
-          "parameters": {
-            "error handling": "Determine what to return if an error is encountered.",
-            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
-            "host name": "Host name to apply to the new host.",
-            "ip address": "IP address of the new host.",
-            "max check attempts": "Max number of attempts to try adding the host.",
-            "check period": "Time period name for when checks take place for this host.",
-            "contacts": "Nagios usernames to notify for alerts with this host. Comma separated. Use this parameter *or* the contact groups parameter.",
-            "contact groups": "Nagios group names to notify for alerts with this host. Comma separated. Use this parameter *or* the contacts parameter.",
-            "notification interval": "Interval check period in minutes for alert notifications on this host.",
-            "notification period": "Notification time period name. Determines the time period that notifications take place in.",
-            "apply config": "1 or 0 for true or false. 1 will restart the Nagios Core service and apply the change."
-          },
-          "sampleConfiguration": {
-            "error handling": "Raise Error",
-            "return response": "yes",
-            "host name": "testapihostapply",
-            "ip address": "127.0.0.1",
-            "max check attempts": "2",
-            "check period": "24x7",
-            "contacts": "nagiosadmin",
-            "contact groups": "",
-            "notification interval": "5",
-            "notification period": "24x7",
-            "apply config": "0"
-          },
-          "results": {
-            "Handler Error Message": "Error message if set to return - blank if no errors. ",
-            "Nagios XI Response": "Nagios response if set to return. "
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-11-26",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Nagios XI Create Host v1 (2017-11-26)\r\n * Initial version.  See README for details.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Nagios XI Create Servicegroup",
-          "version": "1",
-          "id": "nagios_xi_create_config_servicegroup_v1",
+          "id": "nagios_xi_create_config_hostgroup_v1",
           "description": "This handler creates a new Nagios XI hostgroup object.",
-          "detailedDescription": "This handler creates a new servicegroup object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#add-servicegroup) \n\n\n#### Parameters  \r\n[error handling] Required. Determine what to return if an error is encountered. \n\n[return response] Required. true or false. Determines if Kinetic Task returns the Nagios response output. \n\n[servicegroup name] Required. New servicegroup name. \n\n[alias] Required. \n\n[apply config] Required. 1 or 0 for true or false. By default the Nagios Core service is not restarted when an object is created or deleted via the API. You may change the default behavior by setting this parameter to 1 which will import the data into your configuration and will restart the Nagios Core service. \n\n\n\n",
+          "detailedDescription": "This handler creates a new hostgroup object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#add-hostgroup) \n\n",
           "parameters": {
             "error handling": "Determine what to return if an error is encountered.",
             "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
-            "servicegroup name": "New servicegroup name to create.",
-            "alias": "Alias to apply to servicegroup.",
+            "hostgroup name": "New hostgroup name to create.",
+            "alias": "Alias to apply to hostgroup.",
             "apply config": "1 or 0 for true or false. 1 will restart the Nagios Core service and apply the change."
           },
           "sampleConfiguration": {
             "error handling": "Raise Error",
             "return response": "yes",
-            "servicegroup name": "testapiservicegroup",
+            "hostgroup name": "testapihostgroup",
             "alias": "127.0.0.1",
             "apply config": "0"
           },
@@ -12472,9 +12394,55 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Nagios XI Create Servicegroup v1 (2017-11-26)\r\n * Initial version.  See README for details.",
+          "changelogText": "Nagios XI Create Hostgroup v1 (2017-11-26)\r\n * Initial version.  See README for details.",
           "warnings": [
 
+          ]
+        },
+        {
+          "name": "Nagios XI Create Host",
+          "version": "1",
+          "id": "nagios_xi_create_config_host_v1",
+          "description": "This handler creates a new Nagios XI host object.",
+          "detailedDescription": "This handler creates a new host object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#add-host) \n\n",
+          "parameters": {
+            "error handling": "Determine what to return if an error is encountered.",
+            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
+            "host name": "Host name to apply to the new host.",
+            "ip address": "IP address of the new host.",
+            "max check attempts": "Max number of attempts to try adding the host.",
+            "check period": "Time period name for when checks take place for this host.",
+            "contacts": "Nagios usernames to notify for alerts with this host. Comma seperated. Use this parameter *or* the contact groups parameter.",
+            "contact groups": "Nagios group names to notify for alerts with this host. Comma seperated. Use this parameter *or* the contacts parameter.",
+            "notification interval": "Interval check period in minutes for alert notifications on this host.",
+            "notification period": "Notification time period name. Determines the time period that notifications take place in.",
+            "apply config": "1 or 0 for true or false. 1 will restart the Nagios Core service and apply the change."
+          },
+          "sampleConfiguration": {
+            "error handling": "",
+            "return response": "",
+            "host name": "",
+            "ip address": "",
+            "max check attempts": "",
+            "check period": "",
+            "contacts": "",
+            "contact groups": "",
+            "notification interval": "",
+            "notification period": "",
+            "apply config": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if set to return - blank if no errors. ",
+            "Nagios XI Response": "",
+            "Nagios response": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "Nagios Xi Create Config Host V1 (2017-11-26)\n * Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: error handling, return response, host name, ip address, max check attempts, check period, contacts, contact groups, notification interval, notification period, apply config",
+            "The following are defined as results but can't be found in the Results section in the README: Nagios response",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
         {
@@ -12482,7 +12450,7 @@
           "version": "1",
           "id": "nagios_xi_retrieve_system_users_v1",
           "description": "This handler retrieves user records from the Nagios XI system.",
-          "detailedDescription": "This handler retrieves user records from Nagios XI. [API Documentation](https://your.nagiosserver.com/nagiosxi/help/api-system-reference.php#user) \n\n\n#### Parameters\r\n[error handling] Determine what to return if an error is encountered. \n\n[return type] The format that the results should be returned in. \n\n[user id] Optional. User id of the user to retrieve. \n\n\n\n",
+          "detailedDescription": "This handler retrieves user records from Nagios XI. [API Documentation](https://your.nagiosserver.com/nagiosxi/help/api-system-reference.php#user) \n\n",
           "parameters": {
             "error handling": "Determine what to return if an error is encountered.",
             "return type": "The format that the results should be returned in.",
@@ -12510,11 +12478,151 @@
           ]
         },
         {
+          "name": "Nagios XI Delete User",
+          "version": "1",
+          "id": "nagios_xi_delete_system_user_v1",
+          "description": "This handler deletes a Nagios XI user object.",
+          "detailedDescription": "This handler deletes a user object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-system-reference.php#delete-user) \n\n",
+          "parameters": {
+            "error handling": "Determine what to return if an error is encountered.",
+            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
+            "user id": "User id to delete"
+          },
+          "sampleConfiguration": {
+            "error handling": "Raise Error",
+            "return response": "yes",
+            "user id": "2"
+          },
+          "results": {
+            "Handler Error Message": "Error message if set to return - blank if no errors. ",
+            "Nagios XI Response": "Nagios response if set to return. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-11-26",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Nagios XI Delete User v1 (2017-11-26)\r\n * Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "Nagios XI Import Config",
+          "version": "1",
+          "id": "nagios_xi_update_system_import_config_v1",
+          "description": "This handler runs the import command which imports all configuration files into the CCM. Nagios Core is *not* restarted.",
+          "detailedDescription": "This handler runs the import command which imports all configuration files into the CCM. Nagios Core is **not** restarted. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-system-reference.php#system-importconfig) \n\n",
+          "parameters": {
+            "error handling": "Determine what to return if an error is encountered.",
+            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output."
+          },
+          "sampleConfiguration": {
+            "error handling": "Raise Error",
+            "return response": "yes"
+          },
+          "results": {
+            "Handler Error Message": "Error message if set to return - blank if no errors. ",
+            "Nagios XI Response": "Nagios response if set to return. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-11-26",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Nagios XI Import Config v1 (2017-11-26)\r\n * Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "Nagios XI Retrieve Objects",
+          "version": "1",
+          "id": "nagios_xi_retrieve_objects_v1",
+          "description": "This handler retrieves object records from the Nagios XI system.",
+          "detailedDescription": "This handler retrieves object records from Nagios XI. [API Documentation](https://your.nagiosserver.com/nagiosxi/help/api-object-reference.php) \n\n",
+          "parameters": {
+            "error handling": "Determine what to return if an error is encountered.",
+            "return type": "The format that the results should be returned in.",
+            "object type": "The type of the object to retrieve.",
+            "start time": "Epoch start time for object record creation. Default -24 hours.",
+            "end time": "Epoch end time for object record creation. Defaults to now.",
+            "records": "Amount of records and optionally starting at. 10:20 Displays the the next 10 records after the 20th record. Defaults to all.",
+            "order by": "Specifies a column to sort on along with sort type. Example: name:d",
+            "columns": "Simple JSON object that has columns as keys and equality expressions as values in either string or array format. See README.md or community.kineticdata.com for examples."
+          },
+          "sampleConfiguration": {
+            "error handling": "Error Message",
+            "return type": "JSON",
+            "object type": "service",
+            "start time": "",
+            "end time": "",
+            "records": "",
+            "order by": "",
+            "columns": "{\"service_description\": <%= \"lk:#{@results['some echo node']['output']}\".inspect } %>}"
+          },
+          "results": {
+            "Handler Error Message": "Error message if set to return - blank if no errors. ",
+            "Nagios XI Response": "Nagios response if set to return. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-11-26",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Nagios XI Retrieve Objects v1 (2017-11-26)\r\n * Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "Nagios XI Delete Service",
+          "version": "1",
+          "id": "nagios_xi_delete_config_service_v1",
+          "description": "This handler deletes a Nagios XI host object.",
+          "detailedDescription": "This handler deletes a service object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#delete-service) \n\n",
+          "parameters": {
+            "error handling": "Determine what to return if an error is encountered.",
+            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
+            "host name": "Host the service is associated with.",
+            "service description": "Service name to remove.",
+            "apply config": "1 or 0 for true or false. 1 will restart the Nagios Core service and apply the change."
+          },
+          "sampleConfiguration": {
+            "error handling": "Raise Error",
+            "return response": "yes",
+            "host name": "testapihost",
+            "service description": "PING",
+            "apply config": "0"
+          },
+          "results": {
+            "Handler Error Message": "Error message if set to return - blank if no errors. ",
+            "Nagios XI Response": "Nagios response if set to return. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-11-26",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Nagios XI Delete Service v1 (2017-11-26)\r\n * Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
           "name": "Nagios XI Delete Host",
           "version": "1",
           "id": "nagios_xi_delete_config_host_v1",
           "description": "This handler deletes a Nagios XI host object.",
-          "detailedDescription": "This handler deletes a host object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#delete-host) \n\n\n#### Parameters\r\n[error handling] Required. Determine what to return if an error is encountered. \n\n[return response] Required. true or false. Determines if Kinetic Task returns the Nagios response output. \n\n[host name] Required. Host name to remove \n\n[apply config] Required. 1 or 0 for true or false. By default the Nagios Core service is not restarted when an object is created or deleted via the API. You may change the default behavior by setting this parameter to 1 which will import the data into your configuration and will restart the Nagios Core service. \n\n\n\n",
+          "detailedDescription": "This handler deletes a host object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#delete-host) \n\n",
           "parameters": {
             "error handling": "Determine what to return if an error is encountered.",
             "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
@@ -12548,7 +12656,7 @@
           "version": "1",
           "id": "nagios_xi_retrieve_system_status_v1",
           "description": "This handler retrieves the Nagios Core system status.",
-          "detailedDescription": "This handler retrieves the Nagios Core system status. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-system-reference.php#system-status) \n\n\n#### Parameters\r\n[error handling] Required. Determine what to return if an error is encountered. \n\n",
+          "detailedDescription": "This handler retrieves the Nagios Core system status. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-system-reference.php#system-status) \n\n",
           "parameters": {
             "error handling": "Determine what to return if an error is encountered."
           },
@@ -12572,187 +12680,11 @@
           ]
         },
         {
-          "name": "Nagios XI Create Hostgroup",
-          "version": "1",
-          "id": "nagios_xi_create_config_hostgroup_v1",
-          "description": "This handler creates a new Nagios XI hostgroup object.",
-          "detailedDescription": "This handler creates a new hostgroup object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#add-hostgroup) \n\n\n#### Parameters\r\n[error handling] Required. Determine what to return if an error is encountered. \n\n[return response] Required. true or false. Determines if Kinetic Task returns the Nagios response output. \n\n[hostgroup name] Required. New hostgroup name. \n\n[alias] Required. Alias name for the hostgroup. \n\n[apply config] Required. 1 or 0 for true or false. By default the Nagios Core service is not restarted when an object is created or deleted via the API. You may change the default behavior by setting this parameter to 1 which will import the data into your configuration and will restart the Nagios Core service. \n\n\n\n",
-          "parameters": {
-            "error handling": "Determine what to return if an error is encountered.",
-            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
-            "hostgroup name": "New hostgroup name to create.",
-            "alias": "Alias to apply to hostgroup.",
-            "apply config": "1 or 0 for true or false. 1 will restart the Nagios Core service and apply the change."
-          },
-          "sampleConfiguration": {
-            "error handling": "Raise Error",
-            "return response": "yes",
-            "hostgroup name": "testapihostgroup",
-            "alias": "127.0.0.1",
-            "apply config": "0"
-          },
-          "results": {
-            "Handler Error Message": "Error message if set to return - blank if no errors. ",
-            "Nagios XI Response": "Nagios response if set to return. "
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-11-26",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Nagios XI Create Hostgroup v1 (2017-11-26)\r\n * Initial version.  See README for details.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Nagios XI Import Config",
-          "version": "1",
-          "id": "nagios_xi_update_system_import_config_v1",
-          "description": "This handler runs the import command which imports all configuration files into the CCM. Nagios Core is *not* restarted.",
-          "detailedDescription": "This handler runs the import command which imports all configuration files into the CCM. Nagios Core is **not** restarted. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-system-reference.php#system-importconfig) \n\n\n#### Parameters\r\n[error handling] Required. Determine what to return if an error is encountered. \n\n[return response] Required. true or false. Determines if Kinetic Task returns the Nagios response output. \n\n",
-          "parameters": {
-            "error handling": "Determine what to return if an error is encountered.",
-            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output."
-          },
-          "sampleConfiguration": {
-            "error handling": "Raise Error",
-            "return response": "yes"
-          },
-          "results": {
-            "Handler Error Message": "Error message if set to return - blank if no errors. ",
-            "Nagios XI Response": "Nagios response if set to return. "
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-11-26",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Nagios XI Import Config v1 (2017-11-26)\r\n * Initial version.  See README for details.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Nagios XI Delete User",
-          "version": "1",
-          "id": "nagios_xi_delete_system_user_v1",
-          "description": "This handler deletes a Nagios XI user object.",
-          "detailedDescription": "This handler deletes a user object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-system-reference.php#delete-user) \n\n\n#### Parameters\r\n[error handling] Required. Determine what to return if an error is encountered. \n\n[return response] Required. true or false. Determines if Kinetic Task returns the Nagios response output. \n\n[user id] Required. User id, not name, to delete. This is a number value. \n\n",
-          "parameters": {
-            "error handling": "Determine what to return if an error is encountered.",
-            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
-            "user id": "User id to delete"
-          },
-          "sampleConfiguration": {
-            "error handling": "Raise Error",
-            "return response": "yes",
-            "user id": "2"
-          },
-          "results": {
-            "Handler Error Message": "Error message if set to return - blank if no errors. ",
-            "Nagios XI Response": "Nagios response if set to return. "
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-11-26",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Nagios XI Delete User v1 (2017-11-26)\r\n * Initial version.  See README for details.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Nagios XI Retrieve Objects",
-          "version": "1",
-          "id": "nagios_xi_retrieve_objects_v1",
-          "description": "This handler retrieves object records from the Nagios XI system.",
-          "detailedDescription": "This handler retrieves object records from Nagios XI. [API Documentation](https://your.nagiosserver.com/nagiosxi/help/api-object-reference.php) \n\n\n#### Parameters\r\n[error handling] Determine what to return if an error is encountered. \n\n[return type] The format that the results should be returned in. \n\n[object type] The type of the object to retrieve. \n\n[start time] Optional. Epoch start time for object record creation. Defaults to 24 hours from the current time. \n\n[end time] Optional. Epoch end time for object record creation. Defaults to now. \n\n[records] Optional. Amount of records and optionally starting at. 10:20 Displays the the next 10 records after the 20th record. Defaults to all. \n\n[order by] Optional. Specifies a column to sort on along with sort type. Example: name:d \n\n[columns] Optional. Simple JSON object that has Nagios object reocrd columns as keys and equality expressions as values in either string or array format. See below for examples. The keys available to use will vary depending on the object type. For example, comment_time is a valid key when the object type is comment but not when the object type is host. When the object type is host, check_interval is a valid key but not for when the object type is comment. \n\nThe Nagios XI API documention page specifies which columns are available for each object type under the example returned response for each object type. \n\nColumn qualifications are OR concatenated.  e.g. {'is_active': ['1', '0]} would result in is_active = 1 OR is_active = 0 \n\n\n\n\n\n",
-          "parameters": {
-            "error handling": "Determine what to return if an error is encountered.",
-            "return type": "The format that the results should be returned in.",
-            "object type": "The type of the object to retrieve.",
-            "start time": "Epoch start time for object record creation. Default -24 hours.",
-            "end time": "Epoch end time for object record creation. Defaults to now.",
-            "records": "Amount of records and optionally starting at. 10:20 Displays the the next 10 records after the 20th record. Defaults to all.",
-            "order by": "Specifies a column to sort on along with sort type. Example: name:d",
-            "columns": "Simple JSON object that has columns as keys and equality expressions as values in either string or array format. See README.md or community.kineticdata.com for examples."
-          },
-          "sampleConfiguration": {
-            "error handling": "Error Message",
-            "return type": "JSON",
-            "object type": "service",
-            "start time": "",
-            "end time": "",
-            "records": "",
-            "order by": "",
-            "columns": "{\"service_description\""
-          },
-          "results": {
-            "Handler Error Message": "Error message if set to return - blank if no errors. ",
-            "Nagios XI Response": "Nagios response if set to return. "
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-11-26",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Nagios XI Retrieve Objects v1 (2017-11-26)\r\n * Initial version.  See README for details.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Nagios XI Delete Service",
-          "version": "1",
-          "id": "nagios_xi_delete_config_service_v1",
-          "description": "This handler deletes a Nagios XI host object.",
-          "detailedDescription": "This handler deletes a service object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#delete-service) \n\n\n#### Parameters  \r\n[error handling] Required. Determine what to return if an error is encountered. \n\n[return response] Required. true or false. Determines if Kinetic Task returns the Nagios response output. \n\n[host name] Required. Service name associated with the service \n\n[service description] Required. Service description to be removed. \n\n[apply config] Required. 1 or 0 for true or false. By default the Nagios Core service is not restarted when an object is created or deleted via the API. You may change the default behavior by setting this parameter to 1 which will import the data into your configuration and will restart the Nagios Core service. \n\n\n\n\n\n",
-          "parameters": {
-            "error handling": "Determine what to return if an error is encountered.",
-            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
-            "host name": "Host the service is associated with.",
-            "service description": "Service name to remove.",
-            "apply config": "1 or 0 for true or false. 1 will restart the Nagios Core service and apply the change."
-          },
-          "sampleConfiguration": {
-            "error handling": "Raise Error",
-            "return response": "yes",
-            "host name": "testapihost",
-            "service description": "PING",
-            "apply config": "0"
-          },
-          "results": {
-            "Handler Error Message": "Error message if set to return - blank if no errors. ",
-            "Nagios XI Response": "Nagios response if set to return. "
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-11-26",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Nagios XI Delete Service v1 (2017-11-26)\r\n * Initial version.  See README for details.",
-          "warnings": [
-
-          ]
-        },
-        {
           "name": "Nagios XI Create Service",
           "version": "1",
           "id": "nagios_xi_create_config_service_v1",
           "description": "This handler creates a new Nagios XI service object.",
-          "detailedDescription": "This handler creates a new service object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#add-service) \n\n\n#### Parameters  \r\n[error handling] Required. Determine what to return if an error is encountered. Valid values: Error Message or Raise Error \n\n[return_response] Required. Determines if Kinetic Task sets the Nagios XI Response output. Valid values: true or false \n\n[host name] Required. Host name to apply to the new service with \n\n[service description] Required. Service description for the new service \n\n[check command] Required. The command to run with command parameters. \n\n[max check attempts] Required. Max number of attempts for retrying the service command to revalidate. \n\n[check interval] Required. Time in minutes for how often the service is checked. \n\n[check period] Required. The time period name for when the monitoring occurs. \n\n[retry interval] Required. Time in minutes for how often the service is checked after a failed check. \n\n[contacts] Optional - sort of. Nagios usernames to notify for alerts with this service. Comma seperated. Use this parameter **or** the contact groups parameter. \n\n[contact groups] Optional - sort of. Nagios group names to notify for alerts with this service. Comma seperated. Use this parameter **or** the contacts parameter. \n\n[notification interval] Required. Interval check period in minutes for alert notifications on this service. \n\n[notification period] Required. Time period name in which the notifications will only take place. \n\n[apply config] Required. 1 or 0 for true or false. By default the Nagios Core service is not restarted when an object is created or deleted via the API. You may change the default behavior by setting this parameter to 1 which will import the data into your configuration and will restart the Nagios Core service. \n\n",
+          "detailedDescription": "This handler creates a new service object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#add-service) \n\n",
           "parameters": {
             "error handling": "Determine what to return if an error is encountered.",
             "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
@@ -12806,7 +12738,7 @@
           "version": "1",
           "id": "nagios_xi_create_system_user_v1",
           "description": "This handler creates a new Nagios XI user object.",
-          "detailedDescription": "This handler creates a new Nagios XI user object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#add-user) \n\n\n#### Parameters  \r\n[error handling] Required. Determine what to return if an error is encountered. Valid values: Error Message or Raise Error \n\n[return_response] Required. Determines if Kinetic Task sets the Nagios XI Response output. Valid values: true or false \n\n[username] New user username. \n\n[password] Password for the new user. \n\n[name] Name of the new user. \n\n[email] Email address of the new user. \n\n[force password change] Determines if user must change password on first login. Default is 1 (yes) \n\n[email info] Send e-mail to user with their new account information. Default is 1 (yes) \n\n[monitoring contact] Determines if a monitoring contact is made for this user. Default is 1 (yes) \n\n[enable notifications] Determines if the user will get notifications. Default is 1 (yes) \n\n[language] Sets the users preferred language. Default is xi default. \n\n[date format] Sets the users preferred date format. Default is 1 (YYYY-MM-DD) \n\n[number format] Sets the users preferred number format. Default is 1 (1000.00) \n\n[authorization level] Sets the users authorization level. Default is user. Other option is admin. \n\n[can see all objects] Allows a user to view all objects that are configured no matter what what contact group they are in or what objects they are contacts of. Default value is 0 (no). \n\n[can control all hosts and services] Allows a user to configure - acknowledge problems, schedule downtime, toggle notifications and force checks on all objects. Default value is 0 (no). \n\n[can reconfigure all hosts and services] Allows a user to be able to re-configure a host/service from the status screen under by using the re-configure option to set contacts, update check intervals, amount of checks for hard state, etc. Default value is 0 (no). \n\n[can control engine] Allows a user to restart the Nagios Core engine. Default value is 0 (no). \n\n[can use advanced features] Allows the user to see the CCM links. Shows the check_command in the re-configure host/service page. Shows advanced tab with advanced commands in the host/service detail pages. Allows setting parents during wizards and re-configuration. Default value is 0 (no). \n\n[read only] Set if the user only has read access. Default value is 0 (no). \n\n[apply config] Required. 1 or 0 for true or false. By default the Nagios Core service is not restarted when an object is created or deleted via the API. You may change the default behavior by setting this parameter to 1 which will import the data into your configuration and will restart the Nagios Core service. \n\n\n\n",
+          "detailedDescription": "This handler creates a new Nagios XI user object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#add-user) \n\n",
           "parameters": {
             "error handling": "Determine what to return if an error is encountered.",
             "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
@@ -12863,6 +12795,72 @@
             }
           },
           "changelogText": "Nagios XI Create User v1 (2017-11-26)\r\n * Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "Nagios XI Apply Config",
+          "version": "1",
+          "id": "nagios_xi_update_system_apply_config_v1",
+          "description": "This handler runs the apply config command which triggers a Nagios Core restart.",
+          "detailedDescription": "This handler runs the apply config command which triggers a Nagios Core restart. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-system-reference.php#system-applyconfig) \n\n",
+          "parameters": {
+            "error handling": "Determine what to return if an error is encountered.",
+            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output."
+          },
+          "sampleConfiguration": {
+            "error handling": "Raise Error",
+            "return response": "yes"
+          },
+          "results": {
+            "Handler Error Message": "Error message if set to return - blank if no errors. ",
+            "Nagios XI Response": "Nagios response if set to return. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-11-26",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Nagios XI Apply Config v1 (2017-11-26)\r\n * Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "Nagios XI Create Servicegroup",
+          "version": "1",
+          "id": "nagios_xi_create_config_servicegroup_v1",
+          "description": "This handler creates a new Nagios XI hostgroup object.",
+          "detailedDescription": "This handler creates a new servicegroup object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#add-servicegroup) \n\n",
+          "parameters": {
+            "error handling": "Determine what to return if an error is encountered.",
+            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
+            "servicegroup name": "New servicegroup name to create.",
+            "alias": "Alias to apply to servicegroup.",
+            "apply config": "1 or 0 for true or false. 1 will restart the Nagios Core service and apply the change."
+          },
+          "sampleConfiguration": {
+            "error handling": "Raise Error",
+            "return response": "yes",
+            "servicegroup name": "testapiservicegroup",
+            "alias": "127.0.0.1",
+            "apply config": "0"
+          },
+          "results": {
+            "Handler Error Message": "Error message if set to return - blank if no errors. ",
+            "Nagios XI Response": "Nagios response if set to return. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-11-26",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Nagios XI Create Servicegroup v1 (2017-11-26)\r\n * Initial version.  See README for details.",
           "warnings": [
 
           ]
