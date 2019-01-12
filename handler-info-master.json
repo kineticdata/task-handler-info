@@ -5,8 +5,313 @@
       "id": "kinetic-discussions",
       "description": "Create or update messages, discussions, and invitations in Kinetic Discussions.",
       "image": "https://image.flaticon.com/icons/svg/1078/1078011.svg",
-      "handlerList": []	
-	},
+      "handlerList": [
+        {
+          "name": "Kinetic Discussions Discussion Invite",
+          "version": "1",
+          "id": "kinetic_discussions_discussion_invite_v1",
+          "description": "This handler invites a user to a specific Kinetic Discussions discussion.",
+          "detailedDescription": "This handler uses the OAuth client ID and client secret to retrieve an access token that connects to the Kinetic Discussions API. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Discussion GUID": "The GUID of the discussion you are trying to close.",
+            "Space Slug": "The CE space of the discussion you are trying to close. Optional. Defaults to handler info property.",
+            "Invitee Email Address": "E-mail address of a non-space user. Required if Invitee CE Username is not used.",
+            "Invitee CE Username": "CE Username to invite. Required if Invitee Email Address is not used.",
+            "Invitation Message": "Messaged added to the discussion invitation email."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Space Slug": "",
+            "Invitee Email Address": "user@acme.com",
+            "Invitee CE Username": "",
+            "Discussion GUID": "",
+            "Invitation Message": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Invitation": "Details about the invitation, JSON formatted. "
+          },
+          "changelog": {
+          },
+          "changelogText": "Kinetic_Discussions_Discussion_Invite_V1 (2018-12-13)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Discussion GUID, Invitation Message",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Kinetic Discussions Discussion Find",
+          "version": "1",
+          "id": "kinetic_discussions_discussion_find_v1",
+          "description": "This handler finds Kinetic Discussions discussions based on parameters.",
+          "detailedDescription": "This handler uses the OAuth client ID and client secret to retrieve an access token that connects to the Kinetic Discussions API. It will then return details for a specific discussion based on ID. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "CE Space": "The CE space of the discussion you are trying to retrieve. Optional. Defaults to handler info property.",
+            "Related Type": "If searching by a related item, this is the type of the related item key. e.g. Submission",
+            "Related Key": "If searching by a related item, this is the key of the related item. e.g. a GUID",
+            "Search Archived": "Determines if searching should only be done against archived discussions. Set to true to search archived, anything else not to.",
+            "Start Time": "Any ISO 8601 date/time format for the start range of the last message created.",
+            "End Time": "Any ISO 8601 date/time format for the end range of the last message created.",
+            "Title": "Match against discussion title.",
+            "Result Limit": "Limit the number of returned search results."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Related Type": "",
+            "Related Key": "",
+            "Search Archived": "true",
+            "Start Time": "2018-12-27T14:59:59Z",
+            "End Time": "2018-12-29T14:59:59Z",
+            "Title": "Johnny Five",
+            "CE Space": "",
+            "Result Limit": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Discussions": "Details about the matching discussions, JSON formatted. "
+          },
+          "changelog": {
+          },
+          "changelogText": "Kinetic_Discussions_Issue_Retrieve_V1 (2015-04-06)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: CE Space, Result Limit",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Kinetic Discussions Discussion Retrieve",
+          "version": "1",
+          "id": "kinetic_discussions_discussion_retrieve_v1",
+          "description": "This handler retrieves a specific Kinetic Discussions discussion.",
+          "detailedDescription": "This handler uses the OAuth client ID and client secret to retrieve an access token that connects to the Kinetic Discussions API. It will then return details for a specific discussion based on ID. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Discussion GUID": "The GUID of the discussion you are trying to retrieve.",
+            "CE Space": "The CE space of the discussion you are trying to retrieve. Optional. Defaults to handler info property."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Discussion GUID": "",
+            "CE Space": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Discussion": "Details about the discussion, JSON formatted. "
+          },
+          "changelog": {
+          },
+          "changelogText": "Kinetic_Discussions_Issue_Retrieve_V1 (2015-04-06)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Discussion GUID, CE Space",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Kinetic Discussions Discussion Create",
+          "version": "1",
+          "id": "kinetic_discussions_discussion_create_v1",
+          "description": "This handler creates a Kinetic Discussions discussion.",
+          "detailedDescription": "This handler uses the OAuth client ID and client secret to retrieve an access token that connects to the Kinetic Discussions API. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "CE Space": "The CE space of the discussion you are trying to create. Optional. Defaults to handler info property.",
+            "Title": "The title of the new discussion.",
+            "Description": "The description of the new discussion.",
+            "Is Archived": "Archived discussions do not allow new messages added to them.",
+            "Is Private": "Private discussions only allow people to see the discussion if they have been explicitly invited to it. Join policy is ignored if set to true.",
+            "Join Policy": "Security policy name for allowing people to join.",
+            "Owning Users": "JSON array of CE users allowed to manage the new discussion.",
+            "Owning Teams": "JSON array of CE team names allowed to manage the new discussion."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Title": "This is a new discussion",
+            "Description": "",
+            "Is Archived": "false",
+            "Is Private": "false",
+            "Join Policy": "Authenticated Users",
+            "Owning Users": "<%= [\"admin@acme.com\"].to_json %>",
+            "Owning Teams": "<%= [\"Administrators\"].to_json %>",
+            "CE Space": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Discussion": "Details about the new discussion, JSON formatted. "
+          },
+          "changelog": {
+          },
+          "changelogText": "Kinetic_Discussions_Discussion_Create_V1 (2018-12-13)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: CE Space",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Kinetic Discussions Discussion Related Item Add",
+          "version": "1",
+          "id": "kinetic_discussions_discussion_related_item_add_v1",
+          "description": "This handler will relate an item to an existing discussion by ID.",
+          "detailedDescription": "This handler uses the OAuth client ID and client secret to retrieve an access token that connects to the Kinetic Discussions API. It will then return details for a specific discussion based on ID. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Discussion GUID": "The GUID of the discussion you are trying to close.",
+            "CE Space": "The CE space of the discussion you are trying to close. Optional. Defaults to handler info property.",
+            "Related Key": "The binding key for the new related item.",
+            "Related Type": "The binding type for the new related item."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Related Key": "abaeff30-fbbe-22a2-110f-cc441100aaaa",
+            "Related Type": "Submission",
+            "Discussion GUID": "",
+            "CE Space": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Discussion": "Details about the discussion, JSON formatted. "
+          },
+          "changelog": {
+          },
+          "changelogText": "Kinetic_Discussions_Discussion_Related_Item_Add_V1 (2018-12-26)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Discussion GUID, CE Space",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Kinetic Discussions Discussion Uninvite",
+          "version": "1",
+          "id": "kinetic_discussions_discussion_uninvite_v1",
+          "description": "This handler deletes an existing Kinetic Discussion invitation.",
+          "detailedDescription": "This handler uses the OAuth client ID and client secret to retrieve an access token that connects to the Kinetic Discussions API. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Discussion GUID": "The GUID of the discussion the invitation belongs to.",
+            "Space Slug": "CE space slug. Optional. Defaults to handler info property.",
+            "Invited CE Username": "CE Username that was invited to the discussion.",
+            "Invited Email Address": "Email address that was invited to the discussion."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Space Slug": "",
+            "Discussion GUID": "9fa2b330-fa5e-11e8-88ef-7bbe80231820",
+            "Invited CE Username": "",
+            "Invited Email Address": "user@acme.com"
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Invitation": "Details about the deleted invitation. "
+          },
+          "changelog": {
+          },
+          "changelogText": "Kinetic_Discussions_Discussion_Uninvite_V1 (2018-12-13)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Kinetic Discussions Discussion Update",
+          "version": "1",
+          "id": "kinetic_discussions_discussion_update_v1",
+          "description": "This handler updates a Kinetic Discussions discussion.",
+          "detailedDescription": "This handler uses the OAuth client ID and client secret to retrieve an access token that connects to the Kinetic Discussions API. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "CE Space": "The CE space of the discussion you are trying to create. Optional. Defaults to handler info property.",
+            "Discussion ID": "The ID of the discussion to update.",
+            "Title": "The title of the new discussion.",
+            "Description": "The description of the new discussion.",
+            "Is Archived": "Archived discussions do not allow new messages added to them.",
+            "Is Private": "Private discussions only allow people to see the discussion if they have been explicitly invited to it. Join policy is ignored if set to true.",
+            "Join Policy": "Security policy name for allowing people to join.",
+            "Owning Users": "JSON array of CE users allowed to manage the new discussion.",
+            "Owning Teams": "JSON array of CE team names allowed to manage the new discussion."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Discussion ID": "07b38300-0941-11e9-ac0a-c5718f33057b",
+            "Title": "Updating the discussion title",
+            "Description": "",
+            "Is Archived": "false",
+            "Is Private": "false",
+            "Join Policy": "Authenticated Users",
+            "Owning Users": "<%= [\"admin@acme.com\"].to_json %>",
+            "Owning Teams": "<%= [\"Administrators\"].to_json %>",
+            "CE Space": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Discussion": "Details about the new discussion, JSON formatted. "
+          },
+          "changelog": {
+          },
+          "changelogText": "Kinetic_Discussions_Discussion_Update_V1 (2018-12-26)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: CE Space",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Kinetic Discussions Discussion Close",
+          "version": "1",
+          "id": "kinetic_discussions_discussion_close_v1",
+          "description": "This handler closes a specific Kinetic Discussions discussion.",
+          "detailedDescription": "This handler uses the OAuth client ID and client secret to retrieve an access token that connects to the Kinetic Discussions API. It will then return details for a specific discussion based on ID. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Discussion GUID": "The GUID of the discussion you are trying to close.",
+            "CE Space": "The CE space of the discussion you are trying to close. Optional. Defaults to handler info property."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Discussion GUID": "",
+            "CE Space": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Discussion": "Details about the discussion, JSON formatted. "
+          },
+          "changelog": {
+          },
+          "changelogText": "Kinetic_Discussions_Discussion_Close_V1 (2018-12-13)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Discussion GUID, CE Space",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Kinetic Discussions Message Create",
+          "version": "1",
+          "id": "kinetic_discussions_message_create_v1",
+          "description": "This handler adds a message to a specific Kinetic Discussions discussion.",
+          "detailedDescription": "This handler uses the OAuth client ID and client secret to retrieve an access token that connects to the Kinetic Discussions API. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Discussion GUID": "The GUID of the discussion you are trying to add a message to.",
+            "Space Slug": "The CE space of the discussion you are trying to close. Optional. Defaults to handler info property.",
+            "Message": "The message to be add, in JSON format. e.g. [{\"type\":\"text\",\"value\":\"Johnny Five, still alive!\"}]"
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Space Slug": "",
+            "Discussion GUID": "9fa2b330-fa5e-11e8-88ef-7bbe80231820",
+            "Message": "[{\"type\":\"text\",\"value\":\"Johnny Five, still alive!\"}]"
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Message": "Details about the just created message. "
+          },
+          "changelog": {
+          },
+          "changelogText": "Kinetic_Discussions_Message_Create_V1 (2018-12-13)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        }
+      ]
+    },
     {
       "name": "Active Directory",
       "id": "active-directory",
