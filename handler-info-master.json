@@ -1,6 +1,13 @@
 {
   "handlers": [
     {
+      "name": "Kinetic Discussions",
+      "id": "kinetic-discussions",
+      "description": "Create or update messages, discussions, and invitations in Kinetic Discussions.",
+      "image": "https://image.flaticon.com/icons/svg/1078/1078011.svg",
+      "handlerList": []	
+	},
+    {
       "name": "Active Directory",
       "id": "active-directory",
       "description": "Manage users, computers, groups, and other objects in Active Directory or another LDAP accessed directory service with these handlers.",
