@@ -10147,7 +10147,7 @@
           },
           "changelog": {
           },
-          "changelogText": "kinetic_task_run_delete_v1 (2019-01-11)\n* Initial version.  See README for details.\n",
+          "changelogText": "kinetic_task_run_delete v1 (2019-01-11)\n* Initial version.  See README for details.\n",
           "warnings": [
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
