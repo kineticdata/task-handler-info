@@ -10142,16 +10142,13 @@
             "Signature Secret": "nil"
           },
           "results": {
-            "Message Type": "",
-            "Message": "",
-            "messageType": "",
-            "message": ""
+            "messageType": "The message type returned from the Task ",
+            "message": "The message content returned from Task "
           },
           "changelog": {
           },
           "changelogText": "kinetic_task_run_delete_v1 (2019-01-11)\n* Initial version.  See README for details.\n",
           "warnings": [
-            "The following are defined as results but can't be found in the Results section in the README: messageType, message",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
