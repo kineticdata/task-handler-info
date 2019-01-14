@@ -6578,6 +6578,7 @@
             "Space Slug": "",
             "Kapp Slug": "catalog",
             "Form Slug": "test-form",
+            "Include": "",
             "Core State": "",
             "Timeline": "",
             "Direction": "",
@@ -6586,8 +6587,7 @@
             "Limit": "1000",
             "Query": "include=values&limit=100&q=values[Any Text] IN (\"Testing\",\"String\")",
             "Page Token": "70b37e5f-d64c-11e8-bbc0-ebb51a7fa935",
-            "Return Type": "JSON",
-            "Include": ""
+            "Return Type": "JSON"
           },
           "results": {
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
@@ -6614,7 +6614,7 @@
           },
           "changelogText": "Kinetic Request CE Submission Search V2 (2019-01-14)\n* Updated handler to include all API options as input and Next Page Token as an output.\n\nKinetic Request CE Submission Search V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Submission Search V1 (2017-11-08)\n* Initial version.  See README for details.\n",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Include"
+
           ]
         },
         {
