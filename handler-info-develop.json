@@ -7174,6 +7174,11 @@
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
+            "1.2": {
+              "version": "1.2",
+              "date": "2019-01-15",
+              "description": "* Updated code to not URI encode the new name parameter in the API call."
+            },
             "1.1": {
               "version": "1.1",
               "date": "2018-05-25",
@@ -7185,7 +7190,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Team Update V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Team Update V1 (2017-04-20)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Team Update V1.2 (2019-01-15)\n* Updated code to not URI encode the new name parameter in the API call.\n\nKinetic Request CE Team Update V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Team Update V1 (2017-04-20)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
