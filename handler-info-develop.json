@@ -7575,14 +7575,14 @@
           "detailedDescription": "Retrieves a submissions values, it's forms attribtues, kapps attributes, and spaces attributes. Attributes and Values are returned as something like this: \n\nMatched Context::  Kapp Attribute \n\nValue::            Service Submitted ",
           "parameters": {
             "Error Handling": "Determine what to return if an error is encountered.",
-            "Start Context": "The lowest level to search. If Submission, only a Submission Id is needed. Should be one of Submission,Form,Kapp,Space",
-            "End Context": "The highest level to search. If Submission, only a Submission Id is needed. Should be one of Space,Kapp,Form,Submission",
+            "Start Context": "The lowest level to search. Should be one of Submission, Datastore Submission,Form,Datastore Form,Kapp,Space. If Submission, only a Submission Id is needed.",
+            "End Context": "The highest level to search. Submission, Datastore Submission,Form,Datastore Form,Kapp,Space. If Submission, only a Submission Id is needed.",
             "Property To Find": "The Name of the Field/Attribute to search for a match.",
             "Backup Value": "If no Field/Attribute value is returned, use this value",
             "Space Slug": "The Slug of the space to find attribute values in (defaults to info value if not provided).",
-            "Kapp Slug": "The Slug of the kapp to find attribute values in.",
+            "Kapp Slug": "The Slug of the kapp to find attribute values in. Not required for Datastore Form Start/Stop Context",
             "Form Slug": "The Slug of the form to find attribute values in.",
-            "Submission Id": "The id of the submission to find values in"
+            "Submission Id": "The id of the submission or datastore submission to find values in"
           },
           "sampleConfiguration": {
             "Error Handling": "Error Message",
@@ -7601,6 +7601,11 @@
             "Value": "The Matched Value Found and Returned "
           },
           "changelog": {
+            "2.2": {
+              "version": "2.2",
+              "date": "2019-01-15",
+              "description": "* Added ability to use Datastore Submission or Datastore Form as Start/Stop Context (No Kapp Slug is required when using Datastore Form/Submission Start/Stop context)"
+            },
             "2.1": {
               "version": "2.1",
               "date": "2018-05-25",
@@ -7617,7 +7622,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Cascading Attribute Value Retrieve V2.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Cascading Attribute Value Retrieve V2 (2017-08-18)\n* Removed menus from start and end contexts to allow values to be passed in as variables (from\nroutine input)\n\nKinetic Request CE Cascading Attribute Value Retrieve V1 (2017-02-18)\n* Initial version.  See README for details.",
+          "changelogText": "Kinetic Request CE Cascading Attribute Value Retrieve V2.2 (2019-01-15)\n* Added ability to use Datastore Submission or Datastore Form as Start/Stop Context\n(No Kapp Slug is required when using Datastore Form/Submission Start/Stop context)\n\nKinetic Request CE Cascading Attribute Value Retrieve V2.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Cascading Attribute Value Retrieve V2 (2017-08-18)\n* Removed menus from start and end contexts to allow values to be passed in as variables (from\nroutine input)\n\nKinetic Request CE Cascading Attribute Value Retrieve V1 (2017-02-18)\n* Initial version.  See README for details.\n",
           "warnings": [
 
           ]
