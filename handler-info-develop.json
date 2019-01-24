@@ -14690,6 +14690,48 @@
           ]
         },
         {
+          "name": "ServiceNow Object Retrieve",
+          "version": "1",
+          "id": "servicenow_object_query_retrieve_v1",
+          "description": "Generically retrieves an object from a ServiceNow table when given a table name and an id",
+          "detailedDescription": "This handler allows the generic retrieval of a ServiceNow object when given a table and a query. Using the ServiceNow REST API and basic authentication, a URL is built up to retrieve records from a table. If that REST call successfully finds records, a JSON representation of the objects will be returned as handler results. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Table": "The name of the table to retrieve info from (ie. change_request,incident, task,etc).",
+            "Query": "The query to retrieve objects. Use a '^' to seperate parameters.",
+            "Display Value": "Return field display values (true), actual values (false), or both (all) (default: false).",
+            "Exclude Reference Link": "True to exclude Table API links for reference fields (default: false).",
+            "Suppress Pagination Header": "True to supress pagination header (default: false).",
+            "Fields": "A comma-separated list of fields to return in the response.",
+            "Limit": "The maximum number of results returned per page (default: 10,000).",
+            "Query Category": "Name of the query category (read replica category) to use for queries."
+          },
+          "sampleConfiguration": {
+            "Table": "incident",
+            "Query": "state=7^category=hardware",
+            "Display Value": "true",
+            "Exclude Reference Link": "true",
+            "Suppress Pagination Header": "true",
+            "Fields": "number,opened_by",
+            "Limit": "10",
+            "Query Category": "hardware",
+            "Error Handling": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Object JSON": "",
+            "object_json": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "ServiceNow Object Query Retrieve V1 (2019-24-1)\n* Moved from unpublished to published\n* Added error handling\n\nServiceNow Object Query Retrieve V1 (2019-24-1)\n* Added parameters to the handler to expose more features\n* of the serviceNow API endpoint.\n\nServiceNow Object Query Retrieve V1 (2018-15-11)\n* Initial version.  See README for details.\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling",
+            "The following are defined as results but can't be found in the Results section in the README: object_json",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
           "name": "ServiceNow Group Retrieve",
           "version": "2",
           "id": "servicenow_group_retrieve_v2",
