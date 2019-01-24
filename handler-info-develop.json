@@ -14707,6 +14707,7 @@
             "Query Category": "Name of the query category (read replica category) to use for queries."
           },
           "sampleConfiguration": {
+            "Error Handling": "raise error",
             "Table": "incident",
             "Query": "state=7^category=hardware",
             "Display Value": "true",
@@ -14714,20 +14715,16 @@
             "Suppress Pagination Header": "true",
             "Fields": "number,opened_by",
             "Limit": "10",
-            "Query Category": "hardware",
-            "Error Handling": ""
+            "Query Category": "hardware"
           },
           "results": {
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
-            "Object JSON": "",
-            "object_json": ""
+            "object_json": "A JSON representation of the returned ServiceNow object "
           },
           "changelog": {
           },
-          "changelogText": "ServiceNow Object Query Retrieve V1 (2019-24-1)\n* Moved from unpublished to published\n* Added error handling\n\nServiceNow Object Query Retrieve V1 (2019-24-1)\n* Added parameters to the handler to expose more features\n* of the serviceNow API endpoint.\n\nServiceNow Object Query Retrieve V1 (2018-15-11)\n* Initial version.  See README for details.\n",
+          "changelogText": "ServiceNow Object Query Retrieve V1 (2019-24-2)\n* Moved from unpublished to published\n* Added error handling\n\nServiceNow Object Query Retrieve V1 (2019-24-1)\n* Added parameters to the handler to expose more features\n* of the serviceNow API endpoint.\n\nServiceNow Object Query Retrieve V1 (2018-15-11)\n* Initial version.  See README for details.\n",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Error Handling",
-            "The following are defined as results but can't be found in the Results section in the README: object_json",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
