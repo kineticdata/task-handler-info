@@ -15660,14 +15660,14 @@
           "version": "1",
           "id": "sample_data_create_v1",
           "description": "This handler generate fake data based for testing.",
-          "detailedDescription": "Use the Sample Data Create handle to generate Users, Companies or other data enteries. This handler leverages the [Faker gem v1.9.1[](https://github.com/stympy/faker/tree/v1.9.1/doc). Visit faker's git repo for a list of the method that are supported. \n\n\n#### Notes\nOnly method that have a \"basic\" types as parameters are supported.  ie String, numbers or booleans. As an example Faker::Date.between(2.days.ago, Date.today) would not be supported because it requires complex parameters. \n\nOnly the feature provided as of v1.9.1 of the Faker library are supported. ",
+          "detailedDescription": "Use the Sample Data Create handle to generate Users, Companies or other data enteries. This handler leverages the [Faker gem v1.9.1[](https://github.com/stympy/faker/tree/v1.9.1/doc). Visit faker's git repo for a list of the method that are supported. \n\n\n#### Notes\nOnly method that have a \"basic\" types as parameters are supported.  ie String, numbers or booleans. As an example Faker::Date.between(2.days.ago, Date.today) would not be supported because it requires complex parameters. \n\nOnly the feature provided as of v1.9.1 of the Faker library are supported. \n\nThe \"uniqueness\" feature provided by the Faker library is not available for use. ",
           "parameters": {
             "Error Handling": "Determine what to return if an error is encountered.",
             "Field": "A Class name and method to generate a random output; ex Name.name. Visit stympy/faker on github (tag v1.9.1) for more examples."
           },
           "sampleConfiguration": {
             "Error Handling": "Error Message",
-            "Field": ""
+            "Field": "Name.name"
           },
           "results": {
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
@@ -15676,13 +15676,13 @@
           "changelog": {
             "1": {
               "version": "1",
-              "date": "2019-01-14",
-              "description": "* Updated Readme and Changelog to correct formats."
+              "date": "2019-01-11",
+              "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Sample Data Create V1 (2019-01-11)\n* Initial version.  See README for details.\n\nSample Data Create V1 (2019-01-14)\n* Added if not defined for Faker gem and it's dependancies.\n\nSample Data Create V1 (2019-01-14)\n* Updated Readme and Changelog to correct formats.\n",
+          "changelogText": "Sample Data Create V1 (2019-01-28)\n* Fixed bug with error handling and updated Readme.\n\nSample Data Create V1 (2019-01-14)\n* Updated Readme and Changelog to correct formats.\n\nSample Data Create V1 (2019-01-14)\n* Added if not defined for Faker gem and it's dependancies.\n\nSample Data Create V1 (2019-01-11)\n* Initial version.  See README for details.\n",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Field"
+
           ]
         },
         {
