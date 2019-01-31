@@ -14427,14 +14427,17 @@
           "description": "Generically retrieves an object from a ServiceNow table when given a table name and an id",
           "detailedDescription": "This handler allows the generic retrieval of a ServiceNow object when given a table and an id. Using the ServiceNow REST API and basic authentication, a URL is built up to retrieve a record from a table by its sys_id. If that REST call successfully finds the record attached to that Id, a JSON representation of the object will be returned as handler results. ",
           "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
             "Table": "The name of the table to retrieve info from (ie. change_request,incident, task,etc).",
             "Id": "The id of the object to retrieve."
           },
           "sampleConfiguration": {
             "Table": "incident",
-            "Id": "85071a1347c12200e0ef563dbb9a71c1"
+            "Id": "85071a1347c12200e0ef563dbb9a71c1",
+            "Error Handling": ""
           },
           "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
             "Object JSON": "A JSON representation of the returned ServiceNow object "
           },
           "changelog": {
@@ -14444,9 +14447,9 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "ServiceNow Object Retrieve V1 (2017-09-14)\n* Initial version.  See README for details.\n",
+          "changelogText": "ServiceNow Object Retrieve V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Retrieve V1 (2017-09-14)\n* Initial version.  See README for details.\n",
           "warnings": [
-
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
         },
         {
@@ -14456,6 +14459,7 @@
           "description": "Generically updates an object in a ServiceNow table when given a table name, a id, and a JSON body containing the parts of the object that should be updated.",
           "detailedDescription": "This handler allows you to generically update an existing object in a ServiceNow table by passing an id and the fields/values that should be updated on the object in a JSON body. Using the ServiceNow REST API and basic authentication, a URL and a PUT body are created using the inputted parameters which is then sent to ServiceNow. If the REST call is successful and the included id exists, the handler will complete and return an empty result set. ",
           "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
             "Table": "The name of the table to update the object in (ie. change_request,incident,task,etc).",
             "Id": "The id of the object to update.",
             "JSON Body": "The JSON body containing the fields that should be updated."
@@ -14463,9 +14467,11 @@
           "sampleConfiguration": {
             "Table": "incident",
             "Id": "ea45634c4f5103004491b3728110c7ac",
-            "JSON Body": "{\"short_description\": \"Changed the description\"}"
+            "JSON Body": "{\"short_description\": \"Changed the description\"}",
+            "Error Handling": ""
           },
           "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
             "1": {
@@ -14474,9 +14480,9 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "ServiceNow Object Update V1 (2017-09-14)\n* Initial version.  See README for details.\n",
+          "changelogText": "ServiceNow Object Update V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Update V1 (2017-09-14)\n* Initial version.  See README for details.\n",
           "warnings": [
-
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
         },
         {
@@ -14690,7 +14696,7 @@
           ]
         },
         {
-          "name": "ServiceNow Object Retrieve",
+          "name": "ServiceNow Object Query Retrieve",
           "version": "1",
           "id": "servicenow_object_query_retrieve_v1",
           "description": "Generically retrieves an object from a ServiceNow table when given a table name and an id",
@@ -14722,10 +14728,15 @@
             "object_json": "A JSON representation of the returned ServiceNow object "
           },
           "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-15-11",
+              "description": "* Initial version.  See README for details."
+            }
           },
-          "changelogText": "ServiceNow Object Query Retrieve V1 (2019-24-2)\n* Moved from unpublished to published\n* Added error handling\n\nServiceNow Object Query Retrieve V1 (2019-24-1)\n* Added parameters to the handler to expose more features\n* of the serviceNow API endpoint.\n\nServiceNow Object Query Retrieve V1 (2018-15-11)\n* Initial version.  See README for details.\n",
+          "changelogText": "ServiceNow Object Query Retrieve V1 (2019-31-1)\n* Modified the label to a new name.\n\nServiceNow Object Query Retrieve V1 (2019-25-1)\n* Moved from unpublished to published\n* Added error handling\n\nServiceNow Object Query Retrieve V1 (2019-24-1)\n* Added parameters to the handler to expose more features\n* of the serviceNow API endpoint.\n\nServiceNow Object Query Retrieve V1 (2018-15-11)\n* Initial version.  See README for details.\n",
           "warnings": [
-            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+
           ]
         },
         {
@@ -15056,14 +15067,17 @@
           "description": "Generically deletes an object from a ServiceNow table when given a table name and an id",
           "detailedDescription": "This handler allows the generic deletion of a ServiceNow object when given a table and an id. Using the ServiceNow REST API and basic authentication, a URL is built up to delete an object from a table by its sys_id. If that REST call is successful, the handler execution will complete and an empty result set will be returned. ",
           "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
             "Table": "The name of the table to delete an object from (ie. change_request,incident,task,etc).",
             "Id": "The id of the object to delete."
           },
           "sampleConfiguration": {
             "Table": "incident",
-            "Id": "85071a1347c12200e0ef563dbb9a71c1"
+            "Id": "85071a1347c12200e0ef563dbb9a71c1",
+            "Error Handling": ""
           },
           "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
             "1": {
@@ -15072,9 +15086,9 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "ServiceNow Object Delete V1 (2017-09-14)\n* Initial version.  See README for details.\n",
+          "changelogText": "ServiceNow Object Delete V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Delete V1 (2017-09-14)\n* Initial version.  See README for details.\n",
           "warnings": [
-
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
         },
         {
@@ -15084,14 +15098,17 @@
           "description": "Generically creates an object from a ServiceNow table when given a table name and a JSON body",
           "detailedDescription": "This handler allows you to generically create a new object in a ServiceNow table by passing the fields/values of the object in a JSON body. Using the ServiceNow REST API and basic authentication, a URL and a POST body are are created using the inputted parameters which is then sent to ServiceNow. If the REST call is successful, the Id of the created object will be returned from the handler results. ",
           "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
             "Table": "The name of the table to create the object in (ie. change_request,incident, task,etc).",
             "JSON Body": "The JSON body of the object to create."
           },
           "sampleConfiguration": {
             "Table": "incident",
-            "JSON Body": "{\"category\": \"Software\", \"short_description\": \"Test Incident\"}"
+            "JSON Body": "{\"category\": \"Software\", \"short_description\": \"Test Incident\"}",
+            "Error Handling": ""
           },
           "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
             "Id": "The id of the newly created object. "
           },
           "changelog": {
@@ -15101,9 +15118,9 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "ServiceNow Object Create V1 (2017-09-14)\n* Initial version.  See README for details.\n",
+          "changelogText": "ServiceNow Object Create V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Create V1 (2017-09-14)\n* Initial version.  See README for details.\n",
           "warnings": [
-
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
         }
       ]
