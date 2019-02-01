@@ -14447,7 +14447,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "ServiceNow Object Retrieve V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Retrieve V1 (2017-09-14)\n* Initial version.  See README for details.\n",
+          "changelogText": "ServiceNow Object Retrieve V1 (2019-02-31)\n* Update Readme.\n\nServiceNow Object Retrieve V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Retrieve V1 (2017-09-14)\n* Initial version.  See README for details.\n",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
@@ -14480,7 +14480,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "ServiceNow Object Update V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Update V1 (2017-09-14)\n* Initial version.  See README for details.\n",
+          "changelogText": "ServiceNow Object Update V1 (2019-02-31)\n* Update Readme.\n\nServiceNow Object Update V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Update V1 (2017-09-14)\n* Initial version.  See README for details.\n",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
@@ -15086,7 +15086,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "ServiceNow Object Delete V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Delete V1 (2017-09-14)\n* Initial version.  See README for details.\n",
+          "changelogText": "ServiceNow Object Delete V1 (2019-02-31)\n* Update Readme.\n\nServiceNow Object Delete V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Delete V1 (2017-09-14)\n* Initial version.  See README for details.\n",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
@@ -15118,7 +15118,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "ServiceNow Object Create V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Create V1 (2017-09-14)\n* Initial version.  See README for details.\n",
+          "changelogText": "ServiceNow Object Create V1 (2019-02-31)\n* Update Readme.\n\nServiceNow Object Create V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Create V1 (2017-09-14)\n* Initial version.  See README for details.\n",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
