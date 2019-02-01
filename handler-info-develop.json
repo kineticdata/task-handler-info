@@ -14432,9 +14432,9 @@
             "Id": "The id of the object to retrieve."
           },
           "sampleConfiguration": {
+            "Error Handling": "Raise Error",
             "Table": "incident",
-            "Id": "85071a1347c12200e0ef563dbb9a71c1",
-            "Error Handling": ""
+            "Id": "85071a1347c12200e0ef563dbb9a71c1"
           },
           "results": {
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
@@ -14447,9 +14447,9 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "ServiceNow Object Retrieve V1 (2019-02-31)\n* Update Readme.\n\nServiceNow Object Retrieve V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Retrieve V1 (2017-09-14)\n* Initial version.  See README for details.\n",
+          "changelogText": "ServiceNow Object Retrieve V1 (2019-02-31)\n* Update Readme to add Error Handling.\n\nServiceNow Object Retrieve V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Retrieve V1 (2017-09-14)\n* Initial version.  See README for details.\n",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
+
           ]
         },
         {
@@ -14465,10 +14465,10 @@
             "JSON Body": "The JSON body containing the fields that should be updated."
           },
           "sampleConfiguration": {
+            "Error Handling": "Raise Error",
             "Table": "incident",
             "Id": "ea45634c4f5103004491b3728110c7ac",
-            "JSON Body": "{\"short_description\": \"Changed the description\"}",
-            "Error Handling": ""
+            "JSON Body": "{\"short_description\": \"Changed the description\"}"
           },
           "results": {
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
@@ -14480,9 +14480,9 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "ServiceNow Object Update V1 (2019-02-31)\n* Update Readme.\n\nServiceNow Object Update V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Update V1 (2017-09-14)\n* Initial version.  See README for details.\n",
+          "changelogText": "ServiceNow Object Update V1 (2019-02-31)\n* Update Readme to add Error Handling.\n\nServiceNow Object Update V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Update V1 (2017-09-14)\n* Initial version.  See README for details.\n",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
+
           ]
         },
         {
@@ -15072,9 +15072,9 @@
             "Id": "The id of the object to delete."
           },
           "sampleConfiguration": {
+            "Error Handling": "Raise Error",
             "Table": "incident",
-            "Id": "85071a1347c12200e0ef563dbb9a71c1",
-            "Error Handling": ""
+            "Id": "85071a1347c12200e0ef563dbb9a71c1"
           },
           "results": {
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
@@ -15086,9 +15086,9 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "ServiceNow Object Delete V1 (2019-02-31)\n* Update Readme.\n\nServiceNow Object Delete V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Delete V1 (2017-09-14)\n* Initial version.  See README for details.\n",
+          "changelogText": "ServiceNow Object Delete V1 (2019-02-31)\n* Update Readme to add Error Handling.\n\nServiceNow Object Delete V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Delete V1 (2017-09-14)\n* Initial version.  See README for details.\n",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
+
           ]
         },
         {
@@ -15103,9 +15103,9 @@
             "JSON Body": "The JSON body of the object to create."
           },
           "sampleConfiguration": {
+            "Error Handling": "Raise Error",
             "Table": "incident",
-            "JSON Body": "{\"category\": \"Software\", \"short_description\": \"Test Incident\"}",
-            "Error Handling": ""
+            "JSON Body": "{\"category\": \"Software\", \"short_description\": \"Test Incident\"}"
           },
           "results": {
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
@@ -15118,9 +15118,9 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "ServiceNow Object Create V1 (2019-02-31)\n* Update Readme.\n\nServiceNow Object Create V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Create V1 (2017-09-14)\n* Initial version.  See README for details.\n",
+          "changelogText": "ServiceNow Object Create V1 (2019-02-31)\n* Update Readme to add Error Handling.\n\nServiceNow Object Create V1 (2019-01-31)\n* Added full support for NDNF (never drop never fail).\n\nServiceNow Object Create V1 (2017-09-14)\n* Initial version.  See README for details.\n",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
+
           ]
         }
       ]
