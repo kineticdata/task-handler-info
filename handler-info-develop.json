@@ -7420,6 +7420,38 @@
           ]
         },
         {
+          "name": "Kinetic Request CE Team Delete",
+          "version": "1",
+          "id": "kinetic_request_ce_team_delete_v1",
+          "description": "Deletes a Team in Kinetic Request CE for the specified space.",
+          "detailedDescription": "This handler deletes a Team based on a slug value. The slug is derived by MD5 hashing the provided Team Name. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Space Slug": "Space slug of which the user you are trying to updates belongs to.",
+            "Team Name": "The name of the team to delete."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Space Slug": "acme",
+            "Team Name": "Test Team"
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Response": "The API response from a successful team deletion. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2019-01-15",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Kinetic Request CE Team Delete V1 (2019-01-16)\r\n * Changed from requiring a team slug to a team name. \r\n Slug will be generated using an MD5 from the name.\r\n\r\nKinetic Request CE Team Delete V1 (2019-01-15)\r\n * Initial version.  See README for details.\r\n",
+          "warnings": [
+
+          ]
+        },
+        {
           "name": "Kinetic Request CE Attachment Copy",
           "version": "1",
           "id": "kinetic_request_ce_attachment_copy_v1",
