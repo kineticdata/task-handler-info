@@ -6191,7 +6191,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Team Membership Create V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Team Membership Create V1 (2017-03-06)\r\n * Initial version.  See README for details.\r\n",
+          "changelogText": "Kinetic Request CE Team Membership Create V1 (2019-01-16)\r\n* Change the membership request body to leverage the team name not the team slug.\r\n\r\nKinetic Request CE Team Membership Create V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Team Membership Create V1 (2017-03-06)\r\n * Initial version.  See README for details.\r\n",
           "warnings": [
 
           ]
@@ -7149,7 +7149,7 @@
           "version": "1",
           "id": "kinetic_request_ce_team_update_v1",
           "description": "Updates a Team record in Kinetic Request CE for the specified space.",
-          "detailedDescription": "This handler updates a Team ",
+          "detailedDescription": "This handler updates a Team based on a slug value. The slug is derived by MD5 hashing the provided Team Name. ",
           "parameters": {
             "Error Handling": "Determine what to return if an error is encountered.",
             "Space Slug": "Space slug of which the user you are trying to updates belongs to.",
@@ -7190,7 +7190,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Team Update V1.2 (2019-01-15)\n* Updated code to not URI encode the new name parameter in the API call.\n\nKinetic Request CE Team Update V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Team Update V1 (2017-04-20)\n * Initial version.  See README for details.\n",
+          "changelogText": "Kinetic Request CE Team Update V1 (2019-01-16)\n * Changed from requiring a team slug to a team name. \n Slug will be generated using an MD5 from the name.\n\nKinetic Request CE Team Update V1.2 (2019-01-15)\n* Updated code to not URI encode the new name parameter in the API call.\n\nKinetic Request CE Team Update V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Team Update V1 (2017-04-20)\n * Initial version.  See README for details.\n",
           "warnings": [
 
           ]
@@ -7815,7 +7815,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Request CE Team Membership Delete V1 (2018-11-15)\r\n * KT-999 Fixed bug - handler was raising error in all cases.  Add conditional around error to prevent a false negative.\r\n\r\nKinetic Request CE Team Membership Delete V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Team Membership Delete V1 (2017-03-06)\r\n * Initial version.  See README for details.\r\n",
+          "changelogText": "Kinetic Request CE Team Membership Delete V1 (2017-03-06)\r\n * Changed from requiring a team slug to a team name. \r\n Slug will be generated using an MD5 from the name.\r\n\r\nKinetic Request CE Team Membership Delete V1 (2018-11-15)\r\n * KT-999 Fixed bug - handler was raising error in all cases.  Add conditional around error to prevent a false negative.\r\n\r\nKinetic Request CE Team Membership Delete V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Team Membership Delete V1 (2017-03-06)\r\n * Initial version.  See README for details.\r\n",
           "warnings": [
 
           ]
