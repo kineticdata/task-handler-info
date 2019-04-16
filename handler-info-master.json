@@ -8070,44 +8070,148 @@
       "image": "https://s3.amazonaws.com/task-handlers/jira/jira.png",
       "handlerList": [
         {
-          "name": "Jira Group Add User",
-          "version": "1",
-          "id": "jira_group_add_user_v1",
-          "description": "This handler creates a new group in Jira.",
-          "detailedDescription": "This handler uses the Jira Rest API library to add a user to an existing group within Jira. The handler first puts the data that was inputted into the JSON format and then posts that information using a REST call with basic auth. (WARNING: Using this handler without enabling SSL will not be secure). Any errors that occur during the process will be caught and re-raised by this handler. Because there is no return values, if there are no errors raised by the handler the user has been added successfully. ",
+          "name": "Jira Issue Create",
+          "version": "2",
+          "id": "jira_issue_create_v2",
+          "description": "This handler creates a new issue in a Jira project.",
+          "detailedDescription": "This handler uses the Jira Rest API library to create an issue within a Jira project. The handler first puts the data that was inputted into  JSON format and then posts that information using a REST call with basic auth. (WARNING: Using this handler without enabling SSL will not be secure). The id, key, and url of the issue will be returned by the handler. Any errors that occur during the process will be caught and re-raised by this handler, or returned as an error message if specified. ",
           "parameters": {
-            "Group Name": "The name of the group that the user will be added to."
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Project Key": "The Key of the project that the issue will be added to.",
+            "Issue Type": "The name of the issue type (ie. Bug, New Feature, Task, etc).",
+            "Summary": "A summary of the issue.",
+            "Description": "An in-depth explanation of the issue.",
+            "Assignee": "The username of the person you want to assign this issue to.",
+            "Priority": "The name of the issue priority (ie. Major, Minor, Critical, etc).",
+            "Due Date": "The due date of the issue in the form of YYYY-MM-DD.",
+            "Addtl Fields JSON": "A JSON Map of Additional Fields to be included in the fields wrapper of the body."
           },
           "sampleConfiguration": {
-            "Group Name": "Test Group 1"
+            "Error Handling": "Error Message",
+            "Project Key": "DEMO",
+            "Issue Type": "Bug",
+            "Summary": "Something is broken",
+            "Description": "Specifics about the bug",
+            "Assignee": "joe.user",
+            "Priority": "Major",
+            "Due Date": "2014-08-22",
+            "Addtl Fields JSON": "{'reporter': {'name': 'john.user'}}"
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "id": "The id of the issue that was created. ",
+            "key": "The key of the issue that was created. ",
+            "url": "The url of the issue that was created. "
+          },
+          "changelog": {
+            "2": {
+              "version": "2",
+              "date": "2018-09-06",
+              "description": "* Added ability to pass in additional fields as json to set in the issue\n* Added Error Handling so the handler can return an error message vs throw an error"
+            },
+            "1": {
+              "version": "1",
+              "date": "2014-02-17",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Jira Issue Create V2 (2018-09-06)\n* Added ability to pass in additional fields as json to set in the issue\n* Added Error Handling so the handler can return an error message vs throw an error\n\nJira Issue Create V1 (2014-02-17)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "Jira Issue Retrieve",
+          "version": "1",
+          "id": "jira_issue_retrieve_v1",
+          "description": "This handler retrieves an issue from a Jira project.",
+          "detailedDescription": "This handler uses the Jira Rest API library to retrieve an issue from a Jira project. The handler takes a issue key and and then retrieves information about that issue in JSON form. The handler then converts that JSON into XML that the handler can return to the task engine. (WARNING: Using this handler without enabling SSL will not be secure). Any errors that occur during the process will be caught and re-raised by this handler. ",
+          "parameters": {
+            "Issue Key": "The key of the issue you wish to retrieve."
+          },
+          "sampleConfiguration": {
+            "Issue Key": "KTP-1"
+          },
+          "results": {
+            "Id": "",
+            "Key": "",
+            "Summary": "",
+            "Description": "",
+            "Creator Name": "",
+            "Creator Email Address": "",
+            "Creator Display Name": "",
+            "Project Key": "",
+            "Project Name": "",
+            "Status Name": "",
+            "Issue Type Name": "",
+            "id": "",
+            "key": "",
+            "summary": "",
+            "description": "",
+            "creator_name": "",
+            "creator_emailAddress": "",
+            "creator_displayName": "",
+            "project_key": "",
+            "project_name": "",
+            "status_name": "",
+            "issuetype_name": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "Jira_Issue_Retrieve_V1 (2014-07-30)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following are defined as results but can't be found in the Results section in the README: id, key, summary, description, creator_name, creator_emailAddress, creator_displayName, project_key, project_name, status_name, issuetype_name",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Jira Issue Delete",
+          "version": "1",
+          "id": "jira_issue_delete_v1",
+          "description": "This handler deletes an issue in Jira.",
+          "detailedDescription": "This handler uses the Jira Rest API library to delete an issue in Jira. The handler first puts the data that was inputted into the JSON format and then posts that information using a REST call with basic auth. (WARNING: Using this handler without enabling SSL will not be secure). Any errors that occur during the process will be caught and re-raised by this handler. Because there is no return, if there are no errors raised by the handler the issue has been deleted successfully. ",
+          "parameters": {
+            "Issue Key": "The key of the issue that you wish to delete."
+          },
+          "sampleConfiguration": {
+            "Issue Key": "HANDLER-8"
           },
           "results": {
           },
           "changelog": {
           },
-          "changelogText": "Jira_Group_Add_User_V1 (2014-02-19)\n* Initial version.  See README for details.",
+          "changelogText": "Jira_Issue_Delete_V1 (2014-02-19)\n* Initial version.  See README for details.",
           "warnings": [
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
         {
-          "name": "Jira Group Create",
+          "name": "Jira User Create",
           "version": "1",
-          "id": "jira_group_create_v1",
-          "description": "This handler creates a new group in Jira.",
-          "detailedDescription": "This handler uses the Jira Rest API library to create a group within Jira. The handler first puts the data that was inputted into the JSON format and then posts that information using a REST call with basic auth. (WARNING: Using this handler without enabling SSL will not be secure). Any errors that occur during the process will be caught and re-raised by this handler. Because there is no return, if there are no errors raised by the handler the group has been created successfully. ",
+          "id": "jira_user_create_v1",
+          "description": "This handler creates a new user in Jira.",
+          "detailedDescription": "This handler uses the Jira Rest API library to create a new user in Jira. The handler first puts the data that was inputted into the JSON format and then posts that information using a REST call with basic auth. (WARNING: Using this handler without enabling SSL will not be secure). The key of the newly created user will be returned by the handler. Any errors that occur during the process will be caught and re-raised by this handler. ",
           "parameters": {
-            "Group Name": "The name for the new group."
+            "Username": "The username for the new user.",
+            "Password": "The password that the new user will use.",
+            "Email Address": "The email address for the new user.",
+            "Display Name": "The display name that will be attached to the new user."
           },
           "sampleConfiguration": {
-            "Group Name": "Test Group 1"
+            "Username": "test.user",
+            "Password": "testing123",
+            "Email Address": "testing@email.com",
+            "Display Name": "Test User"
           },
           "results": {
+            "Key": "",
+            "key": ""
           },
           "changelog": {
           },
-          "changelogText": "Jira_Group_Create_V1 (2014-02-19)\n* Initial version.  See README for details.",
+          "changelogText": "Jira_User_Create_V1 (2014-02-19)\n* Initial version.  See README for details.",
           "warnings": [
+            "The following are defined as results but can't be found in the Results section in the README: key",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
@@ -8137,122 +8241,44 @@
           ]
         },
         {
-          "name": "Jira Issue Create",
+          "name": "Jira Group Create",
           "version": "1",
-          "id": "jira_issue_create_v1",
-          "description": "This handler creates a new issue in a Jira project.",
-          "detailedDescription": "This handler uses the Jira Rest API library to create an issue within a Jira project. The handler first puts the data that was inputted into the JSON format and then posts that information using a REST call with basic auth. (WARNING: Using this handler without enabling SSL will not be secure). The id, key, and url of the issue will be returned by the handler. Any errors that occur during the process will be caught and re-raised by this handler. ",
+          "id": "jira_group_create_v1",
+          "description": "This handler creates a new group in Jira.",
+          "detailedDescription": "This handler uses the Jira Rest API library to create a group within Jira. The handler first puts the data that was inputted into the JSON format and then posts that information using a REST call with basic auth. (WARNING: Using this handler without enabling SSL will not be secure). Any errors that occur during the process will be caught and re-raised by this handler. Because there is no return, if there are no errors raised by the handler the group has been created successfully. ",
           "parameters": {
-            "Summary": "A summary of the issue.",
-            "Project Key": "The Key of the project that the issue will be added to.",
-            "Issue Type": "The name of the issue type (ie. Bug, New Feature, Task, etc).",
-            "Priority": "The name of the issue priority (ie. Major, Minor, Critical, etc).",
-            "Assignee": "The username of the person you want to assign this issue to.",
-            "Due Date": "The due date of the issue in the form of YYYY-MM-DD.",
-            "Description": "An in-depth explanation of the issue."
+            "Group Name": "The name for the new group."
           },
           "sampleConfiguration": {
-            "Summary": "Something is broken",
-            "Project Key": "DEMO",
-            "Issue Type": "Bug",
-            "Priority": "Major",
-            "Assignee": "joe.user",
-            "Due Date": "2014-08-22",
-            "Description": "Specifics about the bug"
-          },
-          "results": {
-            "Id": "",
-            "Key": "",
-            "Url": ""
-          },
-          "changelog": {
-          },
-          "changelogText": "Jira_Issue_Create_V1 (2014-02-17)\n* Initial version.  See README for details.",
-          "warnings": [
-            "The following are defined as results but can't be found in the Results section in the README: id, key, url",
-            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
-          ]
-        },
-        {
-          "name": "Jira Issue Delete",
-          "version": "1",
-          "id": "jira_issue_delete_v1",
-          "description": "This handler deletes an issue in Jira.",
-          "detailedDescription": "This handler uses the Jira Rest API library to delete an issue in Jira. The handler first puts the data that was inputted into the JSON format and then posts that information using a REST call with basic auth. (WARNING: Using this handler without enabling SSL will not be secure). Any errors that occur during the process will be caught and re-raised by this handler. Because there is no return, if there are no errors raised by the handler the issue has been deleted successfully. ",
-          "parameters": {
-            "Issue Key": "The key of the issue that you wish to delete."
-          },
-          "sampleConfiguration": {
-            "Issue Key": "HANDLER-8"
+            "Group Name": "Test Group 1"
           },
           "results": {
           },
           "changelog": {
           },
-          "changelogText": "Jira_Issue_Delete_V1 (2014-02-19)\n* Initial version.  See README for details.",
+          "changelogText": "Jira_Group_Create_V1 (2014-02-19)\n* Initial version.  See README for details.",
           "warnings": [
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
         {
-          "name": "Jira Issue Retrieve",
+          "name": "Jira Group Add User",
           "version": "1",
-          "id": "jira_issue_retrieve_v1",
-          "description": "This handler retrieves an issue from a Jira project.",
-          "detailedDescription": "This handler uses the Jira Rest API library to retrieve an issue from a Jira project. The handler takes a issue key and and then retrieves information about that issue in JSON form. The handler then converts that JSON into XML that the handler can return to the task engine. (WARNING: Using this handler without enabling SSL will not be secure). Any errors that occur during the process will be caught and re-raised by this handler. ",
+          "id": "jira_group_add_user_v1",
+          "description": "This handler creates a new group in Jira.",
+          "detailedDescription": "This handler uses the Jira Rest API library to add a user to an existing group within Jira. The handler first puts the data that was inputted into the JSON format and then posts that information using a REST call with basic auth. (WARNING: Using this handler without enabling SSL will not be secure). Any errors that occur during the process will be caught and re-raised by this handler. Because there is no return values, if there are no errors raised by the handler the user has been added successfully. ",
           "parameters": {
-            "Issue Key": "The key of the issue you wish to retrieve."
+            "Group Name": "The name of the group that the user will be added to."
           },
           "sampleConfiguration": {
-            "Issue Key": "KTP-1"
+            "Group Name": "Test Group 1"
           },
           "results": {
-            "Id": "",
-            "Key": "",
-            "Summary": "",
-            "Description": "",
-            "Creator Name": "",
-            "Creator Email Address": "",
-            "Creator Display Name": "",
-            "Project Key": "",
-            "Project Name": "",
-            "Status Name": "",
-            "Issue Type Name": ""
           },
           "changelog": {
           },
-          "changelogText": "Jira_Issue_Retrieve_V1 (2014-07-30)\n* Initial version.  See README for details.",
+          "changelogText": "Jira_Group_Add_User_V1 (2014-02-19)\n* Initial version.  See README for details.",
           "warnings": [
-            "The following are defined as results but can't be found in the Results section in the README: id, key, summary, description, creator_name, creator_emailAddress, creator_displayName, project_key, project_name, status_name, issuetype_name",
-            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
-          ]
-        },
-        {
-          "name": "Jira User Create",
-          "version": "1",
-          "id": "jira_user_create_v1",
-          "description": "This handler creates a new user in Jira.",
-          "detailedDescription": "This handler uses the Jira Rest API library to create a new user in Jira. The handler first puts the data that was inputted into the JSON format and then posts that information using a REST call with basic auth. (WARNING: Using this handler without enabling SSL will not be secure). The key of the newly created user will be returned by the handler. Any errors that occur during the process will be caught and re-raised by this handler. ",
-          "parameters": {
-            "Username": "The username for the new user.",
-            "Password": "The password that the new user will use.",
-            "Email Address": "The email address for the new user.",
-            "Display Name": "The display name that will be attached to the new user."
-          },
-          "sampleConfiguration": {
-            "Username": "test.user",
-            "Password": "testing123",
-            "Email Address": "testing@email.com",
-            "Display Name": "Test User"
-          },
-          "results": {
-            "Key": ""
-          },
-          "changelog": {
-          },
-          "changelogText": "Jira_User_Create_V1 (2014-02-19)\n* Initial version.  See README for details.",
-          "warnings": [
-            "The following are defined as results but can't be found in the Results section in the README: key",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         }
