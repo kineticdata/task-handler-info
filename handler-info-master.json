@@ -2631,6 +2631,122 @@
       "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aws-s3/thumbnail.svg"
     },
     {
+      "id": "aws-s3",
+      "handlerList": [
+        {
+          "name": "Amazon S3 Expiring Url Generator",
+          "version": "1",
+          "id": "amazon_s3_expiring_url_generator_v1",
+          "description": "Generate an expiring URL for S3.",
+          "detailedDescription": "This handler generates an expiring URL for S3. Expiring URLs take a bucket, a key (path + filename) and an expiration and build up a special URL that will give the user access to the file only for a certain time period. \n\n\n#### Authentication\nThis handler requires two info values for AWS authentication: Access Key ID and the Secret Access Key. These are analogous to username and password. \n\nTo find authentication values from the AWS account: \n\n\n\n  1. Navigate to the following URL: https://aws.amazon.com/account/ \n\n  2. Click the \"Security Credentials\" link (if you are not logged in, you will be prompted to do so). \n\n  3. Click the \"Access Credentials\" link.  Here you will find a list of your Access Keys. \n\n  5. Use the Access Key ID to configure the access_key_id info value of this handler. \n\n  6. To retrieve the Secret Access Key, click the \"Show\" link next to the Access Key ID that will be used. \n\n  7. Use the Secret Access Key to configure the secret_access_key info value of this handler. ",
+          "parameters": {
+            "Region": "Name of the region of the bucket (required if not specified as an info value).",
+            "Bucket": "Name of the desired bucket.",
+            "Key": "Name of the key in desired bucket (path + filename).",
+            "Seconds To Expire": "Number of seconds in which URL will expire.  This may not exceed 604,800 seconds or one week."
+          },
+          "sampleConfiguration": {
+            "Region": "us-east-1",
+            "Bucket": "sample-bucket",
+            "Key": "file-to-show.txt",
+            "Seconds To Expire": "300"
+          },
+          "results": {
+            "Public Url": "URL to desired bucket and key path for file. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2016-07-02",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Amazon S3 Expiring Url Generator V1 (2016-07-02)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "Amazon S3 File Upload From Submission",
+          "version": "1",
+          "id": "amazon_s3_file_upload_from_submission_v1",
+          "description": "This handler uploads an existing file from a Kinetic Request CE submission to an Amazon S3 bucket.",
+          "detailedDescription": "This handler creates and uploads content from an existing Request CE submission field value to an Amazon S3 bucket and then returns a public url of the successfully uploaded file. This is done by using an account's Access Key and Secret Access Key to authenticate with the Amazon S3 server and then uploading the file retrieved from Request CE and its content into the specified S3 bucket. ",
+          "parameters": {
+            "Region": "Id of the region the inteded S3 server is located in (can also be configured as an info value).",
+            "Space Slug": "Slug for the space the submission is in (can also be configured as an info value).",
+            "Bucket": "Name of the bucket to upload to.",
+            "File Name": "Name that will be given to the file on upload (if not provided, will default to the default filename stored in Request CE).",
+            "Submission Id": "Submission Id that the attachment is located on.",
+            "Field Label": "Field Label for the attachment field."
+          },
+          "sampleConfiguration": {
+            "Region": "us-east-1",
+            "Space Slug": "",
+            "Bucket": "sample-files",
+            "File Name": "handler-test.txt",
+            "Submission Id": "73f18e87-b2b5-4f2c-b009-9eb8dcdd270c",
+            "Field Label": "Attachment"
+          },
+          "results": {
+            "Public Url": "A public url for the file that was just uploaded. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-10-03",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Amazon S3 File Upload From Submission V1 (2017-10-03)\r\n* Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "Amazon S3 File Upload",
+          "version": "1",
+          "id": "amazon_s3_file_upload_v1",
+          "description": "This handler creates and uploads text content to an Amazon S3 Bucket",
+          "detailedDescription": "This handler creates and uploads text content to an Amazon S3 bucket and then returns a public url of the successfully uploaded file. This is done by using an account's Access Key and Secret Access Key to authenticate with the Amazon S3 server and then uploading the file and its content into the specified S3 bucket. ",
+          "parameters": {
+            "Region": "Id of the region the inteded S3 server is located in.",
+            "Bucket": "Name of the bucket to upload to.",
+            "File Name": "Name of the file to upload.",
+            "File Content": "String to upload as the contents of the new file."
+          },
+          "sampleConfiguration": {
+            "Region": "us-east-1",
+            "Bucket": "sample-files",
+            "File Name": "handler-test.txt",
+            "File Content": "This is a test"
+          },
+          "results": {
+            "Public Url": "A public url for the file that was just uploaded. "
+          },
+          "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2017-10-03",
+              "description": "* Updated the info values to be consistent with the other s3 handlers"
+            },
+            "1": {
+              "version": "1",
+              "date": "2016-09-16",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Amazon S3 File Upload V1.1 (2017-10-03)\r\n* Updated the info values to be consistent with the other s3 handlers\r\n\r\nAmazon S3 File Upload V1 (2016-09-16)\r\n* Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        }
+      ],
+      "name": "Amazon S3",
+      "description": null,
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aws-s3/thumbnail.svg"
+    },
+    {
       "name": "Basecamp",
       "id": "basecamp",
       "description": "Basecamp is a popular tool for project management and our integration gives you the data at your fingertips.",
