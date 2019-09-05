@@ -4753,6 +4753,15 @@
       "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aws-s3/thumbnail.svg"
     },
     {
+      "id": "aws-ses",
+      "handlerList": [
+
+      ],
+      "name": null,
+      "description": null,
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aws-ses/"
+    },
+    {
       "name": "Basecamp",
       "id": "basecamp",
       "description": "Basecamp is a popular tool for project management and our integration gives you the data at your fingertips.",
