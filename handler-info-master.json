@@ -5271,6 +5271,15 @@
       "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aws-ec2/thumbnail.svg"
     },
     {
+      "id": "aws-ecs",
+      "handlerList": [
+
+      ],
+      "name": "Amazon ECS",
+      "description": null,
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aws-ecs/thumbnail.svg"
+    },
+    {
       "id": "aws-iam",
       "handlerList": [
         {
