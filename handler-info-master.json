@@ -5618,6 +5618,344 @@
       "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aws-iam/thumbnail.svg"
     },
     {
+      "id": "aws-iam",
+      "handlerList": [
+        {
+          "name": "AWS IAM Add Role to Instance Profile",
+          "version": "1",
+          "id": "aws_iam_add_role_to_instance_profile_v1",
+          "description": "Adds a specified role to a specified instance profile.",
+          "detailedDescription": "This handler uses the AWS REST API to add a specified role to a specified instance profile.  For more information see the AWS Amazon Virtual Private Cloud User Guide online. ",
+          "parameters": {
+            "Instance Profile Name": "The name of the instance profile to add.",
+            "Role Name": "The name of the role to add. No spaces allowed, alphanumeric characters and any of these '+=,.@_-' only. Must match an existing value in AWS."
+          },
+          "sampleConfiguration": {
+            "Instance Profile Name": "Webserver",
+            "Role Name": "S3Access"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-31",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS IAM Add Role to Instance Profile V1 (2017-08-31)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS IAM Attach Role Policy",
+          "version": "1",
+          "id": "aws_iam_attach_role_policy_v1",
+          "description": "Attaches a specified managed policy to a specified role in AWS IAM (Identify and Access Management)",
+          "detailedDescription": "This handler uses the AWS REST API to attach a policy to a role in the AWS IAM service.  For more information see the AWS Amazon Virtual Private Cloud User Guide online. ",
+          "parameters": {
+            "Role Name": "The friendly name (not ARN) of the role to which the policy will be attached. No spaces allowed, alphanumeric characters and any of these '+=,.@_-' only. Must match an existing value in AWS.",
+            "Policy ARN": "The Amazon Resource Name (ARN).  ARNs are unique identifiers for AWS resources. Must match an existing value in AWS."
+          },
+          "sampleConfiguration": {
+            "Role Name": "Dev_Role",
+            "Policy ARN": "arn:aws:iam: 2231572241111:policy/DEV_policy"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-28",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS IAM Attach Role Policy V1 (2017-08-28)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS IAM Create Instance Profile",
+          "version": "1",
+          "id": "aws_iam_create_instance_profile_v1",
+          "description": "Creates a new instance profile. An instance profile is a container for an AWS IAM (Identify and Access Management) role that you can use to pass role information to an EC2 instance when the instance starts.",
+          "detailedDescription": "This handler uses the AWS REST API to create a new instance profile. An instance profile is a container for an AWS IAM (Identify and Access Management) role that you can use to pass role information to an EC2 instance when the instance starts. ",
+          "parameters": {
+            "Instance Profile Name": "The name of the instance profile to create. No spaces allowed, alphanumeric characters and any of these '+=,.@_-' only.",
+            "Path": "The path to the instance profile (for more information see AWS IAM documentation on IAM Identifiers.  If left blank it defaults to a slash (/)."
+          },
+          "sampleConfiguration": {
+            "Instance Profile Name": "Dev_Instance_Profile_One",
+            "Path": "/path"
+          },
+          "results": {
+            "Instance Profile Name": "Name of instance profile. ",
+            "Instance Profile ID": "ID of instance profile. ",
+            "Instance Profile ARN": "ARN of instance profile. ",
+            "Instance Profile Path": "Path of instance profile. ",
+            "Instance Profile Roles": "Roles of instance profile. ",
+            "Instance Profile Create Date": "Create date of instance profile. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-31",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS IAM Create Instance Profile V1 (2017-08-31)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS IAM Create Policy",
+          "version": "1",
+          "id": "aws_iam_create_policy_v1",
+          "description": "Creates an AWS IAM (Identify and Access Management) Policy",
+          "detailedDescription": "This handler uses the AWS REST API to creates an AWS IAM (Identify and Access Management) Policy.  For more information see the AWS Amazon Virtual Private Cloud User Guide online. ",
+          "parameters": {
+            "Policy Name": "The name of the policy document.",
+            "Path": "The path for the policy.",
+            "Policy Document": "The policy document.",
+            "Description": "A friendly description of the policy."
+          },
+          "sampleConfiguration": {
+            "Policy Name": "Dev_Policy",
+            "Path": "/directory",
+            "Policy Document": "iam_policy",
+            "Description": "This a a sample description for an IAM policy."
+          },
+          "results": {
+            "Policy Name": "Policy name of the policy you just created. ",
+            "Policy ID": "ID of the policy you just made. ",
+            "Policy ARN": "ARN of the policy you just created. ",
+            "Policy Path": "Policy path for the policy that you just created. ",
+            "Policy Default Version ID": "Version ID created for policy. ",
+            "Policy Attachment Count": "Count of attachments to policy. ",
+            "Policy Is Attachable": "Boolean value for whether or not the policy will accept attachments. ",
+            "Policy Description": "Description of the policy created. ",
+            "Policy Create Date": "Date you created the policy. ",
+            "Policy Update Date": "Date policy was last updated. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-31",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS IAM Create Policy V1 (2017-08-31)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS IAM Create Role",
+          "version": "1",
+          "id": "aws_iam_create_role_v1",
+          "description": "Creates an AWS IAM (Identify and Access Management) Role",
+          "detailedDescription": "This handler uses the AWS REST API to create an AWS IAM (Identify and Access Management) Role.  For more information see the AWS Amazon Virtual Private Cloud User Guide online. ",
+          "parameters": {
+            "Role Name": "The name of the role to create. No spaces allowed, alphanumeric characters and any of these '+=,.@_-' only.",
+            "Path": "The path for the policy (for more information see AWS IAM documentation on IAM Identifiers. If not included it defaults to a slash (/).",
+            "Assume Role Policy Document": "The policy document."
+          },
+          "sampleConfiguration": {
+            "Role Name": "Dev_Role",
+            "Path": "/desired/path",
+            "Assume Role Policy Document": "JSON"
+          },
+          "results": {
+            "Role Name": "The name of the role created. ",
+            "Role Id": "The ID of the role created. ",
+            "Role Arn": "",
+            "Role Path": "The path of the role created. ",
+            "Role Create Date": "The create date of the role created. ",
+            "Role Assume Role Policy Document": "The role assume role policy document of the role created. ",
+            "Role ARN": ""
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-31",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS IAM Create Role V1 (2017-08-31)\n* Initial version.  See README for details.\n",
+          "warnings": [
+            "The following are defined as results but can't be found in the Results section in the README: Role ARN"
+          ]
+        },
+        {
+          "name": "AWS IAM Delete Instance Profile",
+          "version": "1",
+          "id": "aws_iam_delete_instance_profile_v1",
+          "description": "Deletes a specified instance profile. The instance profile must not have an associated role.",
+          "detailedDescription": "This handler uses the AWS REST API to deletes a specified instance profile. The instance profile must not have an associated role. Make sure you do not have any Amazon EC2 instance running with this instance profile you are about to delete. Deleting a role or instance profile that is associated with a running instance will break any applications running on that instance. For more information see the AWS Amazon Virtual Private Cloud User Guide online. ",
+          "parameters": {
+            "Instance Profile Name": "The name of the instance profile to delete. No spaces allowed, alphanumeric characters and any of these '+=,.@_-' only. Must match an existing value in AWS."
+          },
+          "sampleConfiguration": {
+            "Instance Profile Name": "DevOps_Instance_One"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-09-05",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS IAM Delete Instance Profile V1 (2017-09-05)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS IAM Delete Policy",
+          "version": "1",
+          "id": "aws_iam_delete_policy_v1",
+          "description": "Deletes the specified managed policy.",
+          "detailedDescription": "This handler is used to delete a specified managed policy.  Before you can delete a managed policy, you must detach the policy from all users, groups, and roles that it is attached to, and you must delete all of the policy's versions. The entire ARN, not just the number or name is taken as a parameter input. For more information see the AWS Amazon Virtual Private Cloud User Guide online. ",
+          "parameters": {
+            "Policy ARN": "The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources."
+          },
+          "sampleConfiguration": {
+            "Policy ARN": "arn:aws:iam: 223157194001:policy/dev_ops_policy-201698281225"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-31",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS IAM Delete Policy V1 (2017-08-31)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS IAM Delete Role",
+          "version": "1",
+          "id": "aws_iam_delete_role_v1",
+          "description": "Deletes the specified role. The role must not have any policies attached.",
+          "detailedDescription": "This handler uses the AWS REST API to delete a specified role.  The role must not have any policies attached.  Make sure you do not have any Amazon EC2 instances running with the role you are about to delete. Deleting a role or instance profile that is associated with a running instance will break any applications running on the instance.  For more information see the AWS Amazon Virtual Private Cloud User Guide online. ",
+          "parameters": {
+            "Role Name": "The name of the role to delete."
+          },
+          "sampleConfiguration": {
+            "Role Name": "Dev_Ops_role"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-28",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS IAM Delete Role V1 (2017-08-28)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS IAM Detach Role Policy",
+          "version": "1",
+          "id": "aws_iam_detach_role_policy_v1",
+          "description": "Removes the specified managed policy from the specified role.",
+          "detailedDescription": "This handler uses the AWS REST API to detach a specified policy from a role in the AWS IAM service.  For more information see the AWS Amazon Virtual Private Cloud User Guide online. ",
+          "parameters": {
+            "Role Name": "The name (friendly name, not ARN) of the role to detach the policy from.",
+            "Policy ARN": "The Amazon Resource Name (ARN). ARNs are unique identifiers for AWS resources."
+          },
+          "sampleConfiguration": {
+            "Role Name": "NAT_Role",
+            "Policy ARN": "arn:aws:iam: 452047358935:policy/NAT_Policy"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-28",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS IAM Detach Role Policy V1 (2017-08-28)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS IAM List Instance Profiles",
+          "version": "1",
+          "id": "aws_iam_list_instance_profiles_v1",
+          "description": "Lists the instance profiles that have the specified path prefix. If there are none, the action returns an empty list.",
+          "detailedDescription": "This handler uses the AWS REST API to list the instance profiles that have the specified path prefix. If there are none, the action returns an empty list.  For more information see the AWS Amazon Virtual Private Cloud User Guide online. ",
+          "parameters": {
+            "Path Prefix": "The path prefix for filtering the results. For example, the prefix /application_abc/component_xyz/ gets all instance profiles whose path starts with /application_abc/component_xyz/. Use a slash (/) to list all instances."
+          },
+          "sampleConfiguration": {
+            "Path Prefix": "/application_abc/component_xyz/"
+          },
+          "results": {
+            "Instance Profiles XML": "This handler returns a list of instance profiles from your specified path prefix. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-28",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS IAM List Instance Profiles V1 (2017-08-28)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS IAM Remove Role from Instance Profile",
+          "version": "1",
+          "id": "aws_iam_remove_role_from_instance_profile_v1",
+          "description": "Removes a specified role from a specified instance profile.",
+          "detailedDescription": "This handler uses the AWS REST API to remove a specified role from a specified instance profile. Make sure you do not have any Amazon EC2 instances running with the role you are about to remove from the instance profile. Removing a role from an instance profile that is associated with a running instance will break any applications running on the instance. For more information see the AWS Amazon Virtual Private Cloud User Guide online. ",
+          "parameters": {
+            "Instance Profile Name": "The name of the role to update. No spaces allowed, alphanumeric characters and any of these '+=,.@_-' only. Must match an existing value in AWS.",
+            "Role Name": "The role you wish to remove. No spaces allowed, alphanumeric characters and any of these '+=,.@_-' only. Must match an existing value in AWS."
+          },
+          "sampleConfiguration": {
+            "Instance Profile Name": "DevProfileName",
+            "Role Name": "DevTestRole"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-09-05",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS IAM Remove Role from Instance Profile V1 (2017-09-05)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        }
+      ],
+      "name": "Amazon IAM",
+      "description": "AWS Identity and Access Management (IAM) enables you to securely control access to AWS services and resources for your users.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aws-iam/thumbnail.svg"
+    },
+    {
       "id": "aws-rds",
       "handlerList": [
 
