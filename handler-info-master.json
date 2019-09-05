@@ -5609,6 +5609,15 @@
       "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aws-iam/thumbnail.svg"
     },
     {
+      "id": "aws-rds",
+      "handlerList": [
+
+      ],
+      "name": "Amazon RDS",
+      "description": null,
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aws-rds/thumbnail.svg"
+    },
+    {
       "id": "aws-s3",
       "handlerList": [
         {
