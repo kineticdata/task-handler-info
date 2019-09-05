@@ -2399,6 +2399,101 @@
       ]
     },
     {
+      "id": "aws-cloudformation",
+      "handlerList": [
+        {
+          "name": "AWS Cloud Formation Create Stack",
+          "version": "1",
+          "id": "aws_cloudFormation_create_stack_v1",
+          "description": "Creates a new stack using an Aws cloud formation template",
+          "detailedDescription": "This handler uses the AWS REST API to create a new cloud formation stack based on a template url. ",
+          "parameters": {
+            "Template URL": "Enter a Template Body OR a Template URL. Location of file containing the template body. The URL must point to a template located in an S3 bucket in the same region as the stack.",
+            "Template Parameters": "Enter Template Parameters in JSON format.",
+            "Stack Name": "Name of the cloud formation stack to create."
+          },
+          "sampleConfiguration": {
+            "Template URL": "https://s3-us-west-2.amazonaws.com/cloudformation-templates-us-west-1/LAMP_Multi_AZ.template",
+            "Template Parameters": "{\"KeyName\":\"KineticDemoAWSWest\"}",
+            "Stack Name": "JamesTestLampStack"
+          },
+          "results": {
+            "Stack ID": "ID of the cloud formation Stack that was created "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-09-06",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS Cloud Formation Create Stack V1 (2017-09-06)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS Cloud Formation Describe Stack Resources",
+          "version": "1",
+          "id": "aws_cloudFormation_describe_stack_resources_v1",
+          "description": "Describes stack resources of an AWS Cloud Formation Stack",
+          "detailedDescription": "This handler uses the AWS REST API to describe the stack resource of an AWS Cloud Formation Stack. For more information see the AWS Amazon Virtual Private Cloud User Guide online. ",
+          "parameters": {
+            "Stack Name": "The name or the unique identifier associated with the stack"
+          },
+          "sampleConfiguration": {
+            "Stack Name": "DevStack01"
+          },
+          "results": {
+            "Resource List": "The results from this handler will return a resource list. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-09-06",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS Cloud Formation Describe Stack Resources V1 (2017-09-06)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS Cloud Formation Estimate Template Cost",
+          "version": "1",
+          "id": "aws_cloudFormation_estimate_template_cost_v1",
+          "description": "Estimates cost of an Aws cloud formation template",
+          "detailedDescription": "This handler uses the AWS REST API to estimate the cost of an AWS cloud formation template.  For more information see the AWS Amazon Virtual Private Cloud User Guide online. ",
+          "parameters": {
+            "Template URL": "Enter a Template Body OR a Template URL.",
+            "Template Parameters": "Template Parameters"
+          },
+          "sampleConfiguration": {
+            "Template URL": "https://s3-us-west-1.amazonaws.com/cloudformation-templates-us-west-1/Rails_Multi_AZ.template",
+            "Template Parameters": "{\"KeyName\":\"KineticDemoAWSWest\",\"MultiAZDatabase\":\"true\",\"SSHLocation\":\"0.0.0.0/0\",\"WebServerCapacity\":\"2\",\"DBAllocatedStorage\":\"5\",\"DBInstanceClass\":\"db.m1.large\",\"DBName\":\"myDatabase\",\"DBPassword\":\"KineticDemo123\",\"DBUser\":\"kineticdemo\",\"InstanceType\":\"t2.small\"}"
+          },
+          "results": {
+            "URL": "The URL of the cloudFormation estimate template cost. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-30",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS Cloud Formation Estimate Template Cost V1 (2017-08-30)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        }
+      ],
+      "name": "Amazon CloudFormation",
+      "description": null,
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aws-cloudformation/thumbnail.svg"
+    },
+    {
       "id": "aws-s3",
       "handlerList": [
         {
