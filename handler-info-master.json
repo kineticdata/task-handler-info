@@ -3930,6 +3930,1347 @@
       "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aws-ec2/thumbnail.svg"
     },
     {
+      "id": "aws-ec2",
+      "handlerList": [
+        {
+          "name": "AWS EC2 Associate Route Table",
+          "version": "1",
+          "id": "aws_ec2_associate_route_table_v1",
+          "description": "Associates a subnet with a route table.",
+          "detailedDescription": "Associates a subnet with a route table. The subnet and route must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route can be associated with multiple subnets. For more information see the AWS Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Subnet ID": "The ID of the subnet to which the route table will connect. Must match an existing value in AWS.",
+            "Route Table ID": "The ID of the route table to connect to the subnet. Must match an existing value in AWS."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Subnet ID": "subnet-c5311aef",
+            "Route Table ID": "rtb-076baa09"
+          },
+          "results": {
+            "Association Id": "The id of the association if the call was successful. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-17",
+              "description": "* Initial version. See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Associate Route Table V1 (2017-08-17)\n* Initial version. See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Attach Internet Gateway",
+          "version": "1",
+          "id": "aws_ec2_attach_internet_gateway_v1",
+          "description": "Attaches an Internet gateway to a VPC, enabling connectivity between the Internet and the VPC.",
+          "detailedDescription": "Attaches an Internet gateway to a VPC, enabling connectivity between the Internet and the VPC. For more information about your VPC and the Internet gateway, see the Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Internet Gateway ID": "The ID of the internet gateway. Must match an existing value in AWS.",
+            "VPC ID": "The ID of the VPC. Must match an existing value in AWS."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Internet Gateway ID": "igw-bbe16fde",
+            "VPC ID": "vpc-5981c03c"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-18",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Attach Internet Gateway V1 (2017-08-18)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Authorize Security Group Ingress",
+          "version": "1",
+          "id": "aws_ec2_authorize_security_group_ingress_v1",
+          "description": "Add a security group ingress rule to a security group.",
+          "detailedDescription": "This handler uses the AWS REST API to Add a security group ingress rule to a security group. This handler implements a subset of the full AWS call (single rule submission only). Most of the inputs for this handler are conditionally required based on other input values. Source Security Group Name is required if a CIDR IP Address Name isn't specified and vice versa. Also, if a Source Security Group Name and/or Source Security Group Owner ID are provided, the IP Protocol, From Port, To Port, and CIDR IP Address Range must be left blank. This handler returns no results, so if no errors are caught and raised the rule has been successfully applied. \n\nMore specific information about these parameters can be found in the Amazon EC2 Ruby documentation (http://docs.aws.amazon.com/sdkforruby/api/Aws/EC2/Client.html#authorize_security_group_ingress-instance_method) and in the EC2 REST documentation (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html). \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Group Name": "The name of the security group. Normally used for the EC2-Classic or the default VPC security group.",
+            "Group ID": "The ID of the security group. Required for a non-default VPC.",
+            "Source Security Group Name": "The name of the source security group. For EC2-VPC, the source security group must be in the same VPC.",
+            "Source Security Group Owner ID": "TThe AWS account number for the source security group. For EC2-VPC, the source security group must be in the same VPC. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.",
+            "IP Protocol": "The IP protocol name (tcp, udp, icmp). (VPC only) Use -1 to specify all. You can't specify this parameter when specifying a source security group.",
+            "From Port": "The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use -1 to specify all ICMP types. You can't specify this parameter when specifying a source security group.",
+            "To Port": "The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use -1 to specify all ICMP codes for the ICMP type. You can't specify this parameter when specifying a source security group.",
+            "CIDR IP Address Range": "The CIDR IP address range. You can't specify this parameter when specifying a source security group."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Group Name": "DevGroup",
+            "Group ID": "sg-94a22af0",
+            "Source Security Group Name": "",
+            "Source Security Group Owner ID": "",
+            "IP Protocol": "tcp",
+            "From Port": "22",
+            "To Port": "23",
+            "CIDR IP Address Range": "0.0.0.0/0"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-21",
+              "description": "* Initial version. See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Authorize Security Group Ingress V1 (2017-08-21)\n* Initial version. See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Create Internet Gateway",
+          "version": "1",
+          "id": "aws_ec2_create_internet_gateway_v1",
+          "description": "Creates an internet gateway",
+          "detailedDescription": "Creates an internet gateway and return the gateway's id, attachments, and tags. The list of returned attachments each include a 'vpc_id' and 'state' keys and the returned tags all contain a 'key' and 'value' keys. For more information see the AWS Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false)."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false"
+          },
+          "results": {
+            "Id": "The id of the internet gateway if the call was successful. ",
+            "Attachments": "A list of attachments (in JSON) that were attached to the internet gateway upon creation ",
+            "Tags": "A list of tags (in JSON) that were attached to the internet gateway upon creation "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-21",
+              "description": "* Initial version. See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Create Internet Gateway V1 (2017-08-21)\n* Initial version. See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Create Key Pair As Attachment",
+          "version": "1",
+          "id": "aws_ec2_create_key_pair_as_attachment_v1",
+          "description": "Creates a 2048-bit RSA key pair with the specified name and attaches the result to a Kinetic Request CE submission.",
+          "detailedDescription": "Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores the public key and displays the private key for you to save to a file. The returned private key is then uploaded to the configured Kinetic Filehub for the specified Kinetic Request CE instance (using the Request API to start that upload). Once the key has been uploaded to Filehub, the key pair will be attached to the specified field in a new Request CE submission. The Id for that created submission will be returned by the handler. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Key Name": "A unique name for the key pair.",
+            "Space Slug": "Slug of the space to create the submission in.",
+            "Kapp Slug": "Slug of the kapp to create the submission in.",
+            "Form Slug": "Slug of the form to create the submission in.",
+            "Field Name": "Name of the field to upload the attachment to."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Key Name": "sample-key",
+            "Space Slug": "internal",
+            "Kapp Slug": "catalog",
+            "Form Slug": "sample-form",
+            "Field Name": ""
+          },
+          "results": {
+            "Submission Id": "Id of submission if the call was successful. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-21",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Create Key Pair As Attachment V1 (2017-08-21)\n* Initial version.  See README for details.\n",
+          "warnings": [
+            "Info Value with the name 'ce_password' includes 'password' or 'secret' in the same and should be encrypted.",
+            "The following parameters can't be found in the Sample Configuration in the README: Field Name"
+          ]
+        },
+        {
+          "name": "AWS EC2 Create Key Pair",
+          "version": "1",
+          "id": "aws_ec2_create_key_pair_v1",
+          "description": "Creates a 2048-bit RSA key pair with the specified name.",
+          "detailedDescription": "Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores the public key and displays the private key for you to save to a file. The private key is returned as an unencrypted PEM encoded PKCS#8 private key. If a key with the specified name already exists, Amazon EC2 returns an error. For more information about key pairs, see the Amazon Elastic Compute Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Key Name": "A unique name for the key pair."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Key Name": "sample-key"
+          },
+          "results": {
+            "Name": "Name of the successfully created key pair. ",
+            "Fingerprint": "Fingerprint of the successfully created key pair. ",
+            "Material": "The full contents of the created private key. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-21",
+              "description": "* Initial version. See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Create Key Pair V1 (2017-08-21)\n* Initial version. See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Create Network Interface",
+          "version": "1",
+          "id": "aws_ec2_create_network_interface_v1",
+          "description": "Creates a network interface in the specified subnet. For more information see the Amazon Elastic Cloud Compute User Guide online.",
+          "detailedDescription": "Creates a network interface in the specified subnet. For more information see the Amazon Elastic Cloud Compute User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Subnet ID": "The ID of the subnet to associate with the network interface.",
+            "Description": "A description for the network interface.",
+            "Private IP Address (Primary)": "The primary private IP address of the network interface. If you don't specify an IP address, Amazon EC2 selects one for you from the subnet range. If you specify an IP address, you cannot indicate any IP addresses specified in Private IP Addresses as primary (only one IP address can be designated as primary).",
+            "Security Group IDs": "The IDs of one or more security groups, separated by commas.",
+            "Private IP Addresses": "One or more private IP addresses in JSON format. Note: only one IP address can be designated as primary, and if you are using the 'Private IP Address (Primary)' as well as this field, that will be the primary -- [{\"private_ip_address\":\"IP address\",\"primary\":true},{\"private_ip_address\":\"IP address\",\"primary\":false}]",
+            "Secondary Private IP Address Count": "The number of secondary private IP addresses to assign to a network interface. When you specify a number of secondary IP addresses, Amazon EC2 selects these IP addresses within the subnet range. You can't specify this option and specify more than one private IP address using Private IP Addresses"
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Subnet ID": "subnet-c5311aef",
+            "Description": "sample-network-interface",
+            "Private IP Address (Primary)": "172.44.26.952",
+            "Private IP Addresses": "[{\"private_ip_address\":\"172.44.26.953\",\"primary\":false},{\"private_ip_address\":\"172.44.26.954\",\"primary\":false}]",
+            "Secondary Private IP Address Count": "5",
+            "Security Group IDs": ""
+          },
+          "results": {
+            "Network Interface Id": "The Id of the network interface ",
+            "Subnet Id": "The Id of the subnet ",
+            "VPC Id": "The Id of the VPC ",
+            "Availability Zone": "The availability zone ",
+            "Description": "A description ",
+            "Owner Id": "The AWS account Id of the owner of the network interface ",
+            "Requester Id": "The ID of the entity that launched the instance on your behalf (for example, AWS Management Console or Auto Scaling). ",
+            "Requester Managed": "A boolean indicating whether the network interface is being managed by AWS ",
+            "Status": "The status of the network interface ",
+            "MAC Address": "The MAC address ",
+            "Private IP Address": "The IPv4 address of the network interface within the subnet ",
+            "Private DNS Name": "The private DNS name ",
+            "Source Dest Check": "A boolean indicating whether traffic to or from the instance is validated ",
+            "Groups": "A list of security groups for the network interface ",
+            "Attachment Attachment Id": "The Id of the network interface attachment ",
+            "Attachment Instance Id": "The Id of the instance ",
+            "Attachment Instance Owner Id": "The AWS account Id of the owner of the instance ",
+            "Attachment Device Index": "The device index of the network interface attachment on the instance ",
+            "Attachment Status": "The attachment state ",
+            "Attachment Attach Time": "The timestamp indicating when the attachment initiated ",
+            "Attachment Delete On Termination": "A boolean indicating whether the network interface is deleted when the instance is terminated ",
+            "Association Association Id": "The allocation id ",
+            "Association Allocation Id": "The association allocation id ",
+            "Association Public IP": "The address of the Elastic IP address bound to the network interface ",
+            "Association Public DNS Name": "The public DNS name ",
+            "Association IP Owner Id": "The Id of the Elastic IP address owner ",
+            "Tag Set": "Any tags assigned to the network interface ",
+            "Private IP Addresses": "A list of private IPv4 addresses associated with the network interface "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-21",
+              "description": "* Initial version. See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Create Network Interface V1 (2017-08-21)\n* Initial version. See README for details.\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Security Group IDs"
+          ]
+        },
+        {
+          "name": "AWS EC2 Create Route Table",
+          "version": "1",
+          "id": "aws_ec2_create_route_table_v1",
+          "description": "Creates a route table for the specified VPC.",
+          "detailedDescription": "This handler uses AWS' REST API to create a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet. For more information see the AWS Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "VPC ID": "The ID of the VPN in which the route table will be created."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "VPC ID": "vpc-4981f03c"
+          },
+          "results": {
+            "Route Table ID": "ID of route table. ",
+            "Route Table VPC ID": "ID of route table VPC. ",
+            "Route Table Routes": "Table of table routes. ",
+            "Route Table Associations": "Associations of route table. ",
+            "Route Table Tag": "Tag for route table. ",
+            "Route Table Propagation VGWS": "propagating_vgws for route table. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2014-08-21",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Create Route Table V1 (2014-08-21)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Create Route",
+          "version": "1",
+          "id": "aws_ec2_create_route_v1",
+          "description": "Creates a route in the route table within a VPC.",
+          "detailedDescription": "Creates a route in the route table within a VPC. Exactly one of the following targets must be specified for the call to succeed: Gateway ID, NAT Instance ID, VPC Peering Connection ID, Network Interface ID. For more information see the AWS Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Route Table ID": "The ID of the route table for the route.",
+            "Destination CIDR Block": "The IPv4 CIDR address block used for the destination match.",
+            "Gateway ID": "The ID of an internet gateway or virtual private gateway attached to your VPC.",
+            "NAT Instance ID": "The ID of a NAT instance in your VPC. This operation will fail if you specify an instance ID unless exactly one network interface is attached.",
+            "VPC Peering Connection ID": "The ID of a VPC peering connection.",
+            "Network Interface ID": "The ID of a network interface."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Route Table ID": "rtb-22574640",
+            "Destination CIDR Block": "0.0.0.0/0",
+            "Gateway ID": "igw-c0a643a9",
+            "NAT Instance ID": "",
+            "VPC Peering Connection ID": "",
+            "Network Interface ID": ""
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-30",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Create Route V1 (2017-08-30)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Create Security Group",
+          "version": "1",
+          "id": "aws_ec2_create_security_group_v1",
+          "description": "This handler is used to create a security group in AWS.",
+          "detailedDescription": "This handler is used to create a security group in AWS.  A security group is for use with instances either in the EC2-Classic platform or in a specific VPC.  For more information see the Amazon Elastic Compute Cloud User Guide and the Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Group Name": "A friendly name for the security group (255 character max length).",
+            "Description": "A description for the security group (255 character max length).",
+            "VPC ID": "The ID of the VPC."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Group Name": "DevGroup1",
+            "Description": "This is a security group for ec2 instances managed by DevGroup1",
+            "VPC ID": "vpc-b7w2b6d2"
+          },
+          "results": {
+            "Group ID": "The group ID of the security group that you just created. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-22",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Create Security Group V1 (2017-08-22)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Create Subnet",
+          "version": "1",
+          "id": "aws_ec2_create_subnet_v1",
+          "description": "Creates a subnet in an existing VPC.",
+          "detailedDescription": "Creates a subnet in an existing VPC. For more information see the AWS Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "VPC Id": "The ID of the VPN in which the subnet will be created. Must match an existing value in AWS.",
+            "CIDR Block": "The network range for the subnet, in CIDR notation. For example: 10.0.0.0/24. After a subnet is created, the CIDR block cannot be changed. The subnet's CIDR Block can be the same as the VPC's CIDR block, or a subset of the VPC's CIDR block. If you create more than one subnet in a VPC, the subnets' CIDR blocks must not overlap. The smallest subnet you can create uses a /28 netmask (16 IP addresses), and the largest uses a /16 netmask (65,536 IP addresses).",
+            "Availability Zone": "The availability zone for the subnet."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "VPC Id": "vpc-b7e2b6d2",
+            "CIDR Block": "10.0.0.0/28",
+            "Availability Zone": "us-west-2a"
+          },
+          "results": {
+            "Subnet Id": "The ID of the subnet ",
+            "Subnet State": "The current state of the subnet ",
+            "Subnet VPC Id": "The ID of the VPC the subnet is in ",
+            "Subnet CIDR Block": "The IPv4 CIDR block assigned to the subnet ",
+            "Subnet Available IP Address Count": "The number of unused private IPv4 addresses in the subnet ",
+            "Subnet Availability Zone": "The Availability Zone of the subnet ",
+            "Subnet Default for AZ": "A boolean indicating whether this is the default subnet for the Availability Zone ",
+            "Subnet Map Public IP on Launch": "A boolean indicating whether instances launched in this subnet receive a public IPv4 address ",
+            "Subnet Tags": "Any tags assigned to the subnet "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-22",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Create Subnet V1 (2017-08-22)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Create Tag",
+          "version": "1",
+          "id": "aws_ec2_create_tag_v1",
+          "description": "Creates a single tag against a single resource.",
+          "detailedDescription": "This handler uses the AWS REST API. Creates a single tag against a single resource. Will overwrite an existing tag with the same key.  Note: Per AWS, each resource can have a maximum of 10 tags. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Resource": "This tag will be applied to the resource id provided here.",
+            "Key": "The key value for this tag. If an existing tag exists with this key it will be overwritten.",
+            "Value": "The value for the tag. A blank value in this field will result in an empty value for this tag."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "False",
+            "Resource": "Test User",
+            "Key": "Owner",
+            "Value": "DBAdmin"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-22",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Create Tag V1 (2017-08-22)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Create VPC",
+          "version": "1",
+          "id": "aws_ec2_create_vpc_v1",
+          "description": "Creates a VPC",
+          "detailedDescription": "This handler uses the AWS REST API to create a VPC for AWS. The input takes a CIDR and an Instance Tenancy options as input values. For Instance Tenancy, a value of 'default' means that instances can be launched with any tenancy; a value of 'dedicated' means all instances launched into the VPC are launched as dedicated tenancy instances regardless of the tenancy assigned to the instance at launch. Dedicated tenancy instances run on single-tenant hardware. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "CIDR Block": "The network range for the VPC, in CIDR notation.",
+            "Instance Tenancy": "The supported tenancy options for instances launched into the VPC are default, dedicated, or host."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "CIDR Block": "10.0.0.0/16",
+            "Instance Tenancy": "default"
+          },
+          "results": {
+            "VPC ID": "The ID of the VPC ",
+            "VPC State": "The current state of the VPC ",
+            "VPC CIDR Block": "The primary IPv4 CIDR block for the VPC ",
+            "VPC DHCP Options ID": "The ID of the set of DHCP options you've associated with the VPC (or default if the default options are associated with the VPC) ",
+            "VPC Tags": "Any tags assigned to the VPC ",
+            "VPC Instance Tenancy": "The allowed tenancy of instances launched into the VPC ",
+            "VPC Is Default": "Indicates whether the VPC is the default VPC "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-22",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Create VPC V1 (2017-08-22)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Delete Internet Gateway",
+          "version": "1",
+          "id": "aws_ec2_delete_internet_gateway_v1",
+          "description": "Deletes a VPC",
+          "detailedDescription": "This handler is built on the AWS API.  It's function is to delete an internet gateway. In this, the user may specify which gateway they wish to delete by the IDWID or Internet gateway ID.  The return results will either confirm or deny the success of deleting the specified gateway ID. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Internet Gateway ID": "The ID of the Internet Gateway to delete."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Internet Gateway ID": "igw-8d22198f"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-22",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Delete Internet Gateway V1 (2017-08-22)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Delete Key Pair",
+          "version": "1",
+          "id": "aws_ec2_delete_key_pair_v1",
+          "description": "Deletes the specified key pair, by removing the public key from Amazon EC2.",
+          "detailedDescription": "Deletes the specified key pair, by removing the public key from Amazon EC2. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Key Name": "The name of the key pair to be deleted."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Key Name": "sample-key"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-22",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Delete Key Pair V1 (2017-08-22)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Delete Network Interface",
+          "version": "1",
+          "id": "aws_ec2_delete_network_interface_v1",
+          "description": "Deletes the specified network interface. You must detach the network interface before you can delete it.",
+          "detailedDescription": "Deletes the specified network interface. You must detach the network interface before you can delete it. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Network Interface ID": "The ID of the network interface."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Network Interface ID": "eni-3a1659c3"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-22",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Delete Network Interface V1 (2017-08-22)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Delete Route Table",
+          "version": "1",
+          "id": "aws_ec2_delete_route_table_v1",
+          "description": "Deletes a specified route table.",
+          "detailedDescription": "This handler deletes an associate subnet with a route table. The subnet and route must be in the same VPC. You must disassociate the route table from any subnets before you can delete it.  You cannot delete the main route table. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route can be associated with multiple subnets. For more information see the AWS Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Route Table ID": "The ID of the route table to delete."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Route Table ID": "rtb-076baa09"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-22",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Delete Route Table V1 (2017-08-22)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Delete Route",
+          "version": "1",
+          "id": "aws_ec2_delete_route_v1",
+          "description": "Deletes the specified route from the specified route table.",
+          "detailedDescription": "This handler uses the AWS REST API to delete a specified route from a specified route table.  The value you specify must match the CIDR for the route exactly. For more information see the AWS Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Route Table ID": "The ID of the affected route table.",
+            "Destination CIDR Block": "The CIDR range for the route. The value you specify must match the CIDR for the route exactly."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Route Table ID": "rtb-076baa09",
+            "Destination CIDR Block": "10.0.0.0/16"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-22",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Delete Route V1 (2017-08-22)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Delete Security Group",
+          "version": "1",
+          "id": "aws_ec2_delete_security_group_v1",
+          "description": "Deletes a security group.",
+          "detailedDescription": "This handler is built on the AWS API, and is used to delete a security group. If you attempt to delete a security group that is associated with an instance, or is referenced by another security group, the operation fails with InvalidGroup.InUse in EC2-Classic or DependencyViolation in EC2-VPC.For more information see the AWS Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Group Name": "For EC2 Classic and removing the default VPC, The name of the security group. You can specify either the security group name or the security group ID.",
+            "Group ID": "The ID of the security group. Required for a non-default VPC."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Group Name": "DevOps",
+            "Group ID": "sg-903004f8"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-22",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Delete Security Group V1 (2017-08-22)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Delete Subnet",
+          "version": "1",
+          "id": "aws_ec2_delete_subnet_v1",
+          "description": "Deletes a specified subnet.",
+          "detailedDescription": "Deletes a specified subnet. You must terminate all running instances in the subnet before you can delete the subnet. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Subnet ID": "The ID of the subnet to delete. Must match an existing value in AWS."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Subnet ID": "subnet-3a9be84d"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-22",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Delete Subnet V1 (2017-08-22)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Delete Tag",
+          "version": "1",
+          "id": "aws_ec2_delete_tag_v1",
+          "description": "Deletes a single tag against a single resource.",
+          "detailedDescription": "This handler uses the AWS REST API to delete a single tag against a single resource.  For more information see the AWS Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Resource": "The ID of the resource to which the tag is attached.",
+            "Match Value": "Enter 'True' if the value of the key must match the value entered below.  Enter 'false' to delete the key regardless of its value.",
+            "Key": "The key value for this tag to remove.",
+            "Value": "If the 'Match Value' parameter is used, the value of the tag must match the value entered here.  Leave blank to delete the tag rgardless of its value."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Resource": "vpc-5981c03c",
+            "Match Value": "true",
+            "Key": "Name",
+            "Value": ""
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-22",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Delete Tag V1 (2017-08-22)\n* Initial version.  See README for details.\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Value"
+          ]
+        },
+        {
+          "name": "AWS EC2 Delete VPC",
+          "version": "1",
+          "id": "aws_ec2_delete_vpc_v1",
+          "description": "Deletes a VPC",
+          "detailedDescription": "Deletes a VPC. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "VPC ID": "The ID of the VPC to delete. Must match an existing value in AWS."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "VPC ID": "vpc-2f27684a"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-22",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Delete VPC V1 (2017-08-22)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Describe Availability Zone",
+          "version": "1",
+          "id": "aws_ec2_describe_availability_zone_v1",
+          "description": "Returns a single availability zone's Name, State, and Region.",
+          "detailedDescription": "Returns a single availability zone's Name, State, and Region. An availability zone's messages are not returned in this handler, but they can be found in AWS EC2 Describe Availability Zones returned JSON details object. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Zone Name": "The name of an availability zone to describe."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Zone Name": "us-east-1a"
+          },
+          "results": {
+            "Name": "The name of the availability zone ",
+            "State": "The state of the availability zone ",
+            "Region": "The name of the region "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-23",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Describe Availability Zone V1 (2017-08-23)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Describe Availability Zones",
+          "version": "1",
+          "id": "aws_ec2_describe_availability_zones_v1",
+          "description": "Returns a set of availability zones and details for each of those zones.",
+          "detailedDescription": "Returns a set of availability zones and details for each of those zones. If no availability zones are specified in the input, all zones and their details are returned. The zone details are returned as a JSON object that maps the zone names to another JSON object containing the zone details. The available details are currently 'zone_name','state','region_name', and 'messages'. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Zone Names": "The names of one or more availability zones, comma separated. Leave blank to return data on all availability zones."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Zone Names": "us-east-1a,us-east-1b"
+          },
+          "results": {
+            "Availability Zone Names": "A comma separated list of availability zone names that were returned ",
+            "Availability Zone Details": "A JSON object containing the availability zone details in the form of {\"zone1\": {\"name\": \"zone1\",\"region_name\"...}, \"zone2\": ...} "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-23",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Describe Availability Zones V1 (2017-08-23)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Describe Images",
+          "version": "1",
+          "id": "aws_ec2_describe_images_v1",
+          "description": "Describes one or more of the images (AMIs, AKIs, and ARIs) available to you. Images available to you include public images, private images that you own, and private images owned by other AWS accounts but for which you have explicit launch permissions.",
+          "detailedDescription": "This handler uses the AWS REST API to Describe one or more of the images (AMIs, AKIs, and ARIs) available to you. Images available to you include public images, private images that you own, and private images owned by other AWS accounts but for which you have explicit launch permissions. For more information see the AWS Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Image IDs": "A list of one or more image IDs separated by commas",
+            "Owners": "Specify an AWS account ID.",
+            "Executable Users": "Specify an AWS account ID.  Separate multiple values with a comma.",
+            "Filters": "One or more filters in specified format found in handler README."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Owners": "self",
+            "Executable Users": "ADMIN",
+            "Filters": "{\"filter key name 1\":[\"filter values 1\",\"filter values 2\",...],\"filter key name 2\":[\"filter values 3\"]}",
+            "Image IDs": ""
+          },
+          "results": {
+            "Image Info String": "This information about the image in the form of a string. ",
+            "Images Images ID String": "The images of the images ID String. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-23",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Describe Images V1 (2017-08-23)\n* Initial version.  See README for details.\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Image IDs"
+          ]
+        },
+        {
+          "name": "AWS EC2 Detach Internet Gateway",
+          "version": "1",
+          "id": "aws_ec2_detach_internet_gateway_v1",
+          "description": "Detaches an Internet gateway from a VPC, disabling connectivity between the Internet and the VPC.",
+          "detailedDescription": "This handler uses the AWS REST API to detached an Internet gateway from a VPC, disabling connectivity between the Internet and the VPC. The VPC must not contain any running instances with Elastic IP addresses.  For more information see the AWS Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Internet Gateway ID": "The ID of the Internet Gateway to detach. Must match an existing value in AWS.",
+            "VPC ID": "The ID of the VPC to which the Internet Gateway is currently attached. Must match an existing value in AWS."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Internet Gateway ID": "igw-6c20ab09",
+            "VPC ID": "vpc-2f27684a"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-23",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Detach Internet Gateway V1 (2017-08-23)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Disassociate Route Table",
+          "version": "1",
+          "id": "aws_ec2_disassociate_route_table_v1",
+          "description": "Disassociates a subnet from a route table.",
+          "detailedDescription": "This handler uses the AWS REST API to disassociate a subnet from a route table. After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table.  For more information see the AWS Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Association ID": "The association ID representing the current association between the route table and subnet."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "false",
+            "Association ID": "rtbassoc-9c92bef9"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-23",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Disassociate Route Table V1 (2017-08-23)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Image List",
+          "version": "1",
+          "id": "aws_ec2_image_list_v1",
+          "description": "Retrieves list of machine images attached to the AWS credentials supplied",
+          "detailedDescription": "\n\nThis handler will be used primarily in a loop to iterate over multiple EC2 image instances. In order to be used by the Loop handler, a single value is returned as an escaped XML string. called \"Instance List\". \n\nThe Instance List will have the following format: <images> <image>ari-fe916297</image> <image>ari-8b779ae2</image> <image>ari-926b8bfb<image> </instances> \n\nTo setup the Loop handler, refer to the Image List from this handler for 'Data Source' and use '/images/image'as the 'Variable Path'. \n\nThe describe_images function is the base AWS::EC2 gem call we are using for this handler and returns a multi-level hash/array nest with a top level hash key of \"imagesSet\". \n\nThe imagesSet has the following pseudo-xml form. Elements with the <item> tag are array members and are referenced by numerical index. \n\nAll others are hash members and are references by element/key name. \n\n<imagesSet> <item> <imageId/> <imageLocation/> <imageState/> <imageOwnerId/> <isPublic/> <architecture/> <imageType/> <kernelId/> <ramdiskId/> <imageOwnerAlias/> <name/> <description/> <rootDeviceType/> <rootDeviceName/> <blockDeviceMapping> <item> <deviceName/> <ebs> <snapshotId/> <volumeSize/> <deleteOnTermination/> </ebs> </item> </blockDeviceMapping> <virtualizationType/> <tagSet/> <hypervisor/> </item> </imagesSet> \n\nTo retrieve the imageId, for example, simply flatten the above structure by removing inapplicable items \n\n<imagesSet> <item> <imageId/> </item> </imagesSet> \n\nTreat items as arrays and all other members as hash keys. Doing so, we can reference imageId value in the following manner: \n\n@base_aws_object.imagesSet.item[index].imageId ",
+          "parameters": {
+            "Image Launch Permissions": "Indicate whether you want public images, private images or both returned",
+            "Image Architecture": "Indicate whether you want public images, private images or both returned",
+            "Image Type": "Indicate whether you want public images, private images or both returned",
+            "Image State": "Indicate whether you want public images, private images or both returned"
+          },
+          "sampleConfiguration": {
+            "Image Launch Permissions": "",
+            "Image Architecture": "",
+            "Image Type": "",
+            "Image State": ""
+          },
+          "results": {
+            "Images List": "",
+            "Image List": ""
+          },
+          "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2017-08-24",
+              "description": "* Update the EC2 gem to AWS SDK 2.2.34.\n* Change Info Values to be more consistent with the other AWS handlers.\n* Internal tweaks to make execution similar to other AWS handlers."
+            },
+            "1": {
+              "version": "1",
+              "date": "2012-05-02",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Image List V1.1 (2017-08-24)\n* Update the EC2 gem to AWS SDK 2.2.34.\n* Change Info Values to be more consistent with the other AWS handlers.\n* Internal tweaks to make execution similar to other AWS handlers.\n\nAWS EC2 Image List V1 (2012-05-02)\n* Initial version.  See README for details.\n",
+          "warnings": [
+            "Info Value with the name 'secret_access_key' includes 'password' or 'secret' in the same and should be encrypted.",
+            "The following parameters can't be found in the Sample Configuration in the README: Image Launch Permissions, Image Architecture, Image Type, Image State",
+            "The following are defined as results but can't be found in the Results section in the README: Image List"
+          ]
+        },
+        {
+          "name": "AWS EC2 Image Retrieve",
+          "version": "1",
+          "id": "aws_ec2_image_retrieve_v1",
+          "description": "Retrieves the properties of the image supplied",
+          "detailedDescription": "\n\nThe describe_images function is the base AWS::EC2 gem call we are using for this handler and returns a multi-level hash/array nest with a top level hash key of \"imagesSet\". \n\nThe imagesSet has the following pseudo-xml form. Elements with the <item> tag are array members and are referenced by numerical index. \n\nAll others are hash members and are references by element/key name. \n\n<imagesSet> <item> <imageId/> <imageLocation/> <imageState/> <imageOwnerId/> <isPublic/> <architecture/> <imageType/> <kernelId/> <ramdiskId/> <imageOwnerAlias/> <name/> <description/> <rootDeviceType/> <rootDeviceName/> <blockDeviceMapping> <item> <deviceName/> <ebs> <snapshotId/> <volumeSize/> <deleteOnTermination/> </ebs> </item> </blockDeviceMapping> <virtualizationType/> <tagSet/> <hypervisor/> </item> </imagesSet> \n\nTo retrieve the imageId, for example, simply flatten the above structure by removing inapplicable items \n\n<imagesSet> <item> <imageId/> </item> </imagesSet> \n\nTreat items as arrays and all other members as hash keys. Doing so, we can reference imageId value in the following manner: \n\n@base_aws_object.imagesSet.item[index].imageId \n\nIn this handler, we are returning just the more interesting properties for an instance. Future versions may incorporate additional properties. ",
+          "parameters": {
+            "Image ID": "The image id of the EC2 image that this handler will retrieve details about"
+          },
+          "sampleConfiguration": {
+            "Image ID": "<%= @answers['Image ID'] %>"
+          },
+          "results": {
+            "Image Location": "The location of the AMI. ",
+            "Image State": "Current state of the AMI. If the operation returns available, the image is successfully registered and available for launching. ",
+            "Owner Id": "AWS account ID of the image owner. ",
+            "isPublic": "",
+            "Architecture": "The architecture of the image. ",
+            "Image Type": "The type of image (machine, kernel, or RAM disk). ",
+            "Kernel Id": "The kernel associated with the image, if any. Only applicable for machine images. ",
+            "Image Owner Alias": "The AWS account alias (e.g., amazon, self, etc.) or AWS account ID that owns the AMI. ",
+            "Name": "The name of the AMI that was provided during image creation. ",
+            "Description": "The description of the AMI that was provided during image creation. ",
+            "Virtualization Type": "The type of virtualization of the AMI. ",
+            "Tag Set": "Tags assigned to the resource. Each tag's information is wrapped in an item element. ",
+            "Is Public": ""
+          },
+          "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2017-08-24",
+              "description": "* Update the EC2 gem to AWS SDK 2.2.34.\n* Change Info Values to be more consistent with the other AWS handlers.\n* Internal tweaks to make execution similar to other AWS handlers."
+            },
+            "1": {
+              "version": "1",
+              "date": "2011-03-03",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Image Retrieve V1.1 (2017-08-24)\n* Update the EC2 gem to AWS SDK 2.2.34.\n* Change Info Values to be more consistent with the other AWS handlers.\n* Internal tweaks to make execution similar to other AWS handlers.\n\nAWS EC2 Image Retrieve V1 (2011-03-03)\n* Initial version.  See README for details.\n",
+          "warnings": [
+            "The following are defined as results but can't be found in the Results section in the README: Is Public"
+          ]
+        },
+        {
+          "name": "AWS EC2 Instance List",
+          "version": "1",
+          "id": "aws_ec2_instance_list_v1",
+          "description": "Retrieves list of machine instances attached to the AWS credentials supplied",
+          "detailedDescription": "\n\nThis handler will be used primarily in a loop to iterate over multiple EC2 image instances. In order to be used by the Loop handler, a single value is returned as an escaped XML string. called \"Instance List\". \n\nThe Instance List will have the following format: <instances> <instance>i-01234567</instance> <instance>i-abcdefgh</instance> <instance>i-0123abcd</instance> </instances> \n\nTo setup the Loop handler, refer to the Instance List from this handler for 'Data Source' and use '/instances/instance'as the 'Variable Path'. \n\nThe describe_instances function is the base AWS::EC2 gem call we are using for this handler and returns a multi-level hash/array nest with a top level hash key of \"reservationsSet\". \n\nThe reservationSet has the following pseudo-xml form. Elements with the <item> tag are array members and are referenced by numerical index. \n\nAll others are hash members and are references by element/key name. \n\n<reservationsSet> <reservationId/) <requesterId/>, <item> <groupSet> <item\"> <groupId/> </item> </groupSet> <instancesSet> <item> <blockDeviceMapping> <item> <ebs> <attachTime/>, <status/>, <deleteOnTermination/>, <volumeId/>, <deviceName> </ebs> </item> <tagSet> <item> <value/> <key/> </item> </tagset>, <virtualizationType/>, <productCodes/> <ipAddress/>, <kernelId/> <amiLaunchIndex/> <clientToken/>, <privateIpAddress>, <keyName/>\", <launchTime>, <instanceType/>, <imageId/>, <privateDnsName/>, <rootDeviceName/>, <rootDeviceType/> <monitoring/>\", <reason/>, <placement/> <dnsName/>, <instanceId/>, <instanceState> <name/> <code/> </instanceState> </item> </instanceSet> </item> </reservationSet>, \n\nTo retrieve the imageId, for example, simply flatten the above structure by removing inapplicable items \n\n<reservationsSet> <item> <instancesSet> <item> <imageId/>, </item> </instanceSet> </item> </reservationSet> \n\nTreat items as arrays and all other members as hash keys. Doing so, we can reference imageId value in the following manner: \n\n@base_aws_object.reservationSet.item[index].instancesSet.item[index].imageId ",
+          "parameters": {
+          },
+          "sampleConfiguration": {
+          },
+          "results": {
+            "Instance List": "An XML string representing a list of instances "
+          },
+          "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2017-08-23",
+              "description": "* Update the EC2 gem to AWS SDK 2.2.34.\n* Change Info Values to be more consistent with the other AWS handlers.\n* Internal tweaks to make execution similar to other AWS handlers."
+            },
+            "1": {
+              "version": "1",
+              "date": "2011-03-03",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Instance List V1.1 (2017-08-23)\n* Update the EC2 gem to AWS SDK 2.2.34.\n* Change Info Values to be more consistent with the other AWS handlers.\n* Internal tweaks to make execution similar to other AWS handlers.\n\nAWS EC2 Instance List V1 (2011-03-03)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Instance Retrieve Status",
+          "version": "2",
+          "id": "aws_ec2_instance_retrieve_status_v2",
+          "description": "Retrieves the status of a particular EC2 instance.",
+          "detailedDescription": "This handler uses the AWS REST API to retrieve the status of a particular EC2 instance.  The instance you are inquiring about is identified by its instance ID.  For more information see the AWS Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Instance ID": "The instance id of the EC2 virtual machine that this handler will retrieve a status from"
+          },
+          "sampleConfiguration": {
+            "Dry Run": "true",
+            "Instance ID": "i-615670a7"
+          },
+          "results": {
+            "Instance Status": "The status of the instance you are querying information about. "
+          },
+          "changelog": {
+            "2": {
+              "version": "2",
+              "date": "2017-08-24",
+              "description": "* Update the EC2 gem to AWS SDK 2.2.34.\n* Change Info Values to be more consistent with the other AWS handlers.\n* Internal tweaks to make execution similar to other AWS handlers.\n* Added Dry Run parameter. AWS EC2 Instance Retrieve Status V1(2017-08-24)\n* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Instance Retrieve Status V2 (2017-08-24)\n* Update the EC2 gem to AWS SDK 2.2.34.\n* Change Info Values to be more consistent with the other AWS handlers.\n* Internal tweaks to make execution similar to other AWS handlers.\n* Added Dry Run parameter.\n\nAWS EC2 Instance Retrieve Status V1(2017-08-24)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Instance Retrieve",
+          "version": "1",
+          "id": "aws_ec2_instance_retrieve_v1",
+          "description": "Retrieves the properties of the machine instance supplied",
+          "detailedDescription": "\n\nThe describe_instances function is the base AWS::EC2 gem call we are using for this handler and returns a multi-level hash/array nest with a top level hash key of \"reservationsSet\". \n\nThe reservationSet has the following pseudo-xml form. Elements with the <item> tag are array members and are referenced by numerical index. \n\nAll others are hash members and are references by element/key name. \n\n<reservationsSet> <reservationId/) <requesterId/>, <item> <groupSet> <item\"> <groupId/> </item> </groupSet> <instancesSet> <item> <blockDeviceMapping> <item> <ebs> <attachTime/>, <status/>, <deleteOnTermination/>, <volumeId/>, <deviceName> </ebs> </item> <tagSet> <item> <value/> <key/> </item> </tagset>, <virtualizationType/>, <productCodes/> <ipAddress/>, <kernelId/> <amiLaunchIndex/> <clientToken/>, <privateIpAddress>, <keyName/>\", <launchTime>, <instanceType/>, <imageId/>, <privateDnsName/>, <rootDeviceName/>, <rootDeviceType/> <monitoring/>\", <reason/>, <placement/> <dnsName/>, <instanceId/>, <instanceState> <name/> <code/> </instanceState> </item> </instanceSet> </item> </reservationSet>, \n\nTo retrieve the imageId, for example, simply flatten the above structure by removing inapplicable items \n\n<reservationsSet> <item> <instancesSet> <item> <imageId/>, </item> </instanceSet> </item> </reservationSet> \n\nTreat items as arrays and all other members as hash keys.  Doing so, we can reference imageId value in the following manner: \n\n@base_aws_object.reservationSet.item[index].instancesSet.item[index].imageId \n\nIn this handler, we are returning just the more interesting properties for an instance. Future versions may incorporate additional properties. ",
+          "parameters": {
+            "Instance ID": "The instance id of the EC2 virtual machine that this handler will retrieve details about."
+          },
+          "sampleConfiguration": {
+            "Instance ID": "<%= @answers['Instance ID'] %>"
+          },
+          "results": {
+            "Virtualization Type": "The type of virtual machine for the instance.  Valid values are \"hvm\" or \"paravirtual\". ",
+            "IP Address": "The public IP address for the instance. ",
+            "Kernel ID": "The operating system associated with the instance's base image ",
+            "AMI Launcher Index": "The order in which the instance was launched within a launch group ",
+            "Private IP Address": "The internal NAT'ed IP address ",
+            "Key Name": "If the instance was launched with a key pair this is the name of the key ",
+            "Launch Time": "The timestamp of the last launch of the instance in the format: yyyy-mm-dd hh:mm tz ",
+            "Instance Type": "The architecture size of the instance ",
+            "Image ID": "The ID of the base AMI for the instance ",
+            "Private DNS Name": "Internal hostname of the instance ",
+            "Root Device Name": "The internal storage path for the root device, for example \"/dev/sda1\" ",
+            "Root Device Type": "The type of root device.  Valid values are:  \"ebs\" - persistent storage, \"instance-store\" - storage allocated for just the duration of the running instance. ",
+            "Architecture": "CPU type for the instance.  Valid values are:  \"i386\" or \"x86_64\" ",
+            "Monitoring State": "Describes whether CloudWatch monitoring is attached to the instance.  Valid values are:  \"enabled\" or \"disabled\" ",
+            "Availability Zone": "Physical zone associated with the instance.  Used to isolate instances for HA. ",
+            "DNS Name": "Public hostname for the instance. ",
+            "Instance State": "The state of the EC2 instance. "
+          },
+          "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2017-08-24",
+              "description": "* Update the EC2 gem to AWS SDK 2.2.34.\n* Change Info Values to be more consistent with the other AWS handlers.\n* Internal tweaks to make execution similar to other AWS handlers."
+            },
+            "1": {
+              "version": "1",
+              "date": "2011-03-03",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Instance Retrieve V1.1 (2017-08-24)\n* Update the EC2 gem to AWS SDK 2.2.34.\n* Change Info Values to be more consistent with the other AWS handlers.\n* Internal tweaks to make execution similar to other AWS handlers.\n\nAWS EC2 Instance Retrieve V1 (2011-03-03)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Instance Start",
+          "version": "2",
+          "id": "aws_ec2_instance_start_v2",
+          "description": "This handler sends a start request to an AWS EC2 machine instance",
+          "detailedDescription": "The start_instance function can be executed against any valid instance in any state. When executed against an already started instance, the Previous Status and Current Status will both be \"running\". ",
+          "parameters": {
+            "Instance ID": "The instance id of the EC2 virtual machine that this handler will send a start request to"
+          },
+          "sampleConfiguration": {
+            "Instance ID": "i-511f444b1594e8a35"
+          },
+          "results": {
+            "Previous Status": "The state of the machine instance prior to the start request being issued. ",
+            "Current Status": "The state of the machine instance after the start request. The state will typically be \"pending\". "
+          },
+          "changelog": {
+            "2.1": {
+              "version": "2.1",
+              "date": "2017-08-24",
+              "description": "* Update the EC2 gem to AWS SDK 2.2.34.\n* Change Info Values to be more consistent with the other AWS handlers.\n* Internal tweaks to make execution similar to other AWS handlers.\n* Remove Request Id from results because it is no longer supplied by the AWS EC2 API"
+            },
+            "2": {
+              "version": "2",
+              "date": "2011-03-04",
+              "description": "* Changed 'Previous State' result to 'Previous Status' to be more consistent with the AWS EC2 console.\n* Changed 'Current State' result to 'Current Status' to be more consistent with the AWS EC2 console.\n* Added comments for execute method in init.rb."
+            },
+            "1": {
+              "version": "1",
+              "date": "2011-03-04",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Instance Start V1 (2011-03-04)\n* Initial version.  See README for details.\n\nAWS EC2 Instance Start V2 (2011-03-04)\n* Changed 'Previous State' result to 'Previous Status' to be more consistent\n  with the AWS EC2 console.\n* Changed 'Current State' result to 'Current Status' to be more consistent with\n  the AWS EC2 console.\n* Added comments for execute method in init.rb.\n\nAWS EC2 Instance Start V2.1 (2017-08-24)\n* Update the EC2 gem to AWS SDK 2.2.34.\n* Change Info Values to be more consistent with the other AWS handlers.\n* Internal tweaks to make execution similar to other AWS handlers.\n* Remove Request Id from results because it is no longer supplied by the AWS EC2\n  API\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Instance Stop",
+          "version": "1",
+          "id": "aws_ec2_instance_stop_v1",
+          "description": "This handler sends a stop request to an AWS EC2 machine instance",
+          "detailedDescription": "The stop_instance function can be executed against any valid instance in any state. When executed against an already stopped instance, the Previous Status and Current Status will both be \"stopped\". \n\nThe result of the stop_instance call is a mixed hash/array with the  following structure: \n\n<resultSet> <instancesSet> <item> <currentState> <name/> <code/> </currentState> <previousState> <name/> <code/> </previousState> <instanceId/> </item> </instancesSet> </resultsSet> ",
+          "parameters": {
+            "Instance ID": "The instance id of the EC2 virtual machine that this handler will send a stop request to."
+          },
+          "sampleConfiguration": {
+            "Instance ID": "<%= @answers['Instance ID'] %>"
+          },
+          "results": {
+            "Previous Status": "The state of the machine instance prior to the stop request being issued. ",
+            "Current Status": "The state of the machine instance after the stop request. The state will typically be \"stopping\". "
+          },
+          "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2017-08-24",
+              "description": "* Update the EC2 gem to AWS SDK 2.2.34.\n* Change Info Values to be more consistent with the other AWS handlers.\n* Internal tweaks to make execution similar to other AWS handlers.\n* Remove Request Id from results because it is no longer supplied by the AWS EC2 API"
+            },
+            "1": {
+              "version": "1",
+              "date": "2011-03-04",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Instance Stop V1 (2011-03-04)\n* Initial version.  See README for details.\n\nAWS EC2 Instance Stop V1.1 (2017-08-24)\n* Update the EC2 gem to AWS SDK 2.2.34.\n* Change Info Values to be more consistent with the other AWS handlers.\n* Internal tweaks to make execution similar to other AWS handlers.\n* Remove Request Id from results because it is no longer supplied by the AWS EC2\n  API\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "AWS EC2 Modify Instance Attribute",
+          "version": "1",
+          "id": "aws_ec2_modify_instance_attribute_v1",
+          "description": "Modifies the specified attribute of the specified instance. You can specify only one attribute at a time.",
+          "detailedDescription": "This handler uses the AWS REST API to modify the specified attribute of the specified instance. You can specify only one attribute at a time.  For more information see the AWS Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Instance ID": "The ID of the instance.",
+            "attribute": "The name of the attribute",
+            "Value": "A new value for the attribute.",
+            "Block Device Mapping": "Modifies the DeleteOnTermination attribute for volumes that are currently attached.",
+            "Source Destination Check": "true or false. Specifies whether source/destination checking is enabled.",
+            "Disable API Termination": "true or false. If the value is true, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can.",
+            "Instance Type": "The instance type. Changes the instance type to the specified value.",
+            "Kernel ID": "Changes the instance's kernel to the specified value.",
+            "Ramdisk ID": "Changes the instance's RAM disk to the specified value.",
+            "User Data": "Changes the instance's user data to the specified value. Input is base64-encoded MIME data.",
+            "Instance Initiated Shutdown Behavior": "Accepts 'stop' or 'terminate'.",
+            "Security Group IDs": "One or more security group names, separated by commas.",
+            "EBS Optimized": "true or false.  Specifies whether the instance is optimized for EBS I/O.",
+            "SRIOV Net Support": "Set to simple to enable enhanced networking for the instance."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "",
+            "Instance ID": "",
+            "attribute": "",
+            "Value": "",
+            "Block Device Mapping": "",
+            "Source Destination Check": "",
+            "Disable API Termination": "",
+            "Instance Type": "",
+            "Kernel ID": "",
+            "Ramdisk ID": "",
+            "User Data": "",
+            "Instance Initiated Shutdown Behavior": "",
+            "Security Group IDs": "",
+            "EBS Optimized": "",
+            "SRIOV Net Support": ""
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-24",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Modify Instance Attribute V1 (2017-08-24)\n* Initial version.  See README for details.\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Dry Run, Instance ID, attribute, Value, Block Device Mapping, Source Destination Check, Disable API Termination, Instance Type, Kernel ID, Ramdisk ID, User Data, Instance Initiated Shutdown Behavior, Security Group IDs, EBS Optimized, SRIOV Net Support"
+          ]
+        },
+        {
+          "name": "AWS EC2 Revoke Security Group Ingress",
+          "version": "1",
+          "id": "aws_ec2_revoke_security_group_ingress_v1",
+          "description": "Removes one or more ingress rules from a security group.",
+          "detailedDescription": "This handler uses the AWS REST API to Remove one or more ingress rules from a security group. The values that you specify in the revoke request (for example, ports) must match the existing rule's values for the rule to be removed. Each rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.  This handler implements a subset of the full AWS call (single rule submission only).  For more information see the AWS Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Group Name": "The name of the security group.",
+            "Group ID": "The ID of the security group. Required for a non-default VPC.",
+            "Source Security Group Name": "The name of the source security group.",
+            "Source Security Owner ID": "The AWS account ID for the source security group.",
+            "IP Protocol": "The IP protocol name (tcp, udp, icmp). Use -1 to specify all.",
+            "From Port": "The start of port range for the TCP and UDP protocols, or an ICMP type number.",
+            "To Port": "The end of port range for the TCP and UDP protocols, or an ICMP code number.",
+            "CIDR IP Address Range": "The CIDR IP address range."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "",
+            "Group Name": "",
+            "Group ID": "",
+            "Source Security Group Name": "",
+            "Source Security Owner ID": "",
+            "IP Protocol": "",
+            "From Port": "",
+            "To Port": "",
+            "CIDR IP Address Range": ""
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-24",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Revoke Security Group Ingress V1 (2017-08-24)\n* Initial version.  See README for details.\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Dry Run, Group Name, Group ID, Source Security Group Name, Source Security Owner ID, IP Protocol, From Port, To Port, CIDR IP Address Range"
+          ]
+        },
+        {
+          "name": "AWS EC2 Run Instances",
+          "version": "1",
+          "id": "aws_ec2_run_instances_v1",
+          "description": "Launches the specified number of instances using an AMI for which you have permissions.",
+          "detailedDescription": "This handler uses the AWS REST API Launch the specified number of instances using an AMI for which you have permissions.  For more information see the AWS Amazon Virtual Private Cloud User Guide online. \n\nThe Dry Run parameter validates user permissions and inputs. If it is set to true, an error will always be thrown by the handler before completing the handler action. Error response will be 'DryRunOperation' if the account has proper permissions and inputs; 'UnauthorizedOperation' if the account does not have proper permissions. ",
+          "parameters": {
+            "Dry Run": "Dry run validates user permissions and inputs without completing the EC2 action (true or false).",
+            "Image ID": "The ID of the AMI.",
+            "Minimum Instance Count": "The minimum number of instances to launch.",
+            "Maximum Instance Count": "The maximum number of instances to launch.",
+            "Key Name": "The name of the key pair.",
+            "Security Groups": "One or more security group names, separated by commas.",
+            "Security Group IDs": "One or more security group IDs, separated by commas.",
+            "User Data": "The Base64-encoded MIME user data for the instances.",
+            "Instance Type": "The instance type.",
+            "Placement": "The placement for the instance.",
+            "Kernel ID": "The ID of the kernel.",
+            "Ramdisk ID": "The ID of the RAM disk.",
+            "Block Device Mapping": "The block device mapping.",
+            "Monitoring": "true or false. The monitoring for the instance.",
+            "Subnet ID": "The ID of the subnet to launch the instance into.",
+            "Disable API Termination": "true or false. If you set this parameter to true, you can't terminate the instance using the Amazon EC2 console.",
+            "Instance Initiated Shutdown Behavior": "Accepts 'stop' or 'terminate'.  Indicates whether an instance stops or terminates when you initiate shutdown.",
+            "Private IP Address": "The primary IP address.",
+            "Client Token": "Unique, case-sensitive identifier you provide to ensure the idempotency of the request.",
+            "Network Interfaces": "One or more network interfaces.",
+            "IAM Instance Profile": "The IAM instance profile.",
+            "EBS Optimized": "true or false. Indicates whether the instance is optimized for EBS I/O."
+          },
+          "sampleConfiguration": {
+            "Dry Run": "",
+            "Image ID": "",
+            "Minimum Instance Count": "",
+            "Maximum Instance Count": "",
+            "Key Name": "",
+            "Security Groups": "",
+            "Security Group IDs": "",
+            "User Data": "",
+            "Instance Type": "",
+            "Placement": "",
+            "Kernel ID": "",
+            "Ramdisk ID": "",
+            "Block Device Mapping": "",
+            "Monitoring": "",
+            "Subnet ID": "",
+            "Disable API Termination": "",
+            "Instance Initiated Shutdown Behavior": "",
+            "Private IP Address": "",
+            "Client Token": "",
+            "Network Interfaces": "",
+            "IAM Instance Profile": "",
+            "EBS Optimized": ""
+          },
+          "results": {
+            "Reservation ID": "Reservation of ID EC2 run instances. ",
+            "Owner ID": "Owner ID of EC2 run instances. ",
+            "Requester ID": "Requester ID of EC2 run instances. ",
+            "Groups XLM": "Groups XLM of EC2 run instances. ",
+            "Groups String": "Groups String of EC2 run instances. ",
+            "Instances XML": "Instances XML of EC2 run instances. ",
+            "Instances String": "Instances String of EC2 run instances. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-08-24",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "AWS EC2 Run Instances V1 (2017-08-24)\n* Initial version.  See README for details.\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Dry Run, Image ID, Minimum Instance Count, Maximum Instance Count, Key Name, Security Groups, Security Group IDs, User Data, Instance Type, Placement, Kernel ID, Ramdisk ID, Block Device Mapping, Monitoring, Subnet ID, Disable API Termination, Instance Initiated Shutdown Behavior, Private IP Address, Client Token, Network Interfaces, IAM Instance Profile, EBS Optimized"
+          ]
+        }
+      ],
+      "name": "Amazon EC2",
+      "description": null,
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aws-ec2/thumbnail.svg"
+    },
+    {
       "id": "aws-iam",
       "handlerList": [
         {
