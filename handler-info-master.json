@@ -4303,7 +4303,7 @@
         }
       ],
       "name": "Amazon S3",
-      "description": null,
+      "description": "Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance.",
       "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aws-s3/thumbnail.svg"
     },
     {
