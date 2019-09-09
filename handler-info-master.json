@@ -3840,7 +3840,7 @@
 
       ],
       "name": "Amazon ECS",
-      "description": null,
+      "description": "Amazon Elastic Container Service (Amazon ECS) is a highly scalable, high-performance container orchestration service that supports Docker containers and allows you to easily run and scale containerized applications on AWS.",
       "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aws-ecs/thumbnail.svg"
     },
     {
