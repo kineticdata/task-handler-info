@@ -2490,7 +2490,7 @@
         }
       ],
       "name": "Amazon CloudFormation",
-      "description": null,
+      "description": "AWS CloudFormation provides a common language for you to describe and provision all the infrastructure resources in your cloud environment.",
       "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aws-cloudformation/thumbnail.svg"
     },
     {
