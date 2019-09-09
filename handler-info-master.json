@@ -4187,7 +4187,7 @@
 
       ],
       "name": "Amazon RDS",
-      "description": null,
+      "description": "Amazon Relational Database Service (Amazon RDS) makes it easy to set up, operate, and scale a relational database in the cloud.",
       "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aws-rds/thumbnail.svg"
     },
     {
