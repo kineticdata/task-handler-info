@@ -19925,6 +19925,15 @@
       ]
     },
     {
+      "id": "mir3",
+      "handlerList": [
+
+      ],
+      "name": "MIR3",
+      "description": "MIR3 is a notification and response software for business operations, including crisis management, IT service management, corporate communications, customer relations, supply chain management, event management, or any area that needs reliable two-way notification for groups from one to many thousands.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/mir3/thumbnail.jpg"
+    },
+    {
       "name": "Nagios",
       "id": "nagios",
       "description": "",
