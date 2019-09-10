@@ -22747,15 +22747,15 @@
     {
       "name": "SMTP",
       "id": "smtp",
-      "description": "SMTP is a protocol to send and receive email messages.",
-      "image": "https://s3.amazonaws.com/task-handlers/smtp/smtp.png",
+      "description": "SMTP is a protocol used to send and receive email messages.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/smtp/thumbnail.png",
       "handlerList": [
         {
-          "name": "SMTP Email With Attachment Send",
+          "name": "SMTP Email Attachment From Url Send",
           "version": "2",
-          "id": "smtp_email_with_attachment_send_v2",
+          "id": "smtp_email_attachment_from_url_send_v2",
           "description": "This handler builds and sends a plaintext or HTML encoded email (with an optional attachment) directly to the specified email server specified by the associated task info values.",
-          "detailedDescription": "\n\nThis handler: smtp_email_with_attachment_send works with this handler: kinetic_request_attachment_retrieve \n\nThe use of these two Handlers in a Task tree will allow you to retrieve an Attachment submitted from a Service Item and then email that Attachment file. \n\nThe kinetic_request_attachment_retrieve handler has two fields to populate: \n\nContent Type Attachment Question Menu Label \n\nThe Content Type field is a drop down with two options: \n\nPlain Base64 \n\nSelect Plain if the attachment file is a simple .txt file. Select Base64 for all other file types (.xls, .pdf, .zip). The smtp_email_with_attachment_send handler has the following new field: Attachment Encoding \n\nThe Attachment Encoding field is a drop down with two options: Plain Base64 \n\nSelect Plain if the attachment file is a simple .txt file. Select Base64 for all other file types (.xls, .pdf, .zip). NOTE - This must match the value that you entered you entered into the Content Type field on the kinetic_request_attachment_retrieve handler. \n\nYou would also enter the Results values (from the kinetic_request_attachment_retrieve handler) into the following fields: \n\nAttachment File Name: Attachment File Content: \n\nNOTE: Image files are not yet supported. ",
+          "detailedDescription": "\n\nThis handler: smtp_email_attachment_from_url works with this handler: kinetic_request_ce_attachment_info \n\nThe use of these two Handlers in a Task tree will allow you to retrieve an Attachment submitted from a Service Item and then email that Attachment file. \n\nThe kinetic_request_ce_attachment_info handler has two fields to populate: \n\nSubmission Id Field Name \n\nTake the JSON result from the kinetic_request_ce_attachment_info handler and map them to the following inputs in smtp_email_attachment_from_url \n\nAttachment Name: Attachment Content: Attachment Url: ",
           "parameters": {
             "To": "A comma separated list of email address to be used as the intended recipients.  Custom names can be used if any of the addresses are provided in the format: NAME <ADDRESS>",
             "CC": "A comma separated list of email address to be used as the intended CC recipients.  Custom names can be used if any of the addresses are provided in the format: NAME <ADDRESS>",
@@ -22765,9 +22765,10 @@
             "Subject": "The subject of the email.",
             "HTML Body": "HTML representing the body of the email (should start with '<html>' and end with '</html>').",
             "Alternate Body (Text)": "A plaintext message that will be displayed if the recipient can't display multipart HTML emails.",
-            "Attachment File Name": "The name of the file that will be attached to this email message.",
-            "Attachment File Content": "The content of the file that will be attached to this email message.",
-            "Attachment Encoding": "This parameter specifies whether the attachment content is Base64 encoded."
+            "Attachment Name": "The name of the attachment for this email message.",
+            "Attachment Url": "The url for the attachment for this email message.",
+            "Attachment Encoding": "This parameter specifies whether the attachment content is Base64 encoded.",
+            "Raise Errors": "If true, errors will be raised like normal and the tree will stop. If false, the error will be included in the results but the tree will continue processing."
           },
           "sampleConfiguration": {
             "To": "<%=@answer['Req Full Name']%> <<%=@answer['Req Email']%>>",
@@ -22777,22 +22778,20 @@
             "Subject": "Your request is being processed.",
             "HTML Body": "<html>",
             "Alternate Body (Text)": "Your.....",
-            "Attachment File Name": "<%=@results['Retrieve Attachment']['Name']%>",
-            "Attachment File Content": "<%=@results['Retrieve Attachment']['Content']%>",
-            "Attachment Encoding": "Base64",
+            "Attachment Name": "<%=@results['Retrieve Attachment']['Name']%>",
+            "Attachment Encoding": "\"Base64\"",
+            "Attachment Url": "<%=@results['Retrieve Attachment']['Url']%>",
+            "Raise Errors": "True",
             "BCC": ""
           },
           "results": {
-            "Message Id": ""
+            "Success": "If Raise Errors is set to False, will return true if the handler encountered any errors ",
+            "Error Message": "The error message if Raise Errors is set to False and an error was encountered ",
+            "Message Id": "Id of the successfully sent message "
           },
           "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2011-05-24",
-              "description": "*Initial Build"
-            }
           },
-          "changelogText": "== SMTP Email With Attachment Send v2\r\n*Added Content Type to support the ability to send\r\nattachments from Questions/Answers\r\n\r\n== SMTP Email With Attachment Send v1 (2011-05-24)\r\n*Initial Build ",
+          "changelogText": "== SMTP Email Attachment From Url V2 (2019-05-14)\n  Refactored to remove Java dependencies.\n\n== SMTP Email Attachment From Url V1 (2016-03-21)\n  Initial Version",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: BCC",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
@@ -22847,11 +22846,11 @@
           ]
         },
         {
-          "name": "SMTP Email Attachment From Url Send",
-          "version": "1",
-          "id": "smtp_email_attachment_from_url_send_v1",
+          "name": "SMTP Email With Attachment Send",
+          "version": "2",
+          "id": "smtp_email_with_attachment_send_v2",
           "description": "This handler builds and sends a plaintext or HTML encoded email (with an optional attachment) directly to the specified email server specified by the associated task info values.",
-          "detailedDescription": "\n\nThis handler: smtp_email_attachment_from_url works with this handler: kinetic_request_ce_attachment_info \n\nThe use of these two Handlers in a Task tree will allow you to retrieve an Attachment submitted from a Service Item and then email that Attachment file. \n\nThe kinetic_request_ce_attachment_info handler has two fields to populate: \n\nSubmission Id Field Name \n\nTake the JSON result from the kinetic_request_ce_attachment_info handler and map them to the following inputs in smtp_email_attachment_from_url \n\nAttachment Name: Attachment Content: Attachment Url: ",
+          "detailedDescription": "\n\nThis handler: smtp_email_with_attachment_send works with this handler: kinetic_request_attachment_retrieve \n\nThe use of these two Handlers in a Task tree will allow you to retrieve an Attachment submitted from a Service Item and then email that Attachment file. \n\nThe kinetic_request_attachment_retrieve handler has two fields to populate: \n\nContent Type Attachment Question Menu Label \n\nThe Content Type field is a drop down with two options: \n\nPlain Base64 \n\nSelect Plain if the attachment file is a simple .txt file. Select Base64 for all other file types (.xls, .pdf, .zip). The smtp_email_with_attachment_send handler has the following new field: Attachment Encoding \n\nThe Attachment Encoding field is a drop down with two options: Plain Base64 \n\nSelect Plain if the attachment file is a simple .txt file. Select Base64 for all other file types (.xls, .pdf, .zip). NOTE - This must match the value that you entered you entered into the Content Type field on the kinetic_request_attachment_retrieve handler. \n\nYou would also enter the Results values (from the kinetic_request_attachment_retrieve handler) into the following fields: \n\nAttachment File Name: Attachment File Content: \n\nNOTE: Image files are not yet supported. ",
           "parameters": {
             "To": "A comma separated list of email address to be used as the intended recipients.  Custom names can be used if any of the addresses are provided in the format: NAME <ADDRESS>",
             "CC": "A comma separated list of email address to be used as the intended CC recipients.  Custom names can be used if any of the addresses are provided in the format: NAME <ADDRESS>",
@@ -22861,12 +22860,9 @@
             "Subject": "The subject of the email.",
             "HTML Body": "HTML representing the body of the email (should start with '<html>' and end with '</html>').",
             "Alternate Body (Text)": "A plaintext message that will be displayed if the recipient can't display multipart HTML emails.",
-            "Attachment Input Type": "Choose JSON if the input for the attachment info as a JSON string or choose Parameters if the input should take separate parameters.",
-            "Attachment JSON": "The JSON input for the attachment.",
-            "Attachment Name": "The name of the attachment for this email message.",
-            "Attachment Content": "The content of attachment for this email message.",
-            "Attachment Url": "The url for the attachment for this email message.",
-            "Raise Errors": "If true, errors will be raised like normal and the tree will stop. If false, the error will be included in the results but the tree will continue processing."
+            "Attachment File Name": "The name of the file that will be attached to this email message.",
+            "Attachment File Content": "The content of the file that will be attached to this email message.",
+            "Attachment Encoding": "This parameter specifies whether the attachment content is Base64 encoded."
           },
           "sampleConfiguration": {
             "To": "<%=@answer['Req Full Name']%> <<%=@answer['Req Email']%>>",
@@ -22876,24 +22872,24 @@
             "Subject": "Your request is being processed.",
             "HTML Body": "<html>",
             "Alternate Body (Text)": "Your.....",
-            "Attachment Name": "<%=@results['Retrieve Attachment']['Name']%>",
-            "Attachment Content": "<%=@results['Retrieve Attachment']['Content']%>",
-            "Attachment Url": "<%=@results['Retrieve Attachment']['Url']%>",
-            "Raise Errors": "True",
-            "BCC": "",
-            "Attachment Input Type": "",
-            "Attachment JSON": ""
+            "Attachment File Name": "<%=@results['Retrieve Attachment']['Name']%>",
+            "Attachment File Content": "<%=@results['Retrieve Attachment']['Content']%>",
+            "Attachment Encoding": "Base64",
+            "BCC": ""
           },
           "results": {
-            "Success": "If Raise Errors is set to False, will return true if the handler encountered any errors ",
-            "Error Message": "The error message if Raise Errors is set to False and an error was encountered ",
-            "Message Id": "Id of the successfully sent message "
+            "Message Id": ""
           },
           "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2011-05-24",
+              "description": "*Initial Build"
+            }
           },
-          "changelogText": "== SMTP Email Attachment From Url V1 (2016-03-21)\n  Initial Version",
+          "changelogText": "== SMTP Email With Attachment Send v2\r\n*Added Content Type to support the ability to send\r\nattachments from Questions/Answers\r\n\r\n== SMTP Email With Attachment Send v1 (2011-05-24)\r\n*Initial Build ",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: BCC, Attachment Input Type, Attachment JSON",
+            "The following parameters can't be found in the Sample Configuration in the README: BCC",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
