@@ -22934,6 +22934,15 @@
       ]
     },
     {
+      "id": "splunk",
+      "handlerList": [
+
+      ],
+      "name": "Splunk",
+      "description": "Splunk captures, indexes, and correlates real-time data in a searchable repository from which it can generate graphs, reports, alerts, dashboards, and visualizations.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/splunk/thumbnail.png"
+    },
+    {
       "name": "Stripe",
       "id": "stripe",
       "description": "Stripe accepts payments online and in mobile apps.",
