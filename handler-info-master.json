@@ -19927,7 +19927,250 @@
     {
       "id": "mir3",
       "handlerList": [
+        {
+          "name": "Mir3 Generic Call",
+          "version": "1",
+          "id": "mir3_generic_call_v1",
+          "description": "Make a generic call to Mir3",
+          "detailedDescription": "Using Mir3's SOAP API, an API call is made to the provided action. The body must be provide for the SOAP request. The authentication values are added to the body of the reqeust. If successful the Results can be returned in JSON or XML format. This handler is currently using version 4.14 of the Mir3 API. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Output Type": "The output type to return from a successful call.",
+            "XML structure": "XML body to make the request.  Must be wrapped in a root element.",
+            "Action": "The action to call in snake case. ex: get_notification_reports_op - Check wsdl for options."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Action": "get_notification_reports_op,",
+            "Output Type": "",
+            "XML structure": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Output": "",
+            "output": ""
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-02-08",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Mir3 Generic Call V1 (2018-02-08)\r\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Output Type, XML structure",
+            "The following are defined as results but can't be found in the Results section in the README: output"
+          ]
+        },
+        {
+          "name": "Mir3 Notification Report Recipients Retrieve",
+          "version": "1",
+          "id": "mir3_notification_report_recipients_retrieve_v1",
+          "description": "Retrieves notification report recipients when given a notification id.",
+          "detailedDescription": "Using Mir3's SOAP API, an API call is made using a notification id and a query type to retrieve the receipients of a single notification. The SOAP request body is created with the authentication values, the notification id, and whatever query information is needed and is then passed to the getNotificationReportRecipientsOp SOAP Action. If successful, the XML results will contain simple string representations of the fields that the Mir3 API returns. The only exception to this is the Recipients JSON field, which is a JSON representation of the XML that is returned with the User response statistics for the returned notification. This handler is currently using version 4.14 of the Mir3 API. \n\n\n#### Query Types\r\n\n- All Contacted: ALL_CONTACTED \n  - Matches all Recipients who have been contacted. \n- All Responded: ALL_RESPONDED \n  - Matches all Recipients who have responded. \n- No Response: NO_RESPONSE \n  - All Recipients who have been contacted but have not responded. \n- Response Option: RESPONSE_OPTION \n  - All Recipients who have selected a particular response option. \n- All Recipients: ALL_RECIPIENTS \n  - Matches all Recipients, including those who have not yet been contacted. \n- Not Contacted: NOT_CONTACTED \n  - Matches all Recipients who have not yet been contacted. \n- Single Recipient: RECIPIENT \n  - Matches a single Recipient, identified by RecipientReportId. \n- All Recipients: ALL_RECIPIENTS \n  - Matches all Recipients, including those who have not yet ",
+          "parameters": {
+            "Notification UUID": "The Id of the notification to retrieve the recipients for.",
+            "Query Type": "Filter the recipient report with one of the provided values.",
+            "Response Option UUID": "If the query type 'Response Option' is selected, the Id of the response option to query on.",
+            "Recipient UUID": "If query type 'Single Recipient' is selected, the Id of a recipient to query."
+          },
+          "sampleConfiguration": {
+            "Notification UUID": "03fa9eb2-0003-3000-80c0-fceb55463ffe",
+            "Query Type": "Single Recipient",
+            "Response Option UUID": "",
+            "Recipient UUID": "020d5df8-0007-3000-80c0-fceb55463ffe"
+          },
+          "results": {
+            "Total Calls": "",
+            "Total Emails": "",
+            "Total Faxes": "",
+            "Total SMS": "",
+            "Total Pages": "",
+            "Total Mobile App Devices": "",
+            "Total Recipients": "",
+            "Answering Machine Connected Count": "",
+            "Answering Machine Disconnected Count": "",
+            "Answering Machine Undelievered Count": "",
+            "Busy Count": "",
+            "Network Busy Count": "",
+            "Hang Up Count": "",
+            "Hang Up Complete Count": "",
+            "Invalid Response Count": "",
+            "Left Message Count": "",
+            "No Answer Count": "",
+            "Not At This Location Count": "",
+            "Response Count": "",
+            "Wrong Address Count": "",
+            "Tdd Complete Count": "",
+            "Tdd Partial Count": "",
+            "Tdd Undelievered Count": "",
+            "Other Count": "",
+            "Blackberry Count": "",
+            "Recipients JSON": ""
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-02-08",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Mir3 Notification Report Recipients Retrieve V1 (2018-02-08)\r\n* Initial version.  See README for details.",
+          "warnings": [
 
+          ]
+        },
+        {
+          "name": "Mir3 Notification Report Retrieve",
+          "version": "1",
+          "id": "mir3_notification_report_retrieve_v1",
+          "description": "Retrieves a Notification Report when given a corresponding Notification Id",
+          "detailedDescription": "Using Mir3's SOAP API, an API call is made using a notification id to retrieve a single notification report that matches the inputted id. The SOAP request body is then created with the authentication values and the notification id and passed to the getNotificationReportsOp SOAP Action. If successful, the XML results will contain simple string representations of the fields that the Mir3 API returns. The only exception to this is the Response Options JSON field, which is a JSON representation of the XML that is returned with the User response statistics for the returned notification. This handler is currently using version 4.14 of the Mir3 API. ",
+          "parameters": {
+            "Notification UUID": "The UUID of the notification to retrieve the report for."
+          },
+          "sampleConfiguration": {
+            "Notification UUID": ""
+          },
+          "results": {
+            "Id": "",
+            "Title": "",
+            "Message": "",
+            "Type": "",
+            "Time Sent": "",
+            "Time Closed": "",
+            "Priority": "",
+            "Status": "",
+            "Contact Attempts": "",
+            "Leave Message": "",
+            "Paused": "",
+            "Closed Cause": "",
+            "Initiator Name": "",
+            "Initiator User Id": "",
+            "Initiator Username": "",
+            "Total Response Count": "",
+            "Total Recipient Count": "",
+            "Total Contacted Count": "",
+            "Total Devices Contacted": "",
+            "Total Phone Seconds": "",
+            "Response Options JSON": ""
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-02-08",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Mir3 Notification Report Retrieve V1 (2018-02-08)\r\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Notification UUID"
+          ]
+        },
+        {
+          "name": "Mir3 Notification Search",
+          "version": "1",
+          "id": "mir3_notification_search_v1",
+          "description": "Searches for Notification Reports.",
+          "detailedDescription": "Using Mir3's SOAP API, an API call is made to search for a notification. ",
+          "parameters": {
+            "Notification Title": "",
+            "Message": "",
+            "Response": "",
+            "Call Bridge": "",
+            "First Name": "",
+            "Last Name": "",
+            "Leave Message": "",
+            "Validate Recipient": "",
+            "Verify Pin": "",
+            "Category": "",
+            "Priority": "",
+            "Severity": ""
+          },
+          "sampleConfiguration": {
+            "Notification Title": "",
+            "Message": "",
+            "Response": "",
+            "Call Bridge": "",
+            "First Name": "",
+            "Last Name": "",
+            "Leave Message": "",
+            "Validate Recipient": "",
+            "Verify Pin": "",
+            "Category": "",
+            "Priority": "",
+            "Severity": ""
+          },
+          "results": {
+            "Match Count": "The amount of notifications that were matched ",
+            "Return Count": "The amount of notifications that were returned (can return a max of 1000 no matter how many were matched) ",
+            "Notification Details JSON": "A JSON representation of the details for the notifications that were returned. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-02-08",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Mir3 Notification Search V1 (2018-02-08)\r\n* Initial version.  See README for details.",
+          "warnings": [
+            "Parameter with the id 'notification_title' is missing a tooltip",
+            "Parameter with the id 'message' is missing a tooltip",
+            "Parameter with the id 'response' is missing a tooltip",
+            "Parameter with the id 'call_bridge' is missing a tooltip",
+            "Parameter with the id 'first_name' is missing a tooltip",
+            "Parameter with the id 'last_name' is missing a tooltip",
+            "Parameter with the id 'leave_message' is missing a tooltip",
+            "Parameter with the id 'validate_recipient' is missing a tooltip",
+            "Parameter with the id 'verify_pin' is missing a tooltip",
+            "Parameter with the id 'category' is missing a tooltip",
+            "Parameter with the id 'priority' is missing a tooltip",
+            "Parameter with the id 'severity' is missing a tooltip"
+          ]
+        },
+        {
+          "name": "Mir3 Notification Send",
+          "version": "1",
+          "id": "mir3_notification_send_v1",
+          "description": "Sends a new notification.",
+          "detailedDescription": "Using Mir3's SOAP API, an API call is made to send a new simple notification that is built using the inputted properties. The SOAP request body is created based on what type of notification method is chosen (Broadcast, First Response, Callout, or Bulletin Board) and is then sent to the Users associated with the usernames from the comma separated recipient list. The current options available just represent the minimal message that can be sent and much more can be done with the Mir3 API if the handler is updated/forked to use these extra capabilities. On a successful call, a Notification Report Id will be returned which can be used to check the notification status. This handler is currently using version 4.14 of the Mir3 API. ",
+          "parameters": {
+            "Title": "Notification title.",
+            "Description": "A notification description (that isn't visible to normal recipients).",
+            "Notification Method": "What type of notification method to use.",
+            "Message": "Message to send to the recipients.",
+            "Recipient Usernames (CSV)": "A comma separated list of usernames that will recieve the notification.",
+            "Response Options (CSV)": "A comma separated list of response options that will be sent to the recipients.",
+            "Broadcast Duration (Mins)": "The duration of the Broadcast or Bulletin Board notification in minutes.",
+            "Callout Success Total": "For a callout, the amount of people that need to response to consider the notification a success."
+          },
+          "sampleConfiguration": {
+            "Title": "Sample Notification",
+            "Description": "A description that recipients can't see",
+            "Notification Method": "Broadcast",
+            "Message": "This is a sample broadcast notification",
+            "Recipient Usernames (CSV)": "marymanager.acme,dondemo.acme",
+            "Response Options (CSV)": "Option 1,Option 2",
+            "Broadcast Duration (Mins)": "60",
+            "Callout Success Total": ""
+          },
+          "results": {
+            "Id": "Id of the newly created notification report "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-02-08",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Mir3 Notification Send V1 (2018-02-08)\r\n* Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        }
       ],
       "name": "MIR3",
       "description": "MIR3 is a notification and response software for business operations, including crisis management, IT service management, corporate communications, customer relations, supply chain management, event management, or any area that needs reliable two-way notification for groups from one to many thousands.",
