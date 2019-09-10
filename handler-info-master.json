@@ -9350,6 +9350,15 @@
       ]
     },
     {
+      "id": "harvest",
+      "handlerList": [
+
+      ],
+      "name": "Harvest",
+      "description": "Harvest is a web-based time tracking and invoicing application that makes time tracking easy, keeping you on top of project budgets without the hassle of spreadsheets.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/harvest/thumbnail.png"
+    },
+    {
       "name": "HP Service Manager",
       "id": "hp-service-manager",
       "description": "HP offers the application as a service desk solution that enables IT to work as a single organization, governed by a consistent set of processes to handle service delivery and support quickly and efficiently.",
