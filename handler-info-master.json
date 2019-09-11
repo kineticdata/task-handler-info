@@ -23096,31 +23096,8 @@
       "name": "Twilio",
       "id": "twilio",
       "description": "Twilio is a service that allows developers to incorporate phone calls and text messages into their applications.",
-      "image": "https://s3.amazonaws.com/task-handlers/twilio/twilio.png",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/twilio/thumbnail.png",
       "handlerList": [
-        {
-          "name": "Twilio SMS Message Send",
-          "version": "1",
-          "id": "twilio_sms_message_send_v1",
-          "description": "Sends an SMS message to a mobile number.",
-          "detailedDescription": "This handler interacts with Twilio and sends a SMS text message to a phone number of your choosing. This handler uses the twilio-ruby gem which needs the Account SID and Auth Token (both can be found on the twilio account dashboard) to authenticate the sending of the message. The number that you are sending the message to must be of the form \"+[country code][phone number]\" with no spaces. The message sent cannot be longer than 160 Characters and an error will be raised if the attempted message is over that limit. ",
-          "parameters": {
-            "To": "Phone number that the message will be sent to in the format of +[country code][phone number].",
-            "Message": "Message to send. Has to be under the 160 character limit."
-          },
-          "sampleConfiguration": {
-            "To": "+16515551212",
-            "Message": "Your request KSR111 has been approved."
-          },
-          "results": {
-          },
-          "changelog": {
-          },
-          "changelogText": "Twilio_SMS_Message_Send_V1 (2019-30-04)\n* Added type encrypted to auth_token info value.\n\nTwilio_SMS_Message_Send_V1 (2013-11-08)\n* Initial version.  See README for details.",
-          "warnings": [
-            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
-          ]
-        },
         {
           "name": "Twilio SMS Message Send From",
           "version": "1",
@@ -23142,6 +23119,29 @@
           "changelog": {
           },
           "changelogText": "Twilio_SMS_Message_Send_From_V1 (2019-30-04)\n* Added type encrypted to auth_token info value.\n\nTwilio_SMS_Message_Send_From_V1 (2014-09-10)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Twilio SMS Message Send",
+          "version": "1",
+          "id": "twilio_sms_message_send_v1",
+          "description": "Sends an SMS message to a mobile number.",
+          "detailedDescription": "This handler interacts with Twilio and sends a SMS text message to a phone number of your choosing. This handler uses the twilio-ruby gem which needs the Account SID and Auth Token (both can be found on the twilio account dashboard) to authenticate the sending of the message. The number that you are sending the message to must be of the form \"+[country code][phone number]\" with no spaces. The message sent cannot be longer than 160 Characters and an error will be raised if the attempted message is over that limit. ",
+          "parameters": {
+            "To": "Phone number that the message will be sent to in the format of +[country code][phone number].",
+            "Message": "Message to send. Has to be under the 160 character limit."
+          },
+          "sampleConfiguration": {
+            "To": "+16515551212",
+            "Message": "Your request KSR111 has been approved."
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Twilio_SMS_Message_Send_V1 (2019-30-04)\n* Added type encrypted to auth_token info value.\n\nTwilio_SMS_Message_Send_V1 (2013-11-08)\n* Initial version.  See README for details.",
           "warnings": [
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
