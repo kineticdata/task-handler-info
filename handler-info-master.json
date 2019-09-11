@@ -12403,6 +12403,50 @@
       "image": "https://s3.amazonaws.com//integrations/kinetic/"
     },
     {
+      "id": "kinetic-bridgehub",
+      "handlerList": [
+        {
+          "name": "Kinetic Bridgehub Bridge Create",
+          "version": "1",
+          "id": "kinetic_bridgehub_bridge_create_v1",
+          "description": "Creates a Bridge in Kinetic Bridgehub",
+          "detailedDescription": "This handler creates a bridge in Kinetic Bridgehub. ",
+          "parameters": {
+            "Adapter Class": "The full name of the adapter class this bridge will use.",
+            "Bridge Name": "The name of the Bridge.",
+            "Bridge Slug": "A unique value used to identify this bridge.",
+            "IP Addresses with access": "IP addresses that have access to use the bridge.",
+            "Properties": "Properties specific to the adapter class."
+          },
+          "sampleConfiguration": {
+            "Adapter Class": "",
+            "Bridge Name": "",
+            "Bridge Slug": "",
+            "IP Addresses with access": "",
+            "Properties": ""
+          },
+          "results": {
+            "adapterClass": "",
+            "ipAddresses": "",
+            "name": "",
+            "slug": "",
+            "properties": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "Kinetic Bridgehub Bridge Create (2016-05-23)\n * Initial version.  See README for details.\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Adapter Class, Bridge Name, Bridge Slug, IP Addresses with access, Properties",
+            "The following are defined as results but can't be found in the Results section in the README: adapterClass, ipAddresses, name, slug, properties",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        }
+      ],
+      "name": "Kinetic Bridgehub",
+      "description": "The real-time integration component of the Kinetic Platform.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/kinetic-bridgehub/thumbnail.png"
+    },
+    {
       "id": "kinetic-core",
       "handlerList": [
         {
