@@ -24705,7 +24705,7 @@
       "name": "Rackspace",
       "id": "rackspace",
       "description": "Managed cloud provider with tailored solutions on many popular hosting platforms such as VMware, AWS, Azure, OpenStack, and many more.",
-      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/rackspace/thumbnail.svg",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/rackspace/thumbnail.jpg",
       "handlerList": [
         {
           "name": "Rackspace Server Create",
