@@ -23543,17 +23543,17 @@
       ]
     },
     {
-      "name": "VMWare VSphere",
+      "name": "VMware vSphere",
       "id": "vmware-vsphere",
-      "description": "VMware VSphere is a cloud computing platform for virtualization.",
-      "image": "https://s3.amazonaws.com/task-handlers/vmware/vmware_vsphere.svg",
+      "description": "VMware vSphere is a cloud computing platform for virtualization.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/vmware-vsphere/thumbnail.svg",
       "handlerList": [
         {
           "name": "VMWare VSphere Virtual Machine Check Status",
           "version": "1",
           "id": "vmware_vsphere_virtualmachine_checkstatus_v1",
           "description": "Given a task id checks the current status of that task.",
-          "detailedDescription": "This handler is designed to check the status of a virtual machine task on a VMWare VSphere server that matches the given task id. It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, a Managed Reference Object is created based on the task id so that the Task Object can be re-created. Once that is created, the Task object is traversed to retrieve and return the state and message for the task. \nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
+          "detailedDescription": "This handler is designed to check the status of a virtual machine task on a VMWare VSphere server that matches the given task id. It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, a Managed Reference Object is created based on the task id so that the Task Object can be re-created. Once that is created, the Task object is traversed to retrieve and return the state and message for the task. \n\nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
           "parameters": {
             "Task Id": "The Id of the Task that you want to check the status of."
           },
@@ -23562,7 +23562,9 @@
           },
           "results": {
             "State": "",
-            "Message": ""
+            "Message": "",
+            "state": "",
+            "message": ""
           },
           "changelog": {
           },
@@ -23577,7 +23579,7 @@
           "version": "1",
           "id": "vmware_vsphere_virtualmachine_clone_advanced_v1",
           "description": "Clones the given virtual machine.",
-          "detailedDescription": "This handler is designed to clone a virtual machine on a VMWare VSphere server that matches the name supplied as a parameter. This version of the handler contains more options in the cloning process that the standard vmware clone handler does. It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine that the clone will be based off of is verified to make sure that the machine exists. The handler then searches for and returns the datacenter and the resource pool if it was specified. If the resource pool was not specified, the main resource pool of the host that that the template machine is stored on will be found and used. Once the signal is sent, the handler waits long enough to catch immediate errors, returns the task id and then exits. \nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
+          "detailedDescription": "This handler is designed to clone a virtual machine on a VMWare VSphere server that matches the name supplied as a parameter. This version of the handler contains more options in the cloning process that the standard vmware clone handler does. It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine that the clone will be based off of is verified to make sure that the machine exists. The handler then searches for and returns the datacenter and the resource pool if it was specified. If the resource pool was not specified, the main resource pool of the host that that the template machine is stored on will be found and used. Once the signal is sent, the handler waits long enough to catch immediate errors, returns the task id and then exits. \n\nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
           "parameters": {
             "VM Template Name": "The name of the VM that you want to clone.",
             "VM Clone Name": "The name of the new cloned machine.",
@@ -23618,7 +23620,7 @@
           },
           "results": {
             "Task Id": "",
-            "Memory In MB": ""
+            "task_id": ""
           },
           "changelog": {
           },
@@ -23634,7 +23636,7 @@
           "version": "1",
           "id": "vmware_vsphere_virtualmachine_clone_v1",
           "description": "Clones the given virtual machine.",
-          "detailedDescription": "This handler is designed to clone a virtual machine on a VMWare VSphere server that matches the name supplied as a parameter. It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine that the clone will be based off of is verified to make sure that the machine exists. The handler then searches for and returns the datacenter and the resource pool if it was specified. If the resource pool was not specified, the main resource pool of the host that that the template machine is stored on will be found and used. Once the signal is sent, the handler waits long enough to catch immediate errors, returns the task id and then exits. \nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
+          "detailedDescription": "This handler is designed to clone a virtual machine on a VMWare VSphere server that matches the name supplied as a parameter. It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine that the clone will be based off of is verified to make sure that the machine exists. The handler then searches for and returns the datacenter and the resource pool if it was specified. If the resource pool was not specified, the main resource pool of the host that that the template machine is stored on will be found and used. Once the signal is sent, the handler waits long enough to catch immediate errors, returns the task id and then exits. \n\nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
           "parameters": {
             "VM Template Name": "The name of the VM that you want to clone.",
             "VM Clone Name": "The name of the new cloned machine.",
@@ -23652,7 +23654,8 @@
             "Power On?": "true"
           },
           "results": {
-            "Task Id": ""
+            "Task Id": "",
+            "task_id": ""
           },
           "changelog": {
           },
@@ -23667,7 +23670,7 @@
           "version": "1",
           "id": "vmware_vsphere_virtualmachine_destroy_v1",
           "description": "Destroys the given Virtual Machine.",
-          "detailedDescription": "This handler is designed to destroy a virtual machine on a VMWare VSphere server that matches the name supplied as a parameter. It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent for it to be deleted. Once the signal is sent, the handler does not wait for a response and immediately exits. \nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
+          "detailedDescription": "This handler is designed to destroy a virtual machine on a VMWare VSphere server that matches the name supplied as a parameter. It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent for it to be deleted. Once the signal is sent, the handler does not wait for a response and immediately exits. \n\nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
           "parameters": {
             "VM Name": "The name of the VM that you want to destroy."
           },
@@ -23688,7 +23691,7 @@
           "version": "1",
           "id": "vmware_vsphere_virtualmachine_getipaddress_v1",
           "description": "Gets an ip address from a Virtual Machine.",
-          "detailedDescription": "This handler is designed to get the ip address of a virtual machine on a VMWare VSphere server that matches the name supplied as a parameter. It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then the handler traverses the object to retrieve and return the virtual machines ip address. \nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
+          "detailedDescription": "This handler is designed to get the ip address of a virtual machine on a VMWare VSphere server that matches the name supplied as a parameter. It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then the handler traverses the object to retrieve and return the virtual machines ip address. \n\nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
           "parameters": {
             "VM Name": "The name of the Virtual Machine to get the ip address of."
           },
@@ -23696,7 +23699,8 @@
             "VM Name": "Test Task VM"
           },
           "results": {
-            "Ip Address": ""
+            "Ip Address": "",
+            "ip_address": ""
           },
           "changelog": {
           },
@@ -23711,7 +23715,7 @@
           "version": "1",
           "id": "vmware_vsphere_virtualmachine_poweroff_v1",
           "description": "Powers off the specified VMWare VSphere virtual machine.  This simulates a hard reboot and does not attempt to safely shut down the guest operating system.",
-          "detailedDescription": "This handler is designed to power off a virtual machine on a VMWare VSphere server that matches the name supplied to it.  It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent to it to power down the VM.  The VM responds with a signal stating that it is powering down and the handler exits. \nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
+          "detailedDescription": "This handler is designed to power off a virtual machine on a VMWare VSphere server that matches the name supplied to it.  It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent to it to power down the VM.  The VM responds with a signal stating that it is powering down and the handler exits. \n\nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
           "parameters": {
             "VM Name": "The name of the VM that you want to power off"
           },
@@ -23724,6 +23728,7 @@
           },
           "changelogText": "VMWarwe_VSphere_VirtualMachine_PowerOff_V1 (2011-01-27)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
@@ -23732,7 +23737,7 @@
           "version": "1",
           "id": "vmware_vsphere_virtualmachine_poweron_v1",
           "description": "Powers on the specified VMWare VSphere virtual machine.",
-          "detailedDescription": "This handler is designed to power on a virtual machine on a VMWare VSphere server that matches the name supplied to it.  It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent to it to power on the VM.  The VM responds with a signal stating that it has begun powering up the VM and the handler exits. \nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
+          "detailedDescription": "This handler is designed to power on a virtual machine on a VMWare VSphere server that matches the name supplied to it.  It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent to it to power on the VM.  The VM responds with a signal stating that it has begun powering up the VM and the handler exits. \n\nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
           "parameters": {
             "VM Name": "The name of the VM that you want to power on"
           },
@@ -23745,6 +23750,7 @@
           },
           "changelogText": "VMWare_VSphere_VirtualMachine_PowerOn_V1 (2011-01-27)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
@@ -23753,7 +23759,7 @@
           "version": "1",
           "id": "vmware_vsphere_virtualmachine_reboot_v1",
           "description": "Reboots the specified VMWare VSphere virtual machine.  This triggers a shutdown of the guest operating system followed by an automatic power on.  This handler requires the target virtual machine to have VMWare Tools installed.",
-          "detailedDescription": "This handler is designed to reboot a virtual machine on a VMWare VSphere server that matches the name supplied to it.  It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent to it to reboot the VM. \nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
+          "detailedDescription": "This handler is designed to reboot a virtual machine on a VMWare VSphere server that matches the name supplied to it.  It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent to it to reboot the VM. \n\nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
           "parameters": {
             "VM Name": "The name of the VM that you want to reboot"
           },
@@ -23766,6 +23772,7 @@
           },
           "changelogText": "VMWarwe_VSphere_VirtualMachine_Reboot_V1 (2011-01-27)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
@@ -23774,7 +23781,7 @@
           "version": "1",
           "id": "vmware_vsphere_virtualmachine_reset_v1",
           "description": "Resets the specified VMWare VSphere virtual machine.  This simulates a hard power off followed by an automatic power on and does not attempt to safely shut down the guest operating system.",
-          "detailedDescription": "This handler is designed to reset a virtual machine on a VMWare VSphere server that matches the name supplied to it.  It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent to it to reset the VM.  The reset process is actually two separate processes.  First a power off process is called which performs the equivalent of a \"hard\" shut down.  That is followed by the power on process. \nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
+          "detailedDescription": "This handler is designed to reset a virtual machine on a VMWare VSphere server that matches the name supplied to it.  It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent to it to reset the VM.  The reset process is actually two separate processes.  First a power off process is called which performs the equivalent of a \"hard\" shut down.  That is followed by the power on process. \n\nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
           "parameters": {
             "VM Name": "The name of the VM that you want to reset"
           },
@@ -23787,6 +23794,7 @@
           },
           "changelogText": "VMWarwe_VSphere_VirtualMachine_Reset_V1 (2011-01-27)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
@@ -23795,7 +23803,7 @@
           "version": "1",
           "id": "vmware_vsphere_virtualmachine_shutdown_v1",
           "description": "Shuts down the specified VMWare VSphere virtual machine matching.  This triggers a shutdown of the guest operating system before powering the virtual machine off.  This handler requires the target virtual machine to have VMWare Tools installed.",
-          "detailedDescription": "This handler is designed to shut down a virtual machine on a VMWare VSphere server that matches the name supplied to it.  It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent to it to go through the shut down process. The VM responds with a signal stating that the shutdown process has begun and the handler exits. \nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
+          "detailedDescription": "This handler is designed to shut down a virtual machine on a VMWare VSphere server that matches the name supplied to it.  It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent to it to go through the shut down process. The VM responds with a signal stating that the shutdown process has begun and the handler exits. \n\nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
           "parameters": {
             "VM Name": "The name of the VM that you want to shutdown"
           },
@@ -23808,6 +23816,7 @@
           },
           "changelogText": "VMWarwe_VSphere_VirtualMachine_Shutdown_V1 (2011-01-27)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
@@ -23816,7 +23825,7 @@
           "version": "1",
           "id": "vmware_vsphere_virtualmachine_snapshot_v1",
           "description": "Takes a snapshot of the target VMWare VSphere virtual machine matching.",
-          "detailedDescription": "This handler is designed to take a snapshot of the virtual machine on a VMWare VSphere server that matches the name supplied as a parameter. It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent to it to take a snapshot of the VM. Once the signal is sent, the handler does not wait for a response and immediately exits. \nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
+          "detailedDescription": "This handler is designed to take a snapshot of the virtual machine on a VMWare VSphere server that matches the name supplied as a parameter. It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent to it to take a snapshot of the VM. Once the signal is sent, the handler does not wait for a response and immediately exits. \n\nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
           "parameters": {
             "VM Name": "The name of the VM that you want to take a snapshot of.",
             "Name": "The name of the snapshot.",
@@ -23845,7 +23854,7 @@
           "version": "1",
           "id": "vmware_vsphere_virtualmachine_standby_v1",
           "description": "Places the target VMWare VSphere virtual machine matching into standby.  This handler requires the target virtual machine to have VMWare Tools installed.",
-          "detailedDescription": "This handler is designed to set a virtual machine on a VMWare VSphere server that matches the name supplied to it into a standby mode.  It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent to it to set the VM into standby mode.  Once the signal is sent, the handler does not wait for a response and immediately exits. \nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
+          "detailedDescription": "This handler is designed to set a virtual machine on a VMWare VSphere server that matches the name supplied to it into a standby mode.  It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent to it to set the VM into standby mode.  Once the signal is sent, the handler does not wait for a response and immediately exits. \n\nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
           "parameters": {
             "VM Name": "The name of the VM that you want to set to standby"
           },
@@ -23858,6 +23867,7 @@
           },
           "changelogText": "VMWarwe_VSphere_VirtualMachine_Standby_V1 (2011-01-27)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
@@ -23866,7 +23876,7 @@
           "version": "1",
           "id": "vmware_vsphere_virtualmachine_suspend_v1",
           "description": "Suspends the target VMWare VSphere virtual machine matching.",
-          "detailedDescription": "This handler is designed to suspend a virtual machine on a VMWare VSphere server that matches the name supplied to it.  It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent to it to suspend the VM.  Once the signal is sent, the handler does not wait for a response and immediately exits. \nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
+          "detailedDescription": "This handler is designed to suspend a virtual machine on a VMWare VSphere server that matches the name supplied to it.  It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine name is verified and then a signal is sent to it to suspend the VM.  Once the signal is sent, the handler does not wait for a response and immediately exits. \n\nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
           "parameters": {
             "VM Name": "The name of the VM that you want to suspend"
           },
@@ -23879,6 +23889,7 @@
           },
           "changelogText": "VMWarwe_VSphere_VirtualMachine_Suspend_V1 (2011-01-27)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
@@ -23887,7 +23898,7 @@
           "version": "1",
           "id": "vmware_vsphere_virtualmachine_update_cpu_v1",
           "description": "Clones the given virtual machine.",
-          "detailedDescription": "This handler is designed to update a virtual machine on a VMWare VSphere server that matches the name supplied as a parameter. It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine that will be updated is verified to make sure that the machine exists. Then a reconfigure command will be sent to vSphere to update the number of CPUs for the specified VM. Once the signal is sent, the handler waits long enough to catch immediate errors, returns the task id and then exits. \nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
+          "detailedDescription": "This handler is designed to update a virtual machine on a VMWare VSphere server that matches the name supplied as a parameter. It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine that will be updated is verified to make sure that the machine exists. Then a reconfigure command will be sent to vSphere to update the number of CPUs for the specified VM. Once the signal is sent, the handler waits long enough to catch immediate errors, returns the task id and then exits. \n\nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
           "parameters": {
             "VM Name": "The name of the VM that you want to update.",
             "Number of CPUs": "Number of CPUs to be allocated for the VM."
@@ -23897,7 +23908,8 @@
             "Number of CPUs": "2"
           },
           "results": {
-            "Task Id": ""
+            "Task Id": "",
+            "task_id": ""
           },
           "changelog": {
           },
@@ -23912,7 +23924,7 @@
           "version": "1",
           "id": "vmware_vsphere_virtualmachine_update_memory_v1",
           "description": "Clones the given virtual machine.",
-          "detailedDescription": "This handler is designed to update a virtual machine on a VMWare VSphere server that matches the name supplied as a parameter. It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine that will be updated is verified to make sure that the machine exists. Then a reconfigure command will be sent to vSphere to update the amount of memory for the specified VM. Once the signal is sent, the handler waits long enough to catch immediate errors, returns the task id and then exits. \nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
+          "detailedDescription": "This handler is designed to update a virtual machine on a VMWare VSphere server that matches the name supplied as a parameter. It logs in to the VSphere server using the server's administrative URL, user ID and password that are set as info_value records for the task.  Once logged in, the virtual machine that will be updated is verified to make sure that the machine exists. Then a reconfigure command will be sent to vSphere to update the amount of memory for the specified VM. Once the signal is sent, the handler waits long enough to catch immediate errors, returns the task id and then exits. \n\nThis handler uses the VMWare VI (vSphere) Java API (see http://vijava.sourceforge.net/ for more information).  The api is deployed as a Java archive file (jar) and is stored in this handler's vendor directory.  If the vijava jar file is stored somewhere else on the classpath, the jar file stored in this handler's vendor directory is not used.  It is recommended that there are no vijava jar files stored anywhere on the classpath, and that all VMWare VSphere handlers contain the same vijava jar file in their vendor directory. ",
           "parameters": {
             "VM Name": "The name of the VM that you want to update.",
             "Memory in MB": "Memory in MB to be allocated for the VM."
@@ -23922,7 +23934,8 @@
             "Memory in MB": "200"
           },
           "results": {
-            "Task Id": ""
+            "Task Id": "",
+            "task_id": ""
           },
           "changelog": {
           },
