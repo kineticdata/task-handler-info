@@ -17919,7 +17919,7 @@
       "name": "Mantis Bug Tracker",
       "id": "mantis-bug-tracker",
       "description": "Mantis Bug Tracker is a free and open source, web-based bug tracking system. The most common use of MantisBT is to track software defects.",
-      "image": "https://s3.amazonaws.com/task-handlers/mantis-bug-tracker/mantis_bug_tracker.png",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/mantis-bug-tracker/thumbnail.png",
       "handlerList": [
         {
           "name": "Mantis Fetch Issue Data",
@@ -17961,8 +17961,7 @@
             "Source File Path": ""
           },
           "results": {
-            "Issue Identifier": "",
-            "Source File Path": ""
+            "Mantis_Attachment_ID": ""
           },
           "changelog": {
           },
@@ -17989,8 +17988,7 @@
             "Note": ""
           },
           "results": {
-            "Issue Identifier": "",
-            "Note": ""
+            "Mantis_Issue_Note_ID": ""
           },
           "changelog": {
           },
@@ -18019,8 +18017,7 @@
             "Target Issue ID": ""
           },
           "results": {
-            "Relationship Type": "",
-            "Target Issue ID": ""
+            "Mantis_Relationship_ID": ""
           },
           "changelog": {
           },
@@ -18049,9 +18046,7 @@
             "Tag Identifier": ""
           },
           "results": {
-            "Issue Identifier": "",
-            "Tag": "",
-            "Tag Identifier": ""
+            "Mantis_Issue_Tag_Added": ""
           },
           "changelog": {
           },
@@ -18080,8 +18075,7 @@
             "Fixed indicator": ""
           },
           "results": {
-            "Issue Identifier": "",
-            "Fixed indicator": ""
+            "Mantis_Check_In_Success": ""
           },
           "changelog": {
           },
@@ -18150,29 +18144,7 @@
             "Target Version": ""
           },
           "results": {
-            "Project Name": "",
-            "Category": "",
-            "Summary": "",
-            "Description": "",
-            "Priority": "",
-            "Severity": "",
-            "Issue Status": "",
-            "Reported By": "",
-            "Product Version": "",
-            "Product Build": "",
-            "OS Platform": "",
-            "OS": "",
-            "OS Build": "",
-            "Ability to Reproduce": "",
-            "Sponsorship Total": "",
-            "Assigned To": "",
-            "Projection": "",
-            "ETA": "",
-            "Resolution": "",
-            "Fixed in Version": "",
-            "Steps to Reproduce": "",
-            "Additional Information": "",
-            "Target Version": ""
+            "Mantis_Issue_ID": ""
           },
           "changelog": {
           },
@@ -18197,7 +18169,7 @@
             "Attachment Identifier": ""
           },
           "results": {
-            "Attachment Identifier": ""
+            "Mantis_Attachment_Delete_Success": ""
           },
           "changelog": {
           },
@@ -18222,7 +18194,7 @@
             "Note Identifier": ""
           },
           "results": {
-            "Note Identifier": ""
+            "Mantis_Issue_Note_Delete_Success": ""
           },
           "changelog": {
           },
@@ -18249,8 +18221,7 @@
             "Relationship Identifier": ""
           },
           "results": {
-            "Issue Identifier": "",
-            "Relationship Identifier": ""
+            "Mantis_Issue_Relationship_Delete_Success": ""
           },
           "changelog": {
           },
@@ -18275,7 +18246,7 @@
             "Issue Identifier": ""
           },
           "results": {
-            "Issue Identifier": ""
+            "Mantis_Issue_Delete_Success": ""
           },
           "changelog": {
           },
@@ -18300,7 +18271,7 @@
             "Issue Identifier": ""
           },
           "results": {
-            "Issue Identifier": ""
+            "Mantis_Issue_Exists": ""
           },
           "changelog": {
           },
@@ -18325,7 +18296,7 @@
             "Attachment Identifier": ""
           },
           "results": {
-            "Attachment Identifier": ""
+            "Mantis_Attachment_Content": ""
           },
           "changelog": {
           },
@@ -18354,9 +18325,7 @@
             "Issue Identifier": ""
           },
           "results": {
-            "Note Identifier": "",
-            "Note Text": "",
-            "Issue Identifier": ""
+            "Mantis_Issue_Note_Update_Success": ""
           },
           "changelog": {
           },
@@ -18427,30 +18396,7 @@
             "Target Version": ""
           },
           "results": {
-            "Issue Identifier": "",
-            "Project Name": "",
-            "Category": "",
-            "Summary": "",
-            "Description": "",
-            "Priority": "",
-            "Severity": "",
-            "Issue Status": "",
-            "Reported By": "",
-            "Product Version": "",
-            "Product Build": "",
-            "OS Platform": "",
-            "OS": "",
-            "OS Build": "",
-            "Ability to Reproduce": "",
-            "Sponsorship Total": "",
-            "Assigned To": "",
-            "Projection": "",
-            "ETA": "",
-            "Resolution": "",
-            "Fixed in Version": "",
-            "Steps to Reproduce": "",
-            "Additional Information": "",
-            "Target Version": ""
+            "Mantis_Issue_Update_Successful": ""
           },
           "changelog": {
           },
@@ -18477,8 +18423,7 @@
             "Category Name": ""
           },
           "results": {
-            "Project ID": "",
-            "Category Name": ""
+            "Mantis_Project_Category_ID": ""
           },
           "changelog": {
           },
@@ -18512,11 +18457,7 @@
           },
           "results": {
             "Message": "",
-            "Project ID": "",
-            "Version Name": "",
-            "Version Description": "",
-            "Released": "",
-            "Obsolete": ""
+            "Mantis_Project_Version_ID": ""
           },
           "changelog": {
           },
@@ -18553,13 +18494,7 @@
             "Reported By": ""
           },
           "results": {
-            "Project Name": "",
-            "Project Status": "",
-            "Enabled": "",
-            "View State": "",
-            "Access Minimum": "",
-            "Project Description": "",
-            "Reported By": ""
+            "Mantis_Project_ID": ""
           },
           "changelog": {
           },
