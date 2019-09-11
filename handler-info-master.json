@@ -22942,7 +22942,7 @@
       "name": "Stripe",
       "id": "stripe",
       "description": "Stripe accepts payments online and in mobile apps.",
-      "image": "https://s3.amazonaws.com/task-handlers/stripe/stripe.svg",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/stripe/thumbnail.svg",
       "handlerList": [
         {
           "name": "Stripe Complete Checkout",
@@ -22968,10 +22968,9 @@
             "Id": "",
             "Key": "",
             "Url": "",
-            "Amount": "",
-            "Currency": "",
-            "Card": "",
-            "Receipt Email": ""
+            "charge_id": "",
+            "success": "",
+            "message": ""
           },
           "changelog": {
           },
