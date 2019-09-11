@@ -22985,6 +22985,78 @@
       ]
     },
     {
+      "id": "sugar-crm",
+      "handlerList": [
+        {
+          "name": "SugarCRM Account Retrieve",
+          "version": "1",
+          "id": "sugarcrm_account_retrieve_v1",
+          "description": "Retrieves an SugarCRM Account.",
+          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified SugarCRM server, and search for the Account record based on the account name parameter. \n\nThe handler returns the account details if the account was found, otherwise and exception is thrown if no accounts match the name that was provided as the search term. ",
+          "parameters": {
+            "Account Name": "The name of the Account to retrieve"
+          },
+          "sampleConfiguration": {
+            "Account Name": "<%=@answers['Account Name']%>"
+          },
+          "results": {
+            "Id": "",
+            "Account Type": "",
+            "Assigned User Id": "",
+            "Assigned User Name": "",
+            "Billing Address City": "",
+            "Billing Address Country": "",
+            "Billing Address Postal Code": "",
+            "Billing Address Street": "",
+            "Billing Address Street 2": "",
+            "Billing Address Street 3": "",
+            "Billing Address Street 4": "",
+            "Campaign Id": "",
+            "Campaign Name": "",
+            "Created By": "",
+            "Created By Name": "",
+            "Date Entered": "",
+            "Date Modified": "",
+            "Description": "",
+            "Email 1": "",
+            "Industry": "",
+            "Modified By Name": "",
+            "Modified User Id": "",
+            "Name": "",
+            "Ownership": "",
+            "Parent Id": "",
+            "Parent Name": "",
+            "Phone Alternate": "",
+            "Phone Fax": "",
+            "Phone Office": "",
+            "Rating": "",
+            "Shipping Address City": "",
+            "Shipping Address Country": "",
+            "Shipping Address Postal Code": "",
+            "Shipping Address State": "",
+            "Shipping Address Street": "",
+            "Shipping Address Street 2": "",
+            "Shipping Address Street 3": "",
+            "Shipping Address Street 4": "",
+            "SIC Code": "",
+            "Ticker Symbol": "",
+            "Valid": "",
+            "Website": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "Sugarcrm_Account_Retrieve_V1 (2011-02-01)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        }
+      ],
+      "name": "SugarCRM",
+      "description": "SugarCRM's functionality includes sales-force automation, marketing campaigns, customer support, collaboration, Mobile CRM, Social CRM and reporting.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/sugar-crm/thumbnail.svg"
+    },
+    {
       "name": "SugarCRM",
       "id": "sugarcrm",
       "description": "SugarCRM's functionality includes sales-force automation, marketing campaigns, customer support, collaboration, Mobile CRM, Social CRM and reporting.",
