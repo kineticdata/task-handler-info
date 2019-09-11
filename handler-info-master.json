@@ -20786,15 +20786,15 @@
     {
       "name": "Rackspace",
       "id": "rackspace",
-      "description": "This service is a managed cloud provider with tailor solutions on many popular hosting platforms such as: VMware, AWS, Microsoft Cloud / Azure, OpenStack, and many more.",
-      "image": "https://s3.amazonaws.com/task-handlers/rackspace/rackspace.svg",
+      "description": "Managed cloud provider with tailored solutions on many popular hosting platforms such as VMware, AWS, Azure, OpenStack, and many more.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/rackspace/thumbnail.svg",
       "handlerList": [
         {
           "name": "Rackspace Server Create",
           "version": "1",
           "id": "rackspace_server_create_v1",
           "description": "Create a new server in the Rackspace Cloud.",
-          "detailedDescription": "This handler creates a server from the Rackspace Cloud. After creating the Rackspace service, the gem searches for the image and flavor objects based on the names inputted as parameters. Once those objects are found, the call is sent to Rackspace to create the server. The handler then returns information about the server that was just created. Any errors that are encountered will be caught and re-raised by the handler. \nNote: To find the Rackspace API Key, go to Account Settings and click 'show' next to the API Key label under Login Details. ",
+          "detailedDescription": "This handler creates a server from the Rackspace Cloud. After creating the Rackspace service, the gem searches for the image and flavor objects based on the names inputted as parameters. Once those objects are found, the call is sent to Rackspace to create the server. The handler then returns information about the server that was just created. Any errors that are encountered will be caught and re-raised by the handler. \n\nNote: To find the Rackspace API Key, go to Account Settings and click 'show' next to the API Key label under Login Details. ",
           "parameters": {
             "Rackspace Region": "The shortcut for the region which you wish to create this volume (ie. ord == Chicago).",
             "Flavor Name": "The name of the performance flavor that you want to use (ie. 512MB Standard Instance).",
@@ -20815,7 +20815,16 @@
             "Flavor Id": "",
             "Flavor Name": "",
             "Flavor System Disk": "",
-            "Flavor CPUs": ""
+            "Flavor CPUs": "",
+            "server_id": "",
+            "server_name": "",
+            "image_id": "",
+            "image_name": "",
+            "flavor_id": "",
+            "flavor_name": "",
+            "flavor_ram": "",
+            "flavor_system_disk": "",
+            "flavor_cpus": ""
           },
           "changelog": {
           },
@@ -20830,7 +20839,7 @@
           "version": "1",
           "id": "rackspace_server_delete_v1",
           "description": "Deletes a server from the Rackspace Cloud.",
-          "detailedDescription": "This handler deletes a server from the Rackspace Cloud. After creating the Rackspace service, the gem searches for the Server that has the same id as the id that was inputted as a paramter. Once that object is found, the destroy method is called and the name and id of the destroyed server are returned. \nNote: To find the Rackspace API Key, go to Account Settings and click 'show' next to the API Key label under Login Details. ",
+          "detailedDescription": "This handler deletes a server from the Rackspace Cloud. After creating the Rackspace service, the gem searches for the Server that has the same id as the id that was inputted as a paramter. Once that object is found, the destroy method is called and the name and id of the destroyed server are returned. \n\nNote: To find the Rackspace API Key, go to Account Settings and click 'show' next to the API Key label under Login Details. ",
           "parameters": {
             "Server Id": "The id of the server that you wish to delete."
           },
@@ -20839,7 +20848,9 @@
           },
           "results": {
             "Server Id": "",
-            "Server Name": ""
+            "Server Name": "",
+            "server_id": "",
+            "server_name": ""
           },
           "changelog": {
           },
@@ -20854,7 +20865,7 @@
           "version": "1",
           "id": "rackspace_volume_create_v1",
           "description": "Create a new volume in the Rackspace Cloud.",
-          "detailedDescription": "This handler creates a server from the Rackspace Cloud. After creating the Rackspace service, the call is sent to Rackspace to create the volume. The handler then returns information about the volume that was just created. Any errors that are encountered will be caughtcand re-raised by the handler. \nNote: To find the Rackspace API Key, go to Account Settings and click 'show' next to the API Key label under Login Details. ",
+          "detailedDescription": "This handler creates a server from the Rackspace Cloud. After creating the Rackspace service, the call is sent to Rackspace to create the volume. The handler then returns information about the volume that was just created. Any errors that are encountered will be caughtcand re-raised by the handler. \n\nNote: To find the Rackspace API Key, go to Account Settings and click 'show' next to the API Key label under Login Details. ",
           "parameters": {
             "Display Name": "The display name of the new volume.",
             "Volume Type": "The name of the volume type you want to use (ie 'SATA' or 'SSD').",
@@ -20869,7 +20880,9 @@
           },
           "results": {
             "Volume Id": "",
-            "Volume State": ""
+            "Volume State": "",
+            "volume_id": "",
+            "volume_state": ""
           },
           "changelog": {
           },
