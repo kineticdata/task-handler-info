@@ -9858,8 +9858,8 @@
     {
       "name": "Jenkins",
       "id": "jenkins",
-      "description": "Handlers that interact with the Jenkins, a CI Integration service.",
-      "image": "https://task-handlers.s3.amazonaws.com/jenkins/jenkins.png",
+      "description": "Jenkins is a free and open source automation server written in Java. Jenkins helps to automate the non-human part of the software development process, with continuous integration and facilitating technical aspects of continuous delivery.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/jenkins/thumbnail.png",
       "handlerList": [
         {
           "name": "Jenkins Job Create From Template",
@@ -9875,7 +9875,7 @@
           "sampleConfiguration": {
             "Template Job": "Test Projects - Template",
             "Name": "Test Projects - ACME",
-            "Template Substitutions": "{\"COMPANY_NAME\""
+            "Template Substitutions": "{\"COMPANY_NAME\": \"Acme\",\"COMPANY_URL\": \"https://acme.com\"}"
           },
           "results": {
             "Job URL": "Returns the URL of the newly created job if successfully created "
