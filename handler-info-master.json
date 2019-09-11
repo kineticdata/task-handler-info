@@ -17824,6 +17824,15 @@
       ]
     },
     {
+      "id": "ldap",
+      "handlerList": [
+
+      ],
+      "name": "LDAP",
+      "description": "The Lightweight Directory Access Protocol is an open, vendor-neutral, industry standard application protocol for accessing and maintaining distributed directory information services over an Internet Protocol network.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/ldap/thumbnail.jpg"
+    },
+    {
       "name": "LinkedIn",
       "id": "linkedin",
       "description": "LinkedIn's mission is to connect the world's professionals to make them more productive and successful.",
