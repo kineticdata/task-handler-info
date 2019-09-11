@@ -20179,45 +20179,9 @@
     {
       "name": "Nagios",
       "id": "nagios",
-      "description": "",
-      "image": "https://task-handlers.s3.amazonaws.com/nagios/nagios.png",
+      "description": "Nagios is a free and open source computer-software application that monitors systems, networks and infrastructure.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/nagios/thumbnail.png",
       "handlerList": [
-        {
-          "name": "Nagios XI Create Hostgroup",
-          "version": "1",
-          "id": "nagios_xi_create_config_hostgroup_v1",
-          "description": "This handler creates a new Nagios XI hostgroup object.",
-          "detailedDescription": "This handler creates a new hostgroup object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#add-hostgroup) \n\n",
-          "parameters": {
-            "error handling": "Determine what to return if an error is encountered.",
-            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
-            "hostgroup name": "New hostgroup name to create.",
-            "alias": "Alias to apply to hostgroup.",
-            "apply config": "1 or 0 for true or false. 1 will restart the Nagios Core service and apply the change."
-          },
-          "sampleConfiguration": {
-            "error handling": "Raise Error",
-            "return response": "yes",
-            "hostgroup name": "testapihostgroup",
-            "alias": "127.0.0.1",
-            "apply config": "0"
-          },
-          "results": {
-            "Handler Error Message": "Error message if set to return - blank if no errors. ",
-            "Nagios XI Response": "Nagios response if set to return. "
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-11-26",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Nagios XI Create Hostgroup v1 (2017-11-26)\r\n * Initial version.  See README for details.",
-          "warnings": [
-
-          ]
-        },
         {
           "name": "Nagios XI Create Host",
           "version": "1",
@@ -20265,159 +20229,23 @@
           ]
         },
         {
-          "name": "Nagios XI Retrieve Users",
+          "name": "Nagios XI Create Hostgroup",
           "version": "1",
-          "id": "nagios_xi_retrieve_system_users_v1",
-          "description": "This handler retrieves user records from the Nagios XI system.",
-          "detailedDescription": "This handler retrieves user records from Nagios XI. [API Documentation](https://your.nagiosserver.com/nagiosxi/help/api-system-reference.php#user) \n\n",
-          "parameters": {
-            "error handling": "Determine what to return if an error is encountered.",
-            "return type": "The format that the results should be returned in.",
-            "user id": "Supply a user id to retrieve back only one user record. If not set, all users are returned."
-          },
-          "sampleConfiguration": {
-            "error handling": "Error Message",
-            "return type": "XML",
-            "user id": "1"
-          },
-          "results": {
-            "Handler Error Message": "Error message if set to return - blank if no errors. ",
-            "Nagios XI Response": "Nagios response if set to return. "
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-11-26",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Nagios XI Retrieve Users v1 (2017-11-26)\r\n * Initial version.  See README for details.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Nagios XI Delete User",
-          "version": "1",
-          "id": "nagios_xi_delete_system_user_v1",
-          "description": "This handler deletes a Nagios XI user object.",
-          "detailedDescription": "This handler deletes a user object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-system-reference.php#delete-user) \n\n",
+          "id": "nagios_xi_create_config_hostgroup_v1",
+          "description": "This handler creates a new Nagios XI hostgroup object.",
+          "detailedDescription": "This handler creates a new hostgroup object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#add-hostgroup) \n\n",
           "parameters": {
             "error handling": "Determine what to return if an error is encountered.",
             "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
-            "user id": "User id to delete"
-          },
-          "sampleConfiguration": {
-            "error handling": "Raise Error",
-            "return response": "yes",
-            "user id": "2"
-          },
-          "results": {
-            "Handler Error Message": "Error message if set to return - blank if no errors. ",
-            "Nagios XI Response": "Nagios response if set to return. "
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-11-26",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Nagios XI Delete User v1 (2017-11-26)\r\n * Initial version.  See README for details.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Nagios XI Import Config",
-          "version": "1",
-          "id": "nagios_xi_update_system_import_config_v1",
-          "description": "This handler runs the import command which imports all configuration files into the CCM. Nagios Core is *not* restarted.",
-          "detailedDescription": "This handler runs the import command which imports all configuration files into the CCM. Nagios Core is **not** restarted. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-system-reference.php#system-importconfig) \n\n",
-          "parameters": {
-            "error handling": "Determine what to return if an error is encountered.",
-            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output."
-          },
-          "sampleConfiguration": {
-            "error handling": "Raise Error",
-            "return response": "yes"
-          },
-          "results": {
-            "Handler Error Message": "Error message if set to return - blank if no errors. ",
-            "Nagios XI Response": "Nagios response if set to return. "
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-11-26",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Nagios XI Import Config v1 (2017-11-26)\r\n * Initial version.  See README for details.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Nagios XI Retrieve Objects",
-          "version": "1",
-          "id": "nagios_xi_retrieve_objects_v1",
-          "description": "This handler retrieves object records from the Nagios XI system.",
-          "detailedDescription": "This handler retrieves object records from Nagios XI. [API Documentation](https://your.nagiosserver.com/nagiosxi/help/api-object-reference.php) \n\n",
-          "parameters": {
-            "error handling": "Determine what to return if an error is encountered.",
-            "return type": "The format that the results should be returned in.",
-            "object type": "The type of the object to retrieve.",
-            "start time": "Epoch start time for object record creation. Default -24 hours.",
-            "end time": "Epoch end time for object record creation. Defaults to now.",
-            "records": "Amount of records and optionally starting at. 10:20 Displays the the next 10 records after the 20th record. Defaults to all.",
-            "order by": "Specifies a column to sort on along with sort type. Example: name:d",
-            "columns": "Simple JSON object that has columns as keys and equality expressions as values in either string or array format. See README.md or community.kineticdata.com for examples."
-          },
-          "sampleConfiguration": {
-            "error handling": "Error Message",
-            "return type": "JSON",
-            "object type": "service",
-            "start time": "",
-            "end time": "",
-            "records": "",
-            "order by": "",
-            "columns": "{\"service_description\": <%= \"lk:#{@results['some echo node']['output']}\".inspect } %>}"
-          },
-          "results": {
-            "Handler Error Message": "Error message if set to return - blank if no errors. ",
-            "Nagios XI Response": "Nagios response if set to return. "
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-11-26",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Nagios XI Retrieve Objects v1 (2017-11-26)\r\n * Initial version.  See README for details.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Nagios XI Delete Service",
-          "version": "1",
-          "id": "nagios_xi_delete_config_service_v1",
-          "description": "This handler deletes a Nagios XI host object.",
-          "detailedDescription": "This handler deletes a service object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#delete-service) \n\n",
-          "parameters": {
-            "error handling": "Determine what to return if an error is encountered.",
-            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
-            "host name": "Host the service is associated with.",
-            "service description": "Service name to remove.",
+            "hostgroup name": "New hostgroup name to create.",
+            "alias": "Alias to apply to hostgroup.",
             "apply config": "1 or 0 for true or false. 1 will restart the Nagios Core service and apply the change."
           },
           "sampleConfiguration": {
             "error handling": "Raise Error",
             "return response": "yes",
-            "host name": "testapihost",
-            "service description": "PING",
+            "hostgroup name": "testapihostgroup",
+            "alias": "127.0.0.1",
             "apply config": "0"
           },
           "results": {
@@ -20431,69 +20259,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Nagios XI Delete Service v1 (2017-11-26)\r\n * Initial version.  See README for details.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Nagios XI Delete Host",
-          "version": "1",
-          "id": "nagios_xi_delete_config_host_v1",
-          "description": "This handler deletes a Nagios XI host object.",
-          "detailedDescription": "This handler deletes a host object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#delete-host) \n\n",
-          "parameters": {
-            "error handling": "Determine what to return if an error is encountered.",
-            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
-            "host name": "Host name to apply to the new host.",
-            "apply config": "1 or 0 for true or false. 1 will restart the Nagios Core service and apply the change."
-          },
-          "sampleConfiguration": {
-            "error handling": "Raise Error",
-            "return response": "yes",
-            "host name": "testapihost",
-            "apply config": "0"
-          },
-          "results": {
-            "Handler Error Message": "Error message if set to return - blank if no errors. ",
-            "Nagios XI Response": "Nagios response if set to return. "
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-11-26",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Nagios XI Delete Host v1 (2017-11-26)\r\n * Initial version.  See README for details.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Nagios XI Retrieve System Status",
-          "version": "1",
-          "id": "nagios_xi_retrieve_system_status_v1",
-          "description": "This handler retrieves the Nagios Core system status.",
-          "detailedDescription": "This handler retrieves the Nagios Core system status. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-system-reference.php#system-status) \n\n",
-          "parameters": {
-            "error handling": "Determine what to return if an error is encountered."
-          },
-          "sampleConfiguration": {
-            "error handling": "Raise Error"
-          },
-          "results": {
-            "Handler Error Message": "Error message if set to return - blank if no errors. ",
-            "Nagios XI Response": "Nagios response if set to return. "
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-11-26",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Nagios XI Retrieve System Status v1 (2017-11-26)\r\n * Initial version.  See README for details.",
+          "changelogText": "Nagios XI Create Hostgroup v1 (2017-11-26)\r\n * Initial version.  See README for details.",
           "warnings": [
 
           ]
@@ -20548,6 +20314,42 @@
             }
           },
           "changelogText": "Nagios Xi Create Service v1 (2017-11-26)\r\n * Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "Nagios XI Create Servicegroup",
+          "version": "1",
+          "id": "nagios_xi_create_config_servicegroup_v1",
+          "description": "This handler creates a new Nagios XI hostgroup object.",
+          "detailedDescription": "This handler creates a new servicegroup object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#add-servicegroup) \n\n",
+          "parameters": {
+            "error handling": "Determine what to return if an error is encountered.",
+            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
+            "servicegroup name": "New servicegroup name to create.",
+            "alias": "Alias to apply to servicegroup.",
+            "apply config": "1 or 0 for true or false. 1 will restart the Nagios Core service and apply the change."
+          },
+          "sampleConfiguration": {
+            "error handling": "Raise Error",
+            "return response": "yes",
+            "servicegroup name": "testapiservicegroup",
+            "alias": "127.0.0.1",
+            "apply config": "0"
+          },
+          "results": {
+            "Handler Error Message": "Error message if set to return - blank if no errors. ",
+            "Nagios XI Response": "Nagios response if set to return. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-11-26",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Nagios XI Create Servicegroup v1 (2017-11-26)\r\n * Initial version.  See README for details.",
           "warnings": [
 
           ]
@@ -20619,6 +20421,210 @@
           ]
         },
         {
+          "name": "Nagios XI Delete Host",
+          "version": "1",
+          "id": "nagios_xi_delete_config_host_v1",
+          "description": "This handler deletes a Nagios XI host object.",
+          "detailedDescription": "This handler deletes a host object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#delete-host) \n\n",
+          "parameters": {
+            "error handling": "Determine what to return if an error is encountered.",
+            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
+            "host name": "Host name to apply to the new host.",
+            "apply config": "1 or 0 for true or false. 1 will restart the Nagios Core service and apply the change."
+          },
+          "sampleConfiguration": {
+            "error handling": "Raise Error",
+            "return response": "yes",
+            "host name": "testapihost",
+            "apply config": "0"
+          },
+          "results": {
+            "Handler Error Message": "Error message if set to return - blank if no errors. ",
+            "Nagios XI Response": "Nagios response if set to return. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-11-26",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Nagios XI Delete Host v1 (2017-11-26)\r\n * Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "Nagios XI Delete Service",
+          "version": "1",
+          "id": "nagios_xi_delete_config_service_v1",
+          "description": "This handler deletes a Nagios XI host object.",
+          "detailedDescription": "This handler deletes a service object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#delete-service) \n\n",
+          "parameters": {
+            "error handling": "Determine what to return if an error is encountered.",
+            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
+            "host name": "Host the service is associated with.",
+            "service description": "Service name to remove.",
+            "apply config": "1 or 0 for true or false. 1 will restart the Nagios Core service and apply the change."
+          },
+          "sampleConfiguration": {
+            "error handling": "Raise Error",
+            "return response": "yes",
+            "host name": "testapihost",
+            "service description": "PING",
+            "apply config": "0"
+          },
+          "results": {
+            "Handler Error Message": "Error message if set to return - blank if no errors. ",
+            "Nagios XI Response": "Nagios response if set to return. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-11-26",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Nagios XI Delete Service v1 (2017-11-26)\r\n * Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "Nagios XI Delete User",
+          "version": "1",
+          "id": "nagios_xi_delete_system_user_v1",
+          "description": "This handler deletes a Nagios XI user object.",
+          "detailedDescription": "This handler deletes a user object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-system-reference.php#delete-user) \n\n",
+          "parameters": {
+            "error handling": "Determine what to return if an error is encountered.",
+            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
+            "user id": "User id to delete"
+          },
+          "sampleConfiguration": {
+            "error handling": "Raise Error",
+            "return response": "yes",
+            "user id": "2"
+          },
+          "results": {
+            "Handler Error Message": "Error message if set to return - blank if no errors. ",
+            "Nagios XI Response": "Nagios response if set to return. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-11-26",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Nagios XI Delete User v1 (2017-11-26)\r\n * Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "Nagios XI Retrieve Objects",
+          "version": "1",
+          "id": "nagios_xi_retrieve_objects_v1",
+          "description": "This handler retrieves object records from the Nagios XI system.",
+          "detailedDescription": "This handler retrieves object records from Nagios XI. [API Documentation](https://your.nagiosserver.com/nagiosxi/help/api-object-reference.php) \n\n",
+          "parameters": {
+            "error handling": "Determine what to return if an error is encountered.",
+            "return type": "The format that the results should be returned in.",
+            "object type": "The type of the object to retrieve.",
+            "start time": "Epoch start time for object record creation. Default -24 hours.",
+            "end time": "Epoch end time for object record creation. Defaults to now.",
+            "records": "Amount of records and optionally starting at. 10:20 Displays the the next 10 records after the 20th record. Defaults to all.",
+            "order by": "Specifies a column to sort on along with sort type. Example: name:d",
+            "columns": "Simple JSON object that has columns as keys and equality expressions as values in either string or array format. See README.md or community.kineticdata.com for examples."
+          },
+          "sampleConfiguration": {
+            "error handling": "Error Message",
+            "return type": "JSON",
+            "object type": "service",
+            "start time": "",
+            "end time": "",
+            "records": "",
+            "order by": "",
+            "columns": "{\"service_description\": <%= \"lk:#{@results['some echo node']['output']}\".inspect } %>}"
+          },
+          "results": {
+            "Handler Error Message": "Error message if set to return - blank if no errors. ",
+            "Nagios XI Response": "Nagios response if set to return. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-11-26",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Nagios XI Retrieve Objects v1 (2017-11-26)\r\n * Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "Nagios XI Retrieve System Status",
+          "version": "1",
+          "id": "nagios_xi_retrieve_system_status_v1",
+          "description": "This handler retrieves the Nagios Core system status.",
+          "detailedDescription": "This handler retrieves the Nagios Core system status. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-system-reference.php#system-status) \n\n",
+          "parameters": {
+            "error handling": "Determine what to return if an error is encountered."
+          },
+          "sampleConfiguration": {
+            "error handling": "Raise Error"
+          },
+          "results": {
+            "Handler Error Message": "Error message if set to return - blank if no errors. ",
+            "Nagios XI Response": "Nagios response if set to return. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-11-26",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Nagios XI Retrieve System Status v1 (2017-11-26)\r\n * Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "Nagios XI Retrieve Users",
+          "version": "1",
+          "id": "nagios_xi_retrieve_system_users_v1",
+          "description": "This handler retrieves user records from the Nagios XI system.",
+          "detailedDescription": "This handler retrieves user records from Nagios XI. [API Documentation](https://your.nagiosserver.com/nagiosxi/help/api-system-reference.php#user) \n\n",
+          "parameters": {
+            "error handling": "Determine what to return if an error is encountered.",
+            "return type": "The format that the results should be returned in.",
+            "user id": "Supply a user id to retrieve back only one user record. If not set, all users are returned."
+          },
+          "sampleConfiguration": {
+            "error handling": "Error Message",
+            "return type": "XML",
+            "user id": "1"
+          },
+          "results": {
+            "Handler Error Message": "Error message if set to return - blank if no errors. ",
+            "Nagios XI Response": "Nagios response if set to return. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-11-26",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Nagios XI Retrieve Users v1 (2017-11-26)\r\n * Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
           "name": "Nagios XI Apply Config",
           "version": "1",
           "id": "nagios_xi_update_system_apply_config_v1",
@@ -20649,24 +20655,18 @@
           ]
         },
         {
-          "name": "Nagios XI Create Servicegroup",
+          "name": "Nagios XI Import Config",
           "version": "1",
-          "id": "nagios_xi_create_config_servicegroup_v1",
-          "description": "This handler creates a new Nagios XI hostgroup object.",
-          "detailedDescription": "This handler creates a new servicegroup object. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-config-reference.php#add-servicegroup) \n\n",
+          "id": "nagios_xi_update_system_import_config_v1",
+          "description": "This handler runs the import command which imports all configuration files into the CCM. Nagios Core is *not* restarted.",
+          "detailedDescription": "This handler runs the import command which imports all configuration files into the CCM. Nagios Core is **not** restarted. [API Documentation](https://yournagiosxiserver.com/nagiosxi/help/api-system-reference.php#system-importconfig) \n\n",
           "parameters": {
             "error handling": "Determine what to return if an error is encountered.",
-            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output.",
-            "servicegroup name": "New servicegroup name to create.",
-            "alias": "Alias to apply to servicegroup.",
-            "apply config": "1 or 0 for true or false. 1 will restart the Nagios Core service and apply the change."
+            "return response": "true or false. Determines if Kinetic Task returns the Nagios response output."
           },
           "sampleConfiguration": {
             "error handling": "Raise Error",
-            "return response": "yes",
-            "servicegroup name": "testapiservicegroup",
-            "alias": "127.0.0.1",
-            "apply config": "0"
+            "return response": "yes"
           },
           "results": {
             "Handler Error Message": "Error message if set to return - blank if no errors. ",
@@ -20679,7 +20679,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Nagios XI Create Servicegroup v1 (2017-11-26)\r\n * Initial version.  See README for details.",
+          "changelogText": "Nagios XI Import Config v1 (2017-11-26)\r\n * Initial version.  See README for details.",
           "warnings": [
 
           ]
