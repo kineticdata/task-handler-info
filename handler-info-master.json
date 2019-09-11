@@ -23059,7 +23059,7 @@
       "name": "Tomcat",
       "id": "tomcat",
       "description": "Apache Tomcat, often referred to as Tomcat Server, is an open-source Java Servlet Container developed by the Apache Software Foundation (ASF).",
-      "image": "https://s3.amazonaws.com/task-handlers/tomcat/tomcat.svg",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/tomcat/thumbnail.svg",
       "handlerList": [
         {
           "name": "Tomcat Web Application Reload",
