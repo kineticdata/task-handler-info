@@ -20177,6 +20177,306 @@
       "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/mir3/thumbnail.jpg"
     },
     {
+      "id": "ms-exchange",
+      "handlerList": [
+        {
+          "name": "Exchange Appointment Create Recurring",
+          "version": "2",
+          "id": "exchange_appointment_create_recurring_v2",
+          "description": "This handler creates a new recurring Exchange Appointment",
+          "detailedDescription": "This handler uses the Exchange Web Services Java API to return all Exchange appointments within a given time range. After configuring the API to connect to the server and getting the correct time frame, an API call is made which returns an Array of appointment objects. This Array is then iterated over to make a JSON table with all of the relevant appointment data. Each appointment has a hash that contains the subject, location, start and end time, as well as the organizer and both the required and optional attendees. Any errors encountered will be caught and re-raised by the handler. ",
+          "parameters": {
+            "Recurrence Type": "Defines the type of recurring event. Options are 'RelativeYear', 'AbsoluteYear', 'RelativeMonth', 'AbsoluteMonth', 'Weekly', 'Daily'. Each option requires specific inputs. Examples: 'RelativeYear' = First Monday in January each year [Requires 'Days of Week', 'Day of Week Index', 'Month']; 'AbsoluteYear' = January 4 each year [Requires 'Day of Month', 'Month']; 'RelativeMonth' = Second Wednesday every 3rd month [Requires 'Days of Week', 'Day of Week Index', 'Interval']; 'AbsoluteMonth' = 22nd of every 3rd month [Requires 'Day of Month', 'Interval']; 'Weekly' = Tuesdays and Thursdays every other week [Requires 'Days of Week', 'Interval']; 'Daily' = Every 7th day [Requires 'Interval']",
+            "Duration Type": "Defines the length of the recurrence. Options are 'No End Date', 'Has End Date', 'Number of Occurrences'.  If 'No End Date' or 'Number of Occurrences' is used, the end date is not required.",
+            "Days of Week": "Describes which day of the week is used in the relative recurrence pattern. Options are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', Thursday', 'Friday', 'Saturday', 'Day', 'Weekday', 'Weekend Day'.  Required for 'RelativeYear', 'RelativeMonth', 'Weekly'.  When used with weekly, multiple values can be used separated by a space (example 'Tuesday Thursday'), and the 'Day', 'Weekday', and 'Weekend Day' options are not allowed.",
+            "Day of Week Index": "Describes which week is used in a relative recurrence pattern. Options are 'First', 'Second', 'Third', 'Fourth', 'Last'. Required for 'RelativeYear', 'RelativeMonth'.",
+            "Month": "Identifies the month in which a recurring item occurs. Options are 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'. Required for 'RelativeYear' and 'AbsoluteYear'.",
+            "Day of Month": "Identifies the day in a month on which a recurring item occurs. The range of values for this property is 1 to 31. If for a particular month this value is larger than the number of days in the month, the last day of the month is assumed. Required for 'AbsoluteYear' and 'AbsoluteMonth'.",
+            "Interval": "Defines the interval between two consecutive recurring events. The range of options is from 1 to 99 for 'RelativeMonth', 'AbsoluteMonth', and 'Weekly'.  The range of options is from 1 to 999 for 'Daily'.  Required for 'Relativemonth', 'AbsoluteMonth', 'Weekly', and 'Daily'.",
+            "Start Date of Recurrence (UTC)": "The start date of the recurrence in UTC with the format 'YYYY-MM-DD' or 'YYYY-MM-DD-HH:mm'.",
+            "End Date of Recurrence (UTC)": "The ending date of the recurrence in UTC with the format 'YYYY-MM-DD' or YYYY-MM-DD-HH:mm'. Required for Duration Type of 'HasEndDate'",
+            "Number of Occurrences": "Describes the number of occurrences of a recurring item.",
+            "Subject": "The subject of the new appointment.",
+            "Location": "The location of the new appointment.",
+            "Body": "The body of the new appointment.",
+            "Start": "The start of the new appointment with the format 'YYYY-MM-DDTHH:mm:ss'.",
+            "End": "The end of the new appointment with the format 'YYYY-MM-DDTHH:mm:ss'.",
+            "Manually Enter Time Zone?": "Yes is you want to manually specify a time zone. No if you want to pass times in UTC.",
+            "Time Zone Name": "If manually entering a time zone, select the time zone from the list",
+            "Required Attendees": "A comma separated list of email addresses that should be required to attend the appointment.",
+            "Optional Attendees": "A comma separated list of email addresses that can optionally attend the appointment.",
+            "Send Invitations": "How meeting requests are handled. Must be one of 'SendToNone','SendOnlyToAll','SendToAllAndSaveCopy'"
+          },
+          "sampleConfiguration": {
+            "Recurrence Type": "",
+            "Duration Type": "",
+            "Days of Week": "",
+            "Day of Week Index": "",
+            "Month": "",
+            "Day of Month": "",
+            "Interval": "",
+            "Start Date of Recurrence (UTC)": "",
+            "End Date of Recurrence (UTC)": "",
+            "Number of Occurrences": "",
+            "Subject": "",
+            "Location": "",
+            "Body": "",
+            "Start": "",
+            "End": "",
+            "Manually Enter Time Zone?": "",
+            "Time Zone Name": "",
+            "Required Attendees": "",
+            "Optional Attendees": "",
+            "Send Invitations": ""
+          },
+          "results": {
+            "JSON": "",
+            "id": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "Exchange_Appointments_Retrieve_V1 (2012-08-15)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Recurrence Type, Duration Type, Days of Week, Day of Week Index, Month, Day of Month, Interval, Start Date of Recurrence (UTC), End Date of Recurrence (UTC), Number of Occurrences, Subject, Location, Body, Start, End, Manually Enter Time Zone?, Time Zone Name, Required Attendees, Optional Attendees, Send Invitations",
+            "The following are defined as results but can't be found in the Results section in the README: id",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Exchange Appointment Create",
+          "version": "3",
+          "id": "exchange_appointment_create_v3",
+          "description": "This handler creates a new Exchange Appointment",
+          "detailedDescription": "This handler uses the Exchange Web Services (accessed through the Viewpoint ruby gem) to delete an existing appointment. After configuring the API to connect to the server, the appointment will be created and the handler will return an id that can be used to access the newly created appointment at a later time. Any errors encountered will be caught and re-raised by the handler. ",
+          "parameters": {
+            "Subject": "The subject of the new appointment.",
+            "Location": "The location of the new appointment.",
+            "Body": "The body of the new appointment.",
+            "Start": "The start of the new appointment in the format 'YYYY-MM-DDTHH:mm:ss'.",
+            "End": "The end of the new appointment in the format 'YYYY-MM-DDTHH:mm:ss'.",
+            "Manually Enter Time Zone?": "Yes is you want to manually specify a time zone. No if you want to pass times in UTC.",
+            "Time Zone Name": "If manually entering a time zone, select the time zone from the list",
+            "Required Attendees": "A comma separated list of email addresses that should be required to attend the appointment.",
+            "Optional Attendees": "A comma separated list of email addresses that can optionally attend the appointment.",
+            "Send Invitations": "How meeting requests are handled. Must be one of 'SendToNone','SendOnlyToAll','SendToAllAndSaveCopy'"
+          },
+          "sampleConfiguration": {
+            "Subject": "Test appointment",
+            "Location": "East Conference Room",
+            "Body": "Conference call number is 999-999-9999",
+            "Required Attendees": "don.demo@acme.com",
+            "Optional Attendees": "mary.manager@acme.com,john.doe@acme.com",
+            "Start": "",
+            "End": "",
+            "Manually Enter Time Zone?": "",
+            "Time Zone Name": "",
+            "Send Invitations": ""
+          },
+          "results": {
+            "Id": "",
+            "id": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "Exchange_Appointments_Retrieve_V1 (2012-08-15)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Start, End, Manually Enter Time Zone?, Time Zone Name, Send Invitations",
+            "The following are defined as results but can't be found in the Results section in the README: id",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Exchange Appointment Delete",
+          "version": "1",
+          "id": "exchange_appointment_delete_v1",
+          "description": "This handler deletes an Exchange Appointment",
+          "detailedDescription": "This handler uses the Exchange Web Services (accessed through the Viewpoint ruby gem) to delete an existing appointment. After configuring the API to connect to the server the appointment corresponding to the inputted id is retrieved. If it is successfully found, the appointment will deleted and exchange will send messages to any of the attendees that were attached to the item. Any errors encountered will be caught and re-raised by the handler. ",
+          "parameters": {
+            "Appointment Id": "Id of the appointment to be deleted."
+          },
+          "sampleConfiguration": {
+            "Appointment Id": "AAMkADVjNDJhODA5LThjZjr7R...Y2rEhHPAAH5LzWtAAA="
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Exchange_Appointment_Delete_V1 (2015-03-03)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Exchange Appointment Find Occurrence",
+          "version": "1",
+          "id": "exchange_appointment_find_occurrence_v1",
+          "description": "This handler finds an occurrence id of a recurring event when provided a date range specific to the occurrence and the master recurring event ID",
+          "detailedDescription": "This handler uses the Exchange Web Services Java API to return all Exchange appointments within a given time range. After configuring the API to connect to the server and getting the correct time frame, an API call is made which returns an Array of appointment objects. This Array is then iterated over to make a JSON table with all of the relevant appointment data. Each appointment has a hash that contains the subject, location, start and end time, as well as the organizer and both the required and optional attendees. Any errors encountered will be caught and re-raised by the handler. ",
+          "parameters": {
+            "Start (UTC)": "The start of the new appointment in UTC with the format 'YYYY-MM-DDTHH:mm:ss'.",
+            "End (UTC)": "The end of the new appointment in UTC with the format 'YYYY-MM-DDTHH:mm:ss'.",
+            "Recurring Master ID": "The recurring master ID value for the appointment, returned then the recurring event appointment was created."
+          },
+          "sampleConfiguration": {
+            "Start (UTC)": "",
+            "End (UTC)": "",
+            "Recurring Master ID": ""
+          },
+          "results": {
+            "JSON": "",
+            "occurrence_id": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "Exchange_Appointments_Retrieve_V1 (2012-08-15)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Start (UTC), End (UTC), Recurring Master ID",
+            "The following are defined as results but can't be found in the Results section in the README: occurrence_id",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Exchange Appointment Search",
+          "version": "1",
+          "id": "exchange_appointment_search_v1",
+          "description": "This handler searches for Exchange appointments based on a start and end date.",
+          "detailedDescription": "This handler uses the Exchange Web Services (accessed through the Viewpoint ruby gem) to search for existing appointments. After configuring the API to connect to the server the api starts by searching for all events between the Start and End date. If a Subject was also passed as a parameter, the results of the first search will be iterated through to see if the inputted subject is contained in any of the returned items subject line. All of the items that match both conditions are then finally returned in JSON format. Any errors encountered will be caught and re-raised by the handler. ",
+          "parameters": {
+            "Start Date": "The date to start the search with the format 'YYYY-MM-DD'.",
+            "End Date": "The date to end the search with the format 'YYYY-MM-DD'.",
+            "Subject": "A string to search the contents of the subject. Doesn't need to be an exact match, just checks if it contained in the subject."
+          },
+          "sampleConfiguration": {
+            "Start Date": "2016-03-09",
+            "End Date": "2016-03-15",
+            "Subject": ""
+          },
+          "results": {
+            "Appointments JSON": "",
+            "appointments_json": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "Exchange_Appointment_Search_V1 (2016-03-03)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Subject",
+            "The following are defined as results but can't be found in the Results section in the README: appointments_json",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Exchange Appointment Update Recurring",
+          "version": "2",
+          "id": "exchange_appointment_update_recurring_v2",
+          "description": "This handler updates a recurring Exchange Appointment",
+          "detailedDescription": "This handler uses the Exchange Web Services Java API to return all Exchange appointments within a given time range. After configuring the API to connect to the server and getting the correct time frame, an API call is made which returns an Array of appointment objects. This Array is then iterated over to make a JSON table with all of the relevant appointment data. Each appointment has a hash that contains the subject, location, start and end time, as well as the organizer and both the required and optional attendees. Any errors encountered will be caught and re-raised by the handler. ",
+          "parameters": {
+            "Appointment Id": "Id of the appointment to be updated.",
+            "Recurrence Type": "Defines the type of recurring event; only needs to be provided if changing the recurring information. Options are 'RelativeYear', 'AbsoluteYear', 'RelativeMonth', 'AbsoluteMonth', 'Weekly', 'Daily'. Each option requires specific inputs. Examples: 'RelativeYear' = First Monday in January each year [Requires 'Days of Week', 'Day of Week Index', 'Month']; 'AbsoluteYear' = January 4 each year [Requires 'Day of Month', 'Month']; 'RelativeMonth' = Second Wednesday every 3rd month [Requires 'Days of Week', 'Day of Week Index', 'Interval']; 'AbsoluteMonth' = 22nd of every 3rd month [Requires 'Day of Month', 'Interval']; 'Weekly' = Tuesdays and Thursdays every other week [Requires 'Days of Week', 'Interval']; 'Daily' = Every 7th day [Requires 'Interval']",
+            "Duration Type": "Defines the length of the recurrence; only needs to be provided if changing the recurring information. Options are 'No End Date', 'Has End Date', 'Number of Occurrences'.  If 'No End Date' or 'Number of Occurrences' is used, the end date is not required.",
+            "Days of Week": "Describes which day of the week is used in the relative recurrence pattern. Options are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', Thursday', 'Friday', 'Saturday', 'Day', 'Weekday', 'Weekend Day'.  Required for 'RelativeYear', 'RelativeMonth', 'Weekly'.  When used with weekly, multiple values can be used separated by a space (example 'Tuesday Thursday'), and the 'Day', 'Weekday', and 'Weekend Day' options are not allowed.",
+            "Day of Week Index": "Describes which week is used in a relative recurrence pattern. Options are 'First', 'Second', 'Third', 'Fourth', 'Last'. Required for 'RelativeYear', 'RelativeMonth'.",
+            "Month": "Identifies the month in which a recurring item occurs. Options are 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'. Required for 'RelativeYear' and 'AbsoluteYear'.",
+            "Day of Month": "Identifies the day in a month on which a recurring item occurs. The range of values for this property is 1 to 31. If for a particular month this value is larger than the number of days in the month, the last day of the month is assumed. Required for 'AbsoluteYear' and 'AbsoluteMonth'.",
+            "Interval": "Defines the interval between two consecutive recurring events. The range of options is from 1 to 99 for 'RelativeMonth', 'AbsoluteMonth', and 'Weekly'.  The range of options is from 1 to 999 for 'Daily'.  Required for 'Relativemonth', 'AbsoluteMonth', 'Weekly', and 'Daily'.",
+            "Start Date of Recurrence (UTC)": "The start date of the recurrence in UTC with the format 'YYYY-MM-DD' or 'YYYY-MM-DD-HH:mm'.",
+            "End Date of Recurrence (UTC)": "The ending date of the recurrence in UTC with the format 'YYYY-MM-DD' or YYYY-MM-DD-HH:mm'. Required for Duration Type of 'HasEndDate'",
+            "Number of Occurrences": "Describes the number of occurrences of a recurring item.",
+            "Subject": "The subject of the new appointment.",
+            "Location": "The location of the new appointment.",
+            "Body": "The body of the new appointment.",
+            "Start (UTC)": "The start of the new appointment in UTC with the format 'YYYY-MM-DDTHH:mm:ss'.",
+            "End (UTC)": "The end of the new appointment in UTC with the format 'YYYY-MM-DDTHH:mm:ss'.",
+            "Manually Enter Time Zone?": "Yes is you want to manually specify a time zone. No if you want to pass times in UTC.",
+            "Time Zone Name": "If manually entering a time zone, select the time zone from the list",
+            "Required Attendees": "A comma separated list of email addresses that should be required to attend the appointment.",
+            "Optional Attendees": "A comma separated list of email addresses that can optionally attend the appointment.",
+            "Send Invitations": "How meeting requests are handled. Must be one of 'SendToNone','SendOnlyToAll', 'SendOnlyToChanged','SendToAllAndSaveCopy', 'SendToChangedAndSaveCopy'"
+          },
+          "sampleConfiguration": {
+            "Appointment Id": "",
+            "Recurrence Type": "",
+            "Duration Type": "",
+            "Days of Week": "",
+            "Day of Week Index": "",
+            "Month": "",
+            "Day of Month": "",
+            "Interval": "",
+            "Start Date of Recurrence (UTC)": "",
+            "End Date of Recurrence (UTC)": "",
+            "Number of Occurrences": "",
+            "Subject": "",
+            "Location": "",
+            "Body": "",
+            "Start (UTC)": "",
+            "End (UTC)": "",
+            "Manually Enter Time Zone?": "",
+            "Time Zone Name": "",
+            "Required Attendees": "",
+            "Optional Attendees": "",
+            "Send Invitations": ""
+          },
+          "results": {
+            "JSON": "",
+            "id": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "Exchange_Appointments_Retrieve_V1 (2012-08-15)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Appointment Id, Recurrence Type, Duration Type, Days of Week, Day of Week Index, Month, Day of Month, Interval, Start Date of Recurrence (UTC), End Date of Recurrence (UTC), Number of Occurrences, Subject, Location, Body, Start (UTC), End (UTC), Manually Enter Time Zone?, Time Zone Name, Required Attendees, Optional Attendees, Send Invitations",
+            "The following are defined as results but can't be found in the Results section in the README: id",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Exchange Appointment Update",
+          "version": "2",
+          "id": "exchange_appointment_update_v2",
+          "description": "This handler updates an existing Exchange Appointment",
+          "detailedDescription": "This handler uses the Exchange Web Services (accessed through the Viewpoint ruby gem) to delete an existing appointment. After configuring the API to connect to the server the appointment corresponding to the inputted id is retrieved. If it is successfully found, the appointment will use the inputted item information to create an update object, which will then be sent to Exchange to update the item. Any errors encountered will be caught and re-raised by the handler. \n\nNote: For every field except Required and Optional Attendees, if you don't pass any values the original values will remain the same. For Required and Optional Attendees, if you don't pass any values all the people who were invited in the original appointment will be uninvited. ",
+          "parameters": {
+            "Appointment Id": "Id of the appointment to be updated.",
+            "Subject": "The subject of the appointment.",
+            "Location": "The location of the appointment.",
+            "Body": "The body of the appointment.",
+            "Start (UTC)": "The start of the appointment in UTC with the format 'YYYY-MM-DDTHH:mm:ss'.",
+            "End (UTC)": "The end of the appointment in UTC with the format 'YYYY-MM-DDTHH:mm:ss'.",
+            "Manually Enter Time Zone?": "Yes is you want to manually specify a time zone. No if you want to pass times in UTC.",
+            "Time Zone Name": "If manually entering a time zone, select the time zone from the list",
+            "Required Attendees": "A comma separated list of email addresses that should be required to attend the appointment. If left blank, all previous required attendees are uninvited.",
+            "Optional Attendees": "A comma separated list of email addresses that can optionally attend the appointment. If left blank, all previous optional attendees are uninvited.",
+            "Send Invitations": "How meeting requests are handled. Must be one of 'SendToNone','SendOnlyToAll', 'SendOnlyToChanged','SendToAllAndSaveCopy', 'SendToChangedAndSaveCopy'"
+          },
+          "sampleConfiguration": {
+            "Appointment Id": "AAMkADVjNDJhODA5LThjZjr7R...Y2rEhHPAAH5LzWtAAA=",
+            "Subject": "Test appointment",
+            "Location": "East Conference Room",
+            "Body": "Conference call number is 999-999-9999",
+            "Start (UTC)": "2016-03-07 19:00",
+            "End (UTC)": "2016-03-07 20:00",
+            "Required Attendees": "don.demo@acme.com",
+            "Optional Attendees": "mary.manager@acme.com,john.doe@acme.com",
+            "Manually Enter Time Zone?": "",
+            "Time Zone Name": "",
+            "Send Invitations": ""
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Exchange_Appointment_Update_V1 (2015-03-03)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Manually Enter Time Zone?, Time Zone Name, Send Invitations",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        }
+      ],
+      "name": "Microsoft Exchange",
+      "description": "Microsoft Exchange is a mail server and calendaring server developed by Microsoft.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/ms-exchange/thumbnail.png"
+    },
+    {
       "id": "ms-project",
       "handlerList": [
         {
