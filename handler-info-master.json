@@ -20177,6 +20177,15 @@
       "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/mir3/thumbnail.jpg"
     },
     {
+      "id": "ms-sql",
+      "handlerList": [
+
+      ],
+      "name": "MS SQL",
+      "description": "Microsoft SQL Server is a relational database management system developed by Microsoft.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/ms-sql/thumbnail.svg"
+    },
+    {
       "name": "Nagios",
       "id": "nagios",
       "description": "Nagios is a free and open source computer-software application that monitors systems, networks and infrastructure.",
