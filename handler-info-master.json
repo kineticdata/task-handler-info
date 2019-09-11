@@ -15305,15 +15305,15 @@
     {
       "name": "Kinetic Request RE",
       "id": "kinetic-request-re",
-      "description": "Handlers and sources for interacting with Kinetic Request Remedy Edition (RE).",
-      "image": "https://s3.amazonaws.com/task-handlers/kinetic-request-re/request-logo%402x.png",
+      "description": "An Enterprise Request Managment system built on the BMC Remedy Platform.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/kinetic-request-re/thumbnail.png",
       "handlerList": [
         {
           "name": "KAPP Assignment Group Membership Lookup",
           "version": "1",
           "id": "kapp_assignment_group_membership_lookup_v1",
           "description": "Retrieves the login and email information for the assignee or group members of the specified group.",
-          "detailedDescription": "If an assignee is provided, only their information is returned. Otherwise, emails and login information for everyone in the group is returned. \nEmails are comma delimited. XML format of the membership list looks like this: <membership> <member>Allen</member> <member>Mary</member> </membership> ",
+          "detailedDescription": "If an assignee is provided, only their information is returned. Otherwise, emails and login information for everyone in the group is returned. \n\nEmails are comma delimited. XML format of the membership list looks like this: <membership> <member>Allen</member> <member>Mary</member> </membership> ",
           "parameters": {
             "Assignee Login Id": "The assignee login id to get the email address for",
             "Support Group Id": "The Support Group id to return email addresses for"
@@ -15359,12 +15359,14 @@
             "instanceId": "",
             "SLA Goal Hours": "",
             "SLA Goal Calculated Seconds": "",
-            "Work Order ID": ""
+            "AssignedIndividualFirstName": "",
+            "AssignedIndividualLastName": ""
           },
           "changelog": {
           },
           "changelogText": "kinetic_assignment_record_retrieve_V1 (2012-10-09)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "The following parameters can't be found in the Sample Configuration in the README: Work Order ID",
             "The following are defined as results but can't be found in the Results section in the README: AssignedIndividualFirstName, AssignedIndividualLastName",
             "Detailed Description can't be found in the README",
@@ -15398,6 +15400,7 @@
           },
           "changelogText": "kinetic_assignment_record_update_V3 (2013-02-19)\n* Added field for Status\n\nkinetic_assignment_record_update_V2 (2012-01-08)\n* Added fields for Work Order Due Date and Priority\n\nkinetic_assignment_record_update_V1 (2012-10-16)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "The following parameters can't be found in the Sample Configuration in the README: Work Order ID, Request Due Date, Work Order Due Date, Priority, Status",
             "Detailed Description can't be found in the README",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
@@ -15416,12 +15419,13 @@
             "Cost Category": ""
           },
           "results": {
-            "Cost Category": ""
+            "Total": ""
           },
           "changelog": {
           },
           "changelogText": "kinetic_helper_record_find_all_V3 (2013-11-04)\n* Added Other Character and Integer fields to search criteria\n\nkinetic_helper_record_find_all_V2 (2013-03-15)\n* Added Status to search criteria\n\nkinetic_helper_record_find_all_V1 (2012-10-10)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "The following parameters can't be found in the Sample Configuration in the README: Cost Category",
             "The following are defined as results but can't be found in the Results section in the README: Total",
             "Detailed Description can't be found in the README",
@@ -15531,57 +15535,13 @@
             "Time Field7": ""
           },
           "results": {
-            "SurveyInstanceID": "",
-            "CustomerSurveyInstanceID": "",
-            "Character Field1": "",
-            "Character Field2": "",
-            "Character Field3": "",
-            "Character Field4": "",
-            "Character Field5": "",
-            "Character Field6": "",
-            "Character Field7": "",
-            "Character Field8": "",
-            "Character Field9": "",
-            "Character Field10": "",
-            "Character Field11": "",
-            "Character Field12": "",
-            "Character Field13": "",
-            "Character Field14": "",
-            "Index Field1": "",
-            "Index Field2": "",
-            "Index Field3": "",
-            "Integer Field1": "",
-            "Integer Field2": "",
-            "Integer Field3": "",
-            "Integer Field4": "",
-            "Integer Field5": "",
-            "Integer Field6": "",
-            "Date Field1": "",
-            "Date Field2": "",
-            "Date Field3": "",
-            "Date Field4": "",
-            "Date Field5": "",
-            "Date Field6": "",
-            "Date Field7": "",
-            "Date/Time Field1": "",
-            "Date/Time Field2": "",
-            "Date/Time Field3": "",
-            "Date/Time Field4": "",
-            "Date/Time Field5": "",
-            "Date/Time Field6": "",
-            "Date/Time Field7": "",
-            "Time Field1": "",
-            "Time Field2": "",
-            "Time Field3": "",
-            "Time Field4": "",
-            "Time Field5": "",
-            "Time Field6": "",
-            "Time Field7": ""
+            "Entry Id": ""
           },
           "changelog": {
           },
           "changelogText": "kinetic_helper_record_create_V3 (2014-08-12)\n* Automatically truncates Character Fields 1-12 to the 255 field limit\n\nkinetic_helper_record_create_V2 (2014-06-26)\n* Added the Index Fields 1-3\n\nkinetic_helper_record_create_V1 (2012-10-09)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "The following parameters can't be found in the Sample Configuration in the README: SurveyInstanceID, CustomerSurveyInstanceID, Character Field1, Character Field2, Character Field3, Character Field4, Character Field5, Character Field6, Character Field7, Character Field8, Character Field9, Character Field10, Character Field11, Character Field12, Character Field13, Character Field14, Index Field1, Index Field2, Index Field3, Integer Field1, Integer Field2, Integer Field3, Integer Field4, Integer Field5, Integer Field6, Date Field1, Date Field2, Date Field3, Date Field4, Date Field5, Date Field6, Date Field7, Date/Time Field1, Date/Time Field2, Date/Time Field3, Date/Time Field4, Date/Time Field5, Date/Time Field6, Date/Time Field7, Time Field1, Time Field2, Time Field3, Time Field4, Time Field5, Time Field6, Time Field7",
             "The following are defined as results but can't be found in the Results section in the README: Entry Id",
             "Detailed Description can't be found in the README",
@@ -15641,32 +15601,13 @@
             "Integer Field6": ""
           },
           "results": {
-            "SurveyInstanceID": "",
-            "CustomerSurveyInstanceID": "",
-            "Status": "",
-            "Character Field1": "",
-            "Character Field2": "",
-            "Character Field3": "",
-            "Character Field4": "",
-            "Character Field5": "",
-            "Character Field6": "",
-            "Character Field7": "",
-            "Character Field8": "",
-            "Character Field9": "",
-            "Character Field10": "",
-            "Character Field11": "",
-            "Character Field12": "",
-            "Integer Field1": "",
-            "Integer Field2": "",
-            "Integer Field3": "",
-            "Integer Field4": "",
-            "Integer Field5": "",
-            "Integer Field6": ""
+            "List": ""
           },
           "changelog": {
           },
           "changelogText": "kinetic_helper_record_find_all_V3 (2013-11-04)\n* Added Other Character and Integer fields to search criteria\n\nkinetic_helper_record_find_all_V2 (2013-03-15)\n* Added Status to search criteria\n\nkinetic_helper_record_find_all_V1 (2012-10-10)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "The following parameters can't be found in the Sample Configuration in the README: SurveyInstanceID, CustomerSurveyInstanceID, Status, Character Field1, Character Field2, Character Field3, Character Field4, Character Field5, Character Field6, Character Field7, Character Field8, Character Field9, Character Field10, Character Field11, Character Field12, Integer Field1, Integer Field2, Integer Field3, Integer Field4, Integer Field5, Integer Field6",
             "The following are defined as results but can't be found in the Results section in the README: List",
             "Detailed Description can't be found in the README",
@@ -15732,30 +15673,7 @@
             "Index Field3": ""
           },
           "results": {
-            "SurveyInstanceID": "",
-            "CustomerSurveyInstanceID": "",
-            "Status": "",
-            "Character Field1": "",
-            "Character Field2": "",
-            "Character Field3": "",
-            "Character Field4": "",
-            "Character Field5": "",
-            "Character Field6": "",
-            "Character Field7": "",
-            "Character Field8": "",
-            "Character Field9": "",
-            "Character Field10": "",
-            "Character Field11": "",
-            "Character Field12": "",
-            "Integer Field1": "",
-            "Integer Field2": "",
-            "Integer Field3": "",
-            "Integer Field4": "",
-            "Integer Field5": "",
-            "Integer Field6": "",
-            "Index Field1": "",
-            "Index Field2": "",
-            "Index Field3": ""
+            "Entry Id": ""
           },
           "changelog": {
           },
@@ -15938,56 +15856,13 @@
             "Time Field7": ""
           },
           "results": {
-            "Request ID": "",
-            "Status": "",
-            "SurveyInstanceID": "",
-            "CustomerSurveyInstanceID": "",
-            "Character Field1": "",
-            "Character Field2": "",
-            "Character Field3": "",
-            "Character Field4": "",
-            "Character Field5": "",
-            "Character Field6": "",
-            "Character Field7": "",
-            "Character Field8": "",
-            "Character Field9": "",
-            "Character Field10": "",
-            "Character Field11": "",
-            "Character Field12": "",
-            "Character Field13": "",
-            "Character Field14": "",
-            "Integer Field1": "",
-            "Integer Field2": "",
-            "Integer Field3": "",
-            "Integer Field4": "",
-            "Integer Field5": "",
-            "Integer Field6": "",
-            "Date Field1": "",
-            "Date Field2": "",
-            "Date Field3": "",
-            "Date Field4": "",
-            "Date Field5": "",
-            "Date Field6": "",
-            "Date Field7": "",
-            "Date/Time Field1": "",
-            "Date/Time Field2": "",
-            "Date/Time Field3": "",
-            "Date/Time Field4": "",
-            "Date/Time Field5": "",
-            "Date/Time Field6": "",
-            "Date/Time Field7": "",
-            "Time Field1": "",
-            "Time Field2": "",
-            "Time Field3": "",
-            "Time Field4": "",
-            "Time Field5": "",
-            "Time Field6": "",
-            "Time Field7": ""
+            "Entry Id": ""
           },
           "changelog": {
           },
           "changelogText": "kinetic_helper_record_update_V2 (2013-12-09)\n* Looks up by Request ID alone...search no longer includes active status\n\nkinetic_helper_record_update_V1 (2012-10-09)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "The following parameters can't be found in the Sample Configuration in the README: Request ID, Status, SurveyInstanceID, CustomerSurveyInstanceID, Character Field1, Character Field2, Character Field3, Character Field4, Character Field5, Character Field6, Character Field7, Character Field8, Character Field9, Character Field10, Character Field11, Character Field12, Character Field13, Character Field14, Integer Field1, Integer Field2, Integer Field3, Integer Field4, Integer Field5, Integer Field6, Date Field1, Date Field2, Date Field3, Date Field4, Date Field5, Date Field6, Date Field7, Date/Time Field1, Date/Time Field2, Date/Time Field3, Date/Time Field4, Date/Time Field5, Date/Time Field6, Date/Time Field7, Time Field1, Time Field2, Time Field3, Time Field4, Time Field5, Time Field6, Time Field7",
             "The following are defined as results but can't be found in the Results section in the README: Entry Id",
             "Detailed Description can't be found in the README",
@@ -16013,9 +15888,7 @@
             "Question Label": ""
           },
           "results": {
-            "Survey Template Name": "",
-            "Answer Value": "",
-            "Question Label": ""
+            "Entry ID": ""
           },
           "changelog": {
           },
@@ -16074,9 +15947,7 @@
           },
           "results": {
             "Value": "Returns the post-update Answer Viewer Value from the updated Question. ",
-            "Survey Template Name": "",
-            "Answer Value": "",
-            "Question Label": ""
+            "Entry Id": ""
           },
           "changelog": {
           },
@@ -16101,7 +15972,7 @@
             "Submission ID": ""
           },
           "results": {
-            "Submission ID": ""
+            "#PLACE HOLDER#": ""
           },
           "changelog": {
           },
@@ -16118,7 +15989,7 @@
           "version": "4",
           "id": "kinetic_request_approval_create_v4",
           "description": "Creates an approval submission for the submission record specified by the 'Lookup Id' parameter, typically the Instance Id of the originating base request.",
-          "detailedDescription": "The approval submission record, stored in the KS_SRV_CustomerSurvey_base form, is created to interact with the Kinetic Request approval process (see the Request Manager Training Manual for more information on Kinetic Request approvals).  This handler retrieves the submission record that has an 'Instance Id' that matches the 'Lookup Id' parameter and copies the data necessary to execute the Kinetic Request approval process. \n* Copies the 'Lookup Id' parameter into the 'Lookup Value Id' field. \n* Copies all of the attribute field values. \n* Copies various required core fields (including 'ApplicationName', 'AssigneeGroup', 'Category', 'CategoryInstanceID', 'Company ID', 'Company Name', 'Data_Set', 'Form', and 'Survey_Method'). \n* Copies the OriginatingID and OriginatingID_Display fields from the originating submission record. \n* Sets the 'Originating Form' field to the value of the Suvey_Template_Name on the originating submission record. \n* Sets the 'Submission Type' field to \"Approval\". \n* Sets the 'ng_EndpointSecret' field to the deferral token of this task. \n* Sets the MessageTemplateInstanceID to the Instance Id of the message template (KS_MSG_MessageTemplate records, configurable from the Service Catalog Console) that was specified by the 'Message Template Name' parameter. \n* Sets the SurveyInstanceID field the the Instance Id of the service item that was specified by the 'Approval Template' parameter. \n* Maps the following approval field values from the specified info values: \n  - 'ValidationStatus'     => \"Initial Validation Status\" \n* Maps the following approval field values from the specified parameters: \n  - 'Contact Info Value'   => \"Approver Email\" \n  - 'First Name'           => \"Approver First Name\" \n  - 'Last Name'            => \"Approver Last Name\" \n  - 'Submitter'            => \"Approver Login\" \n  - 'Survey Template Name' => \"Approval Template Name\" \n  - 'NotesForCustomer'     => \"Notes for Customer\" ",
+          "detailedDescription": "The approval submission record, stored in the KS_SRV_CustomerSurvey_base form, is created to interact with the Kinetic Request approval process (see the Request Manager Training Manual for more information on Kinetic Request approvals).  This handler retrieves the submission record that has an 'Instance Id' that matches the 'Lookup Id' parameter and copies the data necessary to execute the Kinetic Request approval process. \n\n* Copies the 'Lookup Id' parameter into the 'Lookup Value Id' field. \n\n* Copies all of the attribute field values. \n\n* Copies various required core fields (including 'ApplicationName', 'AssigneeGroup', 'Category', 'CategoryInstanceID', 'Company ID', 'Company Name', 'Data_Set', 'Form', and 'Survey_Method'). \n\n* Copies the OriginatingID and OriginatingID_Display fields from the originating submission record. \n\n* Sets the 'Originating Form' field to the value of the Suvey_Template_Name on the originating submission record. \n\n* Sets the 'Submission Type' field to \"Approval\". \n\n* Sets the 'ng_EndpointSecret' field to the deferral token of this task. \n\n* Sets the MessageTemplateInstanceID to the Instance Id of the message template (KS_MSG_MessageTemplate records, configurable from the Service Catalog Console) that was specified by the 'Message Template Name' parameter. \n\n* Sets the SurveyInstanceID field the the Instance Id of the service item that was specified by the 'Approval Template' parameter. \n\n* Maps the following approval field values from the specified info values: \n\n  - 'ValidationStatus'     => \"Initial Validation Status\" \n\n* Maps the following approval field values from the specified parameters: \n\n  - 'Contact Info Value'   => \"Approver Email\" \n\n  - 'First Name'           => \"Approver First Name\" \n\n  - 'Last Name'            => \"Approver Last Name\" \n\n  - 'Submitter'            => \"Approver Login\" \n\n  - 'Survey Template Name' => \"Approval Template Name\" \n\n  - 'NotesForCustomer'     => \"Notes for Customer\" ",
           "parameters": {
             "Approver Login:": "The Remedy login name of the approver.",
             "Approver Email:": "The email address of the approver.",
@@ -16170,6 +16041,9 @@
             "Attribute List": "Category,IncidentTemplate"
           },
           "results": {
+            "Status": "",
+            "Error Code": "",
+            "Result Message": ""
           },
           "changelog": {
           },
@@ -16177,6 +16051,7 @@
           "warnings": [
             "Parameter with the id 'customer_survey_instance_id' is missing a tooltip",
             "Parameter with the id 'survey_template_instance_id' is missing a tooltip",
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "The following are defined as results but can't be found in the Results section in the README: Status, Error Code, Result Message",
             "Detailed Description can't be found in the README",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
@@ -16229,6 +16104,7 @@
           },
           "changelogText": "KineticRequest_EmailMessage_Create_V2 (2013-10-11)\n* Second version.  \n-- Removed phantom whitespace around default value in the Originating Id.\n-- Added log method in the init.rb.\nSee README for details.\n",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "The following parameters can't be found in the Sample Configuration in the README: To:, Message Template Name:, Originating Id:",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
@@ -16257,6 +16133,7 @@
           },
           "changelogText": "KineticRequest_ServiceItem_AddAttribute_V1 (2011-03-22)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "Detailed Description can't be found in the README",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
@@ -16284,6 +16161,7 @@
           },
           "changelogText": "KineticRequest_ServiceItem_DetectAttribute_V1 (2011-03-22)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "Detailed Description can't be found in the README",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
@@ -16309,6 +16187,7 @@
           },
           "changelogText": "KineticRequest_ServiceItem_Detect_V1 (2011-03-18)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "Detailed Description can't be found in the README",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
@@ -16335,6 +16214,7 @@
           },
           "changelogText": "KineticRequest_ServiceItem_RemoveAttribute_V1 (2011-03-22)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "Detailed Description can't be found in the README",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
@@ -16404,11 +16284,13 @@
             "Submission ID": "KSR000000012345"
           },
           "results": {
+            "#MENU PLACE HOLDER#": ""
           },
           "changelog": {
           },
           "changelogText": "kinetic_helper_record_retrieve_V1 (2012-10-09)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "The following are defined as results but can't be found in the Results section in the README: #MENU PLACE HOLDER#",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
@@ -16547,11 +16429,12 @@
               "description": "*handles if answers are more than 255 characters"
             }
           },
-          "changelogText": "Kinetic Request Submission Create Answers V2 (2015-12-18)\n* 5.2 version. Handles 5.2 unlimited answers.\n\nKinetic Request Submission Create Answers V2 (2012-10-29)\n\n*handles if answers are more than 255 characters",
+          "changelogText": "(2017-06-21)\n* Update dependencies.rb to only load JSON in Task 3 and below to make it\n  compatible with Task 4 and above\n\nKinetic Request Submission Create Answers V2 (2015-12-18)\n* 5.2 version. Handles 5.2 unlimited answers.\n\nKinetic Request Submission Create Answers V2 (2012-10-29)\n\n*handles if answers are more than 255 characters",
           "warnings": [
             "README can't be found",
             "The following parameters can't be found in the Sample Configuration in the README: Submission Instance Id, Answer Sets",
-            "Detailed Description can't be found in the README"
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
         {
@@ -16559,7 +16442,7 @@
           "version": "1",
           "id": "kinetic_request_submission_create_v1",
           "description": "Creates a new base submission using the information specified.",
-          "detailedDescription": "Creates a submission using the information provided, sending a message using the message template to the submitter if one is provided. \nThis should be (usually) used in conjunction with an answer create handler or an attribute set answer. This handler just creates a submission. It sets no Attributes1-60 nor does it create any answers at all for that submission. At the time the v1 of this handler was created, it is recommended that this be used with the Kinetic Request Submission Update Answers (v4) handler because this handler both creates answers and creates/updates the mappings for those answers to the correct attributes. ",
+          "detailedDescription": "Creates a submission using the information provided, sending a message using the message template to the submitter if one is provided. \n\nThis should be (usually) used in conjunction with an answer create handler or an attribute set answer. This handler just creates a submission. It sets no Attributes1-60 nor does it create any answers at all for that submission. At the time the v1 of this handler was created, it is recommended that this be used with the Kinetic Request Submission Update Answers (v4) handler because this handler both creates answers and creates/updates the mappings for those answers to the correct attributes. ",
           "parameters": {
             "Submitter of new request:": "The login id to open the new submission for.",
             "Email:": "The email address of the person this opened for (if they will be receiving an email about it).",
@@ -16577,19 +16460,19 @@
             "Submission Type": "Should be Child if this is used for creating a Child request or left blank if a normal service request."
           },
           "sampleConfiguration": {
-            "Submission Type": "Child",
-            "Submitter of new request:": "",
-            "Email:": "",
-            "First Name:": "",
-            "Last Name:": "",
-            "Message Template Name:": "",
-            "Template Catalog Name:": "",
-            "Request Template Name:": "",
             "Originating Form:": "",
             "Originating Id:": "",
             "Originating Id-Display:": "",
             "Lookup Id:": "",
             "Notes For Customer:": "",
+            "Message Template Name:": "",
+            "Submission Type": "Child",
+            "Submitter of new request:": "",
+            "Email:": "",
+            "First Name:": "",
+            "Last Name:": "",
+            "Template Catalog Name:": "",
+            "Request Template Name:": "",
             "Initial Validation Status:": ""
           },
           "results": {
@@ -16600,7 +16483,7 @@
           },
           "changelogText": "Kinetic Request Submission Create (6-1-2015)\n*Initial Version. See Readme for details.",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Submitter of new request:, Email:, First Name:, Last Name:, Message Template Name:, Template Catalog Name:, Request Template Name:, Originating Form:, Originating Id:, Originating Id-Display:, Lookup Id:, Notes For Customer:, Initial Validation Status:",
+            "The following parameters can't be found in the Sample Configuration in the README: Submitter of new request:, Email:, First Name:, Last Name:, Template Catalog Name:, Request Template Name:, Initial Validation Status:",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
@@ -16617,12 +16500,13 @@
             "Submission ID": ""
           },
           "results": {
-            "Submission ID": ""
+            "#MENU PLACE HOLDER#": ""
           },
           "changelog": {
           },
           "changelogText": "\n  \nkinetic_request_submission_dataset_retrieve V2 (2015-07-15)\n* Updated to support v3 or v4 task\n  \nkinetic_request_submission_dataset_retrieve V1 \n* Initial version.  See README for details.\n\n",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "The following parameters can't be found in the Sample Configuration in the README: Submission ID",
             "The following are defined as results but can't be found in the Results section in the README: #MENU PLACE HOLDER#",
             "Detailed Description can't be found in the README",
@@ -16661,11 +16545,11 @@
             "Ending Question:": "",
             "Included Questions:": "",
             "Excluded Questions:": "",
+            "Heading table structure:": "",
             "Survey/Request Instance ID:": "",
             "Include Review Link:": "",
             "Include Template Name:": "",
             "Default Web Server:": "",
-            "Heading table structure:": "",
             "Question table tag open:": "",
             "Question table tbody tag open:": "",
             "Question table tr tag open:": "",
@@ -16685,7 +16569,8 @@
           },
           "changelogText": "KineticRequest_Submission_FormatAnswers__HTML v5 (2015-12-18)\n* 5.2 version. Handles 5.2 unlimited answers.\n\nKineticRequest_Submission_FormatAnswers__HTML_V4 (2015-04-17)\n*Added ability to add template name as title\n*Added ability to add review link as footer\n*Fixed issue with starting and ending questions needing to be required.\n*Added basic HTML escaping for answer and question labels for the result\n\nKineticRequest_Submission_FormatAnswers__HTML_V3\n*Bug fix to use correct key to access records\n*WARNING: known error: doesn't handle empty starting question well. Be sure \n specified starting question is a required question.\n\nKineticRequest_Submission_FormatAnswers__HTML_V2 (2012-07-20)\n* uses specified submission, not necessarily the current one\n* displays question labels in the results rather than question names\n\nKineticRequest_Submission_FormatAnswers__HTML_V1 (2012-07-19)\n* Initial version.  See README for details.",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Starting Question:, Ending Question:, Included Questions:, Excluded Questions:, Survey/Request Instance ID:, Include Review Link:, Include Template Name:, Default Web Server:, Heading table structure:, Question table tag open:, Question table tbody tag open:, Question table tr tag open:, Question table label td tag open:, Question table label td tag close:, Question table answer td tag open:, Question table answer td tag close:, Question table tr tag close:, Question table tbody tag close:, Question table tag close:",
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
+            "The following parameters can't be found in the Sample Configuration in the README: Survey/Request Instance ID:, Include Review Link:, Include Template Name:, Default Web Server:, Question table tag open:, Question table tbody tag open:, Question table tr tag open:, Question table label td tag open:, Question table label td tag close:, Question table answer td tag open:, Question table answer td tag close:, Question table tr tag close:, Question table tbody tag close:, Question table tag close:",
             "Detailed Description can't be found in the README",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
@@ -16715,7 +16600,6 @@
           },
           "changelogText": "KineticRequest_Submission_FormatAnswers_V1 (2011-04-20)\n* Initial version.  See README for details.\n* Removed the template_type and custom_template parameters.",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Starting Question:, Ending Question:, Included Questions:, Excluded Questions:",
             "Detailed Description can't be found in the README",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
@@ -16739,20 +16623,17 @@
             "Question Aliases": ""
           },
           "results": {
-            "Mode": "",
-            "Included Questions": "",
-            "Excluded Questions": "",
-            "Question Aliases": ""
+            "Answer Set": ""
           },
           "changelog": {
           },
-          "changelogText": "",
+          "changelogText": "(2017-06-21)\n* Update dependencies.rb to only load JSON in Task 3 and below to make it\n  compatible with Task 4 and above",
           "warnings": [
             "README can't be found",
             "The following parameters can't be found in the Sample Configuration in the README: Mode, Included Questions, Excluded Questions, Question Aliases",
             "The following are defined as results but can't be found in the Results section in the README: Answer Set",
             "Detailed Description can't be found in the README",
-            "CHANGELOG file can't be found"
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
         {
@@ -16793,11 +16674,12 @@
               "description": "*handles if answers are more than 255 characters"
             }
           },
-          "changelogText": "Kinetic Request Submission Update Answers V5 (2015-12-18)\n* 5.2 version. Handles 5.2 unlimited answers.\n\nKinetic Request Submission Update Answers V4 (2013-11-18)\n*will work properly across sessions (& parent/child items)\n\nKinetic Request Submission Update Answers V3 (2013-07-11)\n*handles mapping to attributes on the base form\n\nKinetic Request Submission Update Answers V2 (2012-10-29)\n*handles if answers are more than 255 characters",
+          "changelogText": "(2017-06-21)\n* Update dependencies.rb to only load JSON in Task 3 and below to make it\n  compatible with Task 4 and above\n\nKinetic Request Submission Update Answers V5 (2015-12-18)\n* 5.2 version. Handles 5.2 unlimited answers.\n\nKinetic Request Submission Update Answers V4 (2013-11-18)\n*will work properly across sessions (& parent/child items)\n\nKinetic Request Submission Update Answers V3 (2013-07-11)\n*handles mapping to attributes on the base form\n\nKinetic Request Submission Update Answers V2 (2012-10-29)\n*handles if answers are more than 255 characters",
           "warnings": [
             "README can't be found",
             "The following parameters can't be found in the Sample Configuration in the README: Submission Instance Id, Answer Sets",
-            "Detailed Description can't be found in the README"
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
         {
@@ -16820,6 +16702,7 @@
           },
           "changelogText": "KineticRequest_Submission_UpdateStatus_V1 (2010-12-01)\n* Initial version.  See README for details.",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "The following parameters can't be found in the Sample Configuration in the README: Status:, Submission Id:",
             "Detailed Description can't be found in the README",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
@@ -16863,7 +16746,7 @@
             "Target submission instance ID": ""
           },
           "results": {
-            "Target submission instance ID": ""
+            "Entry ID": ""
           },
           "changelog": {
           },
@@ -16891,13 +16774,13 @@
             "Attribute Field Name": ""
           },
           "results": {
-            "Submission ID": "",
-            "Attribute Field Name": ""
+            "attribute_value": ""
           },
           "changelog": {
           },
           "changelogText": "",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "README can't be found",
             "The following parameters can't be found in the Sample Configuration in the README: Submission ID, Attribute Field Name",
             "The following are defined as results but can't be found in the Results section in the README: attribute_value",
@@ -16922,14 +16805,13 @@
             "Field Value": ""
           },
           "results": {
-            "Submission ID": "",
-            "Attribute Field Name": "",
-            "Field Value": ""
+            "Entry ID": ""
           },
           "changelog": {
           },
           "changelogText": "",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "README can't be found",
             "The following parameters can't be found in the Sample Configuration in the README: Submission ID, Attribute Field Name, Field Value",
             "The following are defined as results but can't be found in the Results section in the README: Entry ID",
@@ -16942,7 +16824,7 @@
           "version": "2",
           "id": "kinetic_tabular_data_create_v2",
           "description": "Creates an entry in the CUSTOM:KS_SRV_TableData_base form",
-          "detailedDescription": "Saves the data from a json string created from an HTML table into a Remedy form for future reporting and/or processing. To see how to create the data to feed into this handler, please see the community article here: http://community.kineticdata.com/10_Kinetic_Request/Solutions/Putting_Answers_into_YUI_Tables. \nEach row in the table will be saved as one record in this form. One result is the row count of the rows of data saved. The other is the instance IDs of the record for each row. This allows for looping through the rows without having to do a find handler if you want to loop through every row in the table. \nThe format of the XML of request IDs returned is: \n<request_ids> <request_id>000000000000001</request_id> <request_id>000000000000002</request_id> </request_ids> \nThe format of the XML of instance IDs returned is: \n<instance_ids> <instance_id>AG00505696001CJTK_UQ8h_IBgSCAE</instance_id> <instance_id>AG00505696001CJjK_UQ5CDIBgSyAE</instance_id> </instance_ids> \nThis handler can be used to store data for reporting. The Associated Request GUID (Originating ID) is a required field, but the Template Name and Instance ID are not. Note that this data may be required by your reporting process if you want to report on data by template, rather than just by individual record. ",
+          "detailedDescription": "Saves the data from a json string created from an HTML table into a Remedy form for future reporting and/or processing. To see how to create the data to feed into this handler, please see the community article here: http://community.kineticdata.com/10_Kinetic_Request/Solutions/Putting_Answers_into_YUI_Tables. \n\nEach row in the table will be saved as one record in this form. One result is the row count of the rows of data saved. The other is the instance IDs of the record for each row. This allows for looping through the rows without having to do a find handler if you want to loop through every row in the table. \n\nThe format of the XML of request IDs returned is: \n\n<request_ids> <request_id>000000000000001</request_id> <request_id>000000000000002</request_id> </request_ids> \n\nThe format of the XML of instance IDs returned is: \n\n<instance_ids> <instance_id>AG00505696001CJTK_UQ8h_IBgSCAE</instance_id> <instance_id>AG00505696001CJjK_UQ5CDIBgSyAE</instance_id> </instance_ids> \n\nThis handler can be used to store data for reporting. The Associated Request GUID (Originating ID) is a required field, but the Template Name and Instance ID are not. Note that this data may be required by your reporting process if you want to report on data by template, rather than just by individual record. ",
           "parameters": {
             "JSON String:": "Serialized table data in JSON format",
             "Table Name:": "Identifier for the table",
@@ -16969,9 +16851,11 @@
               "description": "* Updated the returned request ID list to be XML\n* Added XML list of Instancd IDs to results Kinetic Table Data Create V1\n* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Table Data Create V2 (2013-06-17)\n* Updated the returned request ID list to be XML\n* Added XML list of Instancd IDs to results\n\nKinetic Table Data Create V1 \n* Initial version.  See README for details.",
+          "changelogText": "(2017-06-21)\n* Update dependencies.rb to only load JSON in Task 3 and below to make it\n  compatible with Task 4 and above\n\nKinetic Table Data Create V2 (2013-06-17)\n* Updated the returned request ID list to be XML\n* Added XML list of Instancd IDs to results\n\nKinetic Table Data Create V1 \n* Initial version.  See README for details.",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: JSON String:, Table Name:, Originating ID:, Template Name:, Template Instance ID:"
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
+            "The following parameters can't be found in the Sample Configuration in the README: JSON String:, Table Name:, Originating ID:, Template Name:, Template Instance ID:",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
         {
@@ -16979,7 +16863,7 @@
           "version": "2",
           "id": "kinetic_tabular_data_find_v2",
           "description": "Retrieves request IDs (field 1) and Instance IDs (field 179) for Remedy entries for the form used for storing table data.",
-          "detailedDescription": "This handler returns the request ids (field 1) for all records in the CUSTOM:KS_SRV_TableData_base form that match the provided query.  This is returned in XML format (like below) for use in loops. \n<Request_Ids> <RequestId>000000000000013</RequestId> <RequestId>000000000000381</RequestId> <RequestId>000000000002582</RequestId> </Request_Ids> \nIt also returns the instance ids (field 179) in a similar format: \n<Instance_Ids> <InstanceId>AG0050569A648CU5tSUAUcZMAgc8AC</InstanceId> <InstanceId>AG0050569A648ClZtSUAkMVNAgVcYC</InstanceId> <InstanceId>AG0050569A648CMZtSUAKUBMAgMrkC</InstanceId> </Instance_Ids> \nNote that this is not necessary if you want every row out of a table that is saved in the same tree. In that case, the results of the table data create handler can be used. ",
+          "detailedDescription": "This handler returns the request ids (field 1) for all records in the CUSTOM:KS_SRV_TableData_base form that match the provided query.  This is returned in XML format (like below) for use in loops. \n\n<Request_Ids> <RequestId>000000000000013</RequestId> <RequestId>000000000000381</RequestId> <RequestId>000000000002582</RequestId> </Request_Ids> \n\nIt also returns the instance ids (field 179) in a similar format: \n\n<Instance_Ids> <InstanceId>AG0050569A648CU5tSUAUcZMAgc8AC</InstanceId> <InstanceId>AG0050569A648ClZtSUAkMVNAgVcYC</InstanceId> <InstanceId>AG0050569A648CMZtSUAKUBMAgMrkC</InstanceId> </Instance_Ids> \n\nNote that this is not necessary if you want every row out of a table that is saved in the same tree. In that case, the results of the table data create handler can be used. ",
           "parameters": {
             "Survey Instance ID": "Survey Instance ID",
             "Survey Template Name": "Survey Template Name",
@@ -17007,15 +16891,16 @@
             "Value20": "Value in Column 20"
           },
           "sampleConfiguration": {
-            "Survey Template Name": "",
             "Originating ID": "<=%dataset['Originating ID']%>",
             "Table Name": "ContactTable",
+            "Value6": "Alternate Contact",
+            "Survey Instance ID": "",
+            "Survey Template Name": "",
             "Value1": "",
             "Value2": "",
             "Value3": "",
             "Value4": "",
             "Value5": "",
-            "Value6": "Alternate Contact",
             "Value7": "",
             "Value8": "",
             "Value9": "",
@@ -17029,8 +16914,7 @@
             "Value17": "",
             "Value18": "",
             "Value19": "",
-            "Value20": "",
-            "Survey Instance ID": ""
+            "Value20": ""
           },
           "results": {
             "RequestIdList": "The request ids (field 1) of the updated record. ",
@@ -17040,7 +16924,8 @@
           },
           "changelogText": "Kinetic Tabular Data Find (2013-06-17)\n * Expanding fields available to search by\n \nKinetic Tabular Data Find (2013-01-30)\n * Initial version.  See README for details.\n",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Survey Instance ID",
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
+            "The following parameters can't be found in the Sample Configuration in the README: Survey Instance ID, Survey Template Name, Value1, Value2, Value3, Value4, Value5, Value7, Value8, Value9, Value10, Value11, Value12, Value13, Value14, Value15, Value16, Value17, Value18, Value19, Value20",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
@@ -17101,12 +16986,13 @@
             "Value19": "The 'Value19' of the retrieved CUSTOM:KS_SRV_TableData_base record. This is the value of column 19 of this row the saved table. ",
             "Label120": "",
             "Value20": "The 'Value20' of the retrieved CUSTOM:KS_SRV_TableData_base record. This is the value of column 20 of this row the saved table. ",
-            "Instance ID:": ""
+            "Label20": ""
           },
           "changelog": {
           },
           "changelogText": "kinetic_tabular_data_retrieve (2012-09-18)\n * Initial version.  See README for details.\n V2 - Increased row count from 10 to 20\n V3 - Corrected Init to contain correct label names\n\n",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "The following parameters can't be found in the Sample Configuration in the README: Instance ID:",
             "The following are defined as results but can't be found in the Results section in the README: Label20",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
