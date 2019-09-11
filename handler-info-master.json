@@ -20784,6 +20784,15 @@
       ]
     },
     {
+      "id": "postgres",
+      "handlerList": [
+
+      ],
+      "name": "PostgreSQL",
+      "description": "A free and open-source relational database management system (RDBMS) emphasizing extensibility and technical standards compliance.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/postgres/thumbnail.png"
+    },
+    {
       "name": "Rackspace",
       "id": "rackspace",
       "description": "Managed cloud provider with tailored solutions on many popular hosting platforms such as VMware, AWS, Azure, OpenStack, and many more.",
