@@ -20177,6 +20177,292 @@
       "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/mir3/thumbnail.jpg"
     },
     {
+      "id": "ms-project",
+      "handlerList": [
+        {
+          "name": "MSProject Lookup Entry",
+          "version": "1",
+          "id": "msproject_lookup_entry_v1",
+          "description": "This handler looks up the id for an entry in a lookup table.",
+          "detailedDescription": "This handler makes a REST call to the Microsoft Project REST API to lookup a GUID corresponding to a Lookup Table and a Lookup Entry Value. After authenticating against the Project Server using the inputted username and password, the handler makes a call to Project to get the id that corresponds to the lookup table name. A second call is then made to the specific lookup table to get the id for the lookup entry. The id for that entry is then returned. Any errors that occur during this process will be caught and re-raised by the handler. ",
+          "parameters": {
+            "Lookup Table": "The name of the table where the entry is located.",
+            "Lookup Entry": "The name of the entry that you want to look up."
+          },
+          "sampleConfiguration": {
+            "Lookup Table": "Internal Priority",
+            "Lookup Entry": "Very High"
+          },
+          "results": {
+            "Entry Id": "",
+            "entry_id": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "MSProject_Lookup_Entry_V1 (2015-06-25)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following are defined as results but can't be found in the Results section in the README: entry_id",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "MSProject Project Bulk Custom Field Update",
+          "version": "1",
+          "id": "msproject_project_bulk_custom_field_update_v1",
+          "description": "This handler updates multiple custom fields in Microsoft Project.",
+          "detailedDescription": "This handler makes a REST call Microsoft Project Online to the Project Server API to update multiple custom fields for a project in MS Project. After authenticating against the Project Server using the inputted username and password, the handler first makes a call to Project to get a FormDigestValue which is needed as a part of the authentication for future calls. A second call is then made to retrieve a list of the custom fields that are being used on the server, so that the field display names can be converted to ids for the final call. Lastly, the information is collected from the previous calls to make the call to Project to actually update the custom fields. Any errors that occur during this process will be caught and re-raised by the handler. ",
+          "parameters": {
+            "Project Id": "The id of the project where you want to update custom fields.",
+            "Custom Field Map": "A JSON map of the custom field key and values that you want to update in the form of {\"Custom Field Label\" : \"Value\"}."
+          },
+          "sampleConfiguration": {
+            "Project Id": "70ce0098-d41a-4baf-bd05-9dde609e0f88",
+            "Custom Field Map": "{Internal Priority\":\"bacad4d5-cddb-4393-9efc-240a07ab45a4\", \"Project Description\": \"Test Description\"}"
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "MSProject_BulkCustomField_Update_V1 (2015-09-29)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "MSProject Project Check In",
+          "version": "1",
+          "id": "msproject_project_checkin_v1",
+          "description": "This handler checks in a Microsoft Project project.",
+          "detailedDescription": "This handler makes a REST call Microsoft Project Online to the Project Server API to check a project back into MS Project. After authenticating against the Project Server using the inputted username and password, the handler first makes a call to Project to get a FormDigestValue which is needed as a part of the authentication for future calls. That value is then used along with the Project Id parameter to make a POST request to the API to check the project in. Any errors that occur during this process will be caught and re-raised by the handler. ",
+          "parameters": {
+            "Project Id": "The id of the project that you want to check-in."
+          },
+          "sampleConfiguration": {
+            "Project Id": "ac9f07a3-9cd6-45b9-bff4-940294439b40"
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "MSProject_Project_Checkin_V1 (2015-09-29)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "MSProject Project Check Out",
+          "version": "1",
+          "id": "msproject_project_checkout_v1",
+          "description": "This handler checks out a Microsoft Project project.",
+          "detailedDescription": "This handler makes a REST call Microsoft Project Online to the Project Server API to check out project from MS Project. After authenticating against the Project Server using the inputted username and password, the handler first makes a call to Project to get a FormDigestValue which is needed as a part of the authentication for future calls. That value is then used along with the Project Id parameter to make a POST request to the API to check out the project. Any errors that occur during this process will be caught and re-raised by the handler. ",
+          "parameters": {
+            "Project Id": "The id of the project that you want to check out."
+          },
+          "sampleConfiguration": {
+            "Project Id": "15da1d25-5eb1-4dea-96eb-76664ace6515"
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "MSProject_Project_Checkout_V1 (2015-09-29)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "MSProject Project Completion Status",
+          "version": "1",
+          "id": "msproject_project_completion_status_v1",
+          "description": "This handler checks a projects completion status.",
+          "detailedDescription": "This handler makes a REST call Microsoft Project Online to the Project Server API to check a project's completion status in MS Project. After authenticating against the Project Server using the inputted username and password, the handler makes a call to Project to get the project object corresponding to the inputted id. The list of completion stage names in the info values are then compared against the stage of the project that was returned to determine the projects completion status. Any errors that occur during this process will be caught and re-raised by the handler. ",
+          "parameters": {
+            "Project Id": "The project id of the project that you want to find the completion status from."
+          },
+          "sampleConfiguration": {
+            "Project Id": "db521c56-44ab-422d-9abd-29d8d359043a"
+          },
+          "results": {
+            "Is Complete?": "",
+            "is_complete": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "MSProject_Project_Completion_Status_V1 (2015-09-29)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following are defined as results but can't be found in the Results section in the README: is_complete",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "MSProject Project Create",
+          "version": "1",
+          "id": "msproject_project_create_v1",
+          "description": "This handler creates a new project in Microsoft Project.",
+          "detailedDescription": "This handler makes a REST call Microsoft Project Online to the Project Server API to create a project in MS Project. After authenticating against the Project Server using the inputted username and password, the handler first makes a call to Project to get a FormDigestValue which is needed as a part of the authentication for future calls. That value is then used along with the inputted parameters for the Enterprise Project Type and Name to make a POST request to the API to create the project while returning the id for the new project. Any errors that occur during this process will be caught and re-raised by the handler. ",
+          "parameters": {
+            "Enterprise Project Type": "The guid of the enterprise project type that this project will use.",
+            "Name": "The name of the new project."
+          },
+          "sampleConfiguration": {
+            "Enterprise Project Type": "e5b49b78-eb74-4a60-a38f-88e5c887be49",
+            "Name": "Test Project"
+          },
+          "results": {
+            "Project Id": "",
+            "project_id": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "MSProject_Project_Create_V1 (2015-09-29)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following are defined as results but can't be found in the Results section in the README: project_id",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "MSProject Project Custom Field Update",
+          "version": "1",
+          "id": "msproject_project_custom_field_update_v1",
+          "description": "This handler updates a custom field for a project in MS Project that is not currently checked out.",
+          "detailedDescription": "This handler makes a REST call Microsoft Project Online to the Project Server API to update a single custom field for a project in MS Project. After authenticating against the Project Server using the inputted username and password, the handler first makes a call to Project to get a FormDigestValue which is needed as a part of the authentication for future calls. A second call is then made to retrieve a list of the custom fields that are being used on the server, so that the field display name can be converted to a id for the final call. Lastly, the information is collected from the previous calls to make the call to Project to actually update the custom field. Any errors that occur during this process will be caught and re-raised by the handler. ",
+          "parameters": {
+            "Project Id": "The id of the project where you want to update custom fields.",
+            "Custom Field Name": "The name of the custom field that you wish to update.",
+            "Custom Field Value": "The value that you want to be added to the Custom Field."
+          },
+          "sampleConfiguration": {
+            "Project Id": "70ce0098-d41a-4baf-bd05-9dde609e0f88",
+            "Custom Field Name": "Project Description",
+            "Custom Field Value": "Testing updating a custom field"
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "MSProject_Project_CustomFieldUpdate_V1 (2015-09-29)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "MSProject Project Publish",
+          "version": "1",
+          "id": "msproject_project_publish_v1",
+          "description": "This handler publishes a Microsoft Project project.",
+          "detailedDescription": "This handler makes a REST call Microsoft Project Online to the Project Server API to publish a currently checked out project from MS Project. After authenticating against the Project Server using the inputted username and password, the handler first makes a call to Project to get a FormDigestValue which is needed as a part of the authentication for future calls. That value is then used along with the Project Id parameter to make a POST request to the API to publish the project. Any errors that occur during this process will be caught and re-raised by the handler. ",
+          "parameters": {
+            "Project Id": "The id of the project that you want to publish."
+          },
+          "sampleConfiguration": {
+            "Project Id": "68685822-4c6f-4992-8cfe-246509277072"
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "MSProject_Project_Publish_V1 (2015-09-28)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "MSProject Project Task Assign",
+          "version": "1",
+          "id": "msproject_project_task_assign_v1",
+          "description": "This handler assigns a Task to a Enterprise Resource.",
+          "detailedDescription": "",
+          "parameters": {
+            "Project Id": "The id of the project that contains the task that will be assigned.",
+            "Task Id": "The id of the task that will be assigned.",
+            "Resource Id": "The id of the Enterprise Resource that will be assigned to the task."
+          },
+          "sampleConfiguration": {
+            "Project Id": "",
+            "Task Id": "",
+            "Resource Id": ""
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "MSProject_Project_Task_Assign_V1 (2015-10-12)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Project Id, Task Id, Resource Id",
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "MSProject Project Task Assignment Remove",
+          "version": "1",
+          "id": "msproject_project_task_assignment_remove_v1",
+          "description": "This handler removes an assignment from an existing task in Microsoft Project.",
+          "detailedDescription": "",
+          "parameters": {
+            "Project Id": "The id of the project that contains the task that the assignment will be removed from.",
+            "Task Id": "The id of the task that the assignment should be removed from.",
+            "Resource Email": "The email that will be unassigned from the task. If left blank, all Assignments will be removed from the task."
+          },
+          "sampleConfiguration": {
+            "Project Id": "",
+            "Task Id": "",
+            "Resource Email": ""
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "MSProject_Project_Task_Assignment_Remove_V1 (2016-03-31)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Project Id, Task Id, Resource Email",
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "MSProject Project Task Update",
+          "version": "1",
+          "id": "msproject_project_task_update_v1",
+          "description": "Updates an existing Task in Microsoft Project.",
+          "detailedDescription": "",
+          "parameters": {
+            "Project Id": "Id of the project that the task is contained in.",
+            "Task Id": "Id of the task.",
+            "Task Name": "Update the name.",
+            "Task Note": "Update the notes.",
+            "Work (Hours)": "Amount of work in hours",
+            "Start": "Task start date (YYYY-MM-DDTHH:mm:ss)",
+            "Finish": "Task finish date (YYYY-MM-DDTHH:mm:ss)"
+          },
+          "sampleConfiguration": {
+            "Project Id": "",
+            "Task Id": "",
+            "Task Name": "",
+            "Task Note": "",
+            "Work (Hours)": "",
+            "Start": "",
+            "Finish": ""
+          },
+          "results": {
+            "task_id": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "MSProject_Project_Task_Update_V1 (2016-03-30)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Project Id, Task Id, Task Name, Task Note, Work (Hours), Start, Finish",
+            "The following are defined as results but can't be found in the Results section in the README: task_id",
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        }
+      ],
+      "name": "Microsoft Project",
+      "description": "Microsoft Project is a project management software product, developed and sold by Microsoft. It is designed to assist a project manager in developing a plan, assigning resources to tasks, tracking progress, managing the budget, and analyzing workloads.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/ms-project/thumbnail.png"
+    },
+    {
       "id": "ms-sharepoint",
       "handlerList": [
         {
