@@ -20690,7 +20690,7 @@
       "name": "Pardot",
       "id": "pardot",
       "description": "Pardot B2B marketing automation by Salesforce helps marketers create more leads, generate more pipeline, and empower sales to close more deals.",
-      "image": "https://s3.amazonaws.com/task-handlers/pardot/pardot.png",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/pardot/thumbnail.png",
       "handlerList": [
         {
           "name": "Pardot List Add Prospect",
@@ -20710,7 +20710,7 @@
           },
           "changelog": {
           },
-          "changelogText": "pardot_list_add_prosepct_v1 (2014-09-19)\n* Initial version.  See README for details.\n\npardot_list_add_prosepct_v1 (2015-09-01)\n* Encrypt API Key and Pwd. Better logging.\n",
+          "changelogText": "pardot_list_add_prosepct_v1 (2014-09-19)\n* Initial version.  See README for details.\n\npardot_list_add_prosepct_v1 (2015-09-01)\n* Encrypt API Key and Pwd. Better logging.\n\n2017-05-03\n* Encode the email address in the API URLs",
           "warnings": [
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
@@ -20741,11 +20741,11 @@
           },
           "results": {
             "Id": "",
-            "Assign to": ""
+            "id": ""
           },
           "changelog": {
           },
-          "changelogText": "pardot_prospect_create_v1 (2014-09-05)\n* Initial version.  See README for details.\n\npardot_prospect_create_v2 (2015-08-31)\n* Use Pardot create/update method to avoid duplicate errors.\n* Remove list param. Use add to list handler instead.\n",
+          "changelogText": "pardot_prospect_create_v1 (2014-09-05)\n* Initial version.  See README for details.\n\npardot_prospect_create_v2 (2015-08-31)\n* Use Pardot create/update method to avoid duplicate errors.\n* Remove list param. Use add to list handler instead.\n\n2017-05-03\n* Encode the email address in the API URLs",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Assign to",
             "The following are defined as results but can't be found in the Results section in the README: id",
@@ -20771,12 +20771,20 @@
             "Campaign Id": "",
             "Email": "",
             "Phone": "",
-            "Assigned To": ""
+            "Assigned To": "",
+            "id": "",
+            "first_name": "",
+            "last_name": "",
+            "campaign_id": "",
+            "email": "",
+            "phone": "",
+            "assigned_to": ""
           },
           "changelog": {
           },
-          "changelogText": "pardot_prospect_retrieve_v1 (2014-09-18)\n* Initial version.  See README for details.\n",
+          "changelogText": "pardot_prospect_retrieve_v1 (2014-09-18)\n* Initial version.  See README for details.\n\n2017-05-03\n* Encode the email address in the API URLs",
           "warnings": [
+            "Info Value with the name 'password' includes 'password' or 'secret' in the same and should be encrypted.",
             "The following are defined as results but can't be found in the Results section in the README: id, first_name, last_name, campaign_id, email, phone, assigned_to",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
