@@ -20177,6 +20177,257 @@
       "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/mir3/thumbnail.jpg"
     },
     {
+      "id": "ms-azure",
+      "handlerList": [
+        {
+          "name": "Azure Cloud Service Create",
+          "version": "1",
+          "id": "azure_cloud_service_create_v1",
+          "description": "This handler creates a new cloud service.",
+          "detailedDescription": "",
+          "parameters": {
+            "Subscription ID": "The Azure Subscription ID.",
+            "Location": "Location of the VM (ex: USGov Iowa).",
+            "Cloud Service Name": "Name of the cloud service."
+          },
+          "sampleConfiguration": {
+            "Subscription ID": "",
+            "Location": "",
+            "Cloud Service Name": ""
+          },
+          "results": {
+            "cloud_service_name": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "azure_cloud_service_create_v1 (2016-06-20)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Subscription ID, Location, Cloud Service Name",
+            "The following are defined as results but can't be found in the Results section in the README: cloud_service_name",
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Azure Operation Status",
+          "version": "1",
+          "id": "azure_operation_status_v1",
+          "description": "This handler checks to see the status of an operation given the request id.",
+          "detailedDescription": "",
+          "parameters": {
+            "Subscription ID": "The Azure Subscription ID.",
+            "Request ID": "The Request ID of an operation."
+          },
+          "sampleConfiguration": {
+            "Subscription ID": "",
+            "Request ID": ""
+          },
+          "results": {
+            "status": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "azure_operation_status_v1 (2016-06-20)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Subscription ID, Request ID",
+            "The following are defined as results but can't be found in the Results section in the README: status",
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Azure VM Create",
+          "version": "1",
+          "id": "azure_vm_create_v1",
+          "description": "This handler creates a new issue in a Jira project.",
+          "detailedDescription": "",
+          "parameters": {
+            "Subscription ID": "The Azure Subscription ID.",
+            "VM Name": "The Name of the Virtual Machine to be started.",
+            "VM User": "The new user assigned to the virtual machine being created.",
+            "Password": "The password for the new users.",
+            "OS Type": "Operating System being used to create the VM. Value must be Windows or Linux.",
+            "Image": "Image being used to create the VM.",
+            "Location": "Location of the VM (ex: USGov Iowa).",
+            "Cloud Service Name": "Name of the cloud service.",
+            "VM Size": "Size of the VM being created.",
+            "Affinity Group Name": "Affinity group name.",
+            "Virtual Network Name": "Virtual network name.",
+            "Subnet Name": "Subnet name.",
+            "Availability Set Name": "Availability set name.",
+            "Endpoints": "Endpoints for the VM."
+          },
+          "sampleConfiguration": {
+            "Subscription ID": "",
+            "VM Name": "",
+            "VM User": "",
+            "Password": "",
+            "OS Type": "",
+            "Image": "",
+            "Location": "",
+            "Cloud Service Name": "",
+            "VM Size": "",
+            "Affinity Group Name": "",
+            "Virtual Network Name": "",
+            "Subnet Name": "",
+            "Availability Set Name": "",
+            "Endpoints": ""
+          },
+          "results": {
+            "request_id": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "azure_vm_create_v1 (2016-06-20)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Subscription ID, VM Name, VM User, Password, OS Type, Image, Location, Cloud Service Name, VM Size, Affinity Group Name, Virtual Network Name, Subnet Name, Availability Set Name, Endpoints",
+            "The following are defined as results but can't be found in the Results section in the README: request_id",
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Azure VM Delete",
+          "version": "1",
+          "id": "azure_vm_delete_v1",
+          "description": "This handler deletes down an Azure VM.",
+          "detailedDescription": "",
+          "parameters": {
+            "Subscription ID": "The Azure Subscription ID.",
+            "VM Deployment": "The Name of the Virtual Machine Deployment.",
+            "VM Name": "The Name of the Virtual Machine.",
+            "Cloud Service Name": "The Name of the Virtual Machine.",
+            "Delete Disk": "Delete the specified data or operating system disk from the image repository. Value has to either be Yes or No"
+          },
+          "sampleConfiguration": {
+            "Subscription ID": "",
+            "VM Deployment": "",
+            "VM Name": "",
+            "Cloud Service Name": "",
+            "Delete Disk": ""
+          },
+          "results": {
+            "request_id": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "azure_vm_retrieve_v1 (2016-06-20)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Subscription ID, VM Deployment, VM Name, Cloud Service Name, Delete Disk",
+            "The following are defined as results but can't be found in the Results section in the README: request_id",
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Azure VM Restart",
+          "version": "1",
+          "id": "azure_vm_restart_v1",
+          "description": "This handler creates a new issue in a Jira project.",
+          "detailedDescription": "This handler uses the Azure Rest API library to restart a Virtual Machine associated to the security certificate tied to the handler. ",
+          "parameters": {
+            "Subscription ID": "The Azure Subscription ID",
+            "VM Name": "The Name of the Virtual Machine to restart"
+          },
+          "sampleConfiguration": {
+            "Subscription ID": "55c212bdee118e0662030003",
+            "VM Name": "kdtestmachine2"
+          },
+          "results": {
+            "Output": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "Azure_Vm_Restart_V1 (2015-08-17)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Azure VM Retrieve",
+          "version": "1",
+          "id": "azure_vm_retrieve_v1",
+          "description": "This handler retrieves information about an Azure VM.",
+          "detailedDescription": "",
+          "parameters": {
+            "Subscription ID": "The Azure Subscription ID.",
+            "VM Deployment": "The Name of the Virtual Machine Deployment.",
+            "VM Name": "The Name of the Virtual Machine.",
+            "Cloud Service Name": "The Name of the Virtual Machine."
+          },
+          "sampleConfiguration": {
+            "Subscription ID": "",
+            "VM Deployment": "",
+            "VM Name": "",
+            "Cloud Service Name": ""
+          },
+          "results": {
+            "vm_info": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "azure_vm_retrieve_v1 (2016-06-20)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Subscription ID, VM Deployment, VM Name, Cloud Service Name",
+            "The following are defined as results but can't be found in the Results section in the README: vm_info",
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Azure VM Shutdown",
+          "version": "1",
+          "id": "azure_vm_shutdown_v1",
+          "description": "This handler creates a new issue in a Jira project.",
+          "detailedDescription": "This handler uses the Azure Rest API library to shut down a Virtual Machine associated to the security certificate tied to the handler. ",
+          "parameters": {
+            "Subscription ID": "The Azure Subscription ID.",
+            "VM Name": "The Name of the Virtual Machine to be shut down."
+          },
+          "sampleConfiguration": {
+            "Subscription ID": "55c212bdee118e0662030003",
+            "VM Name": "kdtestmachine2"
+          },
+          "results": {
+            "Output": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "Azure_Vm_Shutdown_V1 (2015-08-17)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Azure VM Start",
+          "version": "1",
+          "id": "azure_vm_start_v1",
+          "description": "This handler creates a new issue in a Jira project.",
+          "detailedDescription": "This handler uses the Azure Rest API library to start a Virtual Machine associated to the security certificate tied to the handler. ",
+          "parameters": {
+            "Subscription ID": "The Azure Subscription ID.",
+            "VM Name": "The Name of the Virtual Machine to be started."
+          },
+          "sampleConfiguration": {
+            "Subscription ID": "55c212bdee118e0662030003",
+            "VM Name": "kdtestmachine2"
+          },
+          "results": {
+            "Output": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "Azure_Vm_Start_V1 (2015-08-17)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        }
+      ],
+      "name": "Microsoft Azure",
+      "description": "Microsoft Azure is a cloud computing service created by Microsoft for building, deploying, and managing applications and services through a global network of Microsoft-managed data centers",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/ms-azure/thumbnail.svg"
+    },
+    {
       "id": "ms-exchange",
       "handlerList": [
         {
