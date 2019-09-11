@@ -22739,9 +22739,35 @@
       "name": "Slack",
       "id": "slack",
       "description": "When your team needs to kick off a project, hire a new employee, deploy some code, review a sales contract, finalize next year's budget, measure an A/B test, plan your next office opening, and more, Slack has you covered.",
-      "image": "https://s3.amazonaws.com/task-handlers/slack/slack.svg",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/slack/thumbnail.svg",
       "handlerList": [
-
+        {
+          "name": "Slack Send Message",
+          "version": "1",
+          "id": "slack_send_message_v1",
+          "description": "This handler posts a message in a specific slack channel.",
+          "detailedDescription": "This handler posts a message in a specific slack channel.  This handler is also capable of responding to a message within a specific channel via thread, if the user desires, and possess the message's respective thread id. In order to use this handler, you must first create a Slack application and an API Token (information on how to do this is below). \n\n\n#### Creating a Slack API Token\r\n\n1) Go to https://api.slack.com \n2) Create a New App \n    - Give it a Descriptive name (ie. Kinetic Task Handler) \n    - Register the 'Development Slack Team' as the Team you wish to post to \n3) Add the 'send message as user' permission under 'Add features and functionality' > 'Permissions' \n    - Can also create/give permission to 'send message as bot' if you would prefer messages be sent under a separate username \n4) Under 'Install your app to your team', click 'Install App' and authorize it \n5) Under 'Settings' > 'Install App' (in the navigation bar on the left side of the page), copy the OAuth Access Token from the page and use it for the Handler's token info value ",
+          "parameters": {
+            "Channel": "Channel for a specific team where you are posting to.",
+            "Message Text": "Text you want to send in a message.",
+            "Thread Id": "If desired, the id of a Slack thread to send the message as a reply to the thread."
+          },
+          "sampleConfiguration": {
+            "Channel": "",
+            "Message Text": "",
+            "Thread Id": ""
+          },
+          "results": {
+            "Thread Id": "The id for the thread of the currently created message. "
+          },
+          "changelog": {
+          },
+          "changelogText": "Slack Send Message (2017-06-28)\r\n * Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Channel, Message Text, Thread Id",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        }
       ]
     },
     {
