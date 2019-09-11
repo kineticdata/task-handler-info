@@ -20177,6 +20177,449 @@
       "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/mir3/thumbnail.jpg"
     },
     {
+      "id": "ms-sharepoint",
+      "handlerList": [
+        {
+          "name": "Sharepoint Task Create",
+          "version": "1",
+          "id": "sharepoint_annoucement_create_v1",
+          "description": "This handler creates a new announcement in the SharePoint Tasks list",
+          "detailedDescription": "This handler makes a SOAP call (using Savon) to the SharePoint Web Services to create a new announcement in an Announcement list. Savon is then configured to work with the given account credentials. Next, the Batch XML structure is built to give the Web Service the information it needs to create the new announcement, which is then passed via a SOAP call to SharePoint, where the announcement is created and posted to the list. Any errors that occur during this process will be caught and re-raised by the handler. Authentication is done through SSL, so the SharePoint site being accessed needs to be setup to allow SSL connections. \n\n\n\n* Make sure the SharePoint Web Services database is turned on. \n\n\n#### How to Obtain the Homepage URL Info Value\nTo find the homepage url, all you have to do is look at the URL of any page on the SharePoint site. The url that should be inputted should contain both the base url (the top-most site in the collection) and the sub-site that you are on. For example, given the following URL: https://sharepoint.company.com/development/SitePages/Home.aspx The base site is \"sharepoint.company.com\", the sub-site is \"development\" and the 'HomePage URL' task info values should be set to: https://sharepoint.company.com/development \n\n",
+          "parameters": {
+            "Announcement List Name": "The name of the announcement list that the announcement will be added to. The default announcement list is 'Announcements'.",
+            "Title": "The title of the new announcement.",
+            "Body": "The body of the new announcement.",
+            "Expire Date": "The date that the annoucement expires in YYYY-MM-DD format."
+          },
+          "sampleConfiguration": {
+            "Announcement List Name": "Announcements",
+            "Title": "Sample Announcement",
+            "Body": "Announcements can now be posted from a handler!",
+            "Expire Date": "2013-11-01"
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Sharepoint_Announcement_Create_V1 (2013-10-08)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Sharepoint Contact Create",
+          "version": "1",
+          "id": "sharepoint_contact_create_v1",
+          "description": "This handler creates a new contact in the SharePoint Contact list",
+          "detailedDescription": "This handler makes a SOAP call (using Savon) to the SharePoint Web Services to create a new contact in a Contact list. Savon is then configured to work with the given account credentials. Next the Batch XML structure is built to give the Web Service the information it needs to create the new contact, which is then passed via a SOAP call to SharePoint, where the contact is created and posted to the list. Any errors that occur during this process will be caught and re-raised by the handler. Authentication is done through SSL, so the SharePoint site being accessed needs to be setup to allow SSL connections. \n\n\n\n* Make sure the SharePoint Web Services database is turned on. \n\n\n#### How to Obtain the Homepage URL Info Value\nTo find the homepage url, all you have to do is look at the URL of any page on the SharePoint site. The url that should be inputted should contain both the base url (the top-most site in the collection) and the sub-site that you are on. For example, given the following URL: https://sharepoint.company.com/development/SitePages/Home.aspx The base site is \"sharepoint.company.com\", the sub-site is \"development\" and the 'HomePage URL' task info values should be set to: https://sharepoint.company.com/development \n\n",
+          "parameters": {
+            "Contact List": "The name of the contact list that the contact will be added to.",
+            "Last Name": "The last name of the contact.",
+            "First Name": "The first name of the contact.",
+            "Email": "The email address of the contact.",
+            "Company": "The company associated with the contact.",
+            "Job Title": "The job title of the contact.",
+            "Work Phone": "The work phone number of the contact.",
+            "Home Phone": "The home phone number of the contact",
+            "Cell Phone": "The cell phone number of the contact."
+          },
+          "sampleConfiguration": {
+            "Last Name": "User",
+            "First Name": "Test",
+            "Email": "test.user@acme.com",
+            "Company": "Kinetic Data",
+            "Job Title": "Test Position",
+            "Work Phone": "123.456.7890",
+            "Home Phone": "012.890.4567",
+            "Cell Phone": "567.476.1234",
+            "Contact List": ""
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Sharepoint_Contact_Create_V1 (2013-10-08)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Contact List",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Sharepoint Discussion Board Post",
+          "version": "1",
+          "id": "sharepoint_discussion_board_post_v1",
+          "description": "This handler creates a new post in a SharePoint Discussion Board",
+          "detailedDescription": "This handler makes a SOAP call (using Savon) to the SharePoint Web Services to post a new message to a SharePoint discussion board. Savon is then configured to work with the given account credentials. Next, the Batch XML structure is built to give the Web Service the information it needs to create the new message, which is then passed via a SOAP call to SharePoint, where the message is posted to the list. Any errors that occur during this process will be caught and re-raised by the handler. Authentication is done through SSL, so the SharePoint site being accessed needs to be setup to allow SSL connections. \n\n\n\n* Make sure the SharePoint Web Services database is turned on. \n\n\n#### How to Obtain the Homepage URL Info Value\nTo find the homepage url, all you have to do is look at the URL of any page on the SharePoint site. The url that should be inputted should contain both the base url (the top-most site in the collection) and the sub-site that you are on. For example, given the following URL: https://sharepoint.company.com/development/SitePages/Home.aspx The base site is \"sharepoint.company.com\", the sub-site is \"development\" and the 'HomePage URL' task info values should be set to: https://sharepoint.company.com/development \n\n",
+          "parameters": {
+            "Discussion Post List Name": "The name of the discussion board list that the message will be posted to.",
+            "Subject": "The subject of the new dicussion post.",
+            "Body": "The body of the new discussion post."
+          },
+          "sampleConfiguration": {
+            "Discussion Post List Name": "Discussion Board",
+            "Subject": "You can now post messages from handlers!",
+            "Body": "Discuss how this will help productivity."
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Sharepoint_DiscussionBoard_Post_V1 (2013-10-08)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Sharepoint Document Create",
+          "version": "1",
+          "id": "sharepoint_document_create_v1",
+          "description": "This handler creates a document and then uploads it to a document library",
+          "detailedDescription": "This handler create a file that is then uploaded to a SharePoint document library using an HTTP Put method call. Before making the call, the handler appends an extension to the file (if necessary). It then uses the given parameters to form the URL where the new file will be uploaded to. Lastly, the call is made (using the Rest Client gem) and the file is created and uploaded to the specified SharePoint document library. If the document library has versioning enabled, a duplicate file name will be uploaded as a new version and the file will be overwritten if versioning is disabled (versioning is disabled by default in new libraries). Any errors that occur during this process will be caught and re-raised by the handler. Authentication is done through SSL, so the SharePoint site being accessed needs to be setup to allow SSL connections. \n\n\n\n* Make sure the SharePoint Web Services database is turned on. \n\n\n#### How to Obtain the Homepage URL Info Value\nTo find the homepage url, all you have to do is look at the URL of any page on the SharePoint site. The url that should be inputted should contain both the base url (the top-most site in the collection) and the sub-site that you are on. For example, given the following URL: https://sharepoint.company.com/development/SitePages/Home.aspx The base site is \"sharepoint.company.com\", the sub-site is \"development\" and the 'HomePage URL' task info values should be set to: https://sharepoint.company.com/development ",
+          "parameters": {
+            "Document Library Name": "The title of the document library that the file will be placed in.",
+            "Document Name": "The name of the new file.",
+            "Document Contents": "The text to be put in the file that will be uploaded to the document library."
+          },
+          "sampleConfiguration": {
+            "Document Library Name": "Shared Documents",
+            "Document Name": "test_file.txt",
+            "Document Contents": "This is some sample text that will go in the file."
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Sharepoint_Document_Create_V1 (2012-10-17)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Sharepoint Document Upload",
+          "version": "1",
+          "id": "sharepoint_document_upload_v1",
+          "description": "This handler uploads a document to a document library",
+          "detailedDescription": "This handler uploads a file to a SharePoint document library using an HTTP Put method call. Before making the call, the handler builds the url based on the inputted parameters. This url is the location where the file will be uploaded to. The call is then made using the Rest Client gem and the file is uploaded to the specified SharePoint document library. If the document library has versioning enabled, a duplicate file name will be uploaded as a new version and the file will be overwritten if versioning is disabled (versioning is disabled by default in new libraries). Any errors that occurs during this process will be caught and re-raised by the handler. Authentication is done through SSL, so the SharePoint site being accessed needs to be setup to allow SSL connections. \n\n\n\n* Make sure the Sharepoint Web Services database is turned on. \n\n\n#### How to get the Homepage URL\nTo find the homepage url, all you have to do is look at the URL of any page on the Sharepoint site. The url that should be inputted should contain both the base url (the top-most site in the collection) and the sub-site that you are on. Using the example below, the url that would be inputted is \"https://sharepoint.company.com/development\", where \"development\" is the sub-site and \"sharepoint.compnay.com\" is the base site. \n\n\n\n* Parameter Example https://sharepoint.company.com/development/SitePages/Home.aspx ",
+          "parameters": {
+            "Document Library Name": "The title of the document library that the file will be placed in.",
+            "Document Name": "The name that the document will have on the SharePoint server.",
+            "Attachment Question Menu Label:": "The menu label of the attachment question where the photo will be uploaded to."
+          },
+          "sampleConfiguration": {
+            "Document Library Name": "Shared Documents",
+            "Document Name": "@answers['Document']",
+            "Attachment Question Menu Label:": ""
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Sharepoint_Document_Upload_V1 (2013-10-04)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Attachment Question Menu Label:",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Sharepoint Event Create",
+          "version": "2",
+          "id": "sharepoint_event_create_v2",
+          "description": "This handler creates a new event within a SharePoint Calendar.",
+          "detailedDescription": "This handler makes a SOAP call (using Savon) to the SharePoint Web Services to create a new event in a SharePoint calendar. After configuring Savon to work with the given account credentials, a few inputted values are checked for validity while the time parameters are configured so that SharePoint will recognize them. Next, the Batch XML structure is built to give the Web Service the information it needs to create the new event, which is then passed via a SOAP call to SharePoint, where the event is created on the specified calendar. Any errors that occur during this process will be caught and re-raised by the handler. Authentication is done through SSL, so the SharePoint site being accessed needs to be setup to allow SSL connections. \n\n\n\n* Make sure the SharePoint Web Services database is turned on. \n\n\n#### How to Obtain the Homepage URL Info Value\nTo find the homepage url, all you have to do is look at the URL of any page on the SharePoint site. The url that should be inputted should contain both the base url (the top-most site in the collection) and the sub-site that you are on. For example, given the following URL: https://sharepoint.company.com/development/SitePages/Home.aspx The base site is \"sharepoint.company.com\", the sub-site is \"development\" and the 'HomePage URL' task info values should be set to: https://sharepoint.company.com/development \n\n",
+          "parameters": {
+            "Title": "The title of the new event.",
+            "Location": "The location of the new event.",
+            "Start Date": "The start date of the new event in YYYY-MM-DD format.",
+            "Start Time": "The start time of the new event in HH:MM format. Both 12 hr (01:00 PM) and 24 hr (13:00) formatting are allowed. If it is an All-Day event, leave this blank.",
+            "End Date": "The end date of the new event in YYYY-MM-DD format.",
+            "End Time": "The end time of the new event in HH:MM format. Both 12 hr (01:00 PM) and 24 hr (13:00) formatting are allowed. If it is an All-Day event, leave this blank.",
+            "Description": "A description of the new task.",
+            "Category": "The category that this event will be filed under.",
+            "Calendar": "The name of the calendar you wish to add this event to. The default calendar is 'Calendar'."
+          },
+          "sampleConfiguration": {
+            "Title": "Sample Title",
+            "Location": "City Hall",
+            "Start Date": "2013-11-03",
+            "Start Time": "03:00 PM",
+            "End Date": "2013-11-04",
+            "End Time": "05:00 PM",
+            "Description": "This is a sample event",
+            "Category": "Work",
+            "Calendar": "Calendar"
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Sharepoint_Event_Create_V1 (2012-08-03)\n* Initial version.  See README for details.\n\nSharepoint_Event_Create_V2 (2013-10-08)\n* JOpenSSL updated to version 0.8.8 and self signed cert info value removed.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Sharepoint Issue Item Add",
+          "version": "1",
+          "id": "sharepoint_issue_item_add_v1",
+          "description": "This handler creates a new issue in a SharePoint Issue Tracking list",
+          "detailedDescription": "This handler makes a SOAP call (using Savon) to the SharePoint Web Services to create a new issue in an Issue Tracking list. After configuring Savon to work with the given account credentials, a few inputted values are checked for validity while the parameters for 'Assigned To' is modified to fit SharePoint standards. Priority and Issue Status are both values that are picked out of a dropdown list, with '(2) Normal' and 'Acitve' as their respective default values. Next, the Batch XML structure is built to give the Web Service the information it needs to create the new issue, which is then passed via a SOAP call to SharePoint, where the issue is created. Any errors that occur during this process will be caught and re-raised by the handler. Authentication is done through SSL, so the SharePoint site being accessed needs to be setup to allow SSL connections. \n\n\n\n* Make sure the SharePoint Web Services database is turned on. \n\n\n#### How to Obtain the Homepage URL Info Value\nTo find the homepage url, all you have to do is look at the URL of any page on the SharePoint site. The url that should be inputted should contain both the base url (the top-most site in the collection) and the sub-site that you are on. For example, given the following URL: https://sharepoint.company.com/development/SitePages/Home.aspx The base site is \"sharepoint.company.com\", the sub-site is \"development\" and the 'HomePage URL' task info values should be set to: https://sharepoint.company.com/development \n\n",
+          "parameters": {
+            "Issue Tracking List Name": "The name of the issue tracking list that the issue will be added to.",
+            "Title": "The title of the new issue.",
+            "Assigned To": "The user who you want to assign this issue to in the form of DOMAIN\\username.",
+            "Issue Status": "The status of the new issue.",
+            "Priority": "The priority of the new issue.",
+            "Description": "A description of the new issue.",
+            "Comments": "Any comments that will be added to the new issue.",
+            "Due Date": "The end date of the new issue in YYYY-MM-DD format."
+          },
+          "sampleConfiguration": {
+            "Issue Tracking List Name": "Issue Tracking",
+            "Title": "The widgets are missing",
+            "Issue Status": "Active",
+            "Priority": "(2) Normal",
+            "Description": "They got lost in transit...",
+            "Comments": "Check with FedEx to see if they know anything",
+            "Due Date": "2013-11-01",
+            "Assigned To": ""
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Sharepoint_IssueItem_Add_V1 (2012-08-01)\n* Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Assigned To",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Sharepoint Link Item Add",
+          "version": "1",
+          "id": "sharepoint_link_item_add_v1",
+          "description": "This handler creates a new link item in the SharePoint Links list",
+          "detailedDescription": "This handler makes a SOAP call (using Savon) to the SharePoint Web Services to create a new item in a list of links. Savon is then configured to work with the given account credentials. Next, the Batch XML structure is built to give the Web Service the information it needs to create the new link item, which is then passed via a SOAP call to SharePoint, where the link is created and posted to the list. Any errors that occur during this process will be caught and re-raised by the handler. Authentication is done through SSL, so the SharePoint site being accessed needs to be setup to allow SSL connections. \n\n\n\n* Make sure the SharePoint Web Services database is turned on. \n\n\n#### How to Obtain the Homepage URL Info Value\nTo find the homepage url, all you have to do is look at the URL of any page on the SharePoint site. The url that should be inputted should contain both the base url (the top-most site in the collection) and the sub-site that you are on. For example, given the following URL: https://sharepoint.company.com/development/SitePages/Home.aspx The base site is \"sharepoint.company.com\", the sub-site is \"development\" and the 'HomePage URL' task info values should be set to: https://sharepoint.company.com/development \n\n",
+          "parameters": {
+            "Link List Name": "The name of the link list that the link will be added to.",
+            "Url": "The Url of the new link.",
+            "Notes": "Notes that will accompany the Url."
+          },
+          "sampleConfiguration": {
+            "Link List Name": "Link Collection",
+            "Url": "http://www.kineticdata.com",
+            "Notes": "You should check this out when you get the chance!"
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Sharepoint_LinkItem_Add_V1 (2013-10-08)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "SharePoint List Item Add",
+          "version": "1",
+          "id": "sharepoint_list_item_add_v1",
+          "description": "Creates an items for a given list in SharePoint using the REST API.",
+          "detailedDescription": "This handler creates an item for a given Sharepoint list using the REST API and basic authentication. The item to be created is passed as a JSON string, where the keys are the list item labels (Title, Due Date, etc) and the values are the values to place in those columns when the item is created. The field keys for a list can also be found by using Sharepoint List Items Retrieve to get an already created item, which can then be used to determine which keys match up with what columns. Any errors that happen during the call are caught and re-raised and the handler will return the Id of the new item after the end of a successful call. \n\n\n\n* Make sure the SharePoint Web Services database is turned on. ",
+          "parameters": {
+            "List Name": "The name of the list that the item will be added to.",
+            "Item (JSON)": "A JSON representation of the item that should be created."
+          },
+          "sampleConfiguration": {
+            "List Name": "Sample List",
+            "Item (JSON)": "{\"Title\": \"Sample Title\", \"Random Number\": 15, \"Random Date\": \"2017-12-22\"}"
+          },
+          "results": {
+            "Id": "Id of the newly created list item "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-12-21",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Sharepoint List Item Add V1 (2017-12-21)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "SharePoint List Item Delete",
+          "version": "1",
+          "id": "sharepoint_list_item_delete_v1",
+          "description": "Deletes an items on a given list in SharePoint using the REST API.",
+          "detailedDescription": "This handler deletes an item on a given Sharepoint list using the REST API and basic authentication. The item to be deleted is determined based on the item id that is passed (a standard id is an integer) and the list name. Any errors that happen during the call are caught and re-raised and the handler will return an empty result set after the end of a successful deletion. \n\n\n\n* Make sure the SharePoint Web Services database is turned on. ",
+          "parameters": {
+            "List Name": "The name of the list to delete the item from.",
+            "Item Id": "The id of the item to delete."
+          },
+          "sampleConfiguration": {
+            "List Name": "Sample List",
+            "Item Id": "3"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-12-21",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Sharepoint List Item Delete V1 (2017-12-21)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "SharePoint List Item Update",
+          "version": "1",
+          "id": "sharepoint_list_item_update_v1",
+          "description": "Updates an items on a given list in SharePoint using the REST API.",
+          "detailedDescription": "This handler updates an item for a given Sharepoint list using the REST API and basic authentication. The item content to be updated is passed as a JSON string, where the keys are the list item labels (Title, Due Date, etc) and the values are the values to place in those columns when the item is updated. The field keys for a list can also be found by using Sharepoint List Items Retrieve to get an already created item, which can then be used to determine which keys match up with what columns. Any errors that happen during the call are caught and re-raised and the handler will return an empty result set upon a successful update. \n\n\n\n* Make sure the SharePoint Web Services database is turned on. ",
+          "parameters": {
+            "List Name": "The name of the list that the item should be updated on.",
+            "Item Id": "The id of the item to update.",
+            "Item (JSON)": "A JSON representation of what the item should be updated to."
+          },
+          "sampleConfiguration": {
+            "List Name": "Sample List",
+            "Item Id": "3",
+            "Item (JSON)": "{\"Title\": \"Updated Title\", \"Random Number\": 17, \"Random Date\": \"2017-12-31\"}"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-12-21",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Sharepoint List Item Update V1 (2017-12-21)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "SharePoint List Items Retrieve",
+          "version": "1",
+          "id": "sharepoint_list_items_retrieve_v1",
+          "description": "Retrieves the items from a list SharePoint list using the REST API.",
+          "detailedDescription": "This handler returns a list of items for a given Sharepoint list using the REST API and basic authentication. All the items from the specified list are returned in a JSON array with each item being a JSON object with the key/values corresponding to the column labels and values. Any errors that happen during the call are caught and re-raised and the handler return the JSON array upon a successful call. \n\n\n\n* Make sure the SharePoint Web Services database is turned on. ",
+          "parameters": {
+            "List Name": "The name of the list that the items will be retrieved from."
+          },
+          "sampleConfiguration": {
+            "List Name": "Sample List"
+          },
+          "results": {
+            "Items": "An array containing JSON representations of the items contained on the list. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-12-21",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Sharepoint List Items Retrieve V1 (2017-12-21)\n* Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "Sharepoint List Retrieve",
+          "version": "1",
+          "id": "sharepoint_list_retrieve_v1",
+          "description": "This handler retrieves the contents of a list from the configured Sharepoint site and returns a JSON representation of the data.",
+          "detailedDescription": "This handler makes a SOAP call (using Savon) to the SharePoint Web Services to get the contents of a list from a specific SharePoint site. As long as the user has sufficient privileges, the first call to SharePoint returns a hash containing all of the Site lists and their details. The handler then uses that list to get the correct list id that corresponds with the list title given during input and then makes another SOAP call to get the the list contents which are returned in a hash. The handler then takes that response, cleans up the hash, and then converts it to a JSON table to allow for easy access of the information. Any errors that occur during this process will be caught and re-raised by the handler. Authentication is done through SSL, so the SharePoint site being accessed needs to be setup to allow SSL connections. \n\n\n\n* Make sure the SharePoint Web Services database is turned on. \n\n\n#### How to Obtain the Homepage URL Info Value\nTo find the homepage url, all you have to do is look at the URL of any page on the SharePoint site. The url that should be inputted should contain both the base url (the top-most site in the collection) and the sub-site that you are on. For example, given the following URL: https://sharepoint.company.com/development/SitePages/Home.aspx The base site is \"sharepoint.company.com\", the sub-site is \"development\" and the 'HomePage URL' task info values should be set to: https://sharepoint.company.com/development ",
+          "parameters": {
+            "List Name": "The name of the list that should be retrieved."
+          },
+          "sampleConfiguration": {
+            "List Name": "Tasks"
+          },
+          "results": {
+            "JSON": "A JSON table that returns all of the lists on the specified site, with information such as Title, Description, ID, etc. for each list. For an example of the results, please see the 'Sample Results String' section below. "
+          },
+          "changelog": {
+          },
+          "changelogText": "Sharepoint_List_Retrieve_V1 (2012-07-16)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Sharepoint Site Create",
+          "version": "1",
+          "id": "sharepoint_site_create_v1",
+          "description": "This handler adds a new Site to a SharePoint top level site.",
+          "detailedDescription": "This handler makes a SOAP call (using Savon) to the SharePoint Web Services to create a new site under the given homepage url. After configuring Savon to work with the given account credentials (make sure that the account has permission to create a site), the Site Template value is modified so SharePoint will recognize it. The inputted information is then passed to SharePoint via a SOAP call, where the Site is created with the given url appended to the homepage url. The newly created Site will not appear in the quick launch or top link bar of the parent website, so it will be needed to manually added before it shows up there. Any errors that occur during this process will be caught and re-raised by the handler. Authentication is done through SSL, so the SharePoint site being accessed needs to be setup to allow SSL connections. \n\n\n\n* Make sure the SharePoint Web Services database is turned on. \n\n\n#### How to Obtain the Homepage URL Info Value\nTo find the homepage url, all you have to do is look at the URL of any page on the SharePoint site. The url that should be inputted should contain both the base url (the top-most site in the collection) and the sub-site that you are on. For example, given the following URL: https://sharepoint.company.com/development/SitePages/Home.aspx The base site is \"sharepoint.company.com\", the sub-site is \"development\" and the 'HomePage URL' task info values should be set to: https://sharepoint.company.com/development ",
+          "parameters": {
+            "Title": "The title of the new Site.",
+            "URL": "The URL that will identify the new site. This new URL will be appended to the homepage URL, so the final URL will have the form of http://homepage_url/new_sites_url.",
+            "Description": "A description of the new Site.",
+            "Site Template": "The site template that will be used for the new Site."
+          },
+          "sampleConfiguration": {
+            "Title": "Testing Handler",
+            "URL": "testinghandler",
+            "Description": "This Site was created from a handler",
+            "Site Template": "Blank Site"
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Sharepoint_Site_Create_V1 (2013-10-08)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Sharepoint Task Create",
+          "version": "1",
+          "id": "sharepoint_task_create_v1",
+          "description": "This handler creates a new task in the SharePoint Tasks list",
+          "detailedDescription": "This handler makes a SOAP call (using Savon) to the SharePoint Web Services to create a new task in your sites 'Task' list. After configuring Savon to work with the given account credentials, a few inputted values are checked for validity while the parameters for 'Assigned To' and 'Priority' are modified to fit SharePoint standard. Next, the Batch XML structure is built to give the Web Service the information it needs to create the new task, which is then passed via a SOAP call to SharePoint, where the task is created. Any errors that occur during this process will be caught and re-raised by the handler. Authentication is done through SSL, so the SharePoint site being accessed needs to be setup to allow SSL connections. \n\n\n\n* Make sure the SharePoint Web Services database is turned on. \n\n\n#### How to Obtain the Homepage URL Info Value\nTo find the homepage url, all you have to do is look at the URL of any page on the SharePoint site. The url that should be inputted should contain both the base url (the top-most site in the collection) and the sub-site that you are on. For example, given the following URL: https://sharepoint.company.com/development/SitePages/Home.aspx The base site is \"sharepoint.company.com\", the sub-site is \"development\" and the 'HomePage URL' task info values should be set to: https://sharepoint.company.com/development \n\n",
+          "parameters": {
+            "Title": "The title of the new task.",
+            "Start Date": "The start date of the new task in YYYY-MM-DD format.",
+            "Due Date": "The end date of the new task in YYYY-MM-DD format.",
+            "Description": "A description of the new task.",
+            "Priority": "The priority of the new task.",
+            "Assigned To": "The user who you want to assign this task to in the form of DOMAIN\\username.",
+            "Task List Name": "The name of the task list that the task will be added to. The default task list is 'Tasks'."
+          },
+          "sampleConfiguration": {
+            "Task List Name": "Tasks",
+            "Title": "Sample Title",
+            "Start Date": "2013-11-01",
+            "Due Date": "2013-11-04",
+            "Description": "This is a sample task",
+            "Priority": "(2) Normal",
+            "Assigned To": "SHAREPOINT\\another.user"
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Sharepoint_Task_Create_V1 (2013-10-08)\n* Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        }
+      ],
+      "name": "Microsoft SharePoint",
+      "description": "Microsoft SharePoint is a browser-based collaboration and document management platform from Microsoft.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/ms-sharepoint/thumbnail.png"
+    },
+    {
       "id": "ms-sql",
       "handlerList": [
 
