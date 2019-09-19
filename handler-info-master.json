@@ -7914,6 +7914,202 @@
       ]
     },
     {
+      "id": "cherwell",
+      "handlerList": [
+        {
+          "name": "Cherwell Object Attachment Upload",
+          "version": "1",
+          "id": "cherwell_object_attachment_upload_v1",
+          "description": "Generically uploads an attachment from a Request CE submission to an existing object in Cherwell.",
+          "detailedDescription": "This handler generically uploads an attachment to a Cherwell object and return a list of the attachment ids that were generated. Execution starts by retrieving an Access Token from Cherwell using the client id/secret and username/password info values. Once that is successfully retrieved, the Request CE info values and inputs are used to retrieve all attachments from the specified submission value (both single and multiple attachments on a single field work). Once a temporary link is generated for an attachment, the handler then downloads the attachment content and then immediately uploads it to the specified object in Cherwell. This process is repeated for however many attachments exist in the specified submission value and the attachment ids returned by Cherwell are returned as handler results if all attachment uploads are successful. ",
+          "parameters": {
+            "Object Name": "Readable name of the object type to upload an attachment to (ie. Incident).",
+            "Object Id": "Id of the object that the attachment will be uploaded to.",
+            "Attachment Space Slug": "Slug for the Attachment's Request CE space.",
+            "Attachment Submission Id": "Id for the Attachment's Request CE submission.",
+            "Attachment Field Name": "Name for the Attachment's field label."
+          },
+          "sampleConfiguration": {
+            "Object Name": "Incident",
+            "Object Id": "9434ec6c52d4319c9ea769414f8b6740b9b562e54b",
+            "Attachment Space Slug": "internal",
+            "Attachment Submission Id": "e7b32620-2183-11e8-b8f5-b18678c1c358",
+            "Attachment Field Name": "Attachment"
+          },
+          "results": {
+            "Attachment Ids": "A comma separated list of attachment ids that are generated for each object uploaded as an attachment. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-03-07",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Cherwell Object Attachment Upload V1 (2018-03-07)\r\n* Initial version.  See README for details.",
+          "warnings": [
+            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted.",
+            "Info Value with the name 'request_ce_password' includes 'password' or 'secret' in the same and should be encrypted."
+          ]
+        },
+        {
+          "name": "Cherwell Object Create",
+          "version": "1",
+          "id": "cherwell_object_create_v1",
+          "description": "Generically creates an object in Cherwell.",
+          "detailedDescription": "This handler generically creates a Cherwell object based on inputted JSON and returns an id of the new object after creation. Execution starts by retrieving an Access Token from Cherwell using the client id/secret and username/password info values. Once that is successfully retrieved, the Object Name is translated into a Business Object Id by using the /getbusinessobjectsummary endpoint. Next, a call to /getbusinessobjectemplate is made so the handler can exchange the Display Names (that are used in the inputted Object JSON string) for Field Ids for each of the fields that should be populated on create. Lastly, that translated JSON object is passed to /savebusinessobject to actually create the object in Cherwell. If the call is successful, the id of the newly created object will be returned by the handler. ",
+          "parameters": {
+            "Object Name": "Readable name of the object to retrieve (ie. Incident).",
+            "Object JSON": "A JSON representation of the displayName/values for the fields that the object should be created with."
+          },
+          "sampleConfiguration": {
+            "Object Name": "Incident",
+            "Object JSON": "{\"Status\":\"New\",\"Description\":\"From Kinetic Task\"...}"
+          },
+          "results": {
+            "Object Id": "Id for the newly created object "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-02-14",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Cherwell Object Create V1 (2018-02-14)\r\n* Initial version.  See README for details.",
+          "warnings": [
+            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted."
+          ]
+        },
+        {
+          "name": "Cherwell Object Delete",
+          "version": "1",
+          "id": "cherwell_object_delete_v1",
+          "description": "Generically deletes an object from Cherwell.",
+          "detailedDescription": "This handler generically deletes a Cherwell object given an Object name and id. Execution starts by retrieving an Access Token from Cherwell using the client id/secret and username/password info values. Once that is successfully retrieved, the Object Name is translated into a Business Object Id by using the /getbusinessobjectsummary endpoint. The returned Business Object Id and inputted Object Id are then passed to the /deletebusinessobject endpoint to delete the object. An empty result set will be returned on a successful delete. ",
+          "parameters": {
+            "Object Name": "Readable name of the object to delete (ie. Incident).",
+            "Object Id": "Id of the object to be deleted."
+          },
+          "sampleConfiguration": {
+            "Object Name": "Incident",
+            "Object Id": "47285"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-02-14",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Cherwell Object Delete V1 (2018-02-14)\r\n* Initial version.  See README for details.",
+          "warnings": [
+            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted."
+          ]
+        },
+        {
+          "name": "Cherwell Object Find",
+          "version": "1",
+          "id": "cherwell_object_find_v1",
+          "description": "Generically searches for objects from Cherwell.",
+          "detailedDescription": "This handler generically searches for Cherwell objects given a map of Display Names and Values to search on equality and returns a JSON array of the matching objects. Execution starts by retrieving an Access Token from Cherwell using the client id/secret and username/password info values. Once that is successfully retrieved, the Object Name is translated into a Business Object Id by using the /getbusinessobjectsummary endpoint. The /getbusinessobjecttemplate endpoint is then called to exchange the Display Names in the filter for Field Ids (which is what Cherwell's API expects). The search is then sent with the various options to the server and returns JSON representations of the objects that match the filter (up to the max results size -- pagination is not currently implemented so the max results is currently just there to protect against killing the server if a filter set matches more records than expected). On a successful call, the handler will return the JSON Results, the amount of records that are returned in the results, and the amount of records that were matched overall (even if they weren't returned in the results). ",
+          "parameters": {
+            "Object Name": "Readable name of the object to retrieve (ie. Incident).",
+            "Fields to Return": "Comma separated list of fields to return (if none entered, all fields will be returned).",
+            "Filters": "A JSON object with key/value pairs that will be searched for equality.",
+            "Max Results": "The maximum amount of results that can be returned in a single handler execution (if blank, as many as possible will be returned)."
+          },
+          "sampleConfiguration": {
+            "Object Name": "Incident",
+            "Fields to Return": "",
+            "Filters": "{\"Status\": \"New\", \"Customer ID\": \"fa00c2e9123e423cb2c96e63ee72bc4a\"}",
+            "Max Results": "5"
+          },
+          "results": {
+            "JSON Results": "JSON representations of the objects that match the inputted filters. ",
+            "Count": "Total records returned in the JSON Results array. ",
+            "Total Matched": "Total records that matched the filters on the Cherwell server. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-03-07",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Cherwell Object Find V1 (2018-03-07)\r\n* Initial version.  See README for details.",
+          "warnings": [
+            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted."
+          ]
+        },
+        {
+          "name": "Cherwell Object Retrieve",
+          "version": "1",
+          "id": "cherwell_object_retrieve_v1",
+          "description": "Generically retrieves an object from Cherwell.",
+          "detailedDescription": "This handler generically retrieves a Cherwell object and returns a JSON representation of the found object. Execution starts by retrieving an Access Token from Cherwell using the client id/secret and username/password info values. Once that is successfully retrieved, the Object Name is translated into a Business Object Id by using the /getbusinessobjectsummary endpoint. The returned Business Object Id and inputted Object Id are then passed to the /getbusinessobject endpoint to retrieve the full matching object. Lastly, the fields return are converted from an array to a simplified map of field information in the form of {displayName: value}. ",
+          "parameters": {
+            "Object Name": "Readable name of the object to retrieve (ie. Incident).",
+            "Object Id": "Id of the object to be retrieved."
+          },
+          "sampleConfiguration": {
+            "Object Name": "Incident",
+            "Object Id": "47285"
+          },
+          "results": {
+            "Object JSON": "A JSON representation of the object that matches the id. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-02-14",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Cherwell Object Retrieve V1 (2018-02-14)\r\n* Initial version.  See README for details.",
+          "warnings": [
+            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted."
+          ]
+        },
+        {
+          "name": "Cherwell Object Update",
+          "version": "1",
+          "id": "cherwell_object_update_v1",
+          "description": "Generically updates an object in Cherwell.",
+          "detailedDescription": "This handler generically updates a Cherwell object using an inputted JSON representation to determine what fields to update on the object. Execution starts by retrieving an Access Token from Cherwell using the client id/secret and username/password info values. Once that is successfully retrieved, the Object Name is translated into a Business Object Id by using the /getbusinessobjectsummary endpoint. A call to retrieve the object template is made so that the field object/ids can be found for the fields that should be updated and lastly the call is made to /savebusinessobject to update the included fields on the inputted object. An empty result set will be returned on a successful call. ",
+          "parameters": {
+            "Object Name": "Readable name of the object to update (ie. Incident).",
+            "Object Update": "Public id for the object that should be updated..",
+            "Object JSON": "A JSON representation of the displayName/values for the fields that the object should be updated with."
+          },
+          "sampleConfiguration": {
+            "Object Name": "Incident",
+            "Object JSON": "{\"Description\": \"Update from a Task Handler\"}",
+            "Object Update": ""
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2018-02-14",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Cherwell Object Update V1 (2018-02-14)\r\n* Initial version.  See README for details.",
+          "warnings": [
+            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted.",
+            "The following parameters can't be found in the Sample Configuration in the README: Object Update"
+          ]
+        }
+      ],
+      "name": "Cherwell",
+      "description": "IT Service Management Platform",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/cherwell/thumbnail.png"
+    },
+    {
       "name": "Citrix",
       "id": "citrix",
       "description": "Online meeting, desktop sharing, and video conferencing enabling users to connect in a secure environment.  Enables business mobility through the secure delivery of apps and data to any device on any network.",
