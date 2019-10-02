@@ -26960,6 +26960,7 @@
             "Error Handling": "Determine what to return if an error is encountered.",
             "From (Email Address)": "The email address of the simulated sender.",
             "To (Email Address)": "The email address of the intended recipient.",
+            "Bcc (Email Address)": "The email address of the intended recipient.",
             "Subject": "The subject of the email.",
             "HTML Body": "HTML representing the body of a rich email.",
             "Alternate (text) Body": "A plaintext message that will be displayed if the recipient can't display multipart HTML emails."
@@ -26970,13 +26971,19 @@
             "From (Email Address)": "<%=@results['Retrieve Fulfiller']['Name']%> <<%=@results['Retrieve Fulfiller']['Email']%>>",
             "Subject": "<%= @answer['Event Summary'] %>",
             "HTML Body": "<html>Your ...<br/>Thanks,<br/><%=@results['Retrieve Fulfiller']['Name']%><br/><img src=\"http://my.company.com/images/logo\"/></html>",
-            "Alternate (text) Body": "Your..... ?Thanks <%=@results['Retrieve Fulfiller']['Name']%>"
+            "Alternate (text) Body": "Your..... ?Thanks <%=@results['Retrieve Fulfiller']['Name']%>",
+            "Bcc (Email Address)": ""
           },
           "results": {
             "Message Id": "The message Id of the sent email message. ",
             "Handler Error Message": ""
           },
           "changelog": {
+            "1.4": {
+              "version": "1.4",
+              "date": "2019-07-16",
+              "description": "* Added bcc as an optional parameter"
+            },
             "1.3": {
               "version": "1.3",
               "date": "2018-04-20",
@@ -26993,9 +27000,9 @@
               "description": "* Rewrote handler in Ruby"
             }
           },
-          "changelogText": "SMTP Email Send V1 (2017-03-10)\r\n* Rewrote handler in Ruby\r\n\r\nSMTP Email Send V1.2 (2017-05-03)\r\n* Updated with error_handling parameter\r\n\r\nSMTP Email Send V1.3 (2018-04-20)\r\n* Username and Password info values are no longer required\r\n",
+          "changelogText": "SMTP Email Send V1 (2017-03-10)\r\n* Rewrote handler in Ruby\r\n\r\nSMTP Email Send V1.2 (2017-05-03)\r\n* Updated with error_handling parameter\r\n\r\nSMTP Email Send V1.3 (2018-04-20)\r\n* Username and Password info values are no longer required\r\n\r\nSMTP Email Send V1.4 (2019-07-16)\r\n* Added bcc as an optional parameter",
           "warnings": [
-
+            "The following parameters can't be found in the Sample Configuration in the README: Bcc (Email Address)"
           ]
         },
         {
