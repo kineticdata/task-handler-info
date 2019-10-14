@@ -4,48 +4,16 @@
       "name": "Active Directory",
       "id": "active-directory",
       "description": "Manage users, computers, groups, and other objects in Active Directory or another LDAP accessed directory service with these handlers.",
-      "image": "https://s3.amazonaws.com/task-handlers/active-directory/active-directory.svg",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/active-directory/thumbnail.svg",
       "handlerList": [
         {
-          "name": "Active Directory User Permanent Password",
-          "version": "2",
-          "id": "active_directory_user_permanent_password_v2",
-          "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and sets the 'password never expires' flag.",
-          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName(pre-Windows 2000). Finally, the flag is set so the password never expires. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. ",
-          "parameters": {
-            "Search By": "Choose which attribute of the user to search by",
-            "Search Value": "The actual search expression to search for"
-          },
-          "sampleConfiguration": {
-            "Search By": "User Logon",
-            "Search Value": "<%=@answers['ReqFor Login ID']%>"
-          },
-          "results": {
-          },
-          "changelog": {
-            "2": {
-              "version": "2",
-              "date": "2014-08-05",
-              "description": "* Changed the password info value to be encrypted."
-            },
-            "1": {
-              "version": "1",
-              "date": "2011-02-07",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Active Directory User Permanent Password V1 (2011-02-07)\n* Initial version.  See README for details.\n\nActive Directory User Permanent Password V2 (2014-08-05)\n* Changed the password info value to be encrypted.",
-          "warnings": [
-
-          ]
-        },
-        {
           "name": "Active Directory Computer Add Groups",
-          "version": "1",
-          "id": "active_directory_computer_add_groups_v1",
+          "version": "2",
+          "id": "active_directory_computer_add_groups_v2",
           "description": "Finds a user in active directory by Distinguished Name and adds the computer as a member to one or more groups.",
-          "detailedDescription": "This handler will use the server information and computer credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the computer based on the search parameters provided.  If a matching computer is found, it will be added as a member to each group specified in the groups parameter will be added to the computer. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the Computer entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the Computer entry. \n\n* If 'Computer Name' is selected, the 'computerprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the Computer entry. \n\nThis handler will raise an Exception if the specified Computer or any of the specified Groups are not found in the Active Directory system. ",
+          "detailedDescription": "This handler will use the server information and computer credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the computer based on the search parameters provided.  If a matching computer is found, it will be added as a member to each group specified in the groups parameter will be added to the computer. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the Computer entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the Computer entry. \n\n* If 'Computer Name' is selected, the 'computerprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the Computer entry. \n\nThis handler will raise an Exception if the specified Computer or any of the specified Groups are not found in the Active Directory system. \n\n\n#### Important Note\nThis handler has been tested on Task 4.0.6 and should preform as expected on all Task 4.x.x versions. ",
           "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
             "Search By": "'Distinguished Name', 'Full Name', 'Computer Name', or 'Email Address'",
             "Search Value": "The value of the Distinguished Name (Computer Name).",
             "Groups": "The common name(s) of the group(s) to add.  More than one group can be specified by separating each group with a comma."
@@ -53,29 +21,245 @@
           "sampleConfiguration": {
             "Search By": "Computer Name",
             "Search Value": "<%=@answers['ReqFor Login ID']%>",
-            "Groups": "<%=@answers['Groups']%>"
+            "Groups": "<%=@answers['Groups']%>",
+            "Error Handling": ""
           },
           "results": {
+            "Handler Error Message": "Error message if an error was encountered and"
           },
           "changelog": {
+            "2": {
+              "version": "2",
+              "date": "2019-10-10",
+              "description": "* Added Never Drop Never Fail"
+            },
             "1": {
               "version": "1",
               "date": "2011-01-13",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Active Directory Computer Add Groups V1 (2011-01-13)\n* Initial version.  See README for details.",
+          "changelogText": "Active Directory Computer Add Groups V1 (2011-01-13)\n* Initial version.  See README for details.\n\nActive Directory Computer Add Groups V2 (2019-10-01)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\nActive Directory Computer Add Groups V2 (2019-10-10)\n* Added Never Drop Never Fail",
           "warnings": [
-
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
+          ]
+        },
+        {
+          "name": "Active Directory Computer Remove Groups",
+          "version": "2",
+          "id": "active_directory_computer_remove_groups_v2",
+          "description": "Finds a user in active directory by Distinguished Name (Computer Name) and adds the computer as a member to one or more groups.",
+          "detailedDescription": "This handler will use the server information and computer credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the computer based on the search parameters provided.  If a matching computer is found, it will be removed as a member from each group specified in the groups parameter will be added to the computer. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'computerprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will raise an Exception if the specified User or any of the specified Groups are not found in the Active Directory system. \n\n\n#### Important Note\nThis handler has been tested on Task 4.0.6 and should preform as expected on all Task 4.x.x versions. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Search By": "'Distinguished Name', 'Full Name', 'User Name', 'Computer Name', or 'Email Address'",
+            "Search Value": "The value of the Distinguished Name (Computer Name).",
+            "Groups": "The common name(s) of the group(s) to remove.  More than one group can be specified by separating each group with a comma."
+          },
+          "sampleConfiguration": {
+            "Search By": "User Name",
+            "Search Value": "<%=@answers['ReqFor Login ID']%>",
+            "Groups": "<%=@answers['Groups']%>",
+            "Error Handling": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and"
+          },
+          "changelog": {
+            "2": {
+              "version": "2",
+              "date": "2019-10-01",
+              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail"
+            },
+            "1": {
+              "version": "1",
+              "date": "2017-Aug-29",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Active Directory Computer Remove Groups V1 (2017-Aug-29)\n* Initial version.  See README for details.\n\nActive Directory Computer Remove Groups V2 (2019-10-01)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
+          ]
+        },
+        {
+          "name": "Active Directory Distribution List Member Retrieve",
+          "version": "1",
+          "id": "active_directory_distributionlist_members_retrieve_v2",
+          "description": "Finds a Distribution List in active directory by Distinguished Name, or Email Address and returns a comma delimited list of immediate members (e-mail addresses)",
+          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the distribution group on the search parameters provided.  If Email Address is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName (pre-Windows 2000). \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User objects that are a member of the provided group. \n\n* If 'Email Address' is selected, the Distinguished Name of the group will first be searched for by the mail address. \n\n\n#### Important Note\nThis handler has been tested on Task 4.0.6 and should preform as expected on all Task 4.x.x versions. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Search By": "Choose which attribute of the user to search by",
+            "Search Value": "The actual search expression to search for"
+          },
+          "sampleConfiguration": {
+            "Search By": "Email Address",
+            "Search Value": "distributionlistname@acmecompany.com",
+            "Error Handling": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and",
+            "Email Addresses": "The email addresses of all users in the group."
+          },
+          "changelog": {
+            "2": {
+              "version": "2",
+              "date": "2019-10-07",
+              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail"
+            },
+            "1": {
+              "version": "1",
+              "date": "2014-03-17",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Active Directory Distribution List Member Retrieve V1 (2014-03-17)\n* Initial version.  See README for details.\n\nActive Directory Distribution List Member Retrieve V2 (2019-10-07)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
+          ]
+        },
+        {
+          "name": "Active Directory Group Create",
+          "version": "3",
+          "id": "active_directory_group_create_v3",
+          "description": "Creates an Active Directory group entry and uses the provided parameter values to specify common attributes.  This handler will fail if the group already exists.",
+          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and create a group entry. \n\nIn order to build up the Distinguished Name (a unique identifier for the active directory user entry), the handler uses a template specified as a task info value. \n\nThe following entry attributes are set once the user entry is created: \n\n* Direct Mappings \n\n  - name              => Group Name \n\n  - mail              => Email Address \n\n  - description       => Description \n\n  - info              => Notes \n\n* Computed Mappings \n\n  - grouptype         => Numerical representation of the group scope and type. \n\n* Special Attributes \n\n  - objectclass       => [top,group] \n\n\n#### Task Info Configuration\n\n* *dn_format* - This value is used to specify the distinguished name of the Active Directory group entry to be created.  Anything within curly braces {} will be replaced with the value of the entry attribute or task info value associated with that key. For example, the default format is 'CN={displayname},CN=Users,{base}'.  In this case {displayname} is replaced with the displayname attribute value and {base} is replaced with the value of the 'base' task info value.  A full list of available entry attributes is available above.  If you use organizational units they can be substituted into the distinguished name in this manner. \n\n\n#### Important Note\nThis handler has been tested on Task 4.0.6 and should preform as expected on all Task 4.x.x versions. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Group Name": "The name of the group to be created",
+            "Description": "The description of this group",
+            "Email Address": "The Email Address for this group.  Active Directory can be configured so that all members of a group are notified when the group receives an Email.",
+            "Group Scope": "Security groups or distribution groups are characterized by a scope that identifies how they are applied in the domain tree or forest. There are three group scopes: universal, global, and domain local.",
+            "Group Type": "There are two group types, security and distribution.  Security groups allow you to manage user and computer access to shared resources.  Distribution groups are intended to be used solely as email distribution lists.",
+            "Notes": "Additional information about the group"
+          },
+          "sampleConfiguration": {
+            "Group Name": "<%=@results['New Group Name']%>",
+            "Description": "Allows access to the accounting resources",
+            "Email Address": "Accounting@company.com",
+            "Group Scope": "Global",
+            "Group Type": "Security",
+            "Notes": "<%=@results['Notes']%>",
+            "Error Handling": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and",
+            "Distinguished Name": "CN=Accounting,CN=Users,DC=kineticdata,DC=com"
+          },
+          "changelog": {
+            "3": {
+              "version": "3",
+              "date": "2019-10-01",
+              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail"
+            },
+            "2": {
+              "version": "2",
+              "date": "2014-08-05",
+              "description": "* Changed the password info value to be encrypted."
+            },
+            "1": {
+              "version": "1",
+              "date": "2011-01-24",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Active Directory Group Create V1 (2011-01-24)\n* Initial version.  See README for details.\n\nActive Directory Group Create V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory Group Create V3 (2019-10-01)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
+          ]
+        },
+        {
+          "name": "Active Directory User Add Groups",
+          "version": "3",
+          "id": "active_directory_user_add_groups_v3",
+          "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Logon and adds the user as a member to one or more groups.",
+          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If a matching user is found, it will be added as a member to each group specified in the groups parameter will be added to the user. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will raise an Exception if the specified User or any of the specified Groups are not found in the Active Directory system. \n\n\n#### Important Note\nThis handler has been tested on Task 4.0.6 and should preform as expected on all Task 4.x.x versions. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Search By": "Choose which attribute of the user to search by",
+            "Search Value": "The value of the Distinguished Name, Full Name, User Logon, or Email Address that will be used to search for the desired user.",
+            "Groups": "The common name(s) of the group(s) to add.  More than one group can be specified by separating each group with a comma."
+          },
+          "sampleConfiguration": {
+            "Search By": "User Name",
+            "Search Value": "<%=@answers['ReqFor Login ID']%>",
+            "Groups": "<%=@answers['Groups']%>",
+            "Error Handling": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and"
+          },
+          "changelog": {
+            "3": {
+              "version": "3",
+              "date": "2019-10-01",
+              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail"
+            },
+            "2": {
+              "version": "2",
+              "date": "2014-08-05",
+              "description": "* Changed the password info value to be encrypted."
+            },
+            "1": {
+              "version": "1",
+              "date": "2011-01-13",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Active Directory User Add Groups V1 (2011-01-13)\n* Initial version.  See README for details.\n\nActive Directory User Add Groups V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Add Groups V3 (2019-10-01)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
+          ]
+        },
+        {
+          "name": "Active Directory User Change Attribute",
+          "version": "1",
+          "id": "active_directory_user_change_attribute_v2",
+          "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and changes the specified LDAP attribute.",
+          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName (pre-Windows 2000). Finally, the handler changes the specified LDAP attribute to the new value. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. \n\n\n#### Important Note\nThis handler has been tested on Task 4.0.6 and should preform as expected on all Task 4.x.x versions. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Search By": "Choose which attribute of the user to search by",
+            "Search Value": "The actual search expression to search for",
+            "LDAP attribute": "The LDAP attribute to change for the specified user",
+            "New attribute value": "The new value the specified user will get for the LDAP Attribute parameter"
+          },
+          "sampleConfiguration": {
+            "Search By": "User Logon",
+            "Search Value": "<%=@answers['ReqFor Login ID']%>",
+            "LDAP attribute": "mobile",
+            "New attribute value": "555-555-5555",
+            "Error Handling": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and"
+          },
+          "changelog": {
+            "2": {
+              "version": "2",
+              "date": "2019-10-04",
+              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail"
+            },
+            "1": {
+              "version": "1",
+              "date": "2014-08-05",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Active Directory User Change Attribute V1 (2014-08-05)\n* Initial version.  See README for details.\n\nActive Directory User Change Attribute V2 (2019-10-04)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
         },
         {
           "name": "Active Directory User Create",
           "version": "1",
-          "id": "active_directory_user_create_v1",
+          "id": "active_directory_user_create_v2",
           "description": "Creates an Active Directory user entry and uses the provided parameter values to specify common user attributes.",
-          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and create a user entry. \n\nIn order to build up the Distinguished Name (a unique identifier for the active directory user entry), the handler uses a template specified as a task info value. \n\nThe following entry attributes are set once the user entry is created: \n\n* Direct Mappings \n\n  - givenname                     => First Name \n\n  - sn                            => Last Name \n\n  - displayname                   => Full Name \n\n  - description                   => Description \n\n  - physicaldeliveryofficename    => Office \n\n  - telephonenumber               => Telephone \n\n  - mail                          => Email \n\n  - title                         => Title \n\n  - department                    => Department \n\n  - company                       => Company \n\n* Computed Mappings \n\n  - userprincipalname => Is set the the \"User Logon\" parameter if it was provided using the User Principal Name format.  This attribute is not set if the \"User Logon\" parameter was provided without the \"@domain\" suffix. \n\n  - samaccountname    => Is set to the username portion of the \"User Logon\" parameter. \n\n  - initials          => A concatenated string of the capitalized first letters of each word in the \"Full Name\" parameter. \n\n* Special Attributes \n\n  - objectclass       => [top,person,organizationalPerson,user] \n\nIf the node parameter \"Activated\" is set to 'Yes', the user will be activated immediately after the entry attributes have been set. \n\n\n#### Task Info Configuration\n\n* *dn_format* - This value is used to specify the distinguished name of the Active Directory user entry to be created.  Anything within curly braces {} will be replaced with the value of the entry attribute or task info value associated with that key. For example, the default format is 'CN={displayname},CN=Users,{base}'.  In this case {displayname} is replaced with the displayname attribute value and {base} is replaced with the value of the 'base' task info value.  A full list of available entry attributes is available above.  If you use organizational units they can be substituted into the distinguished name in this manner. ",
+          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and create a user entry. \n\nIn order to build up the Distinguished Name (a unique identifier for the active directory user entry), the handler uses a template specified as a task info value. \n\nThe following entry attributes are set once the user entry is created: \n\n* Direct Mappings \n\n  - givenname                     => First Name \n\n  - sn                            => Last Name \n\n  - displayname                   => Full Name \n\n  - description                   => Description \n\n  - physicaldeliveryofficename    => Office \n\n  - telephonenumber               => Telephone \n\n  - mail                          => Email \n\n  - title                         => Title \n\n  - department                    => Department \n\n  - company                       => Company \n\n* Computed Mappings \n\n  - userprincipalname => Is set the the \"User Logon\" parameter if it was provided using the User Principal Name format.  This attribute is not set if the \"User Logon\" parameter was provided without the \"@domain\" suffix. \n\n  - samaccountname    => Is set to the username portion of the \"User Logon\" parameter. \n\n  - initials          => A concatenated string of the capitalized first letters of each word in the \"Full Name\" parameter. \n\n* Special Attributes \n\n  - objectclass       => [top,person,organizationalPerson,user] \n\nIf the node parameter \"Activated\" is set to 'Yes', the user will be activated immediately after the entry attributes have been set. \n\n\n#### Task Info Configuration\n\n* *dn_format* - This value is used to specify the distinguished name of the Active Directory user entry to be created.  Anything within curly braces {} will be replaced with the value of the entry attribute or task info value associated with that key. For example, the default format is 'CN={displayname},CN=Users,{base}'.  In this case {displayname} is replaced with the displayname attribute value and {base} is replaced with the value of the 'base' task info value.  A full list of available entry attributes is available above.  If you use organizational units they can be substituted into the distinguished name in this manner. \n\n\n#### Important Note\nThis handler has been tested on Task 4.0.6 and should preform as expected on all Task 4.x.x versions. ",
           "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
             "User Logon": "The user's logon id.  This value should be specified as a User Principal Name (UPN) using the format 'username@domain.com'.  By convention, the User Logon is typically set to the same value as the user's email addresses.  In older Active Directory implementations, the domain may be omitted and the User Logon may be provided using the format 'username'.",
             "First Name": "The first name of the user.",
             "Last Name": "The last name of the user.",
@@ -101,38 +285,255 @@
             "Title": "<%=@results['Title']%>",
             "Department": "<%=@results['Dept']%>",
             "Company": "<%=@results['Company']%>",
-            "Activated": "Yes"
+            "Activated": "Yes",
+            "Error Handling": ""
           },
           "results": {
-            "Distinguished Name": "The distinguished name of the user entry that was created.  For example: CN=Daniel R Thompson,CN=Users,DC=kineticdata,DC=com "
+            "Handler Error Message": "Error message if an error was encountered and",
+            "Distinguished Name": "The distinguished name of the user entry that was created."
           },
           "changelog": {
+            "2": {
+              "version": "2",
+              "date": "2019-10-04",
+              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail"
+            },
             "1": {
               "version": "1",
               "date": "2011-01-14",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Active Directory User Create V1 (2011-01-14)\n* Initial version.  See README for details.",
+          "changelogText": "Active Directory User Create V1 (2011-01-14)\n* Initial version.  See README for details.\n\nActive Directory User Create V2 (2019-10-04)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail",
           "warnings": [
-
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
         },
         {
-          "name": "Active Directory User Retrieve",
-          "version": "3",
-          "id": "active_directory_user_retrieve_v3",
-          "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and returns a predefined set of attributes to include the Distinguished Name(dn).",
-          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName (pre-Windows 2000). \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. ",
+          "name": "Active Directory User Disable",
+          "version": "2",
+          "id": "active_directory_user_disable_v3",
+          "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and disables the user's account.",
+          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName (pre-Windows 2000). Finally, the handler disables the account. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. \n\n\n#### Important Note\nThis handler has been tested on Task 4.0.6 and should preform as expected on all Task 4.x.x versions. ",
           "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
             "Search By": "Choose which attribute of the user to search by",
             "Search Value": "The actual search expression to search for"
           },
           "sampleConfiguration": {
             "Search By": "User Logon",
-            "Search Value": "<%=@answers['ReqFor Login ID']%>"
+            "Search Value": "<%=@answers['ReqFor Login ID']%>",
+            "Error Handling": ""
           },
           "results": {
+            "Handler Error Message": "Error message if an error was encountered and"
+          },
+          "changelog": {
+            "3": {
+              "version": "3",
+              "date": "2019-10-04",
+              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail"
+            },
+            "2": {
+              "version": "2",
+              "date": "2014-08-05",
+              "description": "* Changed the password info value to be encrypted."
+            },
+            "1": {
+              "version": "1",
+              "date": "2011-02-04",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Active Directory User Disable V1 (2011-02-04)\n* Initial version.  See README for details.\n\nActive Directory User Disable V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Disable V3 (2019-10-04)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
+          ]
+        },
+        {
+          "name": "Active Directory User Enable",
+          "version": "2",
+          "id": "active_directory_user_enable_v3",
+          "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and enables the user's account.",
+          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName(pre-Windows 2000). Finally, the handler enable the account. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. \n\n\n#### Important Note\nThis handler has been tested on Task 4.0.6 and should preform as expected on all Task 4.x.x versions. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Search By": "Choose which attribute of the user to search by",
+            "Search Value": "The actual search expression to search for"
+          },
+          "sampleConfiguration": {
+            "Search By": "User Logon",
+            "Search Value": "<%=@answers['ReqFor Login ID']%>",
+            "Error Handling": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and"
+          },
+          "changelog": {
+            "3": {
+              "version": "3",
+              "date": "2019-10-04",
+              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail"
+            },
+            "2": {
+              "version": "2",
+              "date": "2014-08-05",
+              "description": "* Changed the password info value to be encrypted."
+            },
+            "1": {
+              "version": "1",
+              "date": "2011-02-04",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Active Directory User Enable V1 (2011-02-04)\n* Initial version.  See README for details.\n\nActive Directory User Enable V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Enable V3 (2019-10-04)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
+          ]
+        },
+        {
+          "name": "Active Directory User Expire Password",
+          "version": "2",
+          "id": "active_directory_user_expire_password_v3",
+          "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and sets the password to expired, requiring the user to change it.",
+          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName(pre-Windows 2000). Finally, the handler will set the password to expired.  This is analogous to checking the box marked \"User must change password at next logon\" on the active directory users and computers administration tool. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Search By": "Choose which attribute of the user to search by",
+            "Search Value": "The actual search expression to search for"
+          },
+          "sampleConfiguration": {
+            "Search By": "User Logon",
+            "Search Value": "<%=@answers['ReqFor Login ID']%>",
+            "Error Handling": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and"
+          },
+          "changelog": {
+            "3": {
+              "version": "3",
+              "date": "2019-10-10",
+              "description": "* Added Never Drop Never Fail"
+            },
+            "2": {
+              "version": "2",
+              "date": "2014-08-05",
+              "description": "* Changed the password info value to be encrypted."
+            },
+            "1": {
+              "version": "1",
+              "date": "2011-02-04",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Active Directory User Expire Password V1 (2011-02-04)\n* Initial version.  See README for details.\n\nActive Directory User Expire Password V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Expire Password V3 (2019-10-01)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\nActive Directory User Expire Password V3 (2019-10-10)\n* Added Never Drop Never Fail",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
+          ]
+        },
+        {
+          "name": "Active Directory User Permanent Password",
+          "version": "2",
+          "id": "active_directory_user_permanent_password_v3",
+          "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and sets the 'password never expires' flag.",
+          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName(pre-Windows 2000). Finally, the flag is set so the password never expires. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Search By": "Choose which attribute of the user to search by",
+            "Search Value": "The actual search expression to search for"
+          },
+          "sampleConfiguration": {
+            "Search By": "User Logon",
+            "Search Value": "<%=@answers['ReqFor Login ID']%>",
+            "Error Handling": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and"
+          },
+          "changelog": {
+            "3": {
+              "version": "3",
+              "date": "2019-10-10",
+              "description": "* Added Never Drop Never Fail"
+            },
+            "2": {
+              "version": "2",
+              "date": "2014-08-05",
+              "description": "* Changed the password info value to be encrypted."
+            },
+            "1": {
+              "version": "1",
+              "date": "2011-02-07",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Active Directory User Permanent Password V1 (2011-02-07)\n* Initial version.  See README for details.\n\nActive Directory User Permanent Password V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Permanent Password V3 (2019-10-01)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\nActive Directory User Permanent Password V3 (2019-10-10)\n* Added Never Drop Never Fail",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
+          ]
+        },
+        {
+          "name": "Active Directory User Remove Groups",
+          "version": "3",
+          "id": "active_directory_user_remove_groups_v3",
+          "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Logon and remove that user as a member from one or more groups.",
+          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If a matching user is found, it will be removed as a member from each group specified in the groups parameter will be added to the user. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will raise an Exception if the specified User or any of the specified Groups are not found in the Active Directory system. \n\n\n#### Important Note\nThis handler has been tested on Task 4.0.6 and should preform as expected on all Task 4.x.x versions. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Search By": "Choose which attribute of the user to search by",
+            "Search Value": "The value of the Distinguished Name, Full Name, User Logon, or Email Address that will be used to search for the desired user.",
+            "Groups": "The common name(s) of the group(s) to remove.  More than one group can be specified by separating each group with a comma."
+          },
+          "sampleConfiguration": {
+            "Search By": "User Name",
+            "Search Value": "<%=@answers['ReqFor Login ID']%>",
+            "Groups": "<%=@answers['Groups']%>",
+            "Error Handling": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and"
+          },
+          "changelog": {
+            "3": {
+              "version": "3",
+              "date": "2019-10-10",
+              "description": "* Added Never Drop Never Fail"
+            },
+            "2": {
+              "version": "2",
+              "date": "2014-08-05",
+              "description": "* Changed the password info value to be encrypted."
+            },
+            "1": {
+              "version": "1",
+              "date": "2011-01-25",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Active Directory User Remove Groups V1 (2011-01-25)\n* Initial version.  See README for details.\n\nActive Directory User Remove Groups V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Remove Groups V3 (2019-10-01)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\nActive Directory User Remove Groups V3 (2019-10-10)\n* Added Never Drop Never Fail",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
+          ]
+        },
+        {
+          "name": "Active Directory User Retrieve",
+          "version": "3",
+          "id": "active_directory_user_retrieve_v4",
+          "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and returns a predefined set of attributes to include the Distinguished Name(dn).",
+          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName (pre-Windows 2000). \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. \n\n\n#### Important Note\nThis handler has been tested on Task 4.0.6 and should preform as expected on all Task 4.x.x versions. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Search By": "Choose which attribute of the user to search by",
+            "Search Value": "The actual search expression to search for"
+          },
+          "sampleConfiguration": {
+            "Search By": "User Logon",
+            "Search Value": "<%=@answers['ReqFor Login ID']%>",
+            "Error Handling": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and",
             "Distinguished Name": "The globally-unique text string for this user in",
             "First Name": "The first name of the user",
             "Last Name": "The last name of the user",
@@ -151,6 +552,11 @@
             "Company": "The name of the company that the user is employed by"
           },
           "changelog": {
+            "4": {
+              "version": "4",
+              "date": "2019-10-10",
+              "description": "* Added Never Drop Never Fail"
+            },
             "3": {
               "version": "3",
               "date": "2015-08-03",
@@ -167,298 +573,36 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Active Directory User Retrieve V1 (2011-01-17)\n* Initial version.  See README for details.\n\nActive Directory User Retrieve V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Retrieve V3 (2015-08-03)\n* Added ability to check if account is enabled or disabled.",
+          "changelogText": "Active Directory User Retrieve V1 (2011-01-17)\n* Initial version.  See README for details.\n\nActive Directory User Retrieve V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Retrieve V3 (2015-08-03)\n* Added ability to check if account is enabled or disabled.\n\nActive Directory User Retrieve V4 (2019-10-07)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\nActive Directory User Retrieve V4 (2019-10-10)\n* Added Never Drop Never Fail",
           "warnings": [
-
-          ]
-        },
-        {
-          "name": "Active Directory User Add Groups",
-          "version": "2",
-          "id": "active_directory_user_add_groups_v2",
-          "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Logon and adds the user as a member to one or more groups.",
-          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If a matching user is found, it will be added as a member to each group specified in the groups parameter will be added to the user. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will raise an Exception if the specified User or any of the specified Groups are not found in the Active Directory system. ",
-          "parameters": {
-            "Search By": "Choose which attribute of the user to search by",
-            "Search Value": "The value of the Distinguished Name, Full Name, User Logon, or Email Address that will be used to search for the desired user.",
-            "Groups": "The common name(s) of the group(s) to add.  More than one group can be specified by separating each group with a comma."
-          },
-          "sampleConfiguration": {
-            "Search By": "User Name",
-            "Search Value": "<%=@answers['ReqFor Login ID']%>",
-            "Groups": "<%=@answers['Groups']%>"
-          },
-          "results": {
-          },
-          "changelog": {
-            "2": {
-              "version": "2",
-              "date": "2014-08-05",
-              "description": "* Changed the password info value to be encrypted."
-            },
-            "1": {
-              "version": "1",
-              "date": "2011-01-13",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Active Directory User Add Groups V1 (2011-01-13)\n* Initial version.  See README for details.\n\nActive Directory User Add Groups V2 (2014-08-05)\n* Changed the password info value to be encrypted.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Active Directory Group Create",
-          "version": "2",
-          "id": "active_directory_group_create_v2",
-          "description": "Creates an Active Directory group entry and uses the provided parameter values to specify common attributes.  This handler will fail if the group already exists.",
-          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and create a group entry. \n\nIn order to build up the Distinguished Name (a unique identifier for the active directory user entry), the handler uses a template specified as a task info value. \n\nThe following entry attributes are set once the user entry is created: \n\n* Direct Mappings \n\n  - name              => Group Name \n\n  - mail              => Email Address \n\n  - description       => Description \n\n  - info              => Notes \n\n* Computed Mappings \n\n  - grouptype         => Numerical representation of the group scope and type. \n\n* Special Attributes \n\n  - objectclass       => [top,group] \n\n\n#### Task Info Configuration\n\n* *dn_format* - This value is used to specify the distinguished name of the Active Directory group entry to be created.  Anything within curly braces {} will be replaced with the value of the entry attribute or task info value associated with that key. For example, the default format is 'CN={displayname},CN=Users,{base}'.  In this case {displayname} is replaced with the displayname attribute value and {base} is replaced with the value of the 'base' task info value.  A full list of available entry attributes is available above.  If you use organizational units they can be substituted into the distinguished name in this manner. ",
-          "parameters": {
-            "Group Name": "The name of the group to be created",
-            "Description": "The description of this group",
-            "Email Address": "The Email Address for this group.  Active Directory can be configured so that all members of a group are notified when the group receives an Email.",
-            "Group Scope": "Security groups or distribution groups are characterized by a scope that identifies how they are applied in the domain tree or forest. There are three group scopes: universal, global, and domain local.",
-            "Group Type": "There are two group types, security and distribution.  Security groups allow you to manage user and computer access to shared resources.  Distribution groups are intended to be used solely as email distribution lists.",
-            "Notes": "Additional information about the group"
-          },
-          "sampleConfiguration": {
-            "Group Name": "<%=@results['New Group Name']%>",
-            "Description": "Allows access to the accounting resources",
-            "Email Address": "Accounting@company.com",
-            "Group Scope": "Global",
-            "Group Type": "Security",
-            "Notes": "<%=@results['Notes']%>"
-          },
-          "results": {
-            "Distinguished Name": "CN=Accounting,CN=Users,DC=kineticdata,DC=com"
-          },
-          "changelog": {
-            "2": {
-              "version": "2",
-              "date": "2014-08-05",
-              "description": "* Changed the password info value to be encrypted."
-            },
-            "1": {
-              "version": "1",
-              "date": "2011-01-24",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Active Directory Group Create V1 (2011-01-24)\n* Initial version.  See README for details.\n\nActive Directory Group Create V2 (2014-08-05)\n* Changed the password info value to be encrypted.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Active Directory User Expire Password",
-          "version": "2",
-          "id": "active_directory_user_expire_password_v2",
-          "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and sets the password to expired, requiring the user to change it.",
-          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName(pre-Windows 2000). Finally, the handler will set the password to expired.  This is analogous to checking the box marked \"User must change password at next logon\" on the active directory users and computers administration tool. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. ",
-          "parameters": {
-            "Search By": "Choose which attribute of the user to search by",
-            "Search Value": "The actual search expression to search for"
-          },
-          "sampleConfiguration": {
-            "Search By": "User Logon",
-            "Search Value": "<%=@answers['ReqFor Login ID']%>"
-          },
-          "results": {
-          },
-          "changelog": {
-            "2": {
-              "version": "2",
-              "date": "2014-08-05",
-              "description": "* Changed the password info value to be encrypted."
-            },
-            "1": {
-              "version": "1",
-              "date": "2011-02-04",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Active Directory User Expire Password V1 (2011-02-04)\n* Initial version.  See README for details.\n\nActive Directory User Expire Password V2 (2014-08-05)\n* Changed the password info value to be encrypted.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Active Directory User Enable",
-          "version": "2",
-          "id": "active_directory_user_enable_v2",
-          "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and enables the user's account.",
-          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName(pre-Windows 2000). Finally, the handler enable the account. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. ",
-          "parameters": {
-            "Search By": "Choose which attribute of the user to search by",
-            "Search Value": "The actual search expression to search for"
-          },
-          "sampleConfiguration": {
-            "Search By": "User Logon",
-            "Search Value": "<%=@answers['ReqFor Login ID']%>"
-          },
-          "results": {
-          },
-          "changelog": {
-            "2": {
-              "version": "2",
-              "date": "2014-08-05",
-              "description": "* Changed the password info value to be encrypted."
-            },
-            "1": {
-              "version": "1",
-              "date": "2011-02-04",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Active Directory User Enable V1 (2011-02-04)\n* Initial version.  See README for details.\n\nActive Directory User Enable V2 (2014-08-05)\n* Changed the password info value to be encrypted.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Active Directory Computer Remove Groups",
-          "version": "1",
-          "id": "active_directory_computer_remove_groups_v1",
-          "description": "Finds a user in active directory by Distinguished Name (Computer Name) and adds the computer as a member to one or more groups.",
-          "detailedDescription": "This handler will use the server information and computer credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the computer based on the search parameters provided.  If a matching computer is found, it will be removed as a member from each group specified in the groups parameter will be added to the computer. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'computerprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will raise an Exception if the specified User or any of the specified Groups are not found in the Active Directory system. ",
-          "parameters": {
-            "Search By": "'Distinguished Name', 'Full Name', 'User Name', 'Computer Name', or 'Email Address'",
-            "Search Value": "The value of the Distinguished Name (Computer Name).",
-            "Groups": "The common name(s) of the group(s) to remove.  More than one group can be specified by separating each group with a comma."
-          },
-          "sampleConfiguration": {
-            "Search By": "User Name",
-            "Search Value": "<%=@answers['ReqFor Login ID']%>",
-            "Groups": "<%=@answers['Groups']%>"
-          },
-          "results": {
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-Aug-29",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Active Directory Computer Remove Groups V1 (2017-Aug-29)\n* Initial version.  See README for details.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Active Directory User Disable",
-          "version": "2",
-          "id": "active_directory_user_disable_v2",
-          "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and disables the user's account.",
-          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName (pre-Windows 2000). Finally, the handler disables the account. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. ",
-          "parameters": {
-            "Search By": "Choose which attribute of the user to search by",
-            "Search Value": "The actual search expression to search for"
-          },
-          "sampleConfiguration": {
-            "Search By": "User Logon",
-            "Search Value": "<%=@answers['ReqFor Login ID']%>"
-          },
-          "results": {
-          },
-          "changelog": {
-            "2": {
-              "version": "2",
-              "date": "2014-08-05",
-              "description": "* Changed the password info value to be encrypted."
-            },
-            "1": {
-              "version": "1",
-              "date": "2011-02-04",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Active Directory User Disable V1 (2011-02-04)\n* Initial version.  See README for details.\n\nActive Directory User Disable V2 (2014-08-05)\n* Changed the password info value to be encrypted.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Active Directory User Remove Groups",
-          "version": "2",
-          "id": "active_directory_user_remove_groups_v2",
-          "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Logon and remove that user as a member from one or more groups.",
-          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If a matching user is found, it will be removed as a member from each group specified in the groups parameter will be added to the user. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will raise an Exception if the specified User or any of the specified Groups are not found in the Active Directory system. ",
-          "parameters": {
-            "Search By": "Choose which attribute of the user to search by",
-            "Search Value": "The value of the Distinguished Name, Full Name, User Logon, or Email Address that will be used to search for the desired user.",
-            "Groups": "The common name(s) of the group(s) to remove.  More than one group can be specified by separating each group with a comma."
-          },
-          "sampleConfiguration": {
-            "Search By": "User Name",
-            "Search Value": "<%=@answers['ReqFor Login ID']%>",
-            "Groups": "<%=@answers['Groups']%>"
-          },
-          "results": {
-          },
-          "changelog": {
-            "2": {
-              "version": "2",
-              "date": "2014-08-05",
-              "description": "* Changed the password info value to be encrypted."
-            },
-            "1": {
-              "version": "1",
-              "date": "2011-01-25",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Active Directory User Remove Groups V1 (2011-01-25)\n* Initial version.  See README for details.\n\nActive Directory User Remove Groups V2 (2014-08-05)\n* Changed the password info value to be encrypted.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "Active Directory Distribution List Member Retrieve",
-          "version": "1",
-          "id": "active_directory_distributionlist_members_retrieve_v1",
-          "description": "Finds a Distribution List in active directory by Distinguished Name, or Email Address and returns a comma delimited list of immediate members (e-mail addresses)",
-          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the distribution group on the search parameters provided.  If Email Address is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName (pre-Windows 2000). \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User objects that are a member of the provided group. \n\n* If 'Email Address' is selected, the Distinguished Name of the group will first be searched for by the mail address. ",
-          "parameters": {
-            "Search By": "Choose which attribute of the user to search by",
-            "Search Value": "The actual search expression to search for"
-          },
-          "sampleConfiguration": {
-            "Search By": "Email Address",
-            "Search Value": "distributionlistname@acmecompany.com"
-          },
-          "results": {
-            "Email Addresses": "The email addresses of all users in the group."
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2014-03-17",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Active Directory Distribution List Member Retrieve V1 (2014-03-17)\n* Initial version.  See README for details.",
-          "warnings": [
-
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
         },
         {
           "name": "Active Directory User Temporal Password",
           "version": "2",
-          "id": "active_directory_user_temporal_password_v2",
+          "id": "active_directory_user_temporal_password_v3",
           "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and sets the 'password never expires' flag.",
           "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName(pre-Windows 2000). Finally, the flag is unset for 'password never expires' so that the password will expire. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. ",
           "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
             "Search By": "Choose which attribute of the user to search by",
             "Search Value": "The actual search expression to search for"
           },
           "sampleConfiguration": {
             "Search By": "User Logon",
-            "Search Value": "<%=@answers['ReqFor Login ID']%>"
+            "Search Value": "<%=@answers['ReqFor Login ID']%>",
+            "Error Handling": ""
           },
           "results": {
+            "Handler Error Message": "Error message if an error was encountered and"
           },
           "changelog": {
+            "3": {
+              "version": "3",
+              "date": "2019-10-10",
+              "description": "* Added Never Drop Never Fail"
+            },
             "2": {
               "version": "2",
               "date": "2014-08-05",
@@ -470,41 +614,9 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Active Directory User Temporal Password V1 (2011-02-07)\n* Initial version.  See README for details.\n\nActive Directory User Temporal Password V2 (2014-08-05)\n* Changed the password info value to be encrypted.",
+          "changelogText": "Active Directory User Temporal Password V1 (2011-02-07)\n* Initial version.  See README for details.\n\nActive Directory User Temporal Password V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Temporal Password V3 (2019-10-07)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\nActive Directory User Temporal Password V3 (2019-10-10)\n* Added Never Drop Never Fail",
           "warnings": [
-
-          ]
-        },
-        {
-          "name": "Active Directory User Change Attribute",
-          "version": "1",
-          "id": "active_directory_user_change_attribute_v1",
-          "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and changes the specified LDAP attribute.",
-          "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName (pre-Windows 2000). Finally, the handler changes the specified LDAP attribute to the new value. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. ",
-          "parameters": {
-            "Search By": "Choose which attribute of the user to search by",
-            "Search Value": "The actual search expression to search for",
-            "LDAP attribute": "The LDAP attribute to change for the specified user",
-            "New attribute value": "The new value the specified user will get for the LDAP Attribute parameter"
-          },
-          "sampleConfiguration": {
-            "Search By": "User Logon",
-            "Search Value": "<%=@answers['ReqFor Login ID']%>",
-            "LDAP attribute": "mobile",
-            "New attribute value": "555-555-5555"
-          },
-          "results": {
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2014-08-05",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "Active Directory User Change Attribute V1 (2014-08-05)\n* Initial version.  See README for details.",
-          "warnings": [
-
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
         }
       ]
