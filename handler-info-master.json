@@ -8071,14 +8071,17 @@
           "description": "Generically creates an object in Cherwell.",
           "detailedDescription": "This handler generically creates a Cherwell object based on inputted JSON and returns an id of the new object after creation. Execution starts by retrieving an Access Token from Cherwell using the client id/secret and username/password info values. Once that is successfully retrieved, the Object Name is translated into a Business Object Id by using the /getbusinessobjectsummary endpoint. Next, a call to /getbusinessobjectemplate is made so the handler can exchange the Display Names (that are used in the inputted Object JSON string) for Field Ids for each of the fields that should be populated on create. Lastly, that translated JSON object is passed to /savebusinessobject to actually create the object in Cherwell. If the call is successful, the id of the newly created object will be returned by the handler. ",
           "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
             "Object Name": "Readable name of the object to retrieve (ie. Incident).",
             "Object JSON": "A JSON representation of the displayName/values for the fields that the object should be created with."
           },
           "sampleConfiguration": {
+            "Error Handling": "Error Message",
             "Object Name": "Incident",
             "Object JSON": "{\"Status\":\"New\",\"Description\":\"From Kinetic Task\"...}"
           },
           "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
             "Object Id": "Id for the newly created object "
           },
           "changelog": {
@@ -8088,7 +8091,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Cherwell Object Create V1 (2018-02-14)\r\n* Initial version.  See README for details.",
+          "changelogText": "Cherwell Object Create V1 (2019-11-4)\r\n* Added error message Handling\r\n\r\nCherwell Object Create V1 (2018-02-14)\r\n* Initial version.  See README for details.\r\n",
           "warnings": [
             "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted."
           ]
@@ -8128,18 +8131,21 @@
           "description": "Generically searches for objects from Cherwell.",
           "detailedDescription": "This handler generically searches for Cherwell objects given a map of Display Names and Values to search on equality and returns a JSON array of the matching objects. Execution starts by retrieving an Access Token from Cherwell using the client id/secret and username/password info values. Once that is successfully retrieved, the Object Name is translated into a Business Object Id by using the /getbusinessobjectsummary endpoint. The /getbusinessobjecttemplate endpoint is then called to exchange the Display Names in the filter for Field Ids (which is what Cherwell's API expects). The search is then sent with the various options to the server and returns JSON representations of the objects that match the filter (up to the max results size -- pagination is not currently implemented so the max results is currently just there to protect against killing the server if a filter set matches more records than expected). On a successful call, the handler will return the JSON Results, the amount of records that are returned in the results, and the amount of records that were matched overall (even if they weren't returned in the results). ",
           "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
             "Object Name": "Readable name of the object to retrieve (ie. Incident).",
             "Fields to Return": "Comma separated list of fields to return (if none entered, all fields will be returned).",
             "Filters": "A JSON object with key/value pairs that will be searched for equality.",
             "Max Results": "The maximum amount of results that can be returned in a single handler execution (if blank, as many as possible will be returned)."
           },
           "sampleConfiguration": {
+            "Error Handling": "Error Message",
             "Object Name": "Incident",
             "Fields to Return": "",
             "Filters": "{\"Status\": \"New\", \"Customer ID\": \"fa00c2e9123e423cb2c96e63ee72bc4a\"}",
             "Max Results": "5"
           },
           "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
             "JSON Results": "JSON representations of the objects that match the inputted filters. ",
             "Count": "Total records returned in the JSON Results array. ",
             "Total Matched": "Total records that matched the filters on the Cherwell server. "
@@ -8151,7 +8157,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Cherwell Object Find V1 (2018-03-07)\r\n* Initial version.  See README for details.",
+          "changelogText": "Cherwell Object Find V1 (2019-11-4)\r\n* Added error message Handling\r\n\r\nCherwell Object Find V1 (2018-03-07)\r\n* Initial version.  See README for details.\r\n",
           "warnings": [
             "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted."
           ]
@@ -8163,14 +8169,17 @@
           "description": "Generically retrieves an object from Cherwell.",
           "detailedDescription": "This handler generically retrieves a Cherwell object and returns a JSON representation of the found object. Execution starts by retrieving an Access Token from Cherwell using the client id/secret and username/password info values. Once that is successfully retrieved, the Object Name is translated into a Business Object Id by using the /getbusinessobjectsummary endpoint. The returned Business Object Id and inputted Object Id are then passed to the /getbusinessobject endpoint to retrieve the full matching object. Lastly, the fields return are converted from an array to a simplified map of field information in the form of {displayName: value}. ",
           "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
             "Object Name": "Readable name of the object to retrieve (ie. Incident).",
             "Object Id": "Id of the object to be retrieved."
           },
           "sampleConfiguration": {
+            "Error Handling": "Error Message",
             "Object Name": "Incident",
             "Object Id": "47285"
           },
           "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
             "Object JSON": "A JSON representation of the object that matches the id. "
           },
           "changelog": {
@@ -8180,9 +8189,10 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Cherwell Object Retrieve V1 (2018-02-14)\r\n* Initial version.  See README for details.",
+          "changelogText": "Cherwell Object Find V1 (2019-11-9)\r\n* Added error message Handling\r\n\r\nCherwell Object Retrieve V1 (2018-02-14)\r\n* Initial version.  See README for details.\r\n",
           "warnings": [
-            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted."
+            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted.",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
         {
@@ -8192,16 +8202,19 @@
           "description": "Generically updates an object in Cherwell.",
           "detailedDescription": "This handler generically updates a Cherwell object using an inputted JSON representation to determine what fields to update on the object. Execution starts by retrieving an Access Token from Cherwell using the client id/secret and username/password info values. Once that is successfully retrieved, the Object Name is translated into a Business Object Id by using the /getbusinessobjectsummary endpoint. A call to retrieve the object template is made so that the field object/ids can be found for the fields that should be updated and lastly the call is made to /savebusinessobject to update the included fields on the inputted object. An empty result set will be returned on a successful call. ",
           "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
             "Object Name": "Readable name of the object to update (ie. Incident).",
-            "Object Update": "Public id for the object that should be updated..",
+            "Object Id": "Public id for the object that should be updated..",
             "Object JSON": "A JSON representation of the displayName/values for the fields that the object should be updated with."
           },
           "sampleConfiguration": {
+            "Error Handling": "Error Message",
             "Object Name": "Incident",
-            "Object JSON": "{\"Description\": \"Update from a Task Handler\"}",
-            "Object Update": ""
+            "Object Id": "47285",
+            "Object JSON": "{\"Description\": \"Update from a Task Handler\"}"
           },
           "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". "
           },
           "changelog": {
             "1": {
@@ -8210,10 +8223,38 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Cherwell Object Update V1 (2018-02-14)\r\n* Initial version.  See README for details.",
+          "changelogText": "Cherwell Object Update V1 (2019-11-4)\r\n* Added error message Handling\r\n\r\nCherwell Object Update V1 (2018-02-14)\r\n* Initial version.  See README for details.\r\n",
+          "warnings": [
+            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted."
+          ]
+        },
+        {
+          "name": "Cherwell User Retrieve",
+          "version": "2",
+          "id": "cherwell_user_retrieve_v2",
+          "description": "Generically retrieves an object from Cherwell.",
+          "detailedDescription": "This handler retrieves a Cherwell user and returns a JSON representation of the found user. Execution starts by retrieving an Access Token from Cherwell using the client id/secret and username/password info values. Once that is successfully retrieved, the user is retrieved. Lastly, the fields returned are converted from an array to a simplified map of field information in the form of {displayName: value}. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Login Id": "Internal Cherwell Login ID of the user record to retrieve.",
+            "Login Id Type": "Login ID Type.  Options are Internal or Windows."
+          },
+          "sampleConfiguration": {
+            "Login Id": "CSDAdmin",
+            "Login Id Type": "Internal",
+            "Error Handling": ""
+          },
+          "results": {
+            "Handler Error Message": "Will include \"User not found (<provided login id>)\" if the login it provided is not found, otherwise any other error. ",
+            "User JSON": "A JSON representation of the user that matches the id.  Will be an empty hash if a user is not found. "
+          },
+          "changelog": {
+          },
+          "changelogText": "Cherwell Object Retrieve V2(2019-11-4)\r\n* Added error message Handling\r\n\r\nCherwell Object Retrieve V2 (2019-10-26)\r\n* Uses Cherwell API V2, which includes the loginidtype input parameter.\r\n\r\nCherwell Object Retrieve V1 (2019-10-26)\r\n* Initial version.  See README for details.\r\n",
           "warnings": [
             "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted.",
-            "The following parameters can't be found in the Sample Configuration in the README: Object Update"
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         }
       ],
