@@ -8091,7 +8091,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Cherwell Object Create V1 (2019-11-4)\r\n* Added error message Handling\r\n\r\nCherwell Object Create V1 (2018-02-14)\r\n* Initial version.  See README for details.\r\n",
+          "changelogText": "Cherwell Object Create V1 (2019-11-13)\r\n* Added auth mode to info values\r\n\r\nCherwell Object Create V1 (2019-11-4)\r\n* Added error message Handling\r\n\r\nCherwell Object Create V1 (2018-02-14)\r\n* Initial version.  See README for details.\r\n",
           "warnings": [
             "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted."
           ]
@@ -8157,7 +8157,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Cherwell Object Find V1 (2019-11-4)\r\n* Added error message Handling\r\n\r\nCherwell Object Find V1 (2018-03-07)\r\n* Initial version.  See README for details.\r\n",
+          "changelogText": "Cherwell Object Find V1 (2019-11-13)\r\n* Added auth mode to info values\r\n\r\nCherwell Object Find V1 (2019-11-4)\r\n* Added error message Handling\r\n\r\nCherwell Object Find V1 (2018-03-07)\r\n* Initial version.  See README for details.\r\n",
           "warnings": [
             "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted."
           ]
@@ -8189,10 +8189,9 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Cherwell Object Find V1 (2019-11-9)\r\n* Added error message Handling\r\n\r\nCherwell Object Retrieve V1 (2018-02-14)\r\n* Initial version.  See README for details.\r\n",
+          "changelogText": "Cherwell Object Retrieve V1 (2019-11-13)\r\n* Added auth mode to info values\r\n\r\nCherwell Object Retrieve V1 (2019-11-9)\r\n* Added error message Handling\r\n\r\nCherwell Object Retrieve V1 (2018-02-14)\r\n* Initial version.  See README for details.\r\n",
           "warnings": [
-            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted.",
-            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted."
           ]
         },
         {
@@ -8223,7 +8222,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Cherwell Object Update V1 (2019-11-4)\r\n* Added error message Handling\r\n\r\nCherwell Object Update V1 (2018-02-14)\r\n* Initial version.  See README for details.\r\n",
+          "changelogText": "Cherwell Object Update V1 (2019-11-13)\r\n* Added auth mode to info values\r\n\r\nCherwell Object Update V1 (2019-11-4)\r\n* Added error message Handling\r\n\r\nCherwell Object Update V1 (2018-02-14)\r\n* Initial version.  See README for details.\r\n",
           "warnings": [
             "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted."
           ]
@@ -8249,12 +8248,21 @@
             "User JSON": "A JSON representation of the user that matches the id.  Will be an empty hash if a user is not found. "
           },
           "changelog": {
+            "2": {
+              "version": "2",
+              "date": "2019-10-26",
+              "description": "* Uses Cherwell API V2, which includes the loginidtype input parameter."
+            },
+            "1": {
+              "version": "1",
+              "date": "2019-10-26",
+              "description": "* Initial version.  See README for details."
+            }
           },
-          "changelogText": "Cherwell Object Retrieve V2(2019-11-4)\r\n* Added error message Handling\r\n\r\nCherwell Object Retrieve V2 (2019-10-26)\r\n* Uses Cherwell API V2, which includes the loginidtype input parameter.\r\n\r\nCherwell Object Retrieve V1 (2019-10-26)\r\n* Initial version.  See README for details.\r\n",
+          "changelogText": "Cherwell User Retrieve V2 (2019-11-13)\r\n* Added auth mode to info values\r\n\r\nCherwell User Retrieve V2 (2019-11-4)\r\n* Added error message Handling\r\n\r\nCherwell User Retrieve V2 (2019-10-26)\r\n* Uses Cherwell API V2, which includes the loginidtype input parameter.\r\n\r\nCherwell User Retrieve V1 (2019-10-26)\r\n* Initial version.  See README for details.\r\n",
           "warnings": [
             "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted.",
-            "The following parameters can't be found in the Sample Configuration in the README: Error Handling",
-            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
         }
       ],
