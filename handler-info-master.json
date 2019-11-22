@@ -13028,6 +13028,42 @@
       "id": "kinetic-core",
       "handlerList": [
         {
+          "name": "Kinetic Bridged Resource Call v1",
+          "version": "1",
+          "id": "kinetic_bridgedresource_call_v1",
+          "description": "A handler that calls a bridged resource from a form.",
+          "detailedDescription": "",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Space Slug": "space slug for space containing form with bridged resource",
+            "Kapp Slug": "kapp slug for kapp containing form with bridged resource",
+            "Form Slug": "form with bridged resource",
+            "Bridged Resource Name": "Name set up in the form for the Bridged Resource",
+            "Parameters": "JSON of parameters for bridged resource not hard coded, format example: {'values[Requested Date]':'2019-03-25'"
+          },
+          "sampleConfiguration": {
+            "Error Handling": "",
+            "Space Slug": "",
+            "Kapp Slug": "",
+            "Form Slug": "",
+            "Bridged Resource Name": "",
+            "Parameters": ""
+          },
+          "results": {
+            "Response Body": "The returned value from the REST Call (JSON format) ",
+            "Response Code": "The returned code from the REST Call (ex. 200, 404) ",
+            "Handler Error Message": "Populated if error handling is set to error message and an error occurs. "
+          },
+          "changelog": {
+          },
+          "changelogText": "Kinetic Bridged Resource Call (2019-10-29)\n * Initial version.  See README for details.\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Space Slug, Kapp Slug, Form Slug, Bridged Resource Name, Parameters",
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
           "name": "Kinetic Request CE Attachment Copy",
           "version": "1",
           "id": "kinetic_request_ce_attachment_copy_v1",
@@ -14686,6 +14722,44 @@
           "changelogText": "Kinetic Request CE Submission Create V1.1 (2019-03-25)\r\n* Updated README\r\n\r\nKinetic Request CE Submission Create V1.1 (2018-05-25)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)\r\n\r\nKinetic Request CE Submission Create V1 (2015-04-24)\r\n * Initial version.  See README for details.\r\n",
           "warnings": [
 
+          ]
+        },
+        {
+          "name": "Kinetic Request CE Submission Database Insert",
+          "version": "1",
+          "id": "kinetic_request_ce_submission_db_insert_v1",
+          "description": "Using the input of submission data this handler creates a record of that submission in an external database.",
+          "detailedDescription": "",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Space Slug": "Space slug of the submission.",
+            "Kapp Slug": "Kapp slug of the submission. Needed for delete updates",
+            "Form Slug": "Form slug of the submission. Needed for delete updates",
+            "Datastore Submission?": "Is this a datastore submission?",
+            "Submission ID": "The submission id to store in the relational database.",
+            "Submission deletion timestamp.": "If set to a timestamp, the c_deletedAt database column will be set."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "",
+            "Space Slug": "",
+            "Kapp Slug": "",
+            "Form Slug": "",
+            "Datastore Submission?": "",
+            "Submission ID": "",
+            "Submission deletion timestamp.": ""
+          },
+          "results": {
+            "Submission Database Id": "",
+            "Handler Error Message": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "Kinetic Request CE Submission DB Insert V1 (2017-04-12)\r\n * Initial version.  See README for details.\r\n\r\nKinetic Request CE Submission DB Insert V1.1 (2018-06-05)\r\n* API Server Info Value changed to allow ${space} in the url for subdomain support\r\n(ie. https://${space}.localhost:8080/kinetic)",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Space Slug, Kapp Slug, Form Slug, Datastore Submission?, Submission ID, Submission deletion timestamp.",
+            "The following are defined as results but can't be found in the Results section in the README: Submission Database Id, Handler Error Message",
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
         {
