@@ -10749,15 +10749,132 @@
     {
       "name": "Chef",
       "id": "chef",
-      "description": "Chef is used to streamline the task of configuring and maintaining a company's servers, and can integrate with cloud-based platforms such as Internap, Amazon EC2, Google Cloud Platform, OpenStack, SoftLayer, Microsoft Azure and Rackspace to automatically provision and configure new machines.",
-      "image": "https://s3.amazonaws.com/task-handlers/chef/chef.svg",
+      "description": null,
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/chef/thumbnail.svg",
       "handlerList": [
+        {
+          "name": "Chef Add Recipe to Run List",
+          "version": "1",
+          "id": "chef_add_recipe_to_run_list_v1",
+          "description": "Adds a recipe to a run list for a specific Node in Chef.",
+          "detailedDescription": "This handler adds a recipe to a run list for a particular node in Chef.  If handler is successful, you will receive a JSON response as a return with the nodes information, including the run list array. ",
+          "parameters": {
+            "Recipe Name": "Name of the recipe that will be added to the run list.",
+            "Node Name": "Name of the node that the recipe will be added to."
+          },
+          "sampleConfiguration": {
+            "Recipe Name": "my_recipe",
+            "Node Name": "test-node"
+          },
+          "results": {
+            "node_json": "The JSON Object of the modified Node "
+          },
+          "changelog": {
+          },
+          "changelogText": "Chef Add Recipe to Run List (2017-06-12)\r\n * Initial version.  See README for details.\r\n * Updated to return JSON form attributes\r\n",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Chef Cookbook Delete",
+          "version": "1",
+          "id": "chef_cookbook_delete_v1",
+          "description": "Deletes a cookbook from a Chef server.",
+          "detailedDescription": "To delete a cookbook from the Chef server, the handler uses Chef's REST API. The handler first retrieves the users private key from the specified location so that it can then be used to sign the REST request. The handler then uses the inputted cookbook name and version to delete the cookbook. ",
+          "parameters": {
+            "Cookbook Name": "Name of the cookbook to be deleted.",
+            "Cookbook Version": "Version of the cookbook to be deleted."
+          },
+          "sampleConfiguration": {
+            "Cookbook Name": "my_cookbook",
+            "Cookbook Version": "0.1"
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Chef Cookbook Delete (2017-06-19)\r\n * Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Chef Retrieve Cookbook",
+          "version": "1",
+          "id": "chef_cookbook_retrieve_v1",
+          "description": "Retireve a Cookbook from Chef-io for an organization.",
+          "detailedDescription": "This handler retrieves a cookbook ",
+          "parameters": {
+            "Cookbook Name": "Name of the cookbook you wish to retrieve."
+          },
+          "sampleConfiguration": {
+            "Cookbook Name": "my_cookbook"
+          },
+          "results": {
+            "Cookbook JSON": "A JSON representation of the specified cookbook "
+          },
+          "changelog": {
+          },
+          "changelogText": "Chef Retrieve Cookbook (2017-06-13)\r\n * Initial version.  See README for details.\r\n",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Chef Node Attribute Add",
+          "version": "1",
+          "id": "chef_node_attribute_add_v1",
+          "description": "Adds an attribute to an existing node on Chef.",
+          "detailedDescription": "To add an attribute to an existing Chef Server node, the handler uses Chef's REST API. The handler first retrieves the users private key from the specified location so that it can then be used to sign the REST request. The handler then retrieves the node that will be updated to get all of the attributes that are currently attached to it. The inputted Attribute Name and Attribute Value will then be added as a key/value pair to the 'normal' attribute object in the node object. That updated object is then re-posted to the Chef Server to apply the changes to the node attributes on the Chef Server. And errors that are encountered during the process are caught and re-rasied by the handler. ",
+          "parameters": {
+            "Node Name": "Name of the node that the attribute will be added to.",
+            "Attribute Name": "Name of the attribute to be added.",
+            "Attribute Value": "Value of the attribute to be added."
+          },
+          "sampleConfiguration": {
+            "Node Name": "test-node",
+            "Attribute Name": "apache2-username",
+            "Attribute Value": "pass1"
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Chef Node Attribute Add (2017-06-12)\r\n * Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Chef Node Attribute Delete",
+          "version": "1",
+          "id": "chef_node_attribute_delete_v1",
+          "description": "Deletes an attribute from an existing Chef Server node",
+          "detailedDescription": "To delete an attribute from an existing Chef Server node, the handler uses Chef's REST API. The handler first retrieves the users private key from the specified location so that it can then be used to sign the REST request. The handler then retrieves the node that will be updated to get all of the attributes that are currently attached to it, looks for a 'normal' attribute key that matches the Attribute Name parameter and deletes it from the object. The updated node object is then re-posted to the Chef Server to apply the changes to the node attributes on the Chef Server. And errors that are encountered during the process are caught and re-rasied by the handler. ",
+          "parameters": {
+            "Node Name": "Name of the node that the attribute will be removed from.",
+            "Attribute Name": "Name of the attribute to be deleted."
+          },
+          "sampleConfiguration": {
+            "Node Name": "test-node",
+            "Attribute Name": "apache2-username"
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Chef Node Attribute Delete (2017-06-12)\r\n * Initial version.  See README for details.",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
         {
           "name": "Chef Node Bootstrap",
           "version": "1",
           "id": "chef_node_bootstrap_v1",
           "description": "Uses a previously installed knife instance on the Kinetic Task server to bootstrap a Chef node.",
-          "detailedDescription": "This handler bootstraps a node in chef by using an external ruby instance to call chef. Before uploading this handler, make sure to include a chef repository containing a knife.rb file either in the resources directory of the handler file or somewhere else on the task engine server. Once the handler starts running, it begins by error checking the parameters based on what type of server the task engine is running on (windows or unix). \nOn Windows machine the process consists of: \n- Loading and accepting the EULA for PsExec.exe (which will be used to run knife as a background process) \nOn both Unix and Windows machines the process consists of: \n- Checking if a knife.rb file is accessible from the handler \n- Checking if ruby with the json gem are installed (json is automatically included in ruby 1.9 and later) \n- Checking if the task location provided in the info values contains a source with the name provided in the parameters \nIf none of these situations throw an error, the handler then moves onto calling a script that handles the actual knife bootstrap call. This script is passed a json string of all the parameters provided to the handler. After creating a file within the handler resources folder that will contain all of the logging information for the bootstrap call (each call will have a different file, with the form of bootstrap_run_[epoch timestamp].log). The actual knife call that will be made follows the form of: \nknife bootstrap [server name] -x [user config] -N \"[node name]\" -r \"[recipe]\" -c [knife.rb location] \nThe bootstrapping process can take a long time, so once the script is started, the handler ends and is put into a deferred state until the bootstrap command is complete. Once that finishes, the script sends the deferral token back to the task tree using the Kinetic Task API and net/http (example POST that the script uses is below). Once the deferral token is recieved, the handler completes its process. \nTask 3 Deferral Callback \nPOST [task_location]/rest/v1/Trigger/createDeferred action=Complete&token=[deferral token] \nTask 4 Deferral Callback \nPOST [task_location]/app/api/v1/complete-deferred-task/[source name] { \"token\" : [deferral token] } \n\n#### Info Values\nTwo info values need to be provided with Chef Node Bootstrap. [Knife Location] The path to the knife.rb file on the server. If an absolute path is not given, the handler assumes the file was placed in the resources directory. \nie. chef-repo/.chef/knife.rb means that the file is located at chef_node_bootstrap_v1/handler/resources/chef-repo/.chef/knife.rb [Task Location] The url where your task instance is located \nie. http://127.0.0.1:8080/kinetic-task \n\n#### Knife Configuration\nInformation on how to configure knife on your machine can be found at -- http://docs.getchef.com/chef/knife.html ",
+          "detailedDescription": "This handler bootstraps a node in chef by using an external ruby instance to call chef. Before uploading this handler, make sure to include a chef repository containing a knife.rb file either in the resources directory of the handler file or somewhere else on the task engine server. Once the handler starts running, it begins by error checking the parameters based on what type of server the task engine is running on (windows or unix). \n\nOn Windows machine the process consists of: \n\n- Loading and accepting the EULA for PsExec.exe (which will be used to run knife as a background process) \n\nOn both Unix and Windows machines the process consists of: \n\n- Checking if a knife.rb file is accessible from the handler \n\n- Checking if ruby with the json gem are installed (json is automatically included in ruby 1.9 and later) \n\n- Checking if the task location provided in the info values contains a source with the name provided in the parameters \n\nIf none of these situations throw an error, the handler then moves onto calling a script that handles the actual knife bootstrap call. This script is passed a json string of all the parameters provided to the handler. After creating a file within the handler resources folder that will contain all of the logging information for the bootstrap call (each call will have a different file, with the form of bootstrap_run_[epoch timestamp].log). The actual knife call that will be made follows the form of: \n\nknife bootstrap [server name] -x [user config] -N \"[node name]\" -r \"[recipe]\" -c [knife.rb location] \n\nThe bootstrapping process can take a long time, so once the script is started, the handler ends and is put into a deferred state until the bootstrap command is complete. Once that finishes, the script sends the deferral token back to the task tree using the Kinetic Task API and net/http (example POST that the script uses is below). Once the deferral token is recieved, the handler completes its process. \n\nTask 3 Deferral Callback \n\nPOST [task_location]/rest/v1/Trigger/createDeferred action=Complete&token=[deferral token] \n\nTask 4 Deferral Callback \n\nPOST [task_location]/app/api/v1/complete-deferred-task/[source name] { \"token\" : [deferral token] } \n\n\n#### Info Values\nTwo info values need to be provided with Chef Node Bootstrap. [Knife Location] The path to the knife.rb file on the server. If an absolute path is not given, the handler assumes the file was placed in the resources directory. \n\nie. chef-repo/.chef/knife.rb means that the file is located at chef_node_bootstrap_v1/handler/resources/chef-repo/.chef/knife.rb [Task Location] The url where your task instance is located \n\nie. http://127.0.0.1:8080/kinetic-task \n\n\n#### Knife Configuration\nInformation on how to configure knife on your machine can be found at -- http://docs.getchef.com/chef/knife.html ",
           "parameters": {
             "Server Name": "The name for the server you wish to bootstrap.",
             "Node Name": "The name that will be assigned to the node.",
@@ -10773,13 +10890,141 @@
             "Source Name": "Playground"
           },
           "results": {
-            "Deferral Token": ""
+            "deferral_token": "The deferral token that will be used to restart the deferred node after the bootstrap is complete. "
           },
           "changelog": {
           },
           "changelogText": "chef_node_bootstrap (2014-10-08)\n* Initial version.  See README for details.",
           "warnings": [
-            "The following are defined as results but can't be found in the Results section in the README: deferral_token",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Chef Node Delete",
+          "version": "1",
+          "id": "chef_node_delete_v1",
+          "description": "Deletes a node from a Chef server.",
+          "detailedDescription": "To delete a node from the Chef server, the handler uses Chef's REST API. The handler first retrieves the users private key from the specified location so that it can then be used to sign the REST request. The handler then uses the inputted node name to build the URL and delete the node. ",
+          "parameters": {
+            "Node Name": "Name of the node to be deleted."
+          },
+          "sampleConfiguration": {
+            "Node Name": ""
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Chef Node Delete (2017-06-19)\r\n * Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Node Name",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Chef Remove Recipe from Run List",
+          "version": "1",
+          "id": "chef_remove_recipe_from_run_list_v1",
+          "description": "Removes a recipe from from a run list in a node.",
+          "detailedDescription": "This handler removes a recipe from a run list in Chef in a particular node.  Upon removing the recipe from a run list, your response will return with the nodes information, including the run-list. ",
+          "parameters": {
+            "Recipe Name": "Name of the recipe you wish to remove.",
+            "Node Name": "Name of the node you wish to remove recipe from."
+          },
+          "sampleConfiguration": {
+            "Recipe Name": "my_cookbook",
+            "Node Name": "test_node"
+          },
+          "results": {
+          },
+          "changelog": {
+          },
+          "changelogText": "Chef Remove Recipe from Run List (2017-06-12)\r\n * Initial version.  See README for details.\r\n * Updated to return JSON form attributes\r\n",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Chef Retrieve Cookbooks",
+          "version": "1",
+          "id": "chef_retrieve_cookbooks_v1",
+          "description": "Retrieves a list of Cookbooks from Chef-io from an organization.",
+          "detailedDescription": "This handler retrieves a list of all cookbooks for a particular organization space in chef.  This list will be returned in JSON format and also supply their corresponding URL's. ",
+          "parameters": {
+          },
+          "sampleConfiguration": {
+          },
+          "results": {
+            "Cookbook Names": "A comma separated list of cookbook names "
+          },
+          "changelog": {
+          },
+          "changelogText": "Chef Retrieve Cookbooks (2017-06-12)\r\n * Initial version.  See README for details.\r\n",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Chef Retrieve Node",
+          "version": "1",
+          "id": "chef_retrieve_node_v1",
+          "description": "Retrieves a information about a node in Chef-io within an organization.",
+          "detailedDescription": "This handler retrieves a form. With the use of this handler, the you can retrieve the information about a node in Chef within an organization. This information will return in JSON format. ",
+          "parameters": {
+            "Node Name": "Name of the node you wish to retrieve infromation for."
+          },
+          "sampleConfiguration": {
+            "Node Name": "test-node"
+          },
+          "results": {
+            "Node JSON": "A JSON representation of the inputted node without with automatic attributes "
+          },
+          "changelog": {
+          },
+          "changelogText": "Chef Retrieve Node (2017-06-13)\r\n * Initial version.  See README for details.\r\n",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Chef Retrieve Nodes",
+          "version": "1",
+          "id": "chef_retrieve_nodes_v1",
+          "description": "Retrieves a list of nodes from Chef-io from an organization.",
+          "detailedDescription": "This handler retrieves a list of nodes in a particular chef organization.  results with return in JSON format. ",
+          "parameters": {
+          },
+          "sampleConfiguration": {
+          },
+          "results": {
+            "Node Names": "A comma separated list of node names "
+          },
+          "changelog": {
+          },
+          "changelogText": "Chef Retrieve Nodes (2017-06-12)\r\n * Initial version.  See README for details.\r\n \r\n",
+          "warnings": [
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Chef Retrieve Run List",
+          "version": "1",
+          "id": "chef_retrieve_runlist_v1",
+          "description": "Retrieves a Runlist from Chef for a node.",
+          "detailedDescription": "Retrieves a run list in Chef for a specific node. ",
+          "parameters": {
+            "Node Name": "The name of the node to return the run list from."
+          },
+          "sampleConfiguration": {
+            "Node Name": "test-node"
+          },
+          "results": {
+            "Run List": "A comma separated list of the recipes on the specified node "
+          },
+          "changelog": {
+          },
+          "changelogText": "Chef Retrieve Run List (2017-06-12)\r\n * Initial version.  See README for details.\r\n",
+          "warnings": [
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         }
