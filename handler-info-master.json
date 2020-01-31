@@ -8736,7 +8736,7 @@
       "name": "GitHub",
       "id": "github",
       "description": "GitHub is a web-based hosting solution for repositories of content and code.",
-      "image": "https://s3.amazonaws.com/task-handlers/github/github.svg",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/github/thumbnail.svg",
       "handlerList": [
         {
           "name": "Github Organization Repo Create",
@@ -8791,7 +8791,7 @@
           "version": "1",
           "id": "github_team_create_v1",
           "description": "Create a new team within an existing organization on GitHub.",
-          "detailedDescription": "This handler is used for creating a new team within an existing organization on GitHub. After authorizing the given account using a github token, a team is created within the organization. \n\n#### Getting your GitHub personal API access token\n\t1. Go to https://www.github.com/settings/applications \n\t2. Click \"Create new token\" in the \"Personal API Access Tokens\" section. \n\t3. Use the new token and username of the account with KineticTask. \nThis API token essentially is a password for the user. The user can delete this token at any time in their GitHub settings/applications to revoke access of any applications using it. ",
+          "detailedDescription": "This handler is used for creating a new team within an existing organization on GitHub. After authorizing the given account using a github token, a team is created within the organization. \n\n\n#### Getting your GitHub personal API access token\n\n\t1. Go to https://www.github.com/settings/applications \n\t2. Click \"Create new token\" in the \"Personal API Access Tokens\" section. \n\t3. Use the new token and username of the account with KineticTask. \n\nThis API token essentially is a password for the user. The user can delete this token at any time in their GitHub settings/applications to revoke access of any applications using it. ",
           "parameters": {
             "Organization Name": "Organization to create the team in.",
             "Team Name": "Name for new team.",
@@ -8818,7 +8818,7 @@
           "version": "1",
           "id": "github_team_delete_v1",
           "description": "Delete a team beloging to an organization on GitHub.",
-          "detailedDescription": "This handler is used for deleting a team within an existing organization on GitHub. After authorizing the given account using a github token, a team is deleted within the organization. \n\n#### Getting your GitHub personal API access token\n\t1. Go to https://www.github.com/settings/applications \n\t2. Click \"Create new token\" in the \"Personal API Access Tokens\" section. \n\t3. Use the new token and username of the account with KineticTask. \nThis API token essentially is a password for the user. The user can delete this token at any time in their GitHub settings/applications to revoke access of any applications using it. ",
+          "detailedDescription": "This handler is used for deleting a team within an existing organization on GitHub. After authorizing the given account using a github token, a team is deleted within the organization. \n\n\n#### Getting your GitHub personal API access token\n\n\t1. Go to https://www.github.com/settings/applications \n\t2. Click \"Create new token\" in the \"Personal API Access Tokens\" section. \n\t3. Use the new token and username of the account with KineticTask. \n\nThis API token essentially is a password for the user. The user can delete this token at any time in their GitHub settings/applications to revoke access of any applications using it. ",
           "parameters": {
             "Organization Name": "Organization team belongs to.",
             "Team Name": "Team to delete from organization."
@@ -8841,7 +8841,7 @@
           "version": "1",
           "id": "github_team_member_add_v1",
           "description": "Add new members to existing team on GitHub.",
-          "detailedDescription": "This handler is used for adding new members to an existing team. After authorizing the given account using a GitHub token, new members will be added to an existing team. \n\n#### Getting your GitHub personal API access token\n\t1. Go to https://www.github.com/settings/applications \n\t2. Click \"Create new token\" in the \"Personal API Access Tokens\" section. \n\t3. Use the new token and username of the account with KineticTask. \nThis API token essentially is a password for the user. The user can delete this token at any time in their GitHub settings/applications to revoke access of any applications using it. ",
+          "detailedDescription": "This handler is used for adding new members to an existing team. After authorizing the given account using a GitHub token, new members will be added to an existing team. \n\n\n#### Getting your GitHub personal API access token\n\n\t1. Go to https://www.github.com/settings/applications \n\t2. Click \"Create new token\" in the \"Personal API Access Tokens\" section. \n\t3. Use the new token and username of the account with KineticTask. \n\nThis API token essentially is a password for the user. The user can delete this token at any time in their GitHub settings/applications to revoke access of any applications using it. ",
           "parameters": {
             "Organization Name": "Organization target team belongs to.",
             "Team Name": "Target team to add user to.",
@@ -8866,7 +8866,7 @@
           "version": "1",
           "id": "github_team_member_remove_v1",
           "description": "Remove members from existing team on GitHub",
-          "detailedDescription": "This handler is used for removing members from an existing team. After authorizing the given account using a GitHub token, existing members will be removed from an existing team. \n\n#### Getting your GitHub personal API access token\n\t1. Go to https://www.github.com/settings/applications \n\t2. Click \"Create new token\" in the \"Personal API Access Tokens\" section. \n\t3. Use the new token and username of the account with KineticTask. \nThis API token essentially is a password for the user. The user can delete this token at any time in their GitHub settings/applications to revoke access of any applications using it. ",
+          "detailedDescription": "This handler is used for removing members from an existing team. After authorizing the given account using a GitHub token, existing members will be removed from an existing team. \n\n\n#### Getting your GitHub personal API access token\n\n\t1. Go to https://www.github.com/settings/applications \n\t2. Click \"Create new token\" in the \"Personal API Access Tokens\" section. \n\t3. Use the new token and username of the account with KineticTask. \n\nThis API token essentially is a password for the user. The user can delete this token at any time in their GitHub settings/applications to revoke access of any applications using it. ",
           "parameters": {
             "Organization Name": "Organization team belongs to.",
             "Team Name": "Target team to remove users from.",
@@ -8891,7 +8891,7 @@
           "version": "1",
           "id": "github_team_repository_add_v1",
           "description": "Give a team access to an organization's repositories on GitHub.",
-          "detailedDescription": "This handler is used for giving access of existing repositories to existing teams of an organization. After authorizing the given account using a GitHub token, existing repositories will be able to be accessed to defined teams. \n\n#### Getting your GitHub personal API access token\n\t1. Go to https://www.github.com/settings/applications \n\t2. Click \"Create new token\" in the \"Personal API Access Tokens\" section. \n\t3. Use the new token and username of the account with KineticTask. \nThis API token essentially is a password for the user. The user can delete this token at any time in their GitHub settings/applications to revoke access of any applications using it. ",
+          "detailedDescription": "This handler is used for giving access of existing repositories to existing teams of an organization. After authorizing the given account using a GitHub token, existing repositories will be able to be accessed to defined teams. \n\n\n#### Getting your GitHub personal API access token\n\n\t1. Go to https://www.github.com/settings/applications \n\t2. Click \"Create new token\" in the \"Personal API Access Tokens\" section. \n\t3. Use the new token and username of the account with KineticTask. \n\nThis API token essentially is a password for the user. The user can delete this token at any time in their GitHub settings/applications to revoke access of any applications using it. ",
           "parameters": {
             "Organization Name": "Organization team belongs to.",
             "Team Name": "Name of team in organization to add repository to.",
@@ -8916,7 +8916,7 @@
           "version": "1",
           "id": "github_team_repository_remove_v1",
           "description": "Remove access of repositories for a team on GitHub.",
-          "detailedDescription": "This handler is used to remove access from repositories for teams. After authorizing the given account using a GitHub token, the defined team will no longer have access to defined repositories. THIS DOES NOT DELETE THE REPOSITORIES. \n\n#### Getting your GitHub personal API access token\n\t1. Go to https://www.github.com/settings/applications \n\t2. Click \"Create new token\" in the \"Personal API Access Tokens\" section. \n\t3. Use the new token and username of the account with KineticTask. \nThis API token essentially is a password for the user. The user can delete this token at any time in their GitHub settings/applications to revoke access of any applications using it. ",
+          "detailedDescription": "This handler is used to remove access from repositories for teams. After authorizing the given account using a GitHub token, the defined team will no longer have access to defined repositories. THIS DOES NOT DELETE THE REPOSITORIES. \n\n\n#### Getting your GitHub personal API access token\n\n\t1. Go to https://www.github.com/settings/applications \n\t2. Click \"Create new token\" in the \"Personal API Access Tokens\" section. \n\t3. Use the new token and username of the account with KineticTask. \n\nThis API token essentially is a password for the user. The user can delete this token at any time in their GitHub settings/applications to revoke access of any applications using it. ",
           "parameters": {
             "Organization Name": "Organization team belongs to.",
             "Team Name": "Name of team in organization to remove repository from.",
