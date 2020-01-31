@@ -4652,14 +4652,14 @@
       "name": "Basecamp",
       "id": "basecamp",
       "description": "Basecamp is a popular tool for project management and our integration gives you the data at your fingertips.",
-      "image": "https://s3.amazonaws.com/task-handlers/basecamp/basecamp.png",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/basecamp/thumbnail.png",
       "handlerList": [
         {
           "name": "Basecamp Calendar Create",
           "version": "1",
           "id": "basecamp_calendar_create_v1",
           "description": "Creates a new calendar in Basecamp.",
-          "detailedDescription": "This handler creates a new calendar for Basecamp. If there is an existing calendar with the requested name an exception will be raised. \n\n#### Getting Your User Id Number\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
+          "detailedDescription": "This handler creates a new calendar for Basecamp. If there is an existing calendar with the requested name an exception will be raised. \n\n\n#### Getting Your User Id Number\n\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
           "parameters": {
             "Calendar Name": "The name of the calendar you wish to create."
           },
@@ -4680,7 +4680,7 @@
           "version": "1",
           "id": "basecamp_calendar_delete_v1",
           "description": "Deletes an existing calendar in Basecamp.",
-          "detailedDescription": "This handler will delete a calendar with the provided name. If there is no calendar with the given name an exception will be raised. In order to protect calendars that may have the same name as other calendars, if there is more than one calendar with the given name an exception will be raised. \n\n#### Getting Your User Id Number\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
+          "detailedDescription": "This handler will delete a calendar with the provided name. If there is no calendar with the given name an exception will be raised. In order to protect calendars that may have the same name as other calendars, if there is more than one calendar with the given name an exception will be raised. \n\n\n#### Getting Your User Id Number\n\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
           "parameters": {
             "Calendar Name": "The name of the calendar you wish to delete."
           },
@@ -4701,7 +4701,7 @@
           "version": "1",
           "id": "basecamp_calendar_event_create_v1",
           "description": "Create an event within a calendar on Basecamp.",
-          "detailedDescription": "This is a handler to create an event within a calendar for Basecamp. Exceptions will be raised if given calendar does not exist, if there is more than one calendar with the given name, or if the date is not in the YYYY-MM-DD format. \n\n#### Getting Your User Id Number\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
+          "detailedDescription": "This is a handler to create an event within a calendar for Basecamp. Exceptions will be raised if given calendar does not exist, if there is more than one calendar with the given name, or if the date is not in the YYYY-MM-DD format. \n\n\n#### Getting Your User Id Number\n\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
           "parameters": {
             "Current Calendar Name": "The name of the calendar you wish to add an event to.",
             "Summary": "The label of the event to be created.",
@@ -4731,7 +4731,7 @@
           "version": "1",
           "id": "basecamp_calendar_update_v1",
           "description": "Changes the name of an existing calendar in Basecamp.",
-          "detailedDescription": "This handler allows you to update the name of a current calendar. There must be exactly one calendar with the given name, and no calendars with the new project name, or an exception will be raised. \n\n#### Getting Your User Id Number\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
+          "detailedDescription": "This handler allows you to update the name of a current calendar. There must be exactly one calendar with the given name, and no calendars with the new project name, or an exception will be raised. \n\n\n#### Getting Your User Id Number\n\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
           "parameters": {
             "Calendar Name": "The name of the calendar you wish to change the name of.",
             "New Calendar Name": "The new name of the defined calendar."
@@ -4754,7 +4754,7 @@
           "version": "1",
           "id": "basecamp_project_activate_v1",
           "description": "Activates an archived project in Basecamp.",
-          "detailedDescription": "This handler allows you to activate an archived project for Basecamp. If there is no archived project that has the has the given name an exception will be raised. \n\n#### Getting Your User Id Number\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
+          "detailedDescription": "This handler allows you to activate an archived project for Basecamp. If there is no archived project that has the has the given name an exception will be raised. \n\n\n#### Getting Your User Id Number\n\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
           "parameters": {
             "Project Name": "The name of the project you wish to activate."
           },
@@ -4775,7 +4775,7 @@
           "version": "1",
           "id": "basecamp_project_create_v1",
           "description": "Create a new project in Basecamp.",
-          "detailedDescription": "This handler allows you to create a new project for basecamp. If the new project name matches the name of an existing project, an exception will be raised. \n\n#### Getting Your User Id Number\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
+          "detailedDescription": "This handler allows you to create a new project for basecamp. If the new project name matches the name of an existing project, an exception will be raised. \n\n\n#### Getting Your User Id Number\n\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
           "parameters": {
             "Project Name": "The name of the project you wish to create. (must be unique)",
             "Project Description": "The description of the project to be created."
@@ -4798,7 +4798,7 @@
           "version": "1",
           "id": "basecamp_project_delete_v1",
           "description": "Delete an active project in Basecamp.",
-          "detailedDescription": "This handler allows you to delete a project for basecamp. If the project name does not match the name of an existing project, an exception will be raised. \n\n#### Getting Your User Id Number\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
+          "detailedDescription": "This handler allows you to delete a project for basecamp. If the project name does not match the name of an existing project, an exception will be raised. \n\n\n#### Getting Your User Id Number\n\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
           "parameters": {
             "Project Name": "The name of the project you wish to delete."
           },
@@ -4819,7 +4819,7 @@
           "version": "1",
           "id": "basecamp_project_event_create_v1",
           "description": "Create an event within a project for Basecamp.",
-          "detailedDescription": "This is a handler to create an event within a calendar for Basecamp. Exceptions will be raised if given project does not exist, if there is more than one project with the given name, or if the date is not in the YYYY-MM-DD format. \n\n#### Getting Your User Id Number\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
+          "detailedDescription": "This is a handler to create an event within a calendar for Basecamp. Exceptions will be raised if given project does not exist, if there is more than one project with the given name, or if the date is not in the YYYY-MM-DD format. \n\n\n#### Getting Your User Id Number\n\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
           "parameters": {
             "Current Project Name": "The name of the project you wish to add an event to.",
             "Summary": "The label of the event to be created.",
@@ -4849,7 +4849,7 @@
           "version": "1",
           "id": "basecamp_project_todolist_create_v1",
           "description": "Create a new todolist for a project in basecamp.",
-          "detailedDescription": "This is a handler to create a new todolist for a project in Basecamp. If there is no project with the given name, or more than one project an exception will be raised. Also, if there is already an existing todolist with the given name an exception will be raised. \n\n#### Getting Your User Id Number\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
+          "detailedDescription": "This is a handler to create a new todolist for a project in Basecamp. If there is no project with the given name, or more than one project an exception will be raised. Also, if there is already an existing todolist with the given name an exception will be raised. \n\n\n#### Getting Your User Id Number\n\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
           "parameters": {
             "Current Project Name": "The name of the project you wish to add the todo list to.",
             "Todo List Name": "The name of the todo list you wish to create. (must be unique)",
@@ -4875,7 +4875,7 @@
           "version": "1",
           "id": "basecamp_project_todolist_delete_v1",
           "description": "Delete a todolist from a project in Basecamp.",
-          "detailedDescription": "This handler allows you to delete a todo list for a project in basecamp. An exception will be raised if there is not exactly one project for the given project name. For the todo lists already in that project, an exception will be raised if there is no existing todo list for the given todolist name. \n\n#### Getting Your User Id Number\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
+          "detailedDescription": "This handler allows you to delete a todo list for a project in basecamp. An exception will be raised if there is not exactly one project for the given project name. For the todo lists already in that project, an exception will be raised if there is no existing todo list for the given todolist name. \n\n\n#### Getting Your User Id Number\n\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
           "parameters": {
             "Current Project Name": "The name of the project you wish to delete the todo list from.",
             "Todo List Name": "The name of the todo list you wish to delete."
@@ -4899,7 +4899,7 @@
           "version": "1",
           "id": "basecamp_project_todolist_todo_create_v1",
           "description": "Create a new todo list for a project in basecamp.",
-          "detailedDescription": "This handler will create a new todo task for a todo list within a project in Basecamp. Exceptions will be raised if the date is not formatted correctly, if there is not exactly one project with the given name, or if there is not exactly one todo list with the given name. \n\n#### Getting Your User Id Number\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
+          "detailedDescription": "This handler will create a new todo task for a todo list within a project in Basecamp. Exceptions will be raised if the date is not formatted correctly, if there is not exactly one project with the given name, or if there is not exactly one todo list with the given name. \n\n\n#### Getting Your User Id Number\n\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
           "parameters": {
             "Current Project Name": "The name of the project the todo list belongs to.",
             "Todo List Name": "The name of the todo list you wish to add a task to.",
@@ -4927,7 +4927,7 @@
           "version": "1",
           "id": "basecamp_project_update_v1",
           "description": "Update an existing project in basecamp.",
-          "detailedDescription": "This handler allows you to update an existing project for basecamp. If the new project name matches the name of an existing project, an exception will be raised. If the project is archived, an exception will be raised. \n\n#### Getting Your User Id Number\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
+          "detailedDescription": "This handler allows you to update an existing project for basecamp. If the new project name matches the name of an existing project, an exception will be raised. If the project is archived, an exception will be raised. \n\n\n#### Getting Your User Id Number\n\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
           "parameters": {
             "Current Project Name": "The name of the project you wish to update. (must be unique)",
             "New Project Name": "The new name of the project you wish to update. (must be unique)",
@@ -4953,7 +4953,7 @@
           "version": "1",
           "id": "basecamp_project_user_invite_v1",
           "description": "Invite a user to existing project in Basecamp.",
-          "detailedDescription": "This handler allows you to add users to an existing project in Basecamp. \n\n#### Getting Your User Id Number\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
+          "detailedDescription": "This handler allows you to add users to an existing project in Basecamp. \n\n\n#### Getting Your User Id Number\n\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
           "parameters": {
             "Project Name": "The name of the project you wish to invite users to.",
             "Emails": "Users you wish to invite to the project."
@@ -4976,7 +4976,7 @@
           "version": "1",
           "id": "basecamp_project_user_remove_v1",
           "description": "Remove users from a project in Basecamp.",
-          "detailedDescription": "This handler allows you to remove users from an existing project in Basecamp. \n\n#### Getting Your User Id Number\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
+          "detailedDescription": "This handler allows you to remove users from an existing project in Basecamp. \n\n\n#### Getting Your User Id Number\n\n\t1. In a browser, login to your account. here : https://launchpad.37signals.com/basecamp/signin \n\t2. In the url, your user id comes right after the host name. ex. https://basecamp.com/#######/etc https://hostname.com/user_id/... ",
           "parameters": {
             "Project Name": "The name of the project you wish to remove users from.",
             "User Email": "The email of the user you would like to remove from the project."
