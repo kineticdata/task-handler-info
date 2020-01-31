@@ -8968,7 +8968,7 @@
       "name": "GitLab",
       "id": "gitlab",
       "description": "Handlers that interact with the Gitlab service (both Gitlab and self-hosted installations).",
-      "image": "https://s3.amazonaws.com/task-handlers/gitlab/gitlab.png",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/gitlab/thumbnail.png",
       "handlerList": [
         {
           "name": "GitLab Branch Create",
@@ -8998,6 +8998,40 @@
             }
           },
           "changelogText": "GitLab Branch Create V1 (2017-10-02)\r\n * Initial version.  See README for details.",
+          "warnings": [
+
+          ]
+        },
+        {
+          "name": "GitLab Branch Protect",
+          "version": "1",
+          "id": "gitlab_branch_protect_v1",
+          "description": "Protects a specified branch in an existing GitLab project.",
+          "detailedDescription": "Protects a specified branch through push and merge rules in an existing GitLab project using a user's private token (obtained in GitLab under the intended user's 'Settings' => 'Account'). The branch to be protected is found through providing the projects path (which is the project name provided in the URL - not necessarily the same as the readable name) and the branch name. Once the project is found, the push and merge capabilities can be enforced in the following 3 levels: 'none' means no one can modify the branch while 'masters'/'developers' map to the 'Master'/'Developer' GitLab Member permissions for the specified project. If 'Allowed to push' or 'Allowed to merge' is not provided, it will either stay the same as before if edited an already protected branch or default to 'masters' if this is a new protected branch. An empty result set will be returned on a successful branch protection attempt. ",
+          "parameters": {
+            "Project Group": "Path of the group where the project and branch are located (defaults to the GitLab default group if not provided).",
+            "Project Path": "Path of the project where the branch is located.",
+            "Branch": "Name of the branch.",
+            "Allowed To Push": "Who should be allowed to push to the branch: 'none','masters','developers'.",
+            "Allowed To Merge": "Who should be allowed to merge to the branch: 'none','masters','developers'."
+          },
+          "sampleConfiguration": {
+            "Project Group": "super-secret-group",
+            "Project Path": "test-project",
+            "Branch": "master",
+            "Allowed To Push": "none",
+            "Allowed To Merge": "masters"
+          },
+          "results": {
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2017-10-02",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "GitLab Branch Protect V1 (2017-10-02)\r\n * Initial version.  See README for details.",
           "warnings": [
 
           ]
@@ -9073,40 +9107,6 @@
             }
           },
           "changelogText": "GitLab Project Create V1 (2017-10-02)\r\n * Initial version.  See README for details.",
-          "warnings": [
-
-          ]
-        },
-        {
-          "name": "GitLab Branch Protect",
-          "version": "1",
-          "id": "gitlab_branch_protect_v1",
-          "description": "Protects a specified branch in an existing GitLab project.",
-          "detailedDescription": "Protects a specified branch through push and merge rules in an existing GitLab project using a user's private token (obtained in GitLab under the intended user's 'Settings' => 'Account'). The branch to be protected is found through providing the projects path (which is the project name provided in the URL - not necessarily the same as the readable name) and the branch name. Once the project is found, the push and merge capabilities can be enforced in the following 3 levels: 'none' means no one can modify the branch while 'masters'/'developers' map to the 'Master'/'Developer' GitLab Member permissions for the specified project. If 'Allowed to push' or 'Allowed to merge' is not provided, it will either stay the same as before if edited an already protected branch or default to 'masters' if this is a new protected branch. An empty result set will be returned on a successful branch protection attempt. ",
-          "parameters": {
-            "Project Group": "Path of the group where the project and branch are located (defaults to the GitLab default group if not provided).",
-            "Project Path": "Path of the project where the branch is located.",
-            "Branch": "Name of the branch.",
-            "Allowed To Push": "Who should be allowed to push to the branch: 'none','masters','developers'.",
-            "Allowed To Merge": "Who should be allowed to merge to the branch: 'none','masters','developers'."
-          },
-          "sampleConfiguration": {
-            "Project Group": "super-secret-group",
-            "Project Path": "test-project",
-            "Branch": "master",
-            "Allowed To Push": "none",
-            "Allowed To Merge": "masters"
-          },
-          "results": {
-          },
-          "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-10-02",
-              "description": "* Initial version.  See README for details."
-            }
-          },
-          "changelogText": "GitLab Branch Protect V1 (2017-10-02)\r\n * Initial version.  See README for details.",
           "warnings": [
 
           ]
