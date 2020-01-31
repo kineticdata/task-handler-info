@@ -2741,6 +2741,15 @@
       "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/atlassian-jira/thumbnail.png"
     },
     {
+      "id": "aveksa",
+      "handlerList": [
+
+      ],
+      "name": "Aveksa",
+      "description": null,
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/aveksa/"
+    },
+    {
       "id": "aws-cloudformation",
       "handlerList": [
         {
