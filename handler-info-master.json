@@ -11142,6 +11142,157 @@
       ]
     },
     {
+      "id": "datto-autotask",
+      "handlerList": [
+        {
+          "name": "AutoTask Create",
+          "version": "1",
+          "id": "autotask_create_v1",
+          "description": "Creates an entity record in AutoTask",
+          "detailedDescription": "",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Entity": "The name of the entity being created.",
+            "Standard Fields and Values": "JSON object representing the standard fields to populate.",
+            "User Defined Fields and Values": "JSON object representing any user defined fields to populate."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Entity": "TICKET",
+            "Standard Fields and Values": "{\"AccountID\": \"174\", \"DueDateTime\":\"2019-01-15\", \"Priority\":\"3\", \"QueueID\":\"8\", \"Status\":\"1\", \"Title\":\"MY TICKET\"}",
+            "User Defined Fields and Values": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Results JSON": "The output of the AutoTask SOAP call, converted to JSON. "
+          },
+          "changelog": {
+          },
+          "changelogText": "Autotask_Create_v1 (2019-12-05)\r\n* Initial version.  See README for details.\r\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: User Defined Fields and Values",
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "AutoTask Get Field Info",
+          "version": "1",
+          "id": "autotask_get_field_info_v1",
+          "description": "Executes a getFieldInfo() call about an Entity",
+          "detailedDescription": "",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Entity": "The entity name being queried."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Entity": "Contact"
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Results JSON": "The output of the AutoTask SOAP call, converted to JSON. "
+          },
+          "changelog": {
+          },
+          "changelogText": "AutoTaskGetFieldInfoV1 (2019-12-27)\r\n* Initial version.  See README for details.\r\n",
+          "warnings": [
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "AutoTask Get UDF Field Info",
+          "version": "1",
+          "id": "autotask_get_udf_field_info_v1",
+          "description": "Executes a getFieldInfo() call about an Entity",
+          "detailedDescription": "",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Entity": "The entity name being queried."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Entity": "Contact"
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Results JSON": "The output of the AutoTask SOAP call, converted to JSON. "
+          },
+          "changelog": {
+          },
+          "changelogText": "AutotaskGetUDFFieldInfov1 (2019-12-27)\r\n* Initial version.  See README for details.\r\n",
+          "warnings": [
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "AutoTask Query",
+          "version": "1",
+          "id": "autotask_query_v1",
+          "description": "Executes a Query in AutoTask",
+          "detailedDescription": "",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Entity": "The entity name being queried.",
+            "Message": "JSON object representing what will be transformed into the XML AutoTask query (see the AutoTask QueryXML documentation for guidance). There are several unique key values have various effects when creating the JSON object to create AutoTask XML. See this handlers info on the Kinetic Community website for more information."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Entity": "Contact",
+            "Message": "{\"condition\": [{\"field\": {\"content!\": {\"content!\": \"firstname\",\"expression\": {\"@op\": \"equals\",\"content!\": \"Joe\"}}}},{\"field\": {\"content!\": {\"content!\": \"lastname\",\"expression\": {\"content!\": \"Smith\",\"@op\": \"equals\"}}}}]}"
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Results JSON": "The output of the AutoTask SOAP call, converted to JSON. ",
+            "Count": "The count of entities returned. "
+          },
+          "changelog": {
+          },
+          "changelogText": "Autotask_Query_v1 (2019-11-23)\r\n* Initial version.  See README for details.\r\n",
+          "warnings": [
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "AutoTask Update",
+          "version": "1",
+          "id": "autotask_update_v1",
+          "description": "Updates the specified entity ID in AutoTask",
+          "detailedDescription": "",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Entity": "The entity being updated.",
+            "Entity ID": "The entity ID being updated.",
+            "Updates": "JSON object map representing what fields to update to what values."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Entity": "Ticket",
+            "Entity ID": "336125",
+            "Updates": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Results JSON": "The output of the AutoTask SOAP call, converted to JSON. "
+          },
+          "changelog": {
+          },
+          "changelogText": "Autotask_Query_v1 (2019-12-05)\r\n* Initial version.  See README for details.\r\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Updates",
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        }
+      ],
+      "name": "Autotask",
+      "description": "Autotask makes the business of delivering IT easier, more efficient and gives you instant access to the analytics you need to take your operation to the next level.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/datto-autotask/"
+    },
+    {
       "name": "Dropbox",
       "id": "dropbox",
       "description": null,
