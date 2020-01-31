@@ -11677,8 +11677,8 @@
     {
       "name": "Elasticsearch",
       "id": "elasticsearch",
-      "description": "Elasticsearch is a distributed, RESTful search and analytics engine capable of solving a growing number of use cases.",
-      "image": "https://s3.amazonaws.com/task-handlers/elasticsearch/elasticsearch.svg",
+      "description": null,
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/elasticsearch/thumbnail.svg",
       "handlerList": [
         {
           "name": "Elasticsearch Document Bulk API",
@@ -11706,41 +11706,6 @@
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Payload NDJSON, Return Elasticsearch response",
             "The following are defined as results but can't be found in the Results section in the README: Handler Error Message, Elasticsearch response",
-            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
-          ]
-        },
-        {
-          "name": "Elasticsearch Document Get",
-          "version": "1",
-          "id": "elasticsearch_document_get_v1",
-          "description": "Retrieves a specific document in Elasticsearch by ID.",
-          "detailedDescription": "This handler returns an Elasticsearch document. ",
-          "parameters": {
-            "Error Handling": "Determine what to return if an error is encountered.",
-            "Index": "The index to the document belongs to.",
-            "Type": "The document type.",
-            "ID": "The document ID to retrieve.",
-            "Include source fields (CSV)": "The list of source fields to return. Leave empty to return all fields.",
-            "Exclude source fields (CSV)": "The list of source fields not to return. Leave empty to return all fields."
-          },
-          "sampleConfiguration": {
-            "Error Handling": "",
-            "Index": "",
-            "Type": "",
-            "ID": "",
-            "Include source fields (CSV)": "",
-            "Exclude source fields (CSV)": ""
-          },
-          "results": {
-            "Handler Error Message": "",
-            "Document": ""
-          },
-          "changelog": {
-          },
-          "changelogText": "Elasticsearch Document Get (2017-08-11)\n * Initial version.  See README for details.",
-          "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Index, Type, ID, Include source fields (CSV), Exclude source fields (CSV)",
-            "The following are defined as results but can't be found in the Results section in the README: Handler Error Message, Document",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         },
@@ -11777,6 +11742,41 @@
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Index, Type, ID, Version, Pipeline ID, Document JSON:",
             "The following are defined as results but can't be found in the Results section in the README: Handler Error Message",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Elasticsearch Document Get",
+          "version": "1",
+          "id": "elasticsearch_document_get_v1",
+          "description": "Retrieves a specific document in Elasticsearch by ID.",
+          "detailedDescription": "This handler returns an Elasticsearch document. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Index": "The index to the document belongs to.",
+            "Type": "The document type.",
+            "ID": "The document ID to retrieve.",
+            "Include source fields (CSV)": "The list of source fields to return. Leave empty to return all fields.",
+            "Exclude source fields (CSV)": "The list of source fields not to return. Leave empty to return all fields."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "",
+            "Index": "",
+            "Type": "",
+            "ID": "",
+            "Include source fields (CSV)": "",
+            "Exclude source fields (CSV)": ""
+          },
+          "results": {
+            "Handler Error Message": "",
+            "Document": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "Elasticsearch Document Get (2017-08-11)\n * Initial version.  See README for details.",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Index, Type, ID, Include source fields (CSV), Exclude source fields (CSV)",
+            "The following are defined as results but can't be found in the Results section in the README: Handler Error Message, Document",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
         }
