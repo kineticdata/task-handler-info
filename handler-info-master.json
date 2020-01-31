@@ -2511,6 +2511,15 @@
       ]
     },
     {
+      "id": "apache-solr",
+      "handlerList": [
+
+      ],
+      "name": "Apache Solr",
+      "description": null,
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/apache-solr/"
+    },
+    {
       "id": "atlassian-jira",
       "handlerList": [
         {
