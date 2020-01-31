@@ -12904,14 +12904,14 @@
       "name": "iWise",
       "id": "iwise",
       "description": "iWise is an IT Service Management solution based on the ITIL framework. This category includes a collection of handlers useful for interacting with the InfraWise iWise application suite.",
-      "image": "https://s3.amazonaws.com/task-handlers/iwise/iwise.jpg",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/iwise/thumbnail.jpg",
       "handlerList": [
         {
           "name": "Create Incident",
           "version": "1",
           "id": "iwise_incident_create_v1",
           "description": "Creates a Kinetic Incident using the iWise XML Server configured by the associated task definition info items.",
-          "detailedDescription": "This handler utilizes the iWise XML Server SOAP framework to submit a createObject request with the following configuration: \nAttributes: \n* objectType           => \"Incident\" \n* templateName         => Value of the 'template_name' task info record. Example: \"incident.create.kinetic.template\" \nValues: \n* SRL_Description_Line => \"Incident generated in Kinetic Task.\" \n* Comments_Line        => Value of the 'Short Description' parameter. \n* Comments_Text        => Value of the 'Description' parameter. \n* Symptom_Type         => Value of the 'Symptom Type' parameter. \n* Sub_Type             => Value of the 'Sub Type' parameter. \n* Email_Address        => Value of the 'Requester Email' parameter. \n* External_Xref        => Deferral token of this task. ",
+          "detailedDescription": "This handler utilizes the iWise XML Server SOAP framework to submit a createObject request with the following configuration: \n\nAttributes: \n\n* objectType           => \"Incident\" \n\n* templateName         => Value of the 'template_name' task info record. Example: \"incident.create.kinetic.template\" \n\nValues: \n\n* SRL_Description_Line => \"Incident generated in Kinetic Task.\" \n\n* Comments_Line        => Value of the 'Short Description' parameter. \n\n* Comments_Text        => Value of the 'Description' parameter. \n\n* Symptom_Type         => Value of the 'Symptom Type' parameter. \n\n* Sub_Type             => Value of the 'Sub Type' parameter. \n\n* Email_Address        => Value of the 'Requester Email' parameter. \n\n* External_Xref        => Deferral token of this task. ",
           "parameters": {
             "Requester Email": "The email address of the requester.",
             "Short Description": "A short description of the incident.",
@@ -12922,17 +12922,19 @@
           "sampleConfiguration": {
             "Requester Email": "<%=@answers['Requester Email Address']%>",
             "Short Description": "Password reset",
-            "Description": "For these systems",
+            "Description": "For these systems: <%=@answers['Systems']%>",
             "Symptom Type": "Password",
             "Sub Type": "Reset"
           },
           "results": {
-            "Incident Id": ""
+            "Incident Id": "",
+            "result": ""
           },
           "changelog": {
           },
           "changelogText": "",
           "warnings": [
+            "Info Value with the name 'authentication_password' includes 'password' or 'secret' in the same and should be encrypted.",
             "The following are defined as results but can't be found in the Results section in the README: result",
             "CHANGELOG file can't be found"
           ]
@@ -12942,7 +12944,7 @@
           "version": "1",
           "id": "iwise_incident_retrieve_v1",
           "description": "Retrieves information about an incident from the iWise XML Server specified configured by the associated task definition info items.",
-          "detailedDescription": "This handler utilizes the iWise XML Server SOAP framework to submit a getObject request with the following configuration: \nAttributes: \n* objectType           => \"Incident\" \n* objectID             => The value of the \"Incident ID\" parameter. ",
+          "detailedDescription": "This handler utilizes the iWise XML Server SOAP framework to submit a getObject request with the following configuration: \n\nAttributes: \n\n* objectType           => \"Incident\" \n\n* objectID             => The value of the \"Incident ID\" parameter. ",
           "parameters": {
             "Incident ID": "The iWise Object_ID of the incident that should be retrieved."
           },
@@ -12954,12 +12956,16 @@
             "Assignee Group": "",
             "Assignee Name": "",
             "Status": "",
-            "Incident ID": ""
+            "assignee_group": "",
+            "assignee_name": "",
+            "object_id": "",
+            "status": ""
           },
           "changelog": {
           },
           "changelogText": "",
           "warnings": [
+            "Info Value with the name 'authentication_password' includes 'password' or 'secret' in the same and should be encrypted.",
             "The following parameters can't be found in the Sample Configuration in the README: Incident ID",
             "The following are defined as results but can't be found in the Results section in the README: assignee_group, assignee_name, object_id, status",
             "CHANGELOG file can't be found"
