@@ -11034,14 +11034,14 @@
       "name": "Citrix",
       "id": "citrix",
       "description": "Online meeting, desktop sharing, and video conferencing enabling users to connect in a secure environment.  Enables business mobility through the secure delivery of apps and data to any device on any network.",
-      "image": "https://s3.amazonaws.com/task-handlers/citrix/citrix.png",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/citrix/thumbnail.png",
       "handlerList": [
         {
           "name": "Citrix Meeting Create",
           "version": "1",
           "id": "citrix_meeting_create_v1",
           "description": "Create a new meeting",
-          "detailedDescription": "This handler allows you to create a new meeting for Citrix. It uses the Citrix REST API to complete this action. \n\n#### Info\nThe user oauth token ",
+          "detailedDescription": "This handler allows you to create a new meeting for Citrix. It uses the Citrix REST API to complete this action. \n\n\n#### Info\nThe user oauth token ",
           "parameters": {
             "Subject": "Description of the meeting",
             "Start Time": "ISO8601 UTC format yyyy-MM-ddThh:mm:ss",
@@ -11063,7 +11063,8 @@
             "meetingid": "Id assigned to this meeting ",
             "maxParticipants": "how many people can be a part of this meeting ",
             "uniqueMeetingId": "unique id assigned to this meeting (usually same as meetingid) ",
-            "conferenceCallInfo": "info for the conference call i.e. phone number and access code "
+            "conferenceCallInfo": "info for the conference call i.e. phone number and access code ",
+            "joinUrl": ""
           },
           "changelog": {
           },
@@ -11079,7 +11080,7 @@
           "version": "1",
           "id": "citrix_meeting_retrieve_v1",
           "description": "retrieve an existing meeting",
-          "detailedDescription": "This handler allows you to retrieve an existing meeting for Citrix. It uses the Citrix REST API to complete this action. \n\n#### Info\nThe user oauth token ",
+          "detailedDescription": "This handler allows you to retrieve an existing meeting for Citrix. It uses the Citrix REST API to complete this action. \n\n\n#### Info\nThe user oauth token ",
           "parameters": {
             "Meeting Id": "Unqiue Id of the meeting"
           },
@@ -11113,7 +11114,7 @@
           "version": "1",
           "id": "citrix_meeting_update_v1",
           "description": "Update a new meeting",
-          "detailedDescription": "This handler allows you to update an existing meeting for Citrix. It uses the Citrix REST API to complete this action. \n\n#### Info\nThe user oauth token ",
+          "detailedDescription": "This handler allows you to update an existing meeting for Citrix. It uses the Citrix REST API to complete this action. \n\n\n#### Info\nThe user oauth token ",
           "parameters": {
             "Meeting Id": "Unique id of the meeting",
             "Subject": "Description of the meeting",
