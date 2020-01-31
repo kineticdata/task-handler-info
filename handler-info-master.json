@@ -5087,7 +5087,7 @@
       "name": "BMC BladeLogic",
       "id": "bmc-bladelogic",
       "description": "Automated server management for better security and compliance.  Bladelogic incorporates services to serve Threat remediation, Compliance, provisioning, configuration, reporting, and patching.",
-      "image": "https://s3.amazonaws.com/task-handlers/bmc-bladelogic/bmc-bladelogic.jpeg",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/bmc-bladelogic/thumbnail.jpeg",
       "handlerList": [
         {
           "name": "BladeLogic Command Run",
@@ -5115,15 +5115,12 @@
           },
           "results": {
             "CLI Response": "",
-            "Command Argument 3": "",
-            "Command Argument 4": "",
-            "Command Argument 5": ""
+            "cli_response": ""
           },
           "changelog": {
           },
           "changelogText": "BladeLogic_Command_Run_V1 (2014-07-11)\n* Initial version.  See README for details.",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Command Argument 3, Command Argument 4, Command Argument 5",
             "The following are defined as results but can't be found in the Results section in the README: cli_response",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
