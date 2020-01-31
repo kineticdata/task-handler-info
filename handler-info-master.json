@@ -13106,8 +13106,8 @@
     {
       "name": "HP Service Manager",
       "id": "hp-service-manager",
-      "description": "HP offers the application as a service desk solution that enables IT to work as a single organization, governed by a consistent set of processes to handle service delivery and support quickly and efficiently.",
-      "image": "https://s3.amazonaws.com/task-handlers/hp-service-manager/hp-service-manager.png",
+      "description": null,
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/hp-service-manager/thumbnail.png",
       "handlerList": [
         {
           "name": "HPSM Incident Activity Add",
@@ -13125,7 +13125,9 @@
           },
           "results": {
             "Incident Id": "",
-            "Messages": ""
+            "Messages": "",
+            "incident_id": "",
+            "messages": ""
           },
           "changelog": {
           },
@@ -13169,7 +13171,9 @@
           },
           "results": {
             "Incident Id": "",
-            "Messages": ""
+            "Messages": "",
+            "incident_id": "",
+            "messages": ""
           },
           "changelog": {
           },
@@ -13201,9 +13205,8 @@
           },
           "sampleConfiguration": {
             "Incident Id": "IM10147",
-            "Title": "New Title",
-            "Activity Update": "Updated the title to make it easier to read",
             "Status": "",
+            "Title": "New Title",
             "Description": "",
             "Affected Service": "",
             "Assignment Group": "",
@@ -13211,26 +13214,19 @@
             "Area": "",
             "Subarea": "",
             "Impact": "",
-            "Urgency": ""
+            "Urgency": "",
+            "Activity Update": "Updated the title to make it easier to read"
           },
           "results": {
             "Incident Id": "",
             "Messages": "",
-            "Status": "",
-            "Description": "",
-            "Affected Service": "",
-            "Assignment Group": "",
-            "Category": "",
-            "Area": "",
-            "Subarea": "",
-            "Impact": "",
-            "Urgency": ""
+            "incident_id": "",
+            "messages": ""
           },
           "changelog": {
           },
           "changelogText": "Hpbsm_Incident_Update_V1 (2014-01-14)\n* Initial version.  See README for details.",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Status, Description, Affected Service, Assignment Group, Category, Area, Subarea, Impact, Urgency",
             "The following are defined as results but can't be found in the Results section in the README: incident_id, messages",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
           ]
