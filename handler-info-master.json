@@ -19555,36 +19555,47 @@
       "handlerList": [
         {
           "name": "Kinetic Agent Handler Execute",
-          "version": "1",
-          "id": "kinetic_agent_handler_execute_v2",
+          "version": "3",
+          "id": "kinetic_agent_handler_execute_v3",
           "description": "Use to call a handler that is loaded into a Kinetic Agent.",
-          "detailedDescription": "This handler adapter makes a call to a handler defined in the Kinetic Agent.  From there the Agent will execute the handler adapter that it is configured for.  The results from the handler adapter are returned to the original call. ",
+          "detailedDescription": "This handler executes Agent Handlers that have been installed on a configured Agent. \n\n\n\n**Prerequisites:** \n\n- Kinetic Platform v5+ is required to run this handler \n\n- Before using this handler, an Agent must be installed and configured within the Space Admin consoles (Space > Settings > Platform Components > Agents). \n\nThe handler works by calling the Kinetic Agent (proxying through the Kinetic Platform for added security) and giving it the slug of the handler which should be run. From there the Agent will execute the handler adapter. The results from the handler being executed within the agent adapter are returned as the output result of this handler. ",
           "parameters": {
             "Error Handling": "Determine what to return if an error is encountered.",
-            "Handler Space": "The name of the space that the handler is defined in",
-            "Handler Slug": "The name of the handler slug to execute. ex foo_bar",
-            "Payload": "A json structure that matches the handlers parameters.\n            ie {\"baz\": \"buz\"}"
+            "Agent Slug": "The slug of the agent that contains the handler to execute. (Configured in Space > Platform Components > Agents)",
+            "Handler Slug": "The slug of the handler to execute. ex on-prem-incident-create",
+            "Payload": "The parameter-to-value mappings of the handler that is being executed in JSON format.\n            ie {\"baz\": \"buz\"}"
           },
           "sampleConfiguration": {
             "Error Handling": "Error Message",
-            "Handler Space": "foo",
             "Handler Slug": "bar",
-            "Payload": "{\"baz\": \"buzz\"}"
+            "Payload": "<%= {\"parameter_1\" => \"ABC\", \"parameter_2\" => \"123\"}.to_json %>",
+            "Agent Slug": ""
           },
           "results": {
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
-            "output": "The result of the handler execution. "
+            "PLACEHOLDER REPLACE ME": "",
+            "'Name of Node'": ""
           },
           "changelog": {
-            "1": {
-              "version": "1",
+            "3": {
+              "version": "3",
+              "date": "2020-04-20",
+              "description": "* Updated to return outputs of the handler that is being called, and not the single \"output\" parameter\n* Updated info values to proxy through the Kinetic Platform (not direct to Agent using the configurator user)"
+            },
+            "2": {
+              "version": "2",
               "date": "2020-02-05",
               "description": "* Updated how errors are handled."
+            },
+            "1": {
+              "version": "1",
+              "date": "2019-10-30",
+              "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Kinetic Agent Handler Execute V1 (2019-10-30)\r\n* Initial version.  See README for details.\r\n\r\nKinetic Agent Handler Execute V1 (2020-02-05)\r\n* Updated how errors are handled.",
+          "changelogText": "Kinetic Agent Handler Execute V1 (2019-10-30)\r\n* Initial version.  See README for details.\r\n\r\nKinetic Agent Handler Execute V2 (2020-02-05)\r\n* Updated how errors are handled.\r\n\r\nKinetic Agent Handler Execute V3 (2020-04-20)\r\n* Updated to return outputs of the handler that is being called, and not the single \"output\" parameter\r\n* Updated info values to proxy through the Kinetic Platform (not direct to Agent using the configurator user)",
           "warnings": [
-
+            "The following parameters can't be found in the Sample Configuration in the README: Agent Slug"
           ]
         }
       ],
