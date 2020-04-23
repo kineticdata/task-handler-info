@@ -26634,13 +26634,18 @@
             "output": ""
           },
           "changelog": {
+            "1.1": {
+              "version": "1.1",
+              "date": "2020-04-22",
+              "description": "* Updated a specific file in a dependency to handle a very specific situation. See handler/vendor/GEM_MODIFICATIONS.txt for additional details."
+            },
             "1": {
               "version": "1",
               "date": "2018-02-08",
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Mir3 Generic Call V1 (2018-02-08)\r\n* Initial version.  See README for details.",
+          "changelogText": "Mir3 Generic Call V1 (2018-02-08)\r\n* Initial version.  See README for details.\r\n\r\nMir3 Generic Call V1.1 (2020-04-22)\r\n* Updated a specific file in a dependency to handle a very specific situation.\r\n  See handler/vendor/GEM_MODIFICATIONS.txt for additional details.\r\n",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Output Type, XML structure",
             "The following are defined as results but can't be found in the Results section in the README: output"
