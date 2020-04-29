@@ -11541,7 +11541,7 @@
           },
           "changelog": {
           },
-          "changelogText": "Autotask_Query_v1 (2019-12-05)\r\n* Initial version.  See README for details.\r\n",
+          "changelogText": "Autotask_Query_v1 (2019-12-05)\r\n* Initial version.  See README for details.\r\n\r\nAutotask_Query_v1 (2020-04-28)\r\n* Update to generate a better error message when entities are not found.\r\n",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Updates",
             "Detailed Description can't be found in the README",
