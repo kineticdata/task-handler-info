@@ -5217,6 +5217,42 @@
           ]
         },
         {
+          "name": "ARS9 Generic Update",
+          "version": "1",
+          "id": "ars9_generic_update_v1",
+          "description": "Updates the entry specified in the form specified",
+          "detailedDescription": "This handler takes a json as input of a format like {\"DB field Name\":\"value to place in field\"} and uses this to update those fields on the record specified by the entry id in the specified form. \n\nAt times, you may need to set Currency Fields in Remedy. This is accomplished by formatting the value as follows: ``` { ... \"My Currency Field\":{\"value\":100.0,\"currency\":\"USD\"}, ... } ``` The value portion must be parsed as a float. You can accomplish this as follows in the Field Values parameter: ``` <%= { 'Text Field 1' => 'ABCD-EFG', 'Text Field 2' => '123456', 'Currency Field 1' => {'value' => @inputs[\"Currency Input\"].to_f, 'currency' => 'USD' }, }.to_json %> ``` ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Form Name": "Form Name",
+            "Entry Id": "Entry Id",
+            "Field Values": "JSON mapping of field values"
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Form Name": "HPD:Template",
+            "Entry Id": "",
+            "Field Values": ""
+          },
+          "results": {
+            "Handler Error Message": "Error, if one is found ",
+            "Results": "",
+            "Result": ""
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2020-06-03",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "ARS9 Generic Update V1 (2020-06-03)\n* Initial version.  See README for details.\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Entry Id, Field Values",
+            "The following are defined as results but can't be found in the Results section in the README: Result"
+          ]
+        },
+        {
           "name": "BMC CMDB9 Memory Create",
           "version": "1",
           "id": "bmc_cmdb9_memory_create_v1",
@@ -8207,26 +8243,34 @@
         },
         {
           "name": "Remedy Generic Query Retrieve",
-          "version": "3",
-          "id": "remedy_generic_query_retrieve_v3",
-          "description": "This handler returns all the fields of the first matching entry for the specified Remedy form name and query.",
-          "detailedDescription": "This handler has the ability to have form caching disabled.  To disable form caching set disable_caching to \"Yes\".  Disabling caching may negatively impact performance, but it is also necessary when using a single handler to interact with multiple Remedy environments. \n\nThis handler returns all the fields for the request id provided in the form specified. ",
+          "version": "4",
+          "id": "remedy_generic_query_retrieve_v4",
+          "description": "This handler returns all the fields of the first matching entry for the specified Remedy form name and query, or a json of all the matching results",
+          "detailedDescription": "This handler has the ability to have form caching disabled.  To disable form caching set disable_caching to \"Yes\".  Disabling caching may negatively impact performance, but it is also necessary when using a single handler to interact with multiple Remedy environments. \n\nThis handler returns all the fields for the request id provided in the form specified for the \"single\" option. For the \"all\" option, it returns a json string of the found entries. ",
           "parameters": {
             "Error Handling": "Determine what to return if an error is encountered.",
             "Remedy Form:": "Remedy Form Name (not display name), eg. People is CTM:People",
-            "Query:": "Advanced Search Query of the record to retrieve"
+            "Query:": "Advanced Search Query of the record to retrieve",
+            "Return Type:": "Valid Values: Single, All. This will determine what is returned. Defaults to Single"
           },
           "sampleConfiguration": {
             "Error Handling": "Error Message",
             "Remedy Form:": "",
-            "Query:": ""
+            "Query:": "",
+            "Return Type:": ""
           },
           "results": {
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
             "<Remedy Field Name>": "",
-            "#FIELD NAME PLACE HOLDER#": ""
+            "#FIELD NAME PLACE HOLDER#": "",
+            "Results": ""
           },
           "changelog": {
+            "4": {
+              "version": "4",
+              "date": "2020-01-30",
+              "description": "* Added Ability to return all results for a query"
+            },
             "3": {
               "version": "3",
               "date": "2020-01-18",
@@ -8238,10 +8282,10 @@
               "description": "* General clean-up of incorrect text and documentation Remedy Generic  query Retrieve V2 (2019-4-11)\n* Adding error message handling Remedy Generic  query Retrieve V2 (2019-18-02)\n* Removed nested folder structure. Remedy Generic  query Retrieve V2 (2016-11-10)\n* Won't throw an error if nothing found, will return the information in a result instead Remedy Generic query Retrieve\n* Initial version.  See README for details."
             }
           },
-          "changelogText": "Remedy Generic Query Retrieve V3 (2020-01-23)\n* Updated disable caching logic to improve performance\n\nRemedy Generic Query Retrieve V3 (2020-01-18)\n* Added ability to disable caching\n\nRemedy Generic Query Retrieve V2 (2019-11-26)\n* General clean-up of incorrect text and documentation\n\nRemedy Generic  query Retrieve V2 (2019-4-11)\n * Adding error message handling\n\nRemedy Generic  query Retrieve V2 (2019-18-02)\n * Removed nested folder structure.\n\nRemedy Generic  query Retrieve V2 (2016-11-10)\n * Won't throw an error if nothing found, will return the information in a result instead\nRemedy Generic query Retrieve\n * Initial version.  See README for details.\n",
+          "changelogText": "Remedy Generic Query Retrieve V4 (2020-01-30)\n* Added Ability to return all results for a query\n\nRemedy Generic Query Retrieve V3 (2020-01-23)\n* Updated disable caching logic to improve performance\n\nRemedy Generic Query Retrieve V3 (2020-01-18)\n* Added ability to disable caching\n\nRemedy Generic Query Retrieve V2 (2019-11-26)\n* General clean-up of incorrect text and documentation\n\nRemedy Generic  query Retrieve V2 (2019-4-11)\n * Adding error message handling\n\nRemedy Generic  query Retrieve V2 (2019-18-02)\n * Removed nested folder structure.\n\nRemedy Generic  query Retrieve V2 (2016-11-10)\n * Won't throw an error if nothing found, will return the information in a result instead\nRemedy Generic query Retrieve\n * Initial version.  See README for details.\n",
           "warnings": [
-            "The following parameters can't be found in the Sample Configuration in the README: Remedy Form:, Query:",
-            "The following are defined as results but can't be found in the Results section in the README: #FIELD NAME PLACE HOLDER#"
+            "The following parameters can't be found in the Sample Configuration in the README: Remedy Form:, Query:, Return Type:",
+            "The following are defined as results but can't be found in the Results section in the README: #FIELD NAME PLACE HOLDER#, Results"
           ]
         },
         {
