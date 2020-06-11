@@ -8261,7 +8261,7 @@
           },
           "results": {
             "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
-            "<Remedy Field Name>": "",
+            "Remedy Field Name": "",
             "#FIELD NAME PLACE HOLDER#": "",
             "Results": ""
           },
