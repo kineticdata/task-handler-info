@@ -84,7 +84,7 @@
         },
         {
           "name": "Active Directory Distribution List Member Retrieve",
-          "version": "1",
+          "version": "2",
           "id": "active_directory_distributionlist_members_retrieve_v2",
           "description": "Finds a Distribution List in active directory by Distinguished Name, or Email Address and returns a comma delimited list of immediate members (e-mail addresses)",
           "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the distribution group on the search parameters provided.  If Email Address is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName (pre-Windows 2000). \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User objects that are a member of the provided group. \n\n* If 'Email Address' is selected, the Distinguished Name of the group will first be searched for by the mail address. \n\n\n#### Important Note\nThis handler has been tested on Task 4.0.6 and should preform as expected on all Task 4.x.x versions. ",
@@ -106,7 +106,7 @@
             "2": {
               "version": "2",
               "date": "2019-10-07",
-              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail"
+              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail (2020-06-26)\n* updated version number in node.xml and init.rb"
             },
             "1": {
               "version": "1",
@@ -114,7 +114,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Active Directory Distribution List Member Retrieve V1 (2014-03-17)\n* Initial version.  See README for details.\n\nActive Directory Distribution List Member Retrieve V2 (2019-10-07)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail",
+          "changelogText": "Active Directory Distribution List Member Retrieve V1 (2014-03-17)\n* Initial version.  See README for details.\n\nActive Directory Distribution List Member Retrieve V2 (2019-10-07)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail\n\n(2020-06-26)\n* updated version number in node.xml and init.rb",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
@@ -170,6 +170,39 @@
           ]
         },
         {
+          "name": "Active Directory Group Members Retrieve",
+          "version": "1",
+          "id": "active_directory_group_members_retrieve_v1",
+          "description": "Finds a group in Active Directory by distinguishedName and returns a comma delimited list of direct members and nested members if desired.",
+          "detailedDescription": "",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Group Name": "The AD Group Name to search.",
+            "Include Nested Groups": "Include members of nested groups?",
+            "User Attribute To Return": "AD User attribute to return.  Only 1 allowed. Example: samaccountname"
+          },
+          "sampleConfiguration": {
+            "Error Handling": "",
+            "Group Name": "",
+            "Include Nested Groups": "",
+            "User Attribute To Return": ""
+          },
+          "results": {
+            "Group Member User List": "",
+            "Handler Error Message": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "",
+          "warnings": [
+            "README can't be found",
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Group Name, Include Nested Groups, User Attribute To Return",
+            "The following are defined as results but can't be found in the Results section in the README: Group Member User List, Handler Error Message",
+            "Detailed Description can't be found in the README",
+            "CHANGELOG file can't be found"
+          ]
+        },
+        {
           "name": "Active Directory User Add Groups",
           "version": "3",
           "id": "active_directory_user_add_groups_v3",
@@ -214,7 +247,7 @@
         },
         {
           "name": "Active Directory User Change Attribute",
-          "version": "1",
+          "version": "2",
           "id": "active_directory_user_change_attribute_v2",
           "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and changes the specified LDAP attribute.",
           "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName (pre-Windows 2000). Finally, the handler changes the specified LDAP attribute to the new value. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. \n\n\n#### Important Note\nThis handler has been tested on Task 4.0.6 and should preform as expected on all Task 4.x.x versions. ",
@@ -239,7 +272,7 @@
             "2": {
               "version": "2",
               "date": "2019-10-04",
-              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail"
+              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail (2020-06-26)\n* updated version number in node.xml and init.rb"
             },
             "1": {
               "version": "1",
@@ -247,14 +280,14 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Active Directory User Change Attribute V1 (2014-08-05)\n* Initial version.  See README for details.\n\nActive Directory User Change Attribute V2 (2019-10-04)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail",
+          "changelogText": "Active Directory User Change Attribute V1 (2014-08-05)\n* Initial version.  See README for details.\n\nActive Directory User Change Attribute V2 (2019-10-04)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail\n\n(2020-06-26)\n* updated version number in node.xml and init.rb",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
         },
         {
           "name": "Active Directory User Create",
-          "version": "1",
+          "version": "2",
           "id": "active_directory_user_create_v2",
           "description": "Creates an Active Directory user entry and uses the provided parameter values to specify common user attributes.",
           "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and create a user entry. \n\nIn order to build up the Distinguished Name (a unique identifier for the active directory user entry), the handler uses a template specified as a task info value. \n\nThe following entry attributes are set once the user entry is created: \n\n* Direct Mappings \n\n  - givenname                     => First Name \n\n  - sn                            => Last Name \n\n  - displayname                   => Full Name \n\n  - description                   => Description \n\n  - physicaldeliveryofficename    => Office \n\n  - telephonenumber               => Telephone \n\n  - mail                          => Email \n\n  - title                         => Title \n\n  - department                    => Department \n\n  - company                       => Company \n\n* Computed Mappings \n\n  - userprincipalname => Is set the the \"User Logon\" parameter if it was provided using the User Principal Name format.  This attribute is not set if the \"User Logon\" parameter was provided without the \"@domain\" suffix. \n\n  - samaccountname    => Is set to the username portion of the \"User Logon\" parameter. \n\n  - initials          => A concatenated string of the capitalized first letters of each word in the \"Full Name\" parameter. \n\n* Special Attributes \n\n  - objectclass       => [top,person,organizationalPerson,user] \n\nIf the node parameter \"Activated\" is set to 'Yes', the user will be activated immediately after the entry attributes have been set. \n\n\n#### Task Info Configuration\n\n* *dn_format* - This value is used to specify the distinguished name of the Active Directory user entry to be created.  Anything within curly braces {} will be replaced with the value of the entry attribute or task info value associated with that key. For example, the default format is 'CN={displayname},CN=Users,{base}'.  In this case {displayname} is replaced with the displayname attribute value and {base} is replaced with the value of the 'base' task info value.  A full list of available entry attributes is available above.  If you use organizational units they can be substituted into the distinguished name in this manner. \n\n\n#### Important Note\nThis handler has been tested on Task 4.0.6 and should preform as expected on all Task 4.x.x versions. ",
@@ -296,7 +329,7 @@
             "2": {
               "version": "2",
               "date": "2019-10-04",
-              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail"
+              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail (2020-06-26)\n* updated version number in node.xml and init.rb"
             },
             "1": {
               "version": "1",
@@ -304,14 +337,14 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Active Directory User Create V1 (2011-01-14)\n* Initial version.  See README for details.\n\nActive Directory User Create V2 (2019-10-04)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail",
+          "changelogText": "Active Directory User Create V1 (2011-01-14)\n* Initial version.  See README for details.\n\nActive Directory User Create V2 (2019-10-04)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail\n\n(2020-06-26)\n* updated version number in node.xml and init.rb",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
         },
         {
           "name": "Active Directory User Disable",
-          "version": "2",
+          "version": "3",
           "id": "active_directory_user_disable_v3",
           "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and disables the user's account.",
           "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName (pre-Windows 2000). Finally, the handler disables the account. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. \n\n\n#### Important Note\nThis handler has been tested on Task 4.0.6 and should preform as expected on all Task 4.x.x versions. ",
@@ -332,7 +365,7 @@
             "3": {
               "version": "3",
               "date": "2019-10-04",
-              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail"
+              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail (2020-06-26)\n* updated version number in node.xml and init.rb"
             },
             "2": {
               "version": "2",
@@ -345,14 +378,14 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Active Directory User Disable V1 (2011-02-04)\n* Initial version.  See README for details.\n\nActive Directory User Disable V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Disable V3 (2019-10-04)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail",
+          "changelogText": "Active Directory User Disable V1 (2011-02-04)\n* Initial version.  See README for details.\n\nActive Directory User Disable V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Disable V3 (2019-10-04)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail\n\n(2020-06-26)\n* updated version number in node.xml and init.rb",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
         },
         {
           "name": "Active Directory User Enable",
-          "version": "2",
+          "version": "3",
           "id": "active_directory_user_enable_v3",
           "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and enables the user's account.",
           "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName(pre-Windows 2000). Finally, the handler enable the account. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. \n\n\n#### Important Note\nThis handler has been tested on Task 4.0.6 and should preform as expected on all Task 4.x.x versions. ",
@@ -373,7 +406,7 @@
             "3": {
               "version": "3",
               "date": "2019-10-04",
-              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail"
+              "description": "* Changed ldap lib version from 0.1.1 to 0.12.0. (2019-10-10)\n* Added Never Drop Never Fail (2020-06-26)\n* updated version number in node.xml and init.rb"
             },
             "2": {
               "version": "2",
@@ -386,14 +419,14 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Active Directory User Enable V1 (2011-02-04)\n* Initial version.  See README for details.\n\nActive Directory User Enable V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Enable V3 (2019-10-04)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail",
+          "changelogText": "Active Directory User Enable V1 (2011-02-04)\n* Initial version.  See README for details.\n\nActive Directory User Enable V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Enable V3 (2019-10-04)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\n(2019-10-10)\n* Added Never Drop Never Fail\n\n(2020-06-26)\n* updated version number in node.xml and init.rb",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
         },
         {
           "name": "Active Directory User Expire Password",
-          "version": "2",
+          "version": "3",
           "id": "active_directory_user_expire_password_v3",
           "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and sets the password to expired, requiring the user to change it.",
           "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName(pre-Windows 2000). Finally, the handler will set the password to expired.  This is analogous to checking the box marked \"User must change password at next logon\" on the active directory users and computers administration tool. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. ",
@@ -414,7 +447,7 @@
             "3": {
               "version": "3",
               "date": "2019-10-10",
-              "description": "* Added Never Drop Never Fail"
+              "description": "* Added Never Drop Never Fail (2020-06-26)\n* updated version number in node.xml and init.rb"
             },
             "2": {
               "version": "2",
@@ -427,14 +460,14 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Active Directory User Expire Password V1 (2011-02-04)\n* Initial version.  See README for details.\n\nActive Directory User Expire Password V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Expire Password V3 (2019-10-01)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\nActive Directory User Expire Password V3 (2019-10-10)\n* Added Never Drop Never Fail",
+          "changelogText": "Active Directory User Expire Password V1 (2011-02-04)\n* Initial version.  See README for details.\n\nActive Directory User Expire Password V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Expire Password V3 (2019-10-01)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\nActive Directory User Expire Password V3 (2019-10-10)\n* Added Never Drop Never Fail\n\n(2020-06-26)\n* updated version number in node.xml and init.rb",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
         },
         {
           "name": "Active Directory User Permanent Password",
-          "version": "2",
+          "version": "3",
           "id": "active_directory_user_permanent_password_v3",
           "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and sets the 'password never expires' flag.",
           "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName(pre-Windows 2000). Finally, the flag is set so the password never expires. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. ",
@@ -455,7 +488,7 @@
             "3": {
               "version": "3",
               "date": "2019-10-10",
-              "description": "* Added Never Drop Never Fail"
+              "description": "* Added Never Drop Never Fail (2020-06-26)\n* updated version number in node.xml and init.rb"
             },
             "2": {
               "version": "2",
@@ -468,7 +501,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Active Directory User Permanent Password V1 (2011-02-07)\n* Initial version.  See README for details.\n\nActive Directory User Permanent Password V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Permanent Password V3 (2019-10-01)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\nActive Directory User Permanent Password V3 (2019-10-10)\n* Added Never Drop Never Fail",
+          "changelogText": "Active Directory User Permanent Password V1 (2011-02-07)\n* Initial version.  See README for details.\n\nActive Directory User Permanent Password V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Permanent Password V3 (2019-10-01)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\nActive Directory User Permanent Password V3 (2019-10-10)\n* Added Never Drop Never Fail\n\n(2020-06-26)\n* updated version number in node.xml and init.rb",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
@@ -518,7 +551,7 @@
         },
         {
           "name": "Active Directory User Retrieve",
-          "version": "3",
+          "version": "4",
           "id": "active_directory_user_retrieve_v4",
           "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and returns a predefined set of attributes to include the Distinguished Name(dn).",
           "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName (pre-Windows 2000). \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. \n\n\n#### Important Note\nThis handler has been tested on Task 4.0.6 and should preform as expected on all Task 4.x.x versions. ",
@@ -555,7 +588,7 @@
             "4": {
               "version": "4",
               "date": "2019-10-10",
-              "description": "* Added Never Drop Never Fail"
+              "description": "* Added Never Drop Never Fail (2020-06-26)\n* updated version number in node.xml and init.rb"
             },
             "3": {
               "version": "3",
@@ -573,14 +606,14 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Active Directory User Retrieve V1 (2011-01-17)\n* Initial version.  See README for details.\n\nActive Directory User Retrieve V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Retrieve V3 (2015-08-03)\n* Added ability to check if account is enabled or disabled.\n\nActive Directory User Retrieve V4 (2019-10-07)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\nActive Directory User Retrieve V4 (2019-10-10)\n* Added Never Drop Never Fail",
+          "changelogText": "Active Directory User Retrieve V1 (2011-01-17)\n* Initial version.  See README for details.\n\nActive Directory User Retrieve V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Retrieve V3 (2015-08-03)\n* Added ability to check if account is enabled or disabled.\n\nActive Directory User Retrieve V4 (2019-10-07)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\nActive Directory User Retrieve V4 (2019-10-10)\n* Added Never Drop Never Fail\n\n(2020-06-26)\n* updated version number in node.xml and init.rb",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
         },
         {
           "name": "Active Directory User Temporal Password",
-          "version": "2",
+          "version": "3",
           "id": "active_directory_user_temporal_password_v3",
           "description": "Finds a user in active directory by Distinguished Name, Full Name, Email Address, or User Name and sets the 'password never expires' flag.",
           "detailedDescription": "This handler will use the server information and user credentials configured in the task info values to authenticate and connect to the specified Active Directory server (using LDAP) and search for the user based on the search parameters provided.  If User Logon is the 'search by' parameter, the handler looks for a '@' symbol in the User Logon to determine how to search for the User Logon name.  A '@' symbol indicates a search for the LDAP attribute userPrincipalName (up to 100 characters) while the absence of the '@' symbol will result in a search for the LDAP attribute sAMAccountName(pre-Windows 2000). Finally, the flag is unset for 'password never expires' so that the password will expire. \n\n\n\n* If 'Distinguished Name' is selected, the 'distinguishedName' attribute will be used directly to retrieve the User entry. \n\n* If 'Full Name' is selected, the 'cn' attribute will be used to retrieve the User entry. \n\n* If 'User Name' is selected, the 'userprincipalname' value will be used if the \"Search Value\" parameter includes an '@' sign (IE john.doe@domain.com) and the 'samaccountname' will be used if it does not (IE john.doe). \n\n* If 'Email Address' is selected, the 'mail' attribute will be used to retrieve the User entry. \n\nThis handler will fail if the user is not found, or if more than one result is found. ",
@@ -601,7 +634,7 @@
             "3": {
               "version": "3",
               "date": "2019-10-10",
-              "description": "* Added Never Drop Never Fail"
+              "description": "* Added Never Drop Never Fail (2020-06-26)\n* updated version number in node.xml and init.rb"
             },
             "2": {
               "version": "2",
@@ -614,7 +647,7 @@
               "description": "* Initial version.  See README for details."
             }
           },
-          "changelogText": "Active Directory User Temporal Password V1 (2011-02-07)\n* Initial version.  See README for details.\n\nActive Directory User Temporal Password V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Temporal Password V3 (2019-10-07)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\nActive Directory User Temporal Password V3 (2019-10-10)\n* Added Never Drop Never Fail",
+          "changelogText": "Active Directory User Temporal Password V1 (2011-02-07)\n* Initial version.  See README for details.\n\nActive Directory User Temporal Password V2 (2014-08-05)\n* Changed the password info value to be encrypted.\n\nActive Directory User Temporal Password V3 (2019-10-07)\n* Changed ldap lib version from 0.1.1 to 0.12.0.\n\nActive Directory User Temporal Password V3 (2019-10-10)\n* Added Never Drop Never Fail\n\n(2020-06-26)\n* updated version number in node.xml and init.rb",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling"
           ]
