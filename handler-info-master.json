@@ -19879,6 +19879,43 @@
           ]
         },
         {
+          "name": "Kinetic Core Bridge Call v1",
+          "version": "1",
+          "id": "kinetic_core_bridge_call_v1",
+          "description": "A generic rest handler.",
+          "detailedDescription": "... ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Space Slug": "space slug for space containing form with bridged resource",
+            "Kapp Slug": "kapp slug for kapp containing form with bridged resource",
+            "Form Slug": "form with bridged resource",
+            "Bridged Resource Name": "Name set up in the form for the Bridged Resource",
+            "Parameters": "JSON of parameters for bridged resource not hard coded, format example: {\"values[Requested Date]\":\"2019-03-25\""
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Space Slug": "acme",
+            "Kapp Slug": "",
+            "Form Slug": "",
+            "Bridged Resource Name": "",
+            "Parameters": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Id": "",
+            "Response Body": "",
+            "Response Code": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "Kinetic Request CE Datastore Submission Activity Create V1.1 (2018-05-25)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Datastore Submission Activity Create V1 (2018-05-6)\n * Initial version.  See README for details.\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Kapp Slug, Form Slug, Bridged Resource Name, Parameters",
+            "The following are defined as results but can't be found in the Results section in the README: Response Body, Response Code",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
           "name": "Kinetic Cost Calculate Costs",
           "version": "1",
           "id": "kinetic_cost_calculate_costs_v1",
