@@ -36713,6 +36713,37 @@
           ]
         },
         {
+          "name": "Json Path Parse",
+          "version": "1",
+          "id": "utility_json_path_parse_v1",
+          "description": "Json path parse handler will apply the jayway json path expression to the provided object.",
+          "detailedDescription": "",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Json Path": "A JsonPath expression. Start with the 'root member object' $",
+            "Json Object": "Provide a Json object."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "",
+            "Json Path": "",
+            "Json Object": ""
+          },
+          "results": {
+            "Handler Error Message": "",
+            "output": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "",
+          "warnings": [
+            "README can't be found",
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Json Path, Json Object",
+            "The following are defined as results but can't be found in the Results section in the README: Handler Error Message, output",
+            "Detailed Description can't be found in the README",
+            "CHANGELOG file can't be found"
+          ]
+        },
+        {
           "name": "Utility JSON To CSV",
           "version": "2",
           "id": "utility_json_to_csv_v2",
