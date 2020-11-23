@@ -34972,6 +34972,52 @@
       ]
     },
     {
+      "id": "sap-concur",
+      "handlerList": [
+        {
+          "name": "Concur API",
+          "version": "1",
+          "id": "concur_api_v1",
+          "description": "Generically updates an object in Cherwell.",
+          "detailedDescription": "This handler generically executes a call to the Concur REST API. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "API Version": "The API version to use in the call (include 'v')",
+            "Method": "GET,POST,PATCH,DELETE,etc.",
+            "Path": "The relative API path (to the 'api_location' info value) that will be called. This value should begin with a forward slash '/', and include any URL parameters.",
+            "Body": "If required, a JSON representation of data passed along with the action."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Method": "GET",
+            "Path": "/common/users",
+            "Body": "",
+            "API Version": ""
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "Response Code": "The HTTP response code ",
+            "Response Body": "The returned value from the Rest Call (JSON format) "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2019-11-15",
+              "description": "* Initial version.  See README for details. 2020-11-22\n* Fixed typo in Body input parameter label (was spelled Boby).\n* Corrected handler parameter reference from 'version' to 'api_version'"
+            }
+          },
+          "changelogText": "Concur API V1 (2019-11-15)\r\n* Initial version.  See README for details.\r\n\r\n2020-11-22\r\n* Fixed typo in Body input parameter label (was spelled Boby).\r\n* Corrected handler parameter reference from 'version' to 'api_version'\r\n",
+          "warnings": [
+            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted.",
+            "The following parameters can't be found in the Sample Configuration in the README: API Version"
+          ]
+        }
+      ],
+      "name": "Concur",
+      "description": "Travel and expense management service.",
+      "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/sap-concur/"
+    },
+    {
       "name": "ServiceNow",
       "id": "servicenow",
       "description": "ServiceNow delivers best in class ITIL based IT Service Management (ITSM) solution, enabling organizations to modernize service delivery on a robust enterprise cloud.",
