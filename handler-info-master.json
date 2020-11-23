@@ -34374,15 +34374,11 @@
             "Id": "The Id of the Salesforce object that was created "
           },
           "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-09-12",
-              "description": "* Initial version.  See README for details."
-            }
           },
-          "changelogText": "Salesforce Object Create V1 (2017-09-12)\n* Initial version.  See README for details.\n",
+          "changelogText": "",
           "warnings": [
-            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted."
+            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted.",
+            "CHANGELOG file can't be found"
           ]
         },
         {
@@ -34402,15 +34398,11 @@
           "results": {
           },
           "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-09-12",
-              "description": "* Initial version.  See README for details."
-            }
           },
-          "changelogText": "Salesforce Object Delete V1 (2017-09-12)\n* Initial version.  See README for details.\n",
+          "changelogText": "",
           "warnings": [
-            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted."
+            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted.",
+            "CHANGELOG file can't be found"
           ]
         },
         {
@@ -34431,15 +34423,11 @@
             "Object JSON": "A JSON representation of the retrieved Salesforce object "
           },
           "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-09-12",
-              "description": "* Initial version.  See README for details."
-            }
           },
-          "changelogText": "Salesforce Object Retrieve V1 (2017-09-12)\n* Initial version.  See README for details.\n",
+          "changelogText": "",
           "warnings": [
-            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted."
+            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted.",
+            "CHANGELOG file can't be found"
           ]
         },
         {
@@ -34461,15 +34449,11 @@
           "results": {
           },
           "changelog": {
-            "1": {
-              "version": "1",
-              "date": "2017-09-12",
-              "description": "* Initial version.  See README for details."
-            }
           },
-          "changelogText": "Salesforce Object Update V1 (2017-09-12)\n* Initial version.  See README for details.\n",
+          "changelogText": "",
           "warnings": [
-            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted."
+            "Info Value with the name 'client_secret' includes 'password' or 'secret' in the same and should be encrypted.",
+            "CHANGELOG file can't be found"
           ]
         },
         {
