@@ -22630,7 +22630,7 @@
           },
           "changelog": {
           },
-          "changelogText": "Kinetic Request CE Submission DB Insert V1 (2017-04-12)\n * Initial version.  See README for details.\n\nKinetic Request CE Submission DB Insert V1.1 (2018-06-05)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)",
+          "changelogText": "Kinetic Request CE Submission DB Insert V1 (2017-04-12)\n * Initial version.  See README for details.\n\nKinetic Request CE Submission DB Insert V1.1 (2018-06-05)\n* API Server Info Value changed to allow ${space} in the url for subdomain support\n(ie. https://${space}.localhost:8080/kinetic)\n\nKinetic Request CE Submission DB Insert V1.2 (2020-10-29)\n* Fixed bug for datastore submission deletions not working.\n* Added info value for providing custom JDBC connection options",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Space Slug, Kapp Slug, Form Slug, Datastore Submission?, Submission ID, Submission deletion timestamp.",
             "The following are defined as results but can't be found in the Results section in the README: Submission Database Id, Handler Error Message",
