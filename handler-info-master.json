@@ -35008,6 +35008,40 @@
       "image": "https://s3.amazonaws.com/community.kineticdata.com/integrations/servicenow/thumbnail.png",
       "handlerList": [
         {
+          "name": "ServiceNow API",
+          "version": "1",
+          "id": "servicenow_api_v1",
+          "description": "A generic rest handler.",
+          "detailedDescription": "",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Method": "GET,POST,PUT,PATCH,DELETE (Defaults to GET)",
+            "Path": "Example: /api/now/table/:tablename/:sys_id?sysparm_display_value=true",
+            "Body": "JSON body if applicable (POST,PUT,PATCH)"
+          },
+          "sampleConfiguration": {
+            "Error Handling": "",
+            "Method": "",
+            "Path": "",
+            "Body": ""
+          },
+          "results": {
+            "Response Body": "",
+            "Response Code": "",
+            "Handler Error Message": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "",
+          "warnings": [
+            "README can't be found",
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Method, Path, Body",
+            "The following are defined as results but can't be found in the Results section in the README: Response Body, Response Code, Handler Error Message",
+            "Detailed Description can't be found in the README",
+            "CHANGELOG file can't be found"
+          ]
+        },
+        {
           "name": "ServiceNow Change Create",
           "version": "1",
           "id": "servicenow_change_create_v1",
