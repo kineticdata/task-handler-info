@@ -5243,7 +5243,7 @@
           },
           "changelog": {
           },
-          "changelogText": "ARS 9 Generic Query Retrieve V1 (2019-12-16)\n * Removed unneeded info values from info.xml.\n\nARS 9 Generic Query Retrieve V1 (2018-07-06)\n * Initial version.  See README for details.\n",
+          "changelogText": "ARS 9 Generic Query Retrieve V1 (2021-01-06)\n * Adjusted the escape method to include apostrophes.\n \n ARS 9 Generic Query Retrieve V1 (2019-12-16)\n * Removed unneeded info values from info.xml.\n\nARS 9 Generic Query Retrieve V1 (2018-07-06)\n * Initial version.  See README for details.\n",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Remedy Form:, Query:",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
