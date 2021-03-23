@@ -2556,6 +2556,40 @@
       "id": "atlassian-jira",
       "handlerList": [
         {
+          "name": "Jira API v1",
+          "version": "1",
+          "id": "jira_api_v1",
+          "description": "A generic rest handler.",
+          "detailedDescription": "",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Method": "GET,POST,PUT,PATCH,DELETE (Defaults to GET)",
+            "Path": "Example: /kapps/:kappSlug/forms/:formSlug",
+            "Body": "JSON body if applicable (POST,PUT,PATCH)"
+          },
+          "sampleConfiguration": {
+            "Error Handling": "",
+            "Method": "",
+            "Path": "",
+            "Body": ""
+          },
+          "results": {
+            "Response Body": "",
+            "Response Code": "",
+            "Handler Error Message": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "",
+          "warnings": [
+            "README can't be found",
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Method, Path, Body",
+            "The following are defined as results but can't be found in the Results section in the README: Response Body, Response Code, Handler Error Message",
+            "Detailed Description can't be found in the README",
+            "CHANGELOG file can't be found"
+          ]
+        },
+        {
           "name": "Jira Group Add User",
           "version": "1",
           "id": "jira_group_add_user_v1",
@@ -2599,27 +2633,65 @@
         },
         {
           "name": "Jira Issue Attachment Upload",
-          "version": "1",
-          "id": "jira_issue_attachment_upload_v1",
+          "version": "2",
+          "id": "jira_issue_attachment_upload_v2",
           "description": "This handler uploads an image to an existing Jira issue.",
-          "detailedDescription": "This handler uses the Jira Rest API library to upload a file to an existing Jira issue. The handler first faciliates the upload through Remedy, then sends the file to Jira in a REST call, and then finishes by deleting the copy of the file from the specified Remedy server (since it the data will have already been sent to Jira). WARNING: Using this handler without enabling SSL will not be secure within a Jira project. Any errors that occur during the process will be caught and re-raised by this handler. ",
+          "detailedDescription": "This handler uses the Jira Rest API library to upload a file to an existing Jira issue. The handler first retrieves the attachment from the Kinetic Platform then sends the file to Jira in a REST call. \n\nWARNING: Using this handler without enabling SSL will not be secure within a Jira project. Any errors that occur during the process will be caught and re-raised by this handler. ",
           "parameters": {
-            "Attachment Question Menu Label": "The menu label of the attachment question where the photo will be uploaded to.",
-            "Issue Key": "The Key of the issue that the attachment will be added to.",
-            "File Name": "The name of the file that will be uploaded to Jira (make sure the extension properly matches the file being sent!)."
+            "Attachment Input Type": "Choose Field if the input for the attachment info as a Field Name or choose JSON if the input is an attachment's JSON from the Get Attachment Info handler. Note that if Field is specified, the fields entered should only allow one attachment.",
+            "Attachment Field": "The Field Name of an attachment question to retrieve an attachment from.",
+            "Attachment JSON": "The JSON of an attachment object retrieved from the Get Attachment Info handler.",
+            "Submission ID": "The id of the CE submission containing the attachment.",
+            "Issue Key": "The Key of the issue that the attachment will be added to."
           },
           "sampleConfiguration": {
-            "Attachment Question Menu Label": "Uploaded File",
+            "Attachment Field": "Attachments",
             "Issue Key": "KT-202",
-            "File Name": "screenshot.png"
+            "Attachment Input Type": "",
+            "Attachment JSON": "",
+            "Submission ID": ""
           },
           "results": {
           },
           "changelog": {
           },
-          "changelogText": "Jira_Issue_Attachment_Upload_V1 (2014-05-06)\n* Initial version.  See README for details.",
+          "changelogText": "Jira_Issue_Attachment_Upload_V2 (2021-03-21)\n* Updated to pull attachment from Kinetic Core.\n\nJira_Issue_Attachment_Upload_V1 (2014-05-06)\n* Initial version.  See README for details.\n",
           "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Attachment Input Type, Attachment JSON, Submission ID",
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
+          "name": "Jira Issue Comment Add",
+          "version": "1",
+          "id": "jira_issue_comment_add_v1",
+          "description": "This handler adds a comment to an existing Jira project issue.",
+          "detailedDescription": "This handler uses the Jira Rest API library to add a comment on an existing issue within a Jira project.  (WARNING: Using this handler without enabling SSL will not be secure). The id, and url of the comment will be returned by the handler. Any errors that occur during the process will be caught and re-raised by this handler, or returned as an error message if specified. ",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Issue Key": "The Issue Key the comment should be attached to.",
+            "API Body": "JSON structure of the body content of the api call."
+          },
+          "sampleConfiguration": {
+            "Error Handling": "Error Message",
+            "Issue Key": "TDP-2",
+            "API Body": "{\"body\":\"Comment here... \\\\nNew Line\"}"
+          },
+          "results": {
+            "Handler Error Message": "Error message if an error was encountered and Error Handling is set to \"Error Message\". ",
+            "id": "The id of the comment that was created. ",
+            "url": "The url of the comment that was created. "
+          },
+          "changelog": {
+            "1": {
+              "version": "1",
+              "date": "2020-02-08",
+              "description": "* Initial version.  See README for details."
+            }
+          },
+          "changelogText": "Jira Issue Comment Add V1 (2020-02-08)\n* Initial version.  See README for details.\n",
+          "warnings": [
+
           ]
         },
         {
