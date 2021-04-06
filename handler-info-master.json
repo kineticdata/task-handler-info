@@ -35114,6 +35114,42 @@
           ]
         },
         {
+          "name": "ServiceNow Attachment Create",
+          "version": "1",
+          "id": "servicenow_attachment_create_v1",
+          "description": "Uploads an attachment to ServiceNow",
+          "detailedDescription": "",
+          "parameters": {
+            "Table Name": "Name of the table to attach the file to.",
+            "Sys Id": "Sys_id of the record in the table specified in table_name that you want to attach the file to.",
+            "Attachment Input Type": "Choose Field if the input for the attachment info as a Field Name or choose JSON if the input is an attachment's JSON from the Get Attachment Info handler. Note that if Field is specified, the fields entered should only allow one attachment.",
+            "Attachment Field": "The Field Name of an attachment question to retrieve an attachment from.",
+            "Attachment JSON": "The JSON of an attachment object retrieved from the Get Attachment Info handler.",
+            "Submission ID": "The id of the CE submission containing the attachment."
+          },
+          "sampleConfiguration": {
+            "Table Name": "incident",
+            "Sys Id": "dc2e1f6d2f762010210651072799b625",
+            "Attachment Input Type": "Field",
+            "Attachment Field": "Attachments",
+            "Submission ID": "<%=: @submission['Id'] %>",
+            "Attachment JSON": ""
+          },
+          "results": {
+            "Response Code": "The returned code from the Rest Call (Example: 200) ",
+            "Response Body": "The returned value from the Rest Call (JSON format) ",
+            "Handler Error Message": "A message containing a handler error is Error Handling set to 'error message' "
+          },
+          "changelog": {
+          },
+          "changelogText": "ServiceNow Attachment Create (2021-03-18)\n* Initial version. Uploads an attachment to ServiceNow\n",
+          "warnings": [
+            "The following parameters can't be found in the Sample Configuration in the README: Attachment JSON",
+            "Detailed Description can't be found in the README",
+            "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
+          ]
+        },
+        {
           "name": "ServiceNow Change Create",
           "version": "1",
           "id": "servicenow_change_create_v1",
