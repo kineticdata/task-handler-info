@@ -32040,6 +32040,42 @@
       "id": "ms-azure",
       "handlerList": [
         {
+          "name": "Azure API v1",
+          "version": "1",
+          "id": "azure_api_v1",
+          "description": "A generic rest handler for Azure Graph API.",
+          "detailedDescription": "",
+          "parameters": {
+            "Error Handling": "Determine what to return if an error is encountered.",
+            "Headers": "JSON object of headers to be addd to the request",
+            "Method": "GET,POST,PUT,PATCH,DELETE (Defaults to GET)",
+            "Path": "Example: /users",
+            "Body": "JSON body if applicable (POST,PUT,PATCH)"
+          },
+          "sampleConfiguration": {
+            "Error Handling": "",
+            "Headers": "",
+            "Method": "",
+            "Path": "",
+            "Body": ""
+          },
+          "results": {
+            "Response Body": "",
+            "Response Code": "",
+            "Handler Error Message": ""
+          },
+          "changelog": {
+          },
+          "changelogText": "",
+          "warnings": [
+            "README can't be found",
+            "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Headers, Method, Path, Body",
+            "The following are defined as results but can't be found in the Results section in the README: Response Body, Response Code, Handler Error Message",
+            "Detailed Description can't be found in the README",
+            "CHANGELOG file can't be found"
+          ]
+        },
+        {
           "name": "Azure Cloud Service Create",
           "version": "1",
           "id": "azure_cloud_service_create_v1",
