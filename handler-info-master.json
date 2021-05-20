@@ -32045,27 +32045,67 @@
           "id": "azure_api_v1",
           "description": "A generic rest handler for Azure Graph API.",
           "detailedDescription": "",
-          "parameters": {
-            "Error Handling": "Determine what to return if an error is encountered.",
-            "Headers": "JSON object of headers to be addd to the request",
-            "Method": "GET,POST,PUT,PATCH,DELETE (Defaults to GET)",
-            "Path": "Example: /users",
-            "Body": "JSON body if applicable (POST,PUT,PATCH)"
-          },
-          "sampleConfiguration": {
-            "Error Handling": "",
-            "Headers": "",
-            "Method": "",
-            "Path": "",
-            "Body": ""
-          },
-          "results": {
-            "Response Body": "",
-            "Response Code": "",
-            "Handler Error Message": ""
-          },
-          "changelog": {
-          },
+          "parameters": [
+            {
+              "name": "Error Handling",
+              "value": "Determine what to return if an error is encountered."
+            },
+            {
+              "name": "Headers",
+              "value": "JSON object of headers to be addd to the request"
+            },
+            {
+              "name": "Method",
+              "value": "GET,POST,PUT,PATCH,DELETE (Defaults to GET)"
+            },
+            {
+              "name": "Path",
+              "value": "Example: /users"
+            },
+            {
+              "name": "Body",
+              "value": "JSON body if applicable (POST,PUT,PATCH)"
+            }
+          ],
+          "sampleConfiguration": [
+            {
+              "name": "Error Handling",
+              "value": ""
+            },
+            {
+              "name": "Headers",
+              "value": ""
+            },
+            {
+              "name": "Method",
+              "value": ""
+            },
+            {
+              "name": "Path",
+              "value": ""
+            },
+            {
+              "name": "Body",
+              "value": ""
+            }
+          ],
+          "results": [
+            {
+              "name": "Response Body",
+              "value": ""
+            },
+            {
+              "name": "Response Code",
+              "value": ""
+            },
+            {
+              "name": "Handler Error Message",
+              "value": ""
+            }
+          ],
+          "changelog": [
+
+          ],
           "changelogText": "",
           "warnings": [
             "README can't be found",
@@ -32081,21 +32121,43 @@
           "id": "azure_cloud_service_create_v1",
           "description": "This handler creates a new cloud service.",
           "detailedDescription": "",
-          "parameters": {
-            "Subscription ID": "The Azure Subscription ID.",
-            "Location": "Location of the VM (ex: USGov Iowa).",
-            "Cloud Service Name": "Name of the cloud service."
-          },
-          "sampleConfiguration": {
-            "Subscription ID": "",
-            "Location": "",
-            "Cloud Service Name": ""
-          },
-          "results": {
-            "cloud_service_name": ""
-          },
-          "changelog": {
-          },
+          "parameters": [
+            {
+              "name": "Subscription ID",
+              "value": "The Azure Subscription ID."
+            },
+            {
+              "name": "Location",
+              "value": "Location of the VM (ex: USGov Iowa)."
+            },
+            {
+              "name": "Cloud Service Name",
+              "value": "Name of the cloud service."
+            }
+          ],
+          "sampleConfiguration": [
+            {
+              "name": "Subscription ID",
+              "value": ""
+            },
+            {
+              "name": "Location",
+              "value": ""
+            },
+            {
+              "name": "Cloud Service Name",
+              "value": ""
+            }
+          ],
+          "results": [
+            {
+              "name": "cloud_service_name",
+              "value": ""
+            }
+          ],
+          "changelog": [
+
+          ],
           "changelogText": "azure_cloud_service_create_v1 (2016-06-20)\n* Initial version.  See README for details.",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Subscription ID, Location, Cloud Service Name",
@@ -32110,35 +32172,83 @@
           "id": "azure_cosmos_document_crud_v1",
           "description": "Creates a form record in Kinetic Request CE for the specified space. If the form exists, nothing happens",
           "detailedDescription": "",
-          "parameters": {
-            "Error Handling": "Determine what to return if an error is encountered.",
-            "Method": "Rest method (GET, POST, PUT, DELETE)",
-            "Database Name": "The Database name the document is in.",
-            "Collection Name": "The Collection name the document is in.",
-            "Document Name": "The Document name/id attempting to create/update.",
-            "Partition Key": "The Partition key assocated with the document. Used with PUT and POST methods. Separate multiple partition keys with comma.",
-            "Body": "This will be the body of the Rest request sent to Cosmos DB. Format JSON."
-          },
-          "sampleConfiguration": {
-            "Error Handling": "",
-            "Method": "",
-            "Database Name": "",
-            "Collection Name": "",
-            "Document Name": "",
-            "Partition Key": "",
-            "Body": ""
-          },
-          "results": {
-            "Handler Error Message": "",
-            "output": ""
-          },
-          "changelog": {
-            "1": {
+          "parameters": [
+            {
+              "name": "Error Handling",
+              "value": "Determine what to return if an error is encountered."
+            },
+            {
+              "name": "Method",
+              "value": "Rest method (GET, POST, PUT, DELETE)"
+            },
+            {
+              "name": "Database Name",
+              "value": "The Database name the document is in."
+            },
+            {
+              "name": "Collection Name",
+              "value": "The Collection name the document is in."
+            },
+            {
+              "name": "Document Name",
+              "value": "The Document name/id attempting to create/update."
+            },
+            {
+              "name": "Partition Key",
+              "value": "The Partition key assocated with the document. Used with PUT and POST methods. Separate multiple partition keys with comma."
+            },
+            {
+              "name": "Body",
+              "value": "This will be the body of the Rest request sent to Cosmos DB. Format JSON."
+            }
+          ],
+          "sampleConfiguration": [
+            {
+              "name": "Error Handling",
+              "value": ""
+            },
+            {
+              "name": "Method",
+              "value": ""
+            },
+            {
+              "name": "Database Name",
+              "value": ""
+            },
+            {
+              "name": "Collection Name",
+              "value": ""
+            },
+            {
+              "name": "Document Name",
+              "value": ""
+            },
+            {
+              "name": "Partition Key",
+              "value": ""
+            },
+            {
+              "name": "Body",
+              "value": ""
+            }
+          ],
+          "results": [
+            {
+              "name": "Handler Error Message",
+              "value": ""
+            },
+            {
+              "name": "output",
+              "value": ""
+            }
+          ],
+          "changelog": [
+            {
               "version": "1",
               "date": "2019-12-03",
               "description": "* initial create."
             }
-          },
+          ],
           "changelogText": "Azure Cosmos Document CRUD v1 (2019-12-03)\n    * initial create.",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Error Handling, Method, Database Name, Collection Name, Document Name, Partition Key, Body",
@@ -32152,19 +32262,35 @@
           "id": "azure_operation_status_v1",
           "description": "This handler checks to see the status of an operation given the request id.",
           "detailedDescription": "",
-          "parameters": {
-            "Subscription ID": "The Azure Subscription ID.",
-            "Request ID": "The Request ID of an operation."
-          },
-          "sampleConfiguration": {
-            "Subscription ID": "",
-            "Request ID": ""
-          },
-          "results": {
-            "status": ""
-          },
-          "changelog": {
-          },
+          "parameters": [
+            {
+              "name": "Subscription ID",
+              "value": "The Azure Subscription ID."
+            },
+            {
+              "name": "Request ID",
+              "value": "The Request ID of an operation."
+            }
+          ],
+          "sampleConfiguration": [
+            {
+              "name": "Subscription ID",
+              "value": ""
+            },
+            {
+              "name": "Request ID",
+              "value": ""
+            }
+          ],
+          "results": [
+            {
+              "name": "status",
+              "value": ""
+            }
+          ],
+          "changelog": [
+
+          ],
           "changelogText": "azure_operation_status_v1 (2016-06-20)\n* Initial version.  See README for details.",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Subscription ID, Request ID",
@@ -32179,43 +32305,131 @@
           "id": "azure_vm_create_v1",
           "description": "This handler creates a new issue in a Jira project.",
           "detailedDescription": "",
-          "parameters": {
-            "Subscription ID": "The Azure Subscription ID.",
-            "VM Name": "The Name of the Virtual Machine to be started.",
-            "VM User": "The new user assigned to the virtual machine being created.",
-            "Password": "The password for the new users.",
-            "OS Type": "Operating System being used to create the VM. Value must be Windows or Linux.",
-            "Image": "Image being used to create the VM.",
-            "Location": "Location of the VM (ex: USGov Iowa).",
-            "Cloud Service Name": "Name of the cloud service.",
-            "VM Size": "Size of the VM being created.",
-            "Affinity Group Name": "Affinity group name.",
-            "Virtual Network Name": "Virtual network name.",
-            "Subnet Name": "Subnet name.",
-            "Availability Set Name": "Availability set name.",
-            "Endpoints": "Endpoints for the VM."
-          },
-          "sampleConfiguration": {
-            "Subscription ID": "",
-            "VM Name": "",
-            "VM User": "",
-            "Password": "",
-            "OS Type": "",
-            "Image": "",
-            "Location": "",
-            "Cloud Service Name": "",
-            "VM Size": "",
-            "Affinity Group Name": "",
-            "Virtual Network Name": "",
-            "Subnet Name": "",
-            "Availability Set Name": "",
-            "Endpoints": ""
-          },
-          "results": {
-            "request_id": ""
-          },
-          "changelog": {
-          },
+          "parameters": [
+            {
+              "name": "Subscription ID",
+              "value": "The Azure Subscription ID."
+            },
+            {
+              "name": "VM Name",
+              "value": "The Name of the Virtual Machine to be started."
+            },
+            {
+              "name": "VM User",
+              "value": "The new user assigned to the virtual machine being created."
+            },
+            {
+              "name": "Password",
+              "value": "The password for the new users."
+            },
+            {
+              "name": "OS Type",
+              "value": "Operating System being used to create the VM. Value must be Windows or Linux."
+            },
+            {
+              "name": "Image",
+              "value": "Image being used to create the VM."
+            },
+            {
+              "name": "Location",
+              "value": "Location of the VM (ex: USGov Iowa)."
+            },
+            {
+              "name": "Cloud Service Name",
+              "value": "Name of the cloud service."
+            },
+            {
+              "name": "VM Size",
+              "value": "Size of the VM being created."
+            },
+            {
+              "name": "Affinity Group Name",
+              "value": "Affinity group name."
+            },
+            {
+              "name": "Virtual Network Name",
+              "value": "Virtual network name."
+            },
+            {
+              "name": "Subnet Name",
+              "value": "Subnet name."
+            },
+            {
+              "name": "Availability Set Name",
+              "value": "Availability set name."
+            },
+            {
+              "name": "Endpoints",
+              "value": "Endpoints for the VM."
+            }
+          ],
+          "sampleConfiguration": [
+            {
+              "name": "Subscription ID",
+              "value": ""
+            },
+            {
+              "name": "VM Name",
+              "value": ""
+            },
+            {
+              "name": "VM User",
+              "value": ""
+            },
+            {
+              "name": "Password",
+              "value": ""
+            },
+            {
+              "name": "OS Type",
+              "value": ""
+            },
+            {
+              "name": "Image",
+              "value": ""
+            },
+            {
+              "name": "Location",
+              "value": ""
+            },
+            {
+              "name": "Cloud Service Name",
+              "value": ""
+            },
+            {
+              "name": "VM Size",
+              "value": ""
+            },
+            {
+              "name": "Affinity Group Name",
+              "value": ""
+            },
+            {
+              "name": "Virtual Network Name",
+              "value": ""
+            },
+            {
+              "name": "Subnet Name",
+              "value": ""
+            },
+            {
+              "name": "Availability Set Name",
+              "value": ""
+            },
+            {
+              "name": "Endpoints",
+              "value": ""
+            }
+          ],
+          "results": [
+            {
+              "name": "request_id",
+              "value": ""
+            }
+          ],
+          "changelog": [
+
+          ],
           "changelogText": "azure_vm_create_v1 (2016-06-20)\n* Initial version.  See README for details.",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Subscription ID, VM Name, VM User, Password, OS Type, Image, Location, Cloud Service Name, VM Size, Affinity Group Name, Virtual Network Name, Subnet Name, Availability Set Name, Endpoints",
@@ -32230,25 +32444,59 @@
           "id": "azure_vm_delete_v1",
           "description": "This handler deletes down an Azure VM.",
           "detailedDescription": "",
-          "parameters": {
-            "Subscription ID": "The Azure Subscription ID.",
-            "VM Deployment": "The Name of the Virtual Machine Deployment.",
-            "VM Name": "The Name of the Virtual Machine.",
-            "Cloud Service Name": "The Name of the Virtual Machine.",
-            "Delete Disk": "Delete the specified data or operating system disk from the image repository. Value has to either be Yes or No"
-          },
-          "sampleConfiguration": {
-            "Subscription ID": "",
-            "VM Deployment": "",
-            "VM Name": "",
-            "Cloud Service Name": "",
-            "Delete Disk": ""
-          },
-          "results": {
-            "request_id": ""
-          },
-          "changelog": {
-          },
+          "parameters": [
+            {
+              "name": "Subscription ID",
+              "value": "The Azure Subscription ID."
+            },
+            {
+              "name": "VM Deployment",
+              "value": "The Name of the Virtual Machine Deployment."
+            },
+            {
+              "name": "VM Name",
+              "value": "The Name of the Virtual Machine."
+            },
+            {
+              "name": "Cloud Service Name",
+              "value": "The Name of the Virtual Machine."
+            },
+            {
+              "name": "Delete Disk",
+              "value": "Delete the specified data or operating system disk from the image repository. Value has to either be Yes or No"
+            }
+          ],
+          "sampleConfiguration": [
+            {
+              "name": "Subscription ID",
+              "value": ""
+            },
+            {
+              "name": "VM Deployment",
+              "value": ""
+            },
+            {
+              "name": "VM Name",
+              "value": ""
+            },
+            {
+              "name": "Cloud Service Name",
+              "value": ""
+            },
+            {
+              "name": "Delete Disk",
+              "value": ""
+            }
+          ],
+          "results": [
+            {
+              "name": "request_id",
+              "value": ""
+            }
+          ],
+          "changelog": [
+
+          ],
           "changelogText": "azure_vm_retrieve_v1 (2016-06-20)\n* Initial version.  See README for details.",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Subscription ID, VM Deployment, VM Name, Cloud Service Name, Delete Disk",
@@ -32263,19 +32511,35 @@
           "id": "azure_vm_restart_v1",
           "description": "This handler creates a new issue in a Jira project.",
           "detailedDescription": "This handler uses the Azure Rest API library to restart a Virtual Machine associated to the security certificate tied to the handler. ",
-          "parameters": {
-            "Subscription ID": "The Azure Subscription ID",
-            "VM Name": "The Name of the Virtual Machine to restart"
-          },
-          "sampleConfiguration": {
-            "Subscription ID": "55c212bdee118e0662030003",
-            "VM Name": "kdtestmachine2"
-          },
-          "results": {
-            "Output": ""
-          },
-          "changelog": {
-          },
+          "parameters": [
+            {
+              "name": "Subscription ID",
+              "value": "The Azure Subscription ID"
+            },
+            {
+              "name": "VM Name",
+              "value": "The Name of the Virtual Machine to restart"
+            }
+          ],
+          "sampleConfiguration": [
+            {
+              "name": "Subscription ID",
+              "value": "55c212bdee118e0662030003"
+            },
+            {
+              "name": "VM Name",
+              "value": "kdtestmachine2"
+            }
+          ],
+          "results": [
+            {
+              "name": "Output",
+              "value": ""
+            }
+          ],
+          "changelog": [
+
+          ],
           "changelogText": "Azure_Vm_Restart_V1 (2015-08-17)\n* Initial version.  See README for details.",
           "warnings": [
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
@@ -32287,23 +32551,51 @@
           "id": "azure_vm_retrieve_v1",
           "description": "This handler retrieves information about an Azure VM.",
           "detailedDescription": "",
-          "parameters": {
-            "Subscription ID": "The Azure Subscription ID.",
-            "VM Deployment": "The Name of the Virtual Machine Deployment.",
-            "VM Name": "The Name of the Virtual Machine.",
-            "Cloud Service Name": "The Name of the Virtual Machine."
-          },
-          "sampleConfiguration": {
-            "Subscription ID": "",
-            "VM Deployment": "",
-            "VM Name": "",
-            "Cloud Service Name": ""
-          },
-          "results": {
-            "vm_info": ""
-          },
-          "changelog": {
-          },
+          "parameters": [
+            {
+              "name": "Subscription ID",
+              "value": "The Azure Subscription ID."
+            },
+            {
+              "name": "VM Deployment",
+              "value": "The Name of the Virtual Machine Deployment."
+            },
+            {
+              "name": "VM Name",
+              "value": "The Name of the Virtual Machine."
+            },
+            {
+              "name": "Cloud Service Name",
+              "value": "The Name of the Virtual Machine."
+            }
+          ],
+          "sampleConfiguration": [
+            {
+              "name": "Subscription ID",
+              "value": ""
+            },
+            {
+              "name": "VM Deployment",
+              "value": ""
+            },
+            {
+              "name": "VM Name",
+              "value": ""
+            },
+            {
+              "name": "Cloud Service Name",
+              "value": ""
+            }
+          ],
+          "results": [
+            {
+              "name": "vm_info",
+              "value": ""
+            }
+          ],
+          "changelog": [
+
+          ],
           "changelogText": "azure_vm_retrieve_v1 (2016-06-20)\n* Initial version.  See README for details.",
           "warnings": [
             "The following parameters can't be found in the Sample Configuration in the README: Subscription ID, VM Deployment, VM Name, Cloud Service Name",
@@ -32318,19 +32610,35 @@
           "id": "azure_vm_shutdown_v1",
           "description": "This handler creates a new issue in a Jira project.",
           "detailedDescription": "This handler uses the Azure Rest API library to shut down a Virtual Machine associated to the security certificate tied to the handler. ",
-          "parameters": {
-            "Subscription ID": "The Azure Subscription ID.",
-            "VM Name": "The Name of the Virtual Machine to be shut down."
-          },
-          "sampleConfiguration": {
-            "Subscription ID": "55c212bdee118e0662030003",
-            "VM Name": "kdtestmachine2"
-          },
-          "results": {
-            "Output": ""
-          },
-          "changelog": {
-          },
+          "parameters": [
+            {
+              "name": "Subscription ID",
+              "value": "The Azure Subscription ID."
+            },
+            {
+              "name": "VM Name",
+              "value": "The Name of the Virtual Machine to be shut down."
+            }
+          ],
+          "sampleConfiguration": [
+            {
+              "name": "Subscription ID",
+              "value": "55c212bdee118e0662030003"
+            },
+            {
+              "name": "VM Name",
+              "value": "kdtestmachine2"
+            }
+          ],
+          "results": [
+            {
+              "name": "Output",
+              "value": ""
+            }
+          ],
+          "changelog": [
+
+          ],
           "changelogText": "Azure_Vm_Shutdown_V1 (2015-08-17)\n* Initial version.  See README for details.",
           "warnings": [
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
@@ -32342,19 +32650,35 @@
           "id": "azure_vm_start_v1",
           "description": "This handler creates a new issue in a Jira project.",
           "detailedDescription": "This handler uses the Azure Rest API library to start a Virtual Machine associated to the security certificate tied to the handler. ",
-          "parameters": {
-            "Subscription ID": "The Azure Subscription ID.",
-            "VM Name": "The Name of the Virtual Machine to be started."
-          },
-          "sampleConfiguration": {
-            "Subscription ID": "55c212bdee118e0662030003",
-            "VM Name": "kdtestmachine2"
-          },
-          "results": {
-            "Output": ""
-          },
-          "changelog": {
-          },
+          "parameters": [
+            {
+              "name": "Subscription ID",
+              "value": "The Azure Subscription ID."
+            },
+            {
+              "name": "VM Name",
+              "value": "The Name of the Virtual Machine to be started."
+            }
+          ],
+          "sampleConfiguration": [
+            {
+              "name": "Subscription ID",
+              "value": "55c212bdee118e0662030003"
+            },
+            {
+              "name": "VM Name",
+              "value": "kdtestmachine2"
+            }
+          ],
+          "results": [
+            {
+              "name": "Output",
+              "value": ""
+            }
+          ],
+          "changelog": [
+
+          ],
           "changelogText": "Azure_Vm_Start_V1 (2015-08-17)\n* Initial version.  See README for details.",
           "warnings": [
             "Error encoutered while parsing the CHANGELOG file. Parsed changelog is likely incomplete. Each changelog entry should be formatted as 'Handler Name v1 (2017-09-01)'"
